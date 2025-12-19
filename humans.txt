@@ -1,0 +1,5 @@
+/* TEAM */
+Project: SynapseWorks
+Website: https://synapseworks.org
+Support: support@synapseworks.org
+Security: security@synapseworks.org

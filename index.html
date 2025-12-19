@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Turn Jira issues into executable BDD subtasks directly inside Jira with SynapseWorks, a secure Atlassian Forge app.">
+  <meta property="og:title" content="SynapseWorks — BDD inside Jira">
+  <meta property="og:description" content="Turn Jira issues into executable BDD subtasks directly inside Jira. No Jira credentials stored. Enterprise-grade security.">
+  <meta property="og:url" content="https://synapseworks.org">
+  <meta property="og:type" content="website">
+  <title>SynapseWorks | BDD for Jira</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--text);
+    }
+    main {
+      flex: 1;
+    }
+    .hero {
+      max-width: 1100px;
+      width: 100%;
+      margin: 48px auto 0;
+      padding: 0 24px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    h1 {
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 17px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 12px 20px rgba(37, 99, 235, 0.25);
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 15px 26px rgba(37, 99, 235, 0.3);
+    }
+    .list {
+      margin: 14px 0 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li { margin-bottom: 8px; }
+    .panel {
+      border: 1px solid var(--border);
+      background: #f5f7fb;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer {
+      max-width: 1100px;
+      width: 100%;
+      margin: 48px auto 32px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer nav a { margin-left: 14px; }
+    @media (max-width: 640px) {
+      header, footer { padding: 20px 18px; }
+      .hero { margin-top: 24px; padding: 0 18px 24px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SynapseWorks",
+    "url": "https://synapseworks.org",
+    "contactPoint": [
+      { "@type": "ContactPoint", "email": "support@synapseworks.org", "contactType": "customer support" },
+      { "@type": "ContactPoint", "email": "security@synapseworks.org", "contactType": "security" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/security">Security</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <div class="pill">Jira Forge app</div>
+        <h1>Turn Jira issues into executable BDD subtasks — directly inside Jira.</h1>
+        <p class="subtitle">SynapseWorks keeps your work in Jira: no credentials stored, enterprise-grade security by design.</p>
+        <a class="cta" href="/support">Get support</a>
+        <ul class="list">
+          <li>Generate clear Gherkin scenarios from your issue context.</li>
+          <li>Create linked subtasks without leaving Jira.</li>
+          <li>Built on Atlassian Forge with data scoped to your site.</li>
+        </ul>
+      </div>
+      <div class="hero-card">
+        <h2 style="margin-bottom: 12px; font-size: 20px;">Security-first delivery</h2>
+        <div class="panel">
+          <strong>No Jira credentials stored.</strong> SynapseWorks uses Forge-hosted appUserToken and scoped permissions.
+        </div>
+        <div class="panel">
+          <strong>Enterprise-grade security.</strong> Data stays in Atlassian's cloud and the SynapseWorks backend only to generate BDD and create subtasks.
+        </div>
+        <div class="panel">
+          <strong>Auditable flow.</strong> Jira → Forge → SynapseWorks backend → Jira. No tracking, no analytics, no cookies.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2025 SynapseWorks</span>
+    <nav>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/security">Security</a>
+    </nav>
+  </footer>
+</body>
+</html>

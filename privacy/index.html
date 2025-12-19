@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | SynapseWorks</title>
+  <style>
+    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px; display: flex; justify-content: center; }
+    .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
+    h1 { font-size: 28px; margin-bottom: 10px; }
+    h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
+    p { color: var(--muted); margin-bottom: 10px; }
+    ul { margin: 8px 0 12px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Last updated: 2025-01-12</div>
+    <p>SynapseWorks is a Jira Forge app that keeps your data scoped to your Atlassian site. We do not store Jira credentials or personal access tokens.</p>
+
+    <h2>Data we handle</h2>
+    <ul>
+      <li>Issue context needed to generate BDD scenarios and create subtasks.</li>
+      <li>appUserToken from Atlassian Forge to authenticate actions within your site.</li>
+      <li>Operational logs necessary for reliability and security monitoring.</li>
+    </ul>
+
+    <h2>Data we do not store</h2>
+    <ul>
+      <li>No Jira credentials, passwords, or personal access tokens.</li>
+      <li>No analytics, tracking scripts, or cookies for marketing.</li>
+      <li>No data unrelated to generating BDD scenarios or creating subtasks.</li>
+    </ul>
+
+    <h2>Purpose of processing</h2>
+    <p>Data is processed only to generate executable BDD scenarios and create linked subtasks in Jira. We do not use your data for advertising or profiling.</p>
+
+    <h2>Data flow</h2>
+    <p>Jira → Atlassian Forge (appUserToken) → SynapseWorks backend (processing) → Jira. Data remains within this flow for the duration of the request.</p>
+
+    <h2>Retention</h2>
+    <p>Operational logs are retained only as long as required for troubleshooting and security. Generated content and subtasks reside in your Jira site.</p>
+
+    <h2>Security</h2>
+    <p>Access to processing services is restricted by Forge scopes and service-side controls. Sensitive tokens remain within Forge-managed context and are not persisted by SynapseWorks.</p>
+
+    <h2>Your choices</h2>
+    <p>Uninstalling the app revokes access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
+
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a></p>
+  </div>
+</body>
+</html>

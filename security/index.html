@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security | SynapseWorks</title>
+  <style>
+    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px; display: flex; justify-content: center; }
+    .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
+    h1 { font-size: 28px; margin-bottom: 10px; }
+    h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
+    p { color: var(--muted); margin-bottom: 10px; }
+    ul { margin: 8px 0 12px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Security</h1>
+    <p>SynapseWorks is built on Atlassian Forge with a security-first posture. Data moves through a narrow, auditable path.</p>
+
+    <h2>Security contact</h2>
+    <p>Email: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a></p>
+
+    <h2>Data flow</h2>
+    <ul>
+      <li>Jira → Forge: Issue context and appUserToken remain inside Atlassian's cloud.</li>
+      <li>Forge → SynapseWorks backend: Scoped request to generate BDD scenarios and prepare subtasks.</li>
+      <li>SynapseWorks backend → Jira: Subtasks are created in your project; results are returned to the Forge UI.</li>
+    </ul>
+
+    <h2>Logging and token handling</h2>
+    <ul>
+      <li>No Jira credentials are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
+      <li>Operational logs exclude secrets and are retained only for troubleshooting and security review.</li>
+      <li>Transport is enforced over TLS; access to processing services is limited to required scopes.</li>
+    </ul>
+
+    <h2>Responsible disclosure</h2>
+    <p>If you discover a vulnerability, please contact <a href="mailto:security@synapseworks.org">security@synapseworks.org</a> with details and steps to reproduce. We request a reasonable time to investigate and remediate before public disclosure.</p>
+  </div>
+</body>
+</html>
