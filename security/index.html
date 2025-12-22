@@ -31,7 +31,6 @@
     footer { margin-top: 16px; text-align: center; color: var(--muted); font-size: 14px; }
     footer a { margin: 0 10px; }
   </style>
-  <script defer src="/consent.js"></script>
 </head>
 <body>
   <div class="wrap">
@@ -63,7 +62,7 @@
     <a href="/support">Support</a>
     <a href="/privacy">Privacy Policy</a>
     <a href="/cookie-policy">Cookie Policy</a>
-    <a href="#" data-cookie-settings>Cookie settings</a>
+    <a href="#" onclick="if (window.zaraz?.consent) { zaraz.consent.modal = true; } return false;">Cookie settings</a>
   </footer>
 </body>
 </html>
