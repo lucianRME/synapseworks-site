@@ -57,7 +57,7 @@
     <p>Data is processed only to generate executable BDD scenarios and create linked subtasks in Jira. We do not use your data for advertising or profiling.</p>
 
     <h2>Analytics (Cloudflare Zaraz + Google Analytics 4)</h2>
-    <p>Analytics is handled via Cloudflare Zaraz and Google Analytics 4. It is disabled by default and only enabled after you opt in. IP addresses are anonymized, advertising features are disabled, and signals are limited to usage metrics. You can change your choice anytime via Cookie settings.</p>
+    <p>Analytics is handled via Cloudflare Zaraz and Google Analytics 4. It is disabled by default and only enabled after you opt in. IP addresses are anonymized, advertising features are disabled, and signals are limited to usage metrics. You can change your choice anytime using your browser or the consent prompt when shown.</p>
 
     <h2>Data flow</h2>
     <p>Jira → Atlassian Forge (appUserToken) → SynapseWorks backend (processing) → Jira. Data remains within this flow for the duration of the request.</p>
@@ -66,13 +66,13 @@
     <p>Operational logs are retained only as long as required for troubleshooting and security. Generated content and subtasks reside in your Jira site. Google Analytics event data is retained for up to 14 months and can be deleted sooner through standard GA controls.</p>
 
     <h2>Legal basis and consent</h2>
-    <p>For visitors in the EU/EEA and UK, analytics processing is based on your consent. You can withdraw consent at any time by selecting "Cookie settings" in the site footer and choosing Reject.</p>
+    <p>For visitors in the EU/EEA and UK, analytics processing is based on your consent. You can withdraw consent at any time through your browser settings or by responding to the consent prompt when it appears.</p>
 
     <h2>Security</h2>
     <p>Access to processing services is restricted by Forge scopes and service-side controls. Sensitive tokens remain within Forge-managed context and are not persisted by SynapseWorks.</p>
 
     <h2>Your choices</h2>
-    <p>Use the "Cookie settings" link to update analytics consent at any time. You can also uninstall the app to revoke access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
+    <p>You can update analytics consent through your browser settings or by responding to the consent prompt when it appears. You can also uninstall the app to revoke access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
 
     <h2>Contact</h2>
     <p>Email: <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a></p>
@@ -82,7 +82,6 @@
     <a href="/support">Support</a>
     <a href="/privacy">Privacy Policy</a>
     <a href="/cookie-policy">Cookie Policy</a>
-    <a href="#" onclick="if (window.zaraz?.consent) { zaraz.consent.modal = true; } return false;">Cookie settings</a>
   </footer>
 </body>
 </html>
