@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/privacy">
-  <meta name="description" content="SynapseWorks privacy policy: no Jira credentials stored; data processed only to generate BDD subtasks using Atlassian Forge context.">
+  <meta name="description" content="SynapseWorks privacy policy covering Forge app data handling and optional analytics via Cloudflare Zaraz + Google Analytics 4 with consent.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Privacy Policy | SynapseWorks">
-  <meta property="og:description" content="No Jira credentials stored. Data processed only to generate BDD subtasks with Atlassian Forge appUserToken.">
+  <meta property="og:description" content="Forge-scoped data handling, optional Google Analytics with consent, and how to control your choices.">
   <meta property="og:url" content="https://synapseworks.org/privacy">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy | SynapseWorks">
-  <meta name="twitter:description" content="SynapseWorks uses Atlassian Forge context; no Jira credentials stored; data only for BDD subtasks.">
+  <meta name="twitter:description" content="SynapseWorks uses Atlassian Forge context with optional analytics via Zaraz + Google Analytics 4 controlled by consent.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px; display: flex; justify-content: center; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px 72px; display: flex; justify-content: center; }
     .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
     h1 { font-size: 28px; margin-bottom: 10px; }
     h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
@@ -29,12 +29,14 @@
     .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
     a { color: #2563eb; text-decoration: none; }
     a:hover { text-decoration: underline; }
+    footer { margin-top: 16px; text-align: center; color: var(--muted); font-size: 14px; }
+    footer a { margin: 0 10px; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <div class="meta">Last updated: 2025-01-12</div>
+    <div class="meta">Last updated: 2025-02-26</div>
     <p>SynapseWorks is a Jira Forge app that keeps your data scoped to your Atlassian site. We do not store Jira credentials or personal access tokens.</p>
 
     <h2>Data we handle</h2>
@@ -47,27 +49,40 @@
     <h2>Data we do not store</h2>
     <ul>
       <li>No Jira credentials, passwords, or personal access tokens.</li>
-      <li>No analytics, tracking scripts, or cookies for marketing.</li>
+      <li>No marketing trackers or advertising cookies.</li>
       <li>No data unrelated to generating BDD scenarios or creating subtasks.</li>
     </ul>
 
     <h2>Purpose of processing</h2>
     <p>Data is processed only to generate executable BDD scenarios and create linked subtasks in Jira. We do not use your data for advertising or profiling.</p>
 
+    <h2>Analytics (Cloudflare Zaraz + Google Analytics 4)</h2>
+    <p>Analytics is handled via Cloudflare Zaraz and Google Analytics 4. It is disabled by default and only enabled after you opt in. IP addresses are anonymized, advertising features are disabled, and signals are limited to usage metrics. You can change your choice anytime via Cookie settings.</p>
+
     <h2>Data flow</h2>
     <p>Jira → Atlassian Forge (appUserToken) → SynapseWorks backend (processing) → Jira. Data remains within this flow for the duration of the request.</p>
 
     <h2>Retention</h2>
-    <p>Operational logs are retained only as long as required for troubleshooting and security. Generated content and subtasks reside in your Jira site.</p>
+    <p>Operational logs are retained only as long as required for troubleshooting and security. Generated content and subtasks reside in your Jira site. Google Analytics event data is retained for up to 14 months and can be deleted sooner through standard GA controls.</p>
+
+    <h2>Legal basis and consent</h2>
+    <p>For visitors in the EU/EEA and UK, analytics processing is based on your consent. You can withdraw consent at any time by selecting "Cookie settings" in the site footer and choosing Reject.</p>
 
     <h2>Security</h2>
     <p>Access to processing services is restricted by Forge scopes and service-side controls. Sensitive tokens remain within Forge-managed context and are not persisted by SynapseWorks.</p>
 
     <h2>Your choices</h2>
-    <p>Uninstalling the app revokes access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
+    <p>Use the "Cookie settings" link to update analytics consent at any time. You can also uninstall the app to revoke access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
 
     <h2>Contact</h2>
     <p>Email: <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a></p>
   </div>
+  <footer>
+    <a href="/">Home</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/cookie-policy">Cookie Policy</a>
+    <a href="#" onclick="if (window.zaraz?.consent) { zaraz.consent.modal = true; } return false;">Cookie settings</a>
+  </footer>
 </body>
 </html>
