@@ -132,6 +132,69 @@
       color: var(--muted);
       font-size: 14px;
     }
+    .demo {
+      max-width: 1100px;
+      width: 100%;
+      margin: 28px auto 0;
+      padding: 0 24px;
+    }
+    .demo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .demo-title { font-size: 22px; margin-bottom: 6px; }
+    .demo-sub { color: var(--muted); margin-bottom: 10px; }
+    .demo-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #e0ecff;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .demo-cta-wrap { display: flex; gap: 10px; flex-wrap: wrap; }
+    .demo-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 12px 20px rgba(37, 99, 235, 0.2);
+    }
+    .demo-cta.secondary {
+      background: #0f172a;
+      box-shadow: none;
+    }
+    .official {
+      max-width: 1100px;
+      width: 100%;
+      margin: 10px auto 0;
+      padding: 0 24px 32px;
+    }
+    .official-card {
+      background: #f5f7fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      color: var(--muted);
+    }
+    .official-card strong { color: var(--text); }
+    .official-list { margin-top: 10px; }
+    .official-list li { margin-bottom: 6px; }
     footer {
       max-width: 1100px;
       width: 100%;
@@ -158,6 +221,10 @@
     "contactPoint": [
       { "@type": "ContactPoint", "email": "support@synapseworks.org", "contactType": "customer support" },
       { "@type": "ContactPoint", "email": "security@synapseworks.org", "contactType": "security" }
+    ],
+    "hasPart": [
+      { "@type": "WebPage", "name": "Synapse Works – Landing", "url": "https://synapseworks.org/synapse/landing" },
+      { "@type": "WebApplication", "name": "Synapse Works Demo", "url": "https://synapseworks.org/synapse/demo", "applicationCategory": "BusinessApplication" }
     ]
   }
   </script>
@@ -173,6 +240,20 @@
   </header>
 
   <main>
+    <section class="demo">
+      <div class="demo-card">
+        <div>
+          <div class="demo-pill">Live demo</div>
+          <div class="demo-title">Try Synapse Works in your browser</div>
+          <div class="demo-sub">Runs in browser • No signup • Session-only credentials</div>
+        </div>
+        <div class="demo-cta-wrap">
+          <a class="demo-cta" href="https://synapseworks.org/synapse/landing">Synapse Works – Landing</a>
+          <a class="demo-cta secondary" href="https://synapseworks.org/synapse/demo">Open Demo</a>
+        </div>
+      </div>
+    </section>
+
     <section class="hero">
       <div class="hero-card">
         <div class="pill">Jira Forge app</div>
@@ -196,6 +277,17 @@
         <div class="panel">
           <strong>Auditable flow.</strong> Jira → Forge → SynapseWorks backend → Jira. Analytics only when you opt in.
         </div>
+      </div>
+    </section>
+
+    <section class="official">
+      <div class="official-card">
+        <strong>Official URLs</strong>
+        <ul class="official-list">
+          <li>Canonical demo host: <a href="https://demo.synapseworks.org">https://demo.synapseworks.org</a></li>
+          <li>Friendly entry URLs: <a href="https://synapseworks.org/synapse/landing">https://synapseworks.org/synapse/landing</a> and <a href="https://synapseworks.org/synapse/demo">/synapse/demo</a></li>
+          <li>Support site: <a href="https://synapseworks.org">https://synapseworks.org</a> (this site)</li>
+        </ul>
       </div>
     </section>
   </main>
