@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docs | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/docs">
+  <meta name="description" content="SynapseWorks documentation: product overview, install links, scopes summary, troubleshooting, and support resources for Synapse and Decision Register for Jira.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Docs | SynapseWorks">
+  <meta property="og:description" content="Documentation for Synapse and Decision Register for Jira, including installation, scopes, troubleshooting, and support links.">
+  <meta property="og:url" content="https://synapseworks.org/docs">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Docs | SynapseWorks">
+  <meta name="twitter:description" content="SynapseWorks documentation for Jira teams: install guidance, scopes, troubleshooting, and support resources.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+      --panel: #f5f7fb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--text); }
+    main { flex: 1; }
+    .wrap {
+      max-width: 1100px;
+      width: 100%;
+      margin: 10px auto 0;
+      padding: 0 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      background: #dbeafe;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ul { margin: 6px 0 14px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cta.secondary { background: #0f172a; }
+    footer {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 28px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer nav a { margin-left: 14px; }
+    @media (max-width: 640px) {
+      header, footer { padding: 20px 18px; }
+      .wrap { padding: 0 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <div class="card">
+        <div class="pill">Documentation</div>
+        <h1>Product docs for Jira teams</h1>
+        <p>SynapseWorks provides two Forge-first products: Synapse and Decision Register for Jira. This page summarizes installation, scopes, and troubleshooting guidance without adding runtime dependencies.</p>
+        <div class="cta-row">
+          <a class="cta secondary" href="https://synapseworks.org/synapse/demo">Open Synapse demo</a>
+          <a class="cta" href="/apps/synapse">Synapse</a>
+          <a class="cta" href="/apps/decision-register">Decision Register</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Products overview</h2>
+        <ul>
+          <li><strong>Synapse:</strong> Jira Forge app that sends Jira issue context to a scoped Azure backend and returns results to Forge and Jira.</li>
+          <li><strong>Decision Register for Jira:</strong> Forge-only with no external backend or network egress; data stays within Atlassian.</li>
+        </ul>
+
+        <h2>Install links</h2>
+        <ul>
+          <li>Synapse product page: <a href="/apps/synapse">/apps/synapse</a></li>
+          <li>Decision Register product page: <a href="/apps/decision-register">/apps/decision-register</a></li>
+          <li>Synapse demo: <a href="https://synapseworks.org/synapse/demo">https://synapseworks.org/synapse/demo</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Scopes summary</h2>
+        <div class="panel">
+          <p><strong>Synapse:</strong> Uses Forge appUserToken and scoped permissions. No Jira credentials are stored. Processing uses a scoped SynapseWorks Azure backend.</p>
+          <p><strong>Decision Register for Jira:</strong> Forge-only with no external backend or network egress; data stays within Atlassian. Limited user preferences may be stored via Forge storage (storage:app).</p>
+        </div>
+
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li>Confirm the app is installed and enabled for the correct Jira site and project.</li>
+          <li>Capture the Jira issue key, timestamp, and expected vs. actual behavior.</li>
+          <li>For Synapse, requests are monitored and fail safely with clear errors when limits are reached.</li>
+          <li>Do not share credentials, tokens, session cookies, or MFA codes with support.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Policies and support</h2>
+        <ul>
+          <li>Support: <a href="/support">/support</a></li>
+          <li>Privacy Policy: <a href="/privacy">/privacy</a></li>
+          <li>Security: <a href="/security">/security</a></li>
+          <li>Cookie Policy: <a href="/cookie-policy">/cookie-policy</a></li>
+        </ul>
+        <p>For enterprise reviews, we recommend referencing the product pages alongside the shared privacy and security policies.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>

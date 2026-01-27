@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://synapseworks.org/">
-  <meta name="description" content="Turn Jira issues into executable BDD subtasks directly inside Jira with SynapseWorks, a secure Atlassian Forge app.">
+  <meta name="description" content="SynapseWorks builds delivery tools for Jira teams: Synapse and Decision Register for Jira. Enterprise-ready, Forge-first.">
   <meta property="og:site_name" content="SynapseWorks">
-  <meta property="og:title" content="SynapseWorks — BDD inside Jira">
-  <meta property="og:description" content="Turn Jira issues into executable BDD subtasks directly inside Jira. No Jira credentials stored. Enterprise-grade security.">
+  <meta property="og:title" content="SynapseWorks — Jira Delivery Tools">
+  <meta property="og:description" content="SynapseWorks builds delivery tools for Jira teams with a Forge-first, enterprise-ready approach.">
   <meta property="og:url" content="https://synapseworks.org/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SynapseWorks — BDD inside Jira">
-  <meta name="twitter:description" content="Turn Jira issues into executable BDD subtasks directly inside Jira. No credentials stored. Enterprise security.">
+  <meta name="twitter:title" content="SynapseWorks — Jira Delivery Tools">
+  <meta name="twitter:description" content="Delivery tools for Jira teams: Synapse and Decision Register for Jira. Forge-first, enterprise-ready.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <title>SynapseWorks | BDD for Jira</title>
+  <title>SynapseWorks | Jira Delivery Tools</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -117,6 +117,15 @@
       transform: translateY(-1px);
       box-shadow: 0 15px 26px rgba(37, 99, 235, 0.3);
     }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .hero-cta.secondary {
+      background: #0f172a;
+    }
     .list {
       margin: 14px 0 0 0;
       padding-left: 18px;
@@ -131,6 +140,67 @@
       margin-top: 12px;
       color: var(--muted);
       font-size: 14px;
+    }
+    .products-title {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      background: #f8fafc;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .product-desc {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .product-list {
+      margin: 0 0 12px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .product-list li { margin-bottom: 6px; }
+    .product-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 9px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .product-cta.secondary {
+      background: #0f172a;
+    }
+    .product-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #e2e8f0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: not-allowed;
     }
     .demo {
       max-width: 1100px;
@@ -195,6 +265,12 @@
     .official-card strong { color: var(--text); }
     .official-list { margin-top: 10px; }
     .official-list li { margin-bottom: 6px; }
+    .security {
+      max-width: 1100px;
+      width: 100%;
+      margin: 10px auto 0;
+      padding: 0 24px;
+    }
     footer {
       max-width: 1100px;
       width: 100%;
@@ -223,8 +299,9 @@
       { "@type": "ContactPoint", "email": "security@synapseworks.org", "contactType": "security" }
     ],
     "hasPart": [
-      { "@type": "WebPage", "name": "Synapse Works – Landing", "url": "https://synapseworks.org/synapse/landing" },
-      { "@type": "WebApplication", "name": "Synapse Works Demo", "url": "https://synapseworks.org/synapse/demo", "applicationCategory": "BusinessApplication" }
+      { "@type": "WebPage", "name": "Synapse", "url": "https://synapseworks.org/apps/synapse" },
+      { "@type": "WebPage", "name": "Decision Register for Jira", "url": "https://synapseworks.org/apps/decision-register" },
+      { "@type": "WebApplication", "name": "Synapse Demo", "url": "https://synapseworks.org/synapse/demo", "applicationCategory": "BusinessApplication" }
     ]
   }
   </script>
@@ -233,50 +310,73 @@
   <header>
     <div class="brand">SynapseWorks</div>
     <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
       <a href="/support">Support</a>
-      <a href="/privacy">Privacy</a>
+      <a href="/privacy">Privacy Policy</a>
       <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
     </nav>
   </header>
 
   <main>
-    <section class="demo">
-      <div class="demo-card">
-        <div>
-          <div class="demo-pill">Live demo</div>
-          <div class="demo-title">Try Synapse Works in your browser</div>
-          <div class="demo-sub">Runs in browser • No signup • Session-only credentials</div>
+    <section class="hero">
+      <div class="hero-card">
+        <div class="pill">Jira delivery tools</div>
+        <h1>SynapseWorks builds delivery tools for Jira teams.</h1>
+        <p class="subtitle">Forge-first products designed for enterprise delivery, governance, and auditability — without storing Jira credentials.</p>
+        <div class="hero-cta-row">
+          <a class="cta hero-cta" href="https://synapseworks.org/synapse/demo">Open Synapse demo</a>
+          <a class="cta hero-cta secondary" href="/apps/decision-register">Decision Register</a>
         </div>
-        <div class="demo-cta-wrap">
-          <a class="demo-cta" href="https://synapseworks.org/synapse/landing">Synapse Works – Landing</a>
-          <a class="demo-cta secondary" href="https://synapseworks.org/synapse/demo">Open Demo</a>
+        <ul class="list">
+          <li>Decision Register for Jira is Forge-only with no external backend or network egress; data stays within Atlassian.</li>
+          <li>Scoped access via Atlassian Forge appUserToken and permissions.</li>
+          <li>Product-specific data handling documented in one shared policy.</li>
+        </ul>
+      </div>
+      <div class="hero-card">
+        <h2 class="products-title">Products</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <h3>Synapse</h3>
+            <p class="product-desc">BDD and automation workflows inside Jira, with issue-context processing through a scoped Azure backend.</p>
+            <ul class="product-list">
+              <li>Jira issue context only — no transcript text processed.</li>
+              <li>No Jira credentials stored.</li>
+              <li>Results return directly to Forge and Jira.</li>
+            </ul>
+            <div class="product-ctas">
+              <a class="product-cta secondary" href="https://synapseworks.org/synapse/demo">Open demo</a>
+              <a class="product-cta" href="/apps/synapse">Learn more</a>
+            </div>
+          </div>
+          <div class="product-card">
+            <h3>Decision Register for Jira</h3>
+            <p class="product-desc">Governance and audit trail tooling that runs entirely on Atlassian using Forge-only architecture.</p>
+            <ul class="product-list">
+              <li>Forge-only: runs on Atlassian with no external backend.</li>
+              <li>Read-only patterns with limited preference storage.</li>
+              <li>No external network egress. Data stays within Atlassian.</li>
+            </ul>
+            <div class="product-ctas">
+              <a class="product-cta" href="/apps/decision-register">Learn more</a>
+              <!-- TODO: Replace with Atlassian Marketplace URL -->
+              <span class="product-label" aria-disabled="true">Marketplace (coming soon)</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="hero">
-      <div class="hero-card">
-        <div class="pill">Jira Forge app</div>
-        <h1>Turn Jira issues into executable BDD subtasks — directly inside Jira.</h1>
-        <p class="subtitle">SynapseWorks keeps your work in Jira: no credentials stored, enterprise-grade security by design.</p>
-        <a class="cta" href="/support">Get support</a>
-        <ul class="list">
-          <li>Generate clear Gherkin scenarios from your issue context.</li>
-          <li>Create linked subtasks without leaving Jira.</li>
-          <li>Built on Atlassian Forge with data scoped to your site.</li>
+    <section class="security">
+      <div class="official-card">
+        <strong>Security-first delivery</strong>
+        <p style="margin-top: 8px;">All SynapseWorks products are built on Atlassian Forge with scoped access, least-privilege permissions, and enterprise-aware controls.</p>
+        <ul class="official-list">
+          <li><strong>Synapse:</strong> Jira issue context is processed via a scoped SynapseWorks Azure backend, then returned to Forge and Jira.</li>
+          <li><strong>Decision Register for Jira:</strong> Forge-only with no external backend or network egress; data stays within Atlassian.</li>
         </ul>
-      </div>
-      <div class="hero-card">
-        <h2 style="margin-bottom: 12px; font-size: 20px;">Security-first delivery</h2>
-        <div class="panel">
-          <strong>No Jira credentials stored.</strong> SynapseWorks uses Forge-hosted appUserToken and scoped permissions.
-        </div>
-        <div class="panel">
-          <strong>Enterprise-grade security.</strong> Data stays in Atlassian's cloud and the SynapseWorks backend only to generate BDD and create subtasks.
-        </div>
-        <div class="panel">
-          <strong>Auditable flow.</strong> Jira → Forge → SynapseWorks backend → Jira. Analytics only when you opt in.
-        </div>
       </div>
     </section>
 
@@ -284,8 +384,9 @@
       <div class="official-card">
         <strong>Official URLs</strong>
         <ul class="official-list">
-          <li>Canonical demo host: <a href="https://demo.synapseworks.org">https://demo.synapseworks.org</a></li>
-          <li>Friendly entry URLs: <a href="https://synapseworks.org/synapse/landing">https://synapseworks.org/synapse/landing</a> and <a href="https://synapseworks.org/synapse/demo">/synapse/demo</a></li>
+          <li>Synapse demo host: <a href="https://demo.synapseworks.org">https://demo.synapseworks.org</a></li>
+          <li>Synapse product page: <a href="https://synapseworks.org/apps/synapse">https://synapseworks.org/apps/synapse</a></li>
+          <li>Decision Register product page: <a href="https://synapseworks.org/apps/decision-register">https://synapseworks.org/apps/decision-register</a></li>
           <li>Support site: <a href="https://synapseworks.org">https://synapseworks.org</a> (this site)</li>
         </ul>
       </div>
@@ -295,6 +396,8 @@
   <footer>
     <span>© 2025 SynapseWorks</span>
     <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
       <a href="/support">Support</a>
       <a href="/privacy">Privacy Policy</a>
       <a href="/security">Security</a>

@@ -19,7 +19,10 @@
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px 72px; display: flex; justify-content: center; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px 72px; display: flex; flex-direction: column; align-items: center; }
+    header { max-width: 1100px; width: 100%; margin: 0 auto 16px; padding: 0 10px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 20px; font-weight: 700; letter-spacing: 0.2px; }
+    nav a { margin-left: 18px; }
     .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
     h1 { font-size: 28px; margin-bottom: 10px; }
     h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
@@ -34,6 +37,17 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
   <div class="wrap">
     <h1>Cookie Policy</h1>
     <div class="meta">Last updated: 2025-12-22</div>
@@ -63,8 +77,10 @@
   </div>
   <footer>
     <a href="/">Home</a>
+    <a href="/docs">Docs</a>
     <a href="/support">Support</a>
     <a href="/privacy">Privacy Policy</a>
+    <a href="/security">Security</a>
     <a href="/cookie-policy">Cookie Policy</a>
   </footer>
 </body>

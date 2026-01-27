@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synapse | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/apps/synapse">
+  <meta name="description" content="Synapse is a Jira Forge app for BDD and delivery automation. Jira issue context is processed through a scoped Azure backend, with results returned to Jira.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Synapse | SynapseWorks">
+  <meta property="og:description" content="BDD and automation workflows inside Jira with Forge-first architecture and scoped Azure backend processing.">
+  <meta property="og:url" content="https://synapseworks.org/apps/synapse">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Synapse | SynapseWorks">
+  <meta name="twitter:description" content="Synapse helps Jira teams generate structured delivery outputs using Forge with scoped Azure backend processing.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+      --panel: #f5f7fb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--text); }
+    main { flex: 1; }
+    .hero {
+      max-width: 1100px;
+      width: 100%;
+      margin: 20px auto 0;
+      padding: 0 24px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      background: #dbeafe;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ul { margin: 6px 0 14px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cta.secondary { background: #0f172a; }
+    .links-row {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .links-row a { color: var(--accent); text-decoration: none; }
+    .links-row a:hover { text-decoration: underline; }
+    footer {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 28px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer nav a { margin-left: 14px; }
+    @media (max-width: 640px) {
+      header, footer { padding: 20px 18px; }
+      .hero { padding: 0 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="card">
+        <div class="pill">Product</div>
+        <h1>Synapse</h1>
+        <p>Synapse is a Jira Forge app that helps delivery teams generate structured outputs and automation-ready artifacts directly inside Jira.</p>
+        <div class="cta-row">
+          <a class="cta secondary" href="https://synapseworks.org/synapse/demo">Open demo</a>
+          <a class="cta" href="/support">Get support</a>
+        </div>
+        <div class="links-row">
+          <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Key capabilities</h2>
+        <ul>
+          <li>Generate consistent, delivery-ready artifacts from Jira issue context.</li>
+          <li>Keep workflows inside Jira with Forge-native user experience.</li>
+          <li>Support enterprise delivery practices with auditable flows.</li>
+          <li>Return results directly to Forge and Jira without credential storage.</li>
+        </ul>
+
+        <h2>Data handling summary</h2>
+        <div class="panel">
+          <p><strong>Architecture:</strong> Atlassian Forge app with scoped processing through a SynapseWorks Azure backend.</p>
+          <p><strong>What is processed:</strong> Jira issue context required to generate outputs. No transcript text is processed.</p>
+          <p><strong>Auth model:</strong> Forge appUserToken and scoped permissions. No Jira credentials or personal access tokens are stored.</p>
+          <p><strong>Flow:</strong> Jira → Forge → SynapseWorks Azure backend → Forge/Jira.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>

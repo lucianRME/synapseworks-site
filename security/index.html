@@ -5,21 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Security | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/security">
-  <meta name="description" content="Security at SynapseWorks: Forge-based data flow, logging guarantees, and responsible disclosure via security@synapseworks.org.">
+  <meta name="description" content="Security at SynapseWorks: Forge-first controls for Synapse and Decision Register for Jira, with product-specific data flows and enterprise posture.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Security | SynapseWorks">
-  <meta property="og:description" content="Jira → Forge → SynapseWorks backend → Jira. No credentials stored. Contact security@synapseworks.org for disclosures.">
+  <meta property="og:description" content="Forge-first security posture for Synapse and Decision Register for Jira, with clear product-specific data handling.">
   <meta property="og:url" content="https://synapseworks.org/security">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Security | SynapseWorks">
-  <meta name="twitter:description" content="Secure Forge-based flow with logging and token handling controls. Report issues to security@synapseworks.org.">
+  <meta name="twitter:description" content="Security posture and product-specific data flows for Synapse and Decision Register for Jira.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px 72px; display: flex; justify-content: center; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 36px 18px 72px; display: flex; flex-direction: column; align-items: center; }
+    header { max-width: 1100px; width: 100%; margin: 0 auto 16px; padding: 0 10px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 20px; font-weight: 700; letter-spacing: 0.2px; }
+    nav a { margin-left: 18px; }
     .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
     h1 { font-size: 28px; margin-bottom: 10px; }
     h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
@@ -33,25 +36,44 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
   <div class="wrap">
     <h1>Security</h1>
-    <p>SynapseWorks is built on Atlassian Forge with a security-first posture. Data moves through a narrow, auditable path.</p>
+    <p>SynapseWorks builds Jira delivery products with a Forge-first, security-first posture. Controls are designed for enterprise teams and auditable flows.</p>
 
     <h2>Security contact</h2>
     <p>Email: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a></p>
 
-    <h2>Data flow</h2>
+    <h2>Decision Register for Jira: Runs on Atlassian</h2>
     <ul>
-      <li>Jira → Forge: Issue context and appUserToken remain inside Atlassian's cloud.</li>
-      <li>Forge → SynapseWorks backend: Scoped request to generate BDD scenarios and prepare subtasks.</li>
-      <li>SynapseWorks backend → Jira: Subtasks are created in your project; results are returned to the Forge UI.</li>
+      <li>Forge-only architecture running on Atlassian infrastructure.</li>
+      <li>No external backend services and no external network egress. Data stays within Atlassian.</li>
+      <li>Read-only patterns with limited preference storage via Forge storage (storage:app).</li>
     </ul>
 
-    <h2>Logging and token handling</h2>
+    <h2>Synapse: Forge + Azure backend</h2>
+    <p>Synapse uses a scoped Azure backend to process Jira issue context and return results to Forge and Jira.</p>
     <ul>
-      <li>No Jira credentials are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
-      <li>Operational logs exclude secrets and are retained only for troubleshooting and security review.</li>
+      <li><strong>Data flow:</strong> Jira → Atlassian Forge → SynapseWorks Azure backend → Forge/Jira.</li>
+      <li><strong>Credentials:</strong> No Jira credentials are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
+      <li><strong>Reliability:</strong> Availability is monitored and requests fail safely with clear errors when limits are reached.</li>
+    </ul>
+
+    <h2>Logging and access controls</h2>
+    <ul>
+      <li>Operational logs are limited to what is required for troubleshooting and security monitoring.</li>
       <li>Transport is enforced over TLS; access to processing services is limited to required scopes.</li>
+      <li>Forge scopes and least-privilege permissions are used across products.</li>
     </ul>
 
     <h2>Responsible disclosure</h2>
@@ -59,8 +81,10 @@
   </div>
   <footer>
     <a href="/">Home</a>
+    <a href="/docs">Docs</a>
     <a href="/support">Support</a>
     <a href="/privacy">Privacy Policy</a>
+    <a href="/security">Security</a>
     <a href="/cookie-policy">Cookie Policy</a>
   </footer>
 </body>
