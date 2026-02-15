@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Register for Jira - Documentation | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/docs/decision-register/">
+  <meta name="description" content="Documentation for Decision Register for Jira: installation, usage, data handling, troubleshooting, and support contact.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Decision Register for Jira - Documentation | SynapseWorks">
+  <meta property="og:description" content="How to install and use Decision Register for Jira in Jira Cloud, plus troubleshooting and support details.">
+  <meta property="og:url" content="https://synapseworks.org/docs/decision-register/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Register for Jira - Documentation | SynapseWorks">
+  <meta name="twitter:description" content="Step-by-step install and usage documentation for Decision Register for Jira.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+      --panel: #f5f7fb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--text); }
+    main { flex: 1; }
+    .wrap {
+      max-width: 1100px;
+      width: 100%;
+      margin: 10px auto 0;
+      padding: 0 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .full {
+      grid-column: 1 / -1;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      background: #dbeafe;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ol, ul { margin: 6px 0 14px 22px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cta.secondary { background: #0f172a; }
+    footer {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 28px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer nav a { margin-left: 14px; }
+    @media (max-width: 640px) {
+      header, footer { padding: 20px 18px; }
+      .wrap { padding: 0 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <div class="card full">
+        <div class="pill">Documentation</div>
+        <h1>Decision Register for Jira &mdash; Documentation</h1>
+        <p>This page provides reviewer-friendly setup and usage steps for Decision Register for Jira on Jira Cloud.</p>
+        <div class="cta-row">
+          <a class="cta" href="https://marketplace.atlassian.com/apps/1541498296" target="_blank" rel="noopener noreferrer">Open Atlassian Marketplace Listing</a>
+          <a class="cta secondary" href="/support">Contact Support</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Installation</h2>
+        <ol>
+          <li>Sign in to Jira Cloud with a site admin account.</li>
+          <li>Open the Decision Register for Jira listing in Atlassian Marketplace.</li>
+          <li>Select <strong>Get it now</strong>.</li>
+          <li>Choose the Jira Cloud site where you want to install the app.</li>
+          <li>Review and approve the requested permissions.</li>
+          <li>After installation, confirm the app is visible under <strong>Apps &gt; Manage apps</strong>.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>How To Use</h2>
+        <ol>
+          <li>Open a Jira issue in a project where the app is enabled.</li>
+          <li>Find the Decision Register app panel in the issue view under Apps.</li>
+          <li>Select <strong>Add decision</strong> and provide the decision details.</li>
+          <li>Save the entry to link the decision to the current Jira issue.</li>
+          <li>Return to the same issue panel at any time to review previously recorded decisions.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>Data Handling Summary</h2>
+        <div class="panel">
+          <p><strong>Architecture:</strong> Forge-only app running on Atlassian infrastructure.</p>
+          <p><strong>External backend:</strong> None.</p>
+          <p><strong>External network egress:</strong> None.</p>
+          <p><strong>Storage:</strong> Minimal app configuration or preference data may be stored in Forge storage (storage:app) where applicable.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li><strong>App not visible:</strong> Confirm installation on the correct Jira Cloud site and verify the project/issue view includes app panels.</li>
+          <li><strong>Cannot save decision:</strong> Ensure required fields are completed and the user has permission to edit the issue.</li>
+          <li><strong>Permissions issues:</strong> Check Jira project permissions and access roles for affected users.</li>
+        </ul>
+        <p>If the issue persists, contact <a href="mailto:support@synapseworks.org">support@synapseworks.org</a>.</p>
+      </div>
+
+      <div class="card full">
+        <h2>Support Contact</h2>
+        <p>Support email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>
