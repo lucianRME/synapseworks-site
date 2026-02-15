@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decision Register for Jira - Documentation | SynapseWorks</title>
+  <title>Decision Register for Jira - Documentation &amp; Support | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/docs/decision-register/">
-  <meta name="description" content="Documentation for Decision Register for Jira: installation, usage, data handling, troubleshooting, and support contact.">
+  <meta name="description" content="Decision Register for Jira documentation and support: installation, first use, register generation, permissions, data handling, troubleshooting, and support contact.">
   <meta property="og:site_name" content="SynapseWorks">
-  <meta property="og:title" content="Decision Register for Jira - Documentation | SynapseWorks">
-  <meta property="og:description" content="How to install and use Decision Register for Jira in Jira Cloud, plus troubleshooting and support details.">
+  <meta property="og:title" content="Decision Register for Jira - Documentation &amp; Support | SynapseWorks">
+  <meta property="og:description" content="Marketplace-ready setup and usage guide for Decision Register for Jira, including permissions, data handling, and support.">
   <meta property="og:url" content="https://synapseworks.org/docs/decision-register/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Decision Register for Jira - Documentation | SynapseWorks">
-  <meta name="twitter:description" content="Step-by-step install and usage documentation for Decision Register for Jira.">
+  <meta name="twitter:title" content="Decision Register for Jira - Documentation &amp; Support | SynapseWorks">
+  <meta name="twitter:description" content="Install, configure, and use Decision Register for Jira with support and troubleshooting guidance.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root {
@@ -163,12 +163,21 @@
     <section class="wrap">
       <div class="card full">
         <div class="pill">Documentation</div>
-        <h1>Decision Register for Jira &mdash; Documentation</h1>
-        <p>This page provides reviewer-friendly setup and usage steps for Decision Register for Jira on Jira Cloud.</p>
+        <h1>Decision Register for Jira &mdash; Documentation &amp; Support</h1>
+        <p>Decision Register for Jira is a Jira Cloud global/admin page app for generating and exporting project decision registers. It is not an issue-view panel.</p>
         <div class="cta-row">
           <a class="cta" href="https://marketplace.atlassian.com/apps/1541498296" target="_blank" rel="noopener noreferrer">Open Atlassian Marketplace Listing</a>
           <a class="cta secondary" href="/support">Contact Support</a>
         </div>
+      </div>
+
+      <div class="card">
+        <h2>Overview</h2>
+        <ul>
+          <li>Access the app from Jira global navigation under Apps.</li>
+          <li>Load projects, choose a project, and generate a decision register.</li>
+          <li>Filter with decision-type toggles and export results to CSV.</li>
+        </ul>
       </div>
 
       <div class="card">
@@ -179,44 +188,76 @@
           <li>Select <strong>Get it now</strong>.</li>
           <li>Choose the Jira Cloud site where you want to install the app.</li>
           <li>Review and approve the requested permissions.</li>
-          <li>After installation, confirm the app is visible under <strong>Apps &gt; Manage apps</strong>.</li>
+          <li>After installation, confirm the app is enabled under <strong>Apps &gt; Manage apps</strong>.</li>
+          <li>Open the app from the Jira Apps menu to verify access.</li>
         </ol>
       </div>
 
       <div class="card">
-        <h2>How To Use</h2>
+        <h2>First-use Steps</h2>
         <ol>
-          <li>Open a Jira issue in a project where the app is enabled.</li>
-          <li>Find the Decision Register app panel in the issue view under Apps.</li>
-          <li>Select <strong>Add decision</strong> and provide the decision details.</li>
-          <li>Save the entry to link the decision to the current Jira issue.</li>
-          <li>Return to the same issue panel at any time to review previously recorded decisions.</li>
+          <li>Select <strong>Load projects</strong> to fetch available Jira projects.</li>
+          <li>Select a project from the project selector.</li>
+          <li>Review default decision-type toggles and settings.</li>
+          <li>Select <strong>Generate register</strong> to build the initial result set.</li>
         </ol>
       </div>
 
       <div class="card">
-        <h2>Data Handling Summary</h2>
+        <h2>How to Use</h2>
+        <ol>
+          <li><strong>Decision type toggles:</strong> Enable or disable decision categories before generating.</li>
+          <li><strong>Settings:</strong> Adjust available register settings for the selected project scope.</li>
+          <li><strong>Generate register:</strong> Re-run generation after changing toggles or settings.</li>
+          <li><strong>Review output:</strong> Validate rows in the generated register view.</li>
+          <li><strong>Export CSV:</strong> Download the current generated register as a CSV file.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>Permissions &amp; Visibility</h2>
+        <ul>
+          <li><strong><code>read:jira-work</code></strong> is used to read Jira project and issue data needed for register generation.</li>
+          <li><strong><code>storage:app</code></strong> is used to persist app settings and generated register state.</li>
+          <li>Jira API calls are executed in Forge <strong><code>asApp()</code></strong> context.</li>
+          <li>Result visibility is constrained by Jira data available to the app in your site configuration.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Data Handling</h2>
         <div class="panel">
           <p><strong>Architecture:</strong> Forge-only app running on Atlassian infrastructure.</p>
           <p><strong>External backend:</strong> None.</p>
           <p><strong>External network egress:</strong> None.</p>
-          <p><strong>Storage:</strong> Minimal app configuration or preference data may be stored in Forge storage (storage:app) where applicable.</p>
+          <p><strong>Storage:</strong> Forge <code>storage:app</code> is used for key groups including selected project, decision type toggles, register settings, generated register snapshot, and generation timestamp metadata.</p>
         </div>
       </div>
 
       <div class="card">
         <h2>Troubleshooting</h2>
         <ul>
-          <li><strong>App not visible:</strong> Confirm installation on the correct Jira Cloud site and verify the project/issue view includes app panels.</li>
-          <li><strong>Cannot save decision:</strong> Ensure required fields are completed and the user has permission to edit the issue.</li>
-          <li><strong>Permissions issues:</strong> Check Jira project permissions and access roles for affected users.</li>
+          <li><strong>Load projects returns empty:</strong> Confirm project browse access and that app permissions were approved at install time.</li>
+          <li><strong>Generate register not available:</strong> Select a project first.</li>
+          <li><strong>Generated register is empty:</strong> Verify decision-type toggles and project data contain matching decisions.</li>
+          <li><strong>CSV export unavailable:</strong> Generate a register before exporting.</li>
+          <li><strong>Settings or selections reset:</strong> Reopen the app and verify <code>storage:app</code> permission is present in app configuration.</li>
         </ul>
         <p>If the issue persists, contact <a href="mailto:support@synapseworks.org">support@synapseworks.org</a>.</p>
       </div>
 
       <div class="card full">
-        <h2>Support Contact</h2>
+        <h2>Support</h2>
         <p>Support email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
+        <p>Typical response time: 1-2 business days.</p>
+        <p>Include the following in your support email:</p>
+        <ul>
+          <li>Jira Cloud site URL.</li>
+          <li>Affected project key and action performed (Load projects, Generate register, or Export CSV).</li>
+          <li>Step-by-step reproduction steps.</li>
+          <li>Timestamp of the latest occurrence (with timezone).</li>
+          <li>Expected vs actual result and any screenshots.</li>
+        </ul>
       </div>
     </section>
   </main>
