@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
   <title>Docs | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/docs">
   <meta name="description" content="SynapseWorks documentation: product overview, install links, scopes summary, troubleshooting, and support resources for Synapse and Decision Register for Jira.">
@@ -36,27 +37,6 @@
       display: flex;
       flex-direction: column;
     }
-    header {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 28px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    nav a:hover { color: var(--text); }
     main { flex: 1; }
     .wrap {
       max-width: 1100px;
@@ -136,9 +116,17 @@
       color: var(--muted);
       font-size: 14px;
     }
+    footer nav a,
+    footer nav a:visited,
+    footer nav a:hover,
+    footer nav a:active {
+      color: var(--muted);
+      text-decoration: none;
+    }
     footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
     @media (max-width: 640px) {
-      header, footer { padding: 20px 18px; }
+      footer { padding: 20px 18px; }
       .wrap { padding: 0 18px 24px; }
     }
   </style>

@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
   <title>Synapse | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/apps/synapse">
-  <meta name="description" content="Synapse is a Jira Forge app for BDD and delivery automation. Jira issue context is processed through a scoped Azure backend, with results returned to Jira.">
+  <meta name="description" content="Synapse is a Jira Forge app for BDD and delivery automation. Jira issue context is processed through a scoped backend service via Forge Remote, with results returned to Jira.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Synapse | SynapseWorks">
-  <meta property="og:description" content="BDD and automation workflows inside Jira with Forge-first architecture and scoped Azure backend processing.">
+  <meta property="og:description" content="BDD and automation workflows inside Jira with Forge-first architecture and a scoped backend service via Forge Remote.">
   <meta property="og:url" content="https://synapseworks.org/apps/synapse">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Synapse | SynapseWorks">
-  <meta name="twitter:description" content="Synapse helps Jira teams generate structured delivery outputs using Forge with scoped Azure backend processing.">
+  <meta name="twitter:description" content="Synapse helps Jira teams generate structured delivery outputs using Forge with a scoped backend service via Forge Remote.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root {
@@ -36,27 +37,6 @@
       display: flex;
       flex-direction: column;
     }
-    header {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 28px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    nav a:hover { color: var(--text); }
     main { flex: 1; }
     .hero {
       max-width: 1100px;
@@ -123,6 +103,18 @@
       font-weight: 700;
     }
     .cta.secondary { background: #0f172a; }
+    .product-label {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #e2e8f0;
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
     .links-row {
       margin-top: 6px;
       font-size: 14px;
@@ -141,9 +133,17 @@
       color: var(--muted);
       font-size: 14px;
     }
+    footer nav a,
+    footer nav a:visited,
+    footer nav a:hover,
+    footer nav a:active {
+      color: var(--muted);
+      text-decoration: none;
+    }
     footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
     @media (max-width: 640px) {
-      header, footer { padding: 20px 18px; }
+      footer { padding: 20px 18px; }
       .hero { padding: 0 18px 24px; }
     }
   </style>
@@ -168,11 +168,12 @@
         <h1>Synapse</h1>
         <p>Synapse is a Jira Forge app that helps delivery teams generate structured outputs and automation-ready artifacts directly inside Jira.</p>
         <div class="cta-row">
-          <a class="cta" href="/support">Get support</a>
-          <a class="cta secondary" href="https://marketplace.atlassian.com/apps/1541498296" target="_blank" rel="noopener noreferrer">Install from Atlassian Marketplace</a>
+          <a class="product-label" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer" aria-label="Install Synapse from Atlassian Marketplace">Install from Atlassian Marketplace</a>
+          <a class="cta secondary" href="/docs/">Documentation</a>
+          <a class="cta" href="/support/">Support</a>
         </div>
         <div class="links-row">
-          <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a>
+          <a href="/faq/synapse/">FAQ</a> · <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a>
         </div>
       </div>
 
@@ -182,16 +183,21 @@
           <li>Generate consistent, delivery-ready artifacts from Jira issue context.</li>
           <li>Keep workflows inside Jira with Forge-native user experience.</li>
           <li>Support enterprise delivery practices with auditable flows.</li>
-          <li>Return results directly to Forge and Jira without credential storage.</li>
         </ul>
 
         <h2>Data handling summary</h2>
         <div class="panel">
-          <p><strong>Architecture:</strong> Atlassian Forge app with scoped processing through a SynapseWorks Azure backend.</p>
-          <p><strong>What is processed:</strong> Jira issue context required to generate outputs. No transcript text is processed.</p>
-          <p><strong>Auth model:</strong> Forge appUserToken and scoped permissions. No Jira credentials or personal access tokens are stored.</p>
-          <p><strong>Flow:</strong> Jira → Forge → SynapseWorks Azure backend → Forge/Jira.</p>
+          <p><strong>Architecture:</strong> Atlassian Forge app with a scoped backend service via Forge Remote.</p>
+          <p><strong>What is processed:</strong> In Jira (Forge Issue Panel), Synapse generates from Jira issue context. Transcript processing is available only in Synapse SaaS deployments (if enabled).</p>
+          <p><strong>Auth model:</strong> Forge appUserToken with scopes <code>read:jira-work</code>, <code>write:jira-work</code>, and <code>read:app-user-token</code>. No Jira credentials or personal access tokens are stored.</p>
+          <p><strong>Flow:</strong> Jira → Forge → scoped backend service via Forge Remote → Forge/Jira.</p>
         </div>
+
+        <h2>Forge vs SaaS</h2>
+        <ul>
+          <li><strong>Inside Jira (Forge):</strong> issue-context generation, refine editor, dry-run validation, and create subtasks where enabled.</li>
+          <li><strong>Outside Jira (SaaS, deployment-dependent):</strong> transcript ingestion, review workflow, and idempotent Jira sync.</li>
+        </ul>
       </div>
     </section>
   </main>

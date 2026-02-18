@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
   <title>Decision Register for Jira - Documentation &amp; Support | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/docs/decision-register/">
   <meta name="description" content="Decision Register for Jira documentation and support: installation, first use, register generation, permissions, data handling, troubleshooting, and support contact.">
@@ -36,27 +37,6 @@
       display: flex;
       flex-direction: column;
     }
-    header {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 28px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    nav a:hover { color: var(--text); }
     main { flex: 1; }
     .wrap {
       max-width: 1100px;
@@ -139,9 +119,17 @@
       color: var(--muted);
       font-size: 14px;
     }
+    footer nav a,
+    footer nav a:visited,
+    footer nav a:hover,
+    footer nav a:active {
+      color: var(--muted);
+      text-decoration: none;
+    }
     footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
     @media (max-width: 640px) {
-      header, footer { padding: 20px 18px; }
+      footer { padding: 20px 18px; }
       .wrap { padding: 0 18px 24px; }
     }
   </style>
@@ -165,7 +153,7 @@
         <div class="pill">Documentation</div>
         <h1>Decision Register for Jira &mdash; Documentation &amp; Support</h1>
         <p>Decision Register for Jira is a Jira Cloud global/admin page app for generating and exporting project decision registers. It is not an issue-view panel.</p>
-        <p>Marketplace: coming soon.</p>
+        <p>Install from <a href="https://marketplace.atlassian.com/apps/2445040497/decision-register-for-jira" target="_blank" rel="noopener noreferrer">Atlassian Marketplace</a>.</p>
         <div class="cta-row">
           <a class="cta secondary" href="/support">Contact Support</a>
         </div>
@@ -176,6 +164,7 @@
         <ul>
           <li>Access the app from Jira global navigation under Apps.</li>
           <li>Load projects, choose a project, and generate a decision register.</li>
+          <li>Detects estimate, priority, scope/sprint, reopen, assignee, due date, and fix version changes.</li>
           <li>Filter with decision-type toggles and export results to CSV.</li>
         </ul>
       </div>
@@ -211,6 +200,7 @@
           <li><strong>Generate register:</strong> Re-run generation after changing toggles or settings.</li>
           <li><strong>Review output:</strong> Validate rows in the generated register view.</li>
           <li><strong>Export CSV:</strong> Download the current generated register as a CSV file.</li>
+          <li><strong>Fallback export:</strong> Use copy-to-clipboard CSV fallback if direct download is unavailable.</li>
         </ol>
       </div>
 
@@ -219,7 +209,7 @@
         <ul>
           <li><strong><code>read:jira-work</code></strong> is used to read Jira project and issue data needed for register generation.</li>
           <li><strong><code>storage:app</code></strong> is used to persist app settings and generated register state.</li>
-          <li>Jira API calls are executed in Forge <strong><code>asApp()</code></strong> context.</li>
+          <li>Uses Forge scopes <strong><code>read:jira-work</code></strong> and <strong><code>storage:app</code></strong>.</li>
           <li>Result visibility is constrained by Jira data available to the app in your site configuration.</li>
         </ul>
       </div>
@@ -241,6 +231,7 @@
           <li><strong>Generate register not available:</strong> Select a project first.</li>
           <li><strong>Generated register is empty:</strong> Verify decision-type toggles and project data contain matching decisions.</li>
           <li><strong>CSV export unavailable:</strong> Generate a register before exporting.</li>
+          <li><strong>Rate limits or server errors:</strong> The app retries Jira API requests and can show partial-results warnings when not all data is returned.</li>
           <li><strong>Settings or selections reset:</strong> Reopen the app and verify <code>storage:app</code> permission is present in app configuration.</li>
         </ul>
         <p>If the issue persists, contact <a href="mailto:support@synapseworks.org">support@synapseworks.org</a>.</p>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
   <title>Decision Register for Jira | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/apps/decision-register">
   <meta name="description" content="Decision Register for Jira is a Forge-only app that runs entirely on Atlassian. Capture governance decisions and audit trails without external backends.">
@@ -36,27 +37,6 @@
       display: flex;
       flex-direction: column;
     }
-    header {
-      max-width: 1100px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 28px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    nav a:hover { color: var(--text); }
     main { flex: 1; }
     .hero {
       max-width: 1100px;
@@ -132,15 +112,9 @@
       background: #e2e8f0;
       color: var(--muted);
       font-weight: 700;
-      cursor: not-allowed;
+      text-decoration: none;
+      cursor: pointer;
     }
-    .docs-note {
-      margin-top: 10px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .docs-note a { color: var(--accent); text-decoration: none; }
-    .docs-note a:hover { text-decoration: underline; }
     .links-row {
       margin-top: 6px;
       font-size: 14px;
@@ -159,9 +133,17 @@
       color: var(--muted);
       font-size: 14px;
     }
+    footer nav a,
+    footer nav a:visited,
+    footer nav a:hover,
+    footer nav a:active {
+      color: var(--muted);
+      text-decoration: none;
+    }
     footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
     @media (max-width: 640px) {
-      header, footer { padding: 20px 18px; }
+      footer { padding: 20px 18px; }
       .hero { padding: 0 18px 24px; }
     }
   </style>
@@ -186,24 +168,28 @@
         <h1>Decision Register for Jira</h1>
         <p>Decision Register for Jira is Forge-only with no external backend or network egress; data stays within Atlassian.</p>
         <div class="cta-row">
-          <a class="cta secondary" href="https://synapseworks.org/docs/decision-register/">Documentation &amp; Support</a>
-          <a class="cta" href="/support">Get support</a>
-          <!-- TODO: Replace with Atlassian Marketplace URL -->
-          <span class="product-label" aria-disabled="true">Marketplace (coming soon)</span>
+          <a
+            class="product-label"
+            href="https://marketplace.atlassian.com/apps/2445040497/decision-register-for-jira"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Install Decision Register for Jira from Atlassian Marketplace"
+          >Install from Atlassian Marketplace</a>
+          <a class="cta secondary" href="/docs/decision-register/">Documentation</a>
+          <a class="cta" href="/support/">Support</a>
         </div>
-        <p class="docs-note">Documentation and support guide: <a href="https://synapseworks.org/docs/decision-register/">https://synapseworks.org/docs/decision-register/</a></p>
         <div class="links-row">
-          <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a>
+          <a href="/faq/decision-register/">FAQ</a> · <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a>
         </div>
       </div>
 
       <div class="card">
         <h2>Key capabilities</h2>
         <ul>
-          <li>Maintain a clear audit trail of decisions linked to Jira work.</li>
-          <li>Support governance practices without leaving Jira.</li>
-          <li>Read-only patterns that reduce operational risk.</li>
-          <li>Forge-native experience aligned with enterprise controls.</li>
+          <li>Detects decision changes for estimate, priority, scope/sprint, reopen, assignee, due date, and fix version.</li>
+          <li>Exports results to CSV, with a copy-to-clipboard fallback when direct download is unavailable.</li>
+          <li>Retries Jira API calls on rate limits and server errors, with warnings when results are partial.</li>
+          <li>Maintains a read-only access pattern with limited per-user preferences in Forge storage.</li>
         </ul>
 
         <h2>Data handling summary</h2>

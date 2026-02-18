@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Decision Register for Jira FAQ | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/faq/decision-register/">
+  <meta name="description" content="Decision Register for Jira FAQ: purpose, project support, data handling, permissions, export options, pricing status, and support.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Decision Register for Jira FAQ | SynapseWorks">
+  <meta property="og:description" content="Frequently asked questions about Decision Register for Jira, including architecture, data handling, permissions, exports, and support.">
+  <meta property="og:url" content="https://synapseworks.org/faq/decision-register/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Register for Jira FAQ | SynapseWorks">
+  <meta name="twitter:description" content="FAQ for Decision Register for Jira covering data handling, tenancy boundaries, permissions, exports, and support.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+      --panel: #f5f7fb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; }
+    .wrap {
+      max-width: 1100px;
+      width: 100%;
+      margin: 10px auto 0;
+      padding: 0 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .full {
+      grid-column: 1 / -1;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      background: #dbeafe;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ul { margin: 6px 0 14px 22px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cta.secondary { background: #0f172a; }
+    footer {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 28px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer nav a,
+    footer nav a:visited,
+    footer nav a:hover,
+    footer nav a:active {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
+    @media (max-width: 640px) {
+      footer { padding: 20px 18px; }
+      .wrap { padding: 0 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <div class="card full">
+        <div class="pill">FAQ</div>
+        <h1>Decision Register for Jira FAQ</h1>
+        <p>Common questions about architecture, permissions, data handling, export behavior, and support.</p>
+        <div class="cta-row">
+          <a class="cta" href="https://marketplace.atlassian.com/apps/2445040497/decision-register-for-jira" target="_blank" rel="noopener noreferrer">Install from Atlassian Marketplace</a>
+          <a class="cta secondary" href="/apps/decision-register/">Product page</a>
+          <a class="cta secondary" href="/support">Contact support</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>What is a Decision Register?</h2>
+        <p>A Decision Register is a structured record of project decisions, rationale, owners, and timing so teams can audit delivery history without searching across multiple tools.</p>
+      </div>
+
+      <div class="card">
+        <h2>Who is it for?</h2>
+        <p>Works with Jira Cloud projects where the app has the required access; validate compatibility in your site.</p>
+      </div>
+
+      <div class="card">
+        <h2>Where is data stored and what are tenancy boundaries?</h2>
+        <p>The app is Forge-only and runs on Atlassian infrastructure. Data used for generation comes from Jira Cloud, and limited app state can be stored in Forge <code>storage:app</code>.</p>
+        <p>There is no external backend or external network egress for this app, so data remains within Atlassian tenancy boundaries.</p>
+      </div>
+
+      <div class="card">
+        <h2>How does permissions and access control work?</h2>
+        <ul>
+          <li>Uses Forge scopes <code>read:jira-work</code> and <code>storage:app</code>.</li>
+          <li>Who can view, generate, or export depends on Jira site/project access and admin installation choices.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What export options are available?</h2>
+        <p>Current export support is CSV from the generated register view, with a copy-to-clipboard fallback when direct download is unavailable. If you need additional export formats, contact support with your use case.</p>
+      </div>
+
+      <div class="card">
+        <h2>What does it detect and how does it handle limits?</h2>
+        <ul>
+          <li>Detects estimate, priority, scope/sprint, reopen, assignee, due date, and fix version changes.</li>
+          <li>Retries Jira API calls on rate limits and server errors.</li>
+          <li>Shows warnings when results are partial or limited.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Free vs paid</h2>
+        <p>Pricing packaging is planned. Free and paid tiers may be offered, and final limits will be published on the Marketplace listing.</p>
+      </div>
+
+      <div class="card">
+        <h2>Security and compliance posture</h2>
+        <div class="panel">
+          <p><strong>Architecture:</strong> Forge-only on Atlassian infrastructure.</p>
+          <p><strong>External processing:</strong> None.</p>
+          <p><strong>Credentials:</strong> The app uses Forge scopes and does not require you to enter Jira credentials.</p>
+          <p><strong>Compliance:</strong> We provide product-specific privacy and security documentation; customers should complete their own compliance review for internal requirements.</p>
+        </div>
+      </div>
+
+      <div class="card full">
+        <h2>Support</h2>
+        <p>Email <a href="mailto:support@synapseworks.org">support@synapseworks.org</a>. Typical response time is 1-2 business days.</p>
+        <p>Include your Jira site URL, affected project key, action performed, and expected vs actual behavior.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>

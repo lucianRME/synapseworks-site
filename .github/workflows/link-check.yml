@@ -1,0 +1,79 @@
+name: Link Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  local-link-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Start static server
+        run: |
+          python3 -m http.server 8000 --bind 127.0.0.1 >/tmp/http-server.log 2>&1 &
+          echo $! >/tmp/http-server.pid
+          for i in $(seq 1 20); do
+            if curl -fsS http://127.0.0.1:8000/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+      - name: Check internal links
+        run: python3 tools/check_links.py --base-url http://127.0.0.1:8000
+
+      - name: Stop static server
+        if: always()
+        run: |
+          if [ -f /tmp/http-server.pid ]; then
+            kill "$(cat /tmp/http-server.pid)" || true
+          fi
+
+  live-smoke-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate published URLs
+        shell: bash
+        run: |
+          if [ ! -f CNAME ]; then
+            echo "CNAME not found. Skipping live smoke check."
+            exit 0
+          fi
+
+          DOMAIN="$(tr -d '[:space:]' < CNAME)"
+          if [ -z "$DOMAIN" ]; then
+            echo "CNAME is empty. Skipping live smoke check."
+            exit 0
+          fi
+
+          BASE_URL="https://${DOMAIN}"
+          PATHS=(
+            "/support/"
+            "/privacy/"
+            "/security/"
+            "/docs/"
+            "/docs/decision-register/"
+          )
+
+          for path in "${PATHS[@]}"; do
+            url="${BASE_URL}${path}"
+            code="$(curl -sS -o /dev/null -w '%{http_code}' --retry 3 --retry-delay 2 --retry-all-errors "${url}")"
+            echo "${url} -> ${code}"
+            if [ "${code}" != "200" ] && [ "${code}" != "301" ]; then
+              echo "Unexpected status for ${url}: ${code}"
+              exit 1
+            fi
+          done

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Synapse FAQ | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/faq/synapse/">
+  <meta name="description" content="Synapse FAQ: capabilities, deployment model, data handling, Jira permissions, sync behavior, limits, support, and roadmap guidance.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Synapse FAQ | SynapseWorks">
+  <meta property="og:description" content="Frequently asked questions about Synapse architecture, data handling, Jira sync behavior, and operational limits.">
+  <meta property="og:url" content="https://synapseworks.org/faq/synapse/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Synapse FAQ | SynapseWorks">
+  <meta name="twitter:description" content="FAQ for Synapse covering processing model, permissions, data handling, limits, and support.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --border: #e2e8f0;
+      --panel: #f5f7fb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; }
+    .wrap {
+      max-width: 1100px;
+      width: 100%;
+      margin: 10px auto 0;
+      padding: 0 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .full {
+      grid-column: 1 / -1;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      background: #dbeafe;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ul { margin: 6px 0 14px 22px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .cta.secondary { background: #0f172a; }
+    footer {
+      max-width: 1100px;
+      width: 100%;
+      margin: 40px auto 28px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer nav a,
+    footer nav a:visited,
+    footer nav a:hover,
+    footer nav a:active {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
+    @media (max-width: 640px) {
+      footer { padding: 20px 18px; }
+      .wrap { padding: 0 18px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <div class="card full">
+        <div class="pill">FAQ</div>
+        <h1>Synapse FAQ</h1>
+        <p>Common questions about capabilities, deployment model, data handling, Jira sync behavior, and support.</p>
+        <div class="cta-row">
+          <a class="cta" href="https://marketplace.atlassian.com/apps/1541498296" target="_blank" rel="noopener noreferrer">Install from Atlassian Marketplace</a>
+          <a class="cta secondary" href="/apps/synapse/">Product page</a>
+          <a class="cta secondary" href="/support">Contact support</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>What does Synapse do?</h2>
+        <p>Inside Jira (Forge Issue Panel), Synapse generates requirements previews and test-ready artifacts from Jira issue context.</p>
+        <p>Transcript processing is available only in Synapse SaaS deployments (if enabled), with review workflows before Jira sync.</p>
+      </div>
+
+      <div class="card">
+        <h2>What runs where?</h2>
+        <ul>
+          <li><strong>Forge:</strong> Jira app surface, scoped auth, and app workflow orchestration.</li>
+          <li><strong>SynapseWorks backend:</strong> Scoped backend service via Forge Remote.</li>
+          <li><strong>Jira Cloud:</strong> Source and destination for issue-linked artifacts.</li>
+        </ul>
+        <p>The Jira app path uses Forge plus a scoped backend service via Forge Remote.</p>
+      </div>
+
+      <div class="card">
+        <h2>How is data handled?</h2>
+        <p>In Jira (Forge Issue Panel), Synapse generates from Jira issue context. Transcript processing is available only in Synapse SaaS deployments (if enabled).</p>
+        <p>Jira credentials and personal access tokens are not stored.</p>
+        <p>If you are evaluating a demo environment, confirm any session-only handling details with support before sharing sensitive content.</p>
+      </div>
+
+      <div class="card">
+        <h2>Jira permissions and sync behavior</h2>
+        <ul>
+          <li>Access uses Forge appUserToken with scopes <code>read:jira-work</code>, <code>write:jira-work</code>, and <code>read:app-user-token</code>.</li>
+          <li>Writes should be reviewed with your Jira permission model before production rollout.</li>
+          <li>Sync actions are designed to be repeatable; validate idempotent behavior in your staging project for your configuration.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Forge vs SaaS</h2>
+        <ul>
+          <li><strong>Inside Jira (Forge):</strong> issue-context generation, refine editor, dry-run validation, and create subtasks where enabled.</li>
+          <li><strong>Outside Jira (SaaS, deployment-dependent):</strong> transcript ingestion, review workflow, and idempotent Jira sync.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What are the limits?</h2>
+        <p>LLM-assisted outputs can contain omissions or inaccuracies. Teams should treat outputs as drafts and apply human review before implementation or release decisions.</p>
+      </div>
+
+      <div class="card">
+        <h2>Roadmap disclaimer</h2>
+        <p>Capabilities may change as Atlassian platform features and customer requirements evolve. Roadmap details are directional and not a delivery commitment.</p>
+      </div>
+
+      <div class="card full">
+        <h2>Support</h2>
+        <p>Email <a href="mailto:support@synapseworks.org">support@synapseworks.org</a>. Include your Jira Cloud site URL, issue keys, expected vs actual behavior, and timestamps.</p>
+      </div>
+
+      <div class="card full">
+        <h2>Security posture</h2>
+        <div class="panel">
+          <p><strong>Credentials:</strong> No Jira credentials or personal access tokens are stored.</p>
+          <p><strong>Architecture:</strong> Forge app with a scoped backend service via Forge Remote.</p>
+          <p><strong>Flow:</strong> Jira → Forge → scoped backend service via Forge Remote → Forge/Jira.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>
