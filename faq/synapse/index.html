@@ -154,7 +154,7 @@
         <h1>Synapse FAQ</h1>
         <p>Common questions about capabilities, deployment model, data handling, Jira sync behavior, and support.</p>
         <div class="cta-row">
-          <a class="cta" href="https://marketplace.atlassian.com/apps/1541498296" target="_blank" rel="noopener noreferrer">Install from Atlassian Marketplace</a>
+          <a class="cta" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer">Install from Atlassian Marketplace</a>
           <a class="cta secondary" href="/apps/synapse/">Product page</a>
           <a class="cta secondary" href="/support">Contact support</a>
         </div>
@@ -163,24 +163,24 @@
       <div class="card">
         <h2>What does Synapse do?</h2>
         <p>Inside Jira (Forge Issue Panel), Synapse generates requirements previews and test-ready artifacts from Jira issue context.</p>
-        <p>Transcript processing is available only in Synapse SaaS deployments (if enabled), with review workflows before Jira sync.</p>
+        <p>Synapse Forge runs on Atlassian using a Forge-native runtime with no external backend dependency.</p>
       </div>
 
       <div class="card">
         <h2>What runs where?</h2>
         <ul>
-          <li><strong>Forge:</strong> Jira app surface, scoped auth, and app workflow orchestration.</li>
-          <li><strong>SynapseWorks backend:</strong> Scoped backend service via Forge Remote.</li>
+          <li><strong>Atlassian Forge runtime:</strong> Jira app surface, scoped auth, and app workflow orchestration.</li>
+          <li><strong>External services:</strong> None for Synapse Forge app runtime.</li>
           <li><strong>Jira Cloud:</strong> Source and destination for issue-linked artifacts.</li>
         </ul>
-        <p>The Jira app path uses Forge plus a scoped backend service via Forge Remote.</p>
+        <p>Synapse Forge runs entirely in Atlassian-managed context.</p>
       </div>
 
       <div class="card">
         <h2>How is data handled?</h2>
-        <p>In Jira (Forge Issue Panel), Synapse generates from Jira issue context. Transcript processing is available only in Synapse SaaS deployments (if enabled).</p>
-        <p>Jira credentials and personal access tokens are not stored.</p>
-        <p>If you are evaluating a demo environment, confirm any session-only handling details with support before sharing sensitive content.</p>
+        <p>In Jira (Forge Issue Panel), Synapse Forge generates outputs from Jira issue context.</p>
+        <p>No external backend, no external storage, and no external network egress are used for the Forge runtime.</p>
+        <p>Jira credentials, personal access tokens, and shared secrets are not stored.</p>
       </div>
 
       <div class="card">
@@ -193,10 +193,11 @@
       </div>
 
       <div class="card">
-        <h2>Forge vs SaaS</h2>
+        <h2>Runs on Atlassian</h2>
         <ul>
-          <li><strong>Inside Jira (Forge):</strong> issue-context generation, refine editor, dry-run validation, and create subtasks where enabled.</li>
-          <li><strong>Outside Jira (SaaS, deployment-dependent):</strong> transcript ingestion, review workflow, and idempotent Jira sync.</li>
+          <li>Synapse Forge app runtime operates inside Atlassian Forge context.</li>
+          <li>No external backend services, external storage, or shared secrets are required.</li>
+          <li>Trust details: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">GitBook Trust &amp; Security</a>.</li>
         </ul>
       </div>
 
@@ -218,9 +219,10 @@
       <div class="card full">
         <h2>Security posture</h2>
         <div class="panel">
-          <p><strong>Credentials:</strong> No Jira credentials or personal access tokens are stored.</p>
-          <p><strong>Architecture:</strong> Forge app with a scoped backend service via Forge Remote.</p>
-          <p><strong>Flow:</strong> Jira → Forge → scoped backend service via Forge Remote → Forge/Jira.</p>
+          <p><strong>Credentials:</strong> No Jira credentials, personal access tokens, or shared secrets are stored.</p>
+          <p><strong>Architecture:</strong> Forge-native runtime on Atlassian.</p>
+          <p><strong>External services:</strong> No external backend, no external storage, and no external network egress.</p>
+          <p><strong>Flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
         </div>
       </div>
     </section>

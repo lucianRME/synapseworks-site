@@ -6,16 +6,16 @@
   <link rel="stylesheet" href="/styles.css">
   <title>Synapse | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/apps/synapse">
-  <meta name="description" content="Synapse is a Jira Forge app for BDD and delivery automation. Jira issue context is processed through a scoped backend service via Forge Remote, with results returned to Jira.">
+  <meta name="description" content="Synapse Forge is a Jira app that runs on Atlassian using a fully Forge-native runtime with no external backend or external storage.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Synapse | SynapseWorks">
-  <meta property="og:description" content="BDD and automation workflows inside Jira with Forge-first architecture and a scoped backend service via Forge Remote.">
+  <meta property="og:description" content="BDD and automation workflows inside Jira with a Forge-native runtime, no external backend, and no external storage.">
   <meta property="og:url" content="https://synapseworks.org/apps/synapse">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Synapse | SynapseWorks">
-  <meta name="twitter:description" content="Synapse helps Jira teams generate structured delivery outputs using Forge with a scoped backend service via Forge Remote.">
+  <meta name="twitter:description" content="Synapse Forge helps Jira teams generate delivery outputs on Atlassian with no external backend or external storage.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root {
@@ -166,14 +166,14 @@
       <div class="card">
         <div class="pill">Product</div>
         <h1>Synapse</h1>
-        <p>Synapse is a Jira Forge app that helps delivery teams generate structured outputs and automation-ready artifacts directly inside Jira.</p>
+        <p>Synapse is a Jira Forge app that helps delivery teams generate structured outputs and automation-ready artifacts directly inside Jira, running on Atlassian infrastructure.</p>
         <div class="cta-row">
           <a class="product-label" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer" aria-label="Install Synapse from Atlassian Marketplace">Install from Atlassian Marketplace</a>
-          <a class="cta secondary" href="/docs/">Documentation</a>
+          <a class="cta secondary" href="https://synapseworks.gitbook.io/synapseworks-docs/synapse/overview" target="_blank" rel="noopener noreferrer">Documentation</a>
           <a class="cta" href="/support/">Support</a>
         </div>
         <div class="links-row">
-          <a href="/faq/synapse/">FAQ</a> · <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a>
+          <a href="/faq/synapse/">FAQ</a> · <a href="/privacy">Privacy Policy</a> · <a href="/security">Security</a> · <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security</a>
         </div>
       </div>
 
@@ -187,16 +187,18 @@
 
         <h2>Data handling summary</h2>
         <div class="panel">
-          <p><strong>Architecture:</strong> Atlassian Forge app with a scoped backend service via Forge Remote.</p>
-          <p><strong>What is processed:</strong> In Jira (Forge Issue Panel), Synapse generates from Jira issue context. Transcript processing is available only in Synapse SaaS deployments (if enabled).</p>
-          <p><strong>Auth model:</strong> Forge appUserToken with scopes <code>read:jira-work</code>, <code>write:jira-work</code>, and <code>read:app-user-token</code>. No Jira credentials or personal access tokens are stored.</p>
-          <p><strong>Flow:</strong> Jira → Forge → scoped backend service via Forge Remote → Forge/Jira.</p>
+          <p><strong>Architecture:</strong> Fully Forge-native runtime on Atlassian.</p>
+          <p><strong>What is processed:</strong> Jira issue context required to generate structured outputs inside Jira.</p>
+          <p><strong>External services and storage:</strong> None. No external backend, no external storage, and no external network egress.</p>
+          <p><strong>Auth model:</strong> Forge appUserToken with scopes <code>read:jira-work</code>, <code>write:jira-work</code>, and <code>read:app-user-token</code>. No Jira credentials, personal access tokens, or shared secrets are stored.</p>
+          <p><strong>Flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
         </div>
 
-        <h2>Forge vs SaaS</h2>
+        <h2>Runs on Atlassian</h2>
         <ul>
-          <li><strong>Inside Jira (Forge):</strong> issue-context generation, refine editor, dry-run validation, and create subtasks where enabled.</li>
-          <li><strong>Outside Jira (SaaS, deployment-dependent):</strong> transcript ingestion, review workflow, and idempotent Jira sync.</li>
+          <li>Synapse Forge runs within Atlassian Forge context for Jira usage.</li>
+          <li>No external backend services, no external storage, and no shared secrets are required.</li>
+          <li>Trust details: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">GitBook Trust &amp; Security</a>.</li>
         </ul>
       </div>
     </section>

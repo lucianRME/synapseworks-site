@@ -6,16 +6,16 @@
   <link rel="stylesheet" href="/styles.css">
   <title>Privacy Policy | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/privacy">
-  <meta name="description" content="SynapseWorks privacy policy for Synapse and Decision Register for Jira, including product-specific data handling and edge-managed analytics with consent.">
+  <meta name="description" content="SynapseWorks privacy policy for Synapse Forge and Decision Register for Jira, including product-specific data handling for apps running on Atlassian.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Privacy Policy | SynapseWorks">
-  <meta property="og:description" content="Product-specific privacy details for Synapse and Decision Register for Jira, plus consent-based analytics managed at the edge.">
+  <meta property="og:description" content="Privacy details for Synapse Forge and Decision Register for Jira, including data handling for Runs on Atlassian architecture.">
   <meta property="og:url" content="https://synapseworks.org/privacy">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy | SynapseWorks">
-  <meta name="twitter:description" content="Privacy policy for Synapse and Decision Register for Jira, with consent-based analytics managed at the Cloudflare edge.">
+  <meta name="twitter:description" content="Privacy policy for Synapse Forge and Decision Register for Jira, including Forge-native data handling details.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
@@ -53,7 +53,7 @@
   </header>
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <div class="meta">Last updated: 2025-02-26</div>
+    <div class="meta">Last updated: 2026-02-23</div>
     <p>SynapseWorks provides multiple Jira delivery products, including Synapse and Decision Register for Jira. This policy explains how data is handled for each product.</p>
 
     <h2>Shared commitments</h2>
@@ -64,21 +64,22 @@
     </ul>
 
     <h2>Decision Register for Jira (Forge-only)</h2>
-    <p>Decision Register for Jira is Forge-only with no external backend or network egress; data stays within Atlassian.</p>
+    <p>Decision Register for Jira is Forge-only with no external backend, no external storage, and no external network egress.</p>
     <ul>
       <li><strong>Data read:</strong> Jira issue and decision context required to display and link decisions.</li>
       <li><strong>Data stored:</strong> Limited user preferences may be stored via Forge storage (storage:app).</li>
-      <li><strong>External processing:</strong> None. No external backend or network egress; data stays within Atlassian.</li>
+      <li><strong>External processing:</strong> None. No external backend, no external storage, and no external network egress.</li>
     </ul>
 
-    <h2>Synapse (Forge + Azure backend)</h2>
-    <p>Synapse is a Jira Forge app that sends Jira issue context to a scoped SynapseWorks Azure backend for processing, then returns results to Forge and Jira.</p>
+    <h2>Synapse Forge (Runs on Atlassian)</h2>
+    <p>Synapse Forge is a Jira app that runs on Atlassian using a fully Forge-native runtime. Jira issue context is processed within Forge context and returned to Jira.</p>
     <ul>
       <li><strong>Data processed:</strong> Jira issue context required to generate structured outputs.</li>
-      <li><strong>Not processed:</strong> No transcript text is processed.</li>
+      <li><strong>External processing:</strong> None. No external backend, no external storage, and no external network egress.</li>
       <li><strong>Auth model:</strong> Forge appUserToken and scoped permissions.</li>
+      <li><strong>Credentials:</strong> No Jira credentials, personal access tokens, or shared secrets are stored.</li>
     </ul>
-    <p><strong>Synapse data flow:</strong> Jira → Atlassian Forge (appUserToken) → SynapseWorks Azure backend (processing) → Forge/Jira.</p>
+    <p><strong>Synapse data flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
 
     <h2>Analytics and consent (edge-managed)</h2>
     <p>Analytics for synapseworks.org is managed at the Cloudflare edge (for example, via Zaraz with Google Analytics 4). Analytics is disabled by default and only enabled after you opt in. We do not embed tracking scripts directly in this site repository.</p>
@@ -90,7 +91,7 @@
     <p>For visitors in the EU/EEA and UK, analytics processing is based on your consent. You can withdraw consent at any time through your browser settings or by responding to the consent prompt when it appears.</p>
 
     <h2>Security</h2>
-    <p>Access to processing services is restricted by Forge scopes and service-side controls. Forge-issued tokens remain within Forge-managed context and are not persisted as credentials by SynapseWorks.</p>
+    <p>Access is restricted by Forge scopes and least-privilege controls. Forge-issued tokens remain within Forge-managed context and are not persisted as credentials by SynapseWorks.</p>
 
     <h2>Your choices</h2>
     <p>You can uninstall a product at any time to revoke access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>

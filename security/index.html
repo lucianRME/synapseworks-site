@@ -6,16 +6,16 @@
   <link rel="stylesheet" href="/styles.css">
   <title>Security | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/security">
-  <meta name="description" content="Security at SynapseWorks: Forge-first controls for Synapse and Decision Register for Jira, with product-specific data flows and enterprise posture.">
+  <meta name="description" content="Security at SynapseWorks: Synapse Forge and Decision Register for Jira run on Atlassian with Forge-native architecture and no external backend.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Security | SynapseWorks">
-  <meta property="og:description" content="Forge-first security posture for Synapse and Decision Register for Jira, with clear product-specific data handling.">
+  <meta property="og:description" content="Security posture for Synapse Forge and Decision Register for Jira, including Runs on Atlassian architecture and data handling.">
   <meta property="og:url" content="https://synapseworks.org/security">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Security | SynapseWorks">
-  <meta name="twitter:description" content="Security posture and product-specific data flows for Synapse and Decision Register for Jira.">
+  <meta name="twitter:description" content="Security posture for Synapse Forge and Decision Register for Jira running on Atlassian.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; }
@@ -53,6 +53,7 @@
   <div class="wrap">
     <h1>Security</h1>
     <p>SynapseWorks builds Jira delivery products with a Forge-first, security-first posture. Controls are designed for enterprise teams and auditable flows.</p>
+    <p>Trust &amp; Security details are published on GitBook: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">synapseworks-docs/common/trust-security</a>.</p>
 
     <h2>Security contact</h2>
     <p>Email: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a></p>
@@ -60,22 +61,24 @@
     <h2>Decision Register for Jira: Runs on Atlassian</h2>
     <ul>
       <li>Forge-only architecture running on Atlassian infrastructure.</li>
-      <li>No external backend services and no external network egress. Data stays within Atlassian.</li>
+      <li>No external backend services, no external storage, and no external network egress.</li>
+      <li>No shared secrets or personal access tokens are required.</li>
       <li>Read-only patterns with limited preference storage via Forge storage (storage:app).</li>
     </ul>
 
-    <h2>Synapse: Forge + Azure backend</h2>
-    <p>Synapse uses a scoped Azure backend to process Jira issue context and return results to Forge and Jira.</p>
+    <h2>Synapse Forge: Runs on Atlassian</h2>
+    <p>Synapse Forge uses a fully Forge-native runtime on Atlassian to process Jira issue context and return results to Jira.</p>
     <ul>
-      <li><strong>Data flow:</strong> Jira → Atlassian Forge → SynapseWorks Azure backend → Forge/Jira.</li>
-      <li><strong>Credentials:</strong> No Jira credentials are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
+      <li><strong>Data flow:</strong> Jira → Atlassian Forge runtime → Jira.</li>
+      <li><strong>External services:</strong> No external backend, no external storage, and no external network egress.</li>
+      <li><strong>Credentials:</strong> No Jira credentials, shared secrets, or personal access tokens are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
       <li><strong>Reliability:</strong> Availability is monitored and requests fail safely with clear errors when limits are reached.</li>
     </ul>
 
     <h2>Logging and access controls</h2>
     <ul>
       <li>Operational logs are limited to what is required for troubleshooting and security monitoring.</li>
-      <li>Transport is enforced over TLS; access to processing services is limited to required scopes.</li>
+      <li>Transport is enforced over TLS; access to application paths is limited to required scopes.</li>
       <li>Forge scopes and least-privilege permissions are used across products.</li>
     </ul>
 
