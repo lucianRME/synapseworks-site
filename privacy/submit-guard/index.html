@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Submit Guard Privacy Policy</title>
+  <link rel="canonical" href="https://synapseworks.org/privacy/submit-guard/">
+  <meta name="description" content="Privacy policy for Submit Guard — Confirm Before Submit, a Chrome extension that processes page content locally and stores only local configuration data.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Submit Guard Privacy Policy">
+  <meta property="og:description" content="Submit Guard does not collect, transmit, sell, or share personal data. All processing happens locally in your browser.">
+  <meta property="og:url" content="https://synapseworks.org/privacy/submit-guard/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Submit Guard Privacy Policy">
+  <meta name="twitter:description" content="Privacy details for the Submit Guard Chrome extension, including local-only processing and local settings storage.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #2563eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; padding: 0 0 72px; display: flex; flex-direction: column; align-items: center; }
+    .wrap { max-width: 820px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
+    h1 { font-size: 28px; margin-bottom: 12px; }
+    h2 { font-size: 20px; margin: 0 0 8px; }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ul { margin: 8px 0 16px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    .label { display: inline-block; background: #e0ecff; color: var(--accent); padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    .meta { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .section { margin-top: 18px; }
+    .callout { border: 1px solid var(--border); border-radius: 12px; background: #f5f7fb; padding: 16px; margin-top: 10px; }
+    .callout p:last-child { margin-bottom: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { max-width: 1100px; width: 100%; margin: 16px auto 0; padding: 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
+    footer a, footer a:visited, footer a:hover, footer a:active { color: var(--muted); text-decoration: none; }
+    footer a { margin: 0 10px; }
+    footer a:hover { color: var(--text); }
+    @media (max-width: 640px) {
+      footer { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/docs">Docs</a>
+      <a href="/store">Store</a>
+      <a href="/support">Support</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/security">Security</a>
+      <a href="/cookie-policy">Cookie Policy</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <div class="label">Chrome Extension Privacy</div>
+    <h1>Submit Guard — Privacy Policy</h1>
+    <div class="meta">Last updated: 2026-03-16</div>
+
+    <div class="callout">
+      <p><strong>Submit Guard does not collect, transmit, sell, or share personal data.</strong></p>
+      <p><strong>All processing happens locally in your browser.</strong></p>
+      <p><strong>Only configuration data is stored locally (no form contents are stored).</strong></p>
+    </div>
+
+    <section class="section">
+      <h2>Summary</h2>
+      <p>Submit Guard does not collect, sell, or share user data. The extension is designed to help you confirm risky form submissions before they are sent.</p>
+    </section>
+
+    <section class="section">
+      <h2>Data Processing</h2>
+      <p>The extension may inspect page content locally to detect risky phrases and to decide when to show the confirmation dialog. This inspection happens only in your browser.</p>
+      <p>Page content is not transmitted off-device and is not stored as user content.</p>
+    </section>
+
+    <section class="section">
+      <h2>What Is Stored</h2>
+      <p>Only configuration data is stored locally in <code>chrome.storage.local</code>. No form contents are stored.</p>
+      <ul>
+        <li>Per-site enablement settings.</li>
+        <li>Mode selections.</li>
+        <li>Your configured risky phrase list.</li>
+        <li>Local counters used by the extension.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Third Parties</h2>
+      <p>None. There are no third-party analytics, no remote code, and no ads.</p>
+    </section>
+
+    <section class="section">
+      <h2>Permissions Explanation</h2>
+      <ul>
+        <li><strong>storage:</strong> save settings locally.</li>
+        <li><strong>activeTab:</strong> identify the current site when you toggle Submit Guard for that site.</li>
+        <li><strong>scripting:</strong> inject the guard script only on sites that you enable.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>User Controls</h2>
+      <p>You can disable Submit Guard per site at any time. If you uninstall the extension, all locally stored settings are removed with it.</p>
+    </section>
+
+    <section class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
+    </section>
+  </div>
+  <footer>
+    <a href="/">Home</a>
+    <a href="/docs">Docs</a>
+    <a href="/store">Store</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/security">Security</a>
+    <a href="/cookie-policy">Cookie Policy</a>
+  </footer>
+</body>
+</html>
