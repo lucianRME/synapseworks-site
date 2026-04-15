@@ -29,7 +29,7 @@ jobs:
           done
 
       - name: Check internal links
-        run: python3 tools/check_links.py --base-url http://127.0.0.1:8000
+        run: python3 tools/check_links.py --base-url http://127.0.0.1:8000 --fail-on-trailing-slash
 
       - name: Stop static server
         if: always()
@@ -61,18 +61,27 @@ jobs:
 
           BASE_URL="https://${DOMAIN}"
           PATHS=(
+            "/"
+            "/store/"
             "/support/"
             "/privacy/"
+            "/privacy/submit-guard/"
             "/security/"
+            "/cookie-policy/"
+            "/terms/"
             "/docs/"
             "/docs/decision-register/"
+            "/apps/synapse/"
+            "/apps/decision-register/"
+            "/faq/synapse/"
+            "/faq/decision-register/"
           )
 
           for path in "${PATHS[@]}"; do
             url="${BASE_URL}${path}"
             code="$(curl -sS -o /dev/null -w '%{http_code}' --retry 3 --retry-delay 2 --retry-all-errors "${url}")"
             echo "${url} -> ${code}"
-            if [ "${code}" != "200" ] && [ "${code}" != "301" ]; then
+            if [ "${code}" != "200" ]; then
               echo "Unexpected status for ${url}: ${code}"
               exit 1
             fi

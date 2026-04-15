@@ -20,9 +20,13 @@ This repo includes a lightweight internal link crawler at `tools/check_links.py`
 
 - Starts from these seed routes:
   - `/`
+  - `/store/`
   - `/support/`
   - `/privacy/`
+  - `/privacy/submit-guard/`
   - `/security/`
+  - `/cookie-policy/`
+  - `/terms/`
   - `/docs/`
   - `/docs/decision-register/`
   - `/apps/decision-register/`
@@ -44,7 +48,7 @@ This repo includes a lightweight internal link crawler at `tools/check_links.py`
 
 `.github/workflows/link-check.yml` runs:
 
-- Local crawl check on every push and pull request.
-- Live smoke check for production URLs (`/support/`, `/privacy/`, `/security/`, `/docs/`, `/docs/decision-register/`) using `curl` retries.
+- Local crawl check on every push and pull request, with `--fail-on-trailing-slash` enabled to catch internal links that still point at redirecting folder routes.
+- Live smoke check for production URLs (`/`, `/store/`, `/support/`, `/privacy/`, `/privacy/submit-guard/`, `/security/`, `/cookie-policy/`, `/terms/`, `/docs/`, `/docs/decision-register/`, `/apps/synapse/`, `/apps/decision-register/`, `/faq/synapse/`, `/faq/decision-register/`) using `curl` retries.
   - Domain comes from `CNAME`.
   - If `CNAME` is missing or empty, live check is skipped.

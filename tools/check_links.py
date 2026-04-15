@@ -16,9 +16,13 @@ from urllib.parse import urljoin, urlsplit
 
 DEFAULT_SEEDS = [
     "/",
+    "/store/",
     "/support/",
     "/privacy/",
+    "/privacy/submit-guard/",
     "/security/",
+    "/cookie-policy/",
+    "/terms/",
     "/docs/",
     "/docs/decision-register/",
     "/apps/decision-register/",
