@@ -79,10 +79,11 @@ jobs:
 
           for path in "${PATHS[@]}"; do
             url="${BASE_URL}${path}"
-            code="$(curl -sS -o /dev/null -w '%{http_code}' --retry 3 --retry-delay 2 --retry-all-errors "${url}")"
-            echo "${url} -> ${code}"
+            code="$(curl -L -sS -o /dev/null -w '%{http_code}' --retry 3 --retry-delay 2 --retry-all-errors "${url}")"
+            final_url="$(curl -L -sS -o /dev/null -w '%{url_effective}' --retry 3 --retry-delay 2 --retry-all-errors "${url}")"
+            echo "${url} -> ${code} -> ${final_url}"
             if [ "${code}" != "200" ]; then
-              echo "Unexpected status for ${url}: ${code}"
+              echo "Unexpected final status for ${url}: ${code}"
               exit 1
             fi
           done
