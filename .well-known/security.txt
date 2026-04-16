@@ -1,0 +1,5 @@
+Contact: mailto:support@synapseworks.org
+Expires: 2027-04-16T00:00:00Z
+Preferred-Languages: en
+Canonical: https://synapseworks.org/.well-known/security.txt
+Policy: https://synapseworks.org/security/
