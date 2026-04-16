@@ -3,6 +3,7 @@ name: Link Checks
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   local-link-check:
@@ -39,6 +40,9 @@ jobs:
           fi
 
   live-smoke-check:
+    # Cloudflare Bot Fight Mode may return 403 to GitHub Actions runners, so
+    # live smoke checks are not reliable as a required CI gate.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
     steps:
