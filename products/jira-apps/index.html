@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Jira Apps | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/products/jira-apps/">
+  <meta name="description" content="SynapseWorks Jira apps: Synapse for Jira and Decision Register for Jira, built with Atlassian Forge architecture.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Jira Apps | SynapseWorks">
+  <meta property="og:description" content="Forge-native and Forge-only workflow tools for Jira teams.">
+  <meta property="og:url" content="https://synapseworks.org/products/jira-apps/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jira Apps | SynapseWorks">
+  <meta name="twitter:description" content="SynapseWorks Jira apps built on Atlassian Forge.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --accent: #2563eb; --border: #e2e8f0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; max-width: 1100px; width: 100%; margin: 20px auto 0; padding: 0 24px 28px; }
+    .pill { display: inline-flex; align-items: center; background: #dbeafe; color: var(--accent); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    h1 { font-size: clamp(30px, 4vw, 42px); line-height: 1.2; margin-bottom: 10px; }
+    h2 { font-size: 20px; margin-bottom: 8px; }
+    p { color: var(--muted); margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
+    ul { margin: 8px 0 16px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cta { display: inline-flex; align-items: center; background: var(--accent); color: #fff; padding: 10px 14px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+    .cta.secondary { background: #0f172a; }
+    footer { max-width: 1100px; width: 100%; margin: 40px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
+    footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
+    footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
+    @media (max-width: 640px) { main { padding: 0 18px 24px; } footer { padding: 20px 18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Docs</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="pill">Jira apps</div>
+    <h1>Forge-based workflow tools for Jira teams</h1>
+    <p>SynapseWorks Jira apps are documented separately from browser tools because their trust boundary is Atlassian Forge.</p>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Synapse for Jira</h2>
+        <p>BDD and automation workflows inside Jira using a Forge-native runtime.</p>
+        <ul>
+          <li>Runs on Atlassian Forge.</li>
+          <li>No external backend or external storage.</li>
+          <li>No Jira credentials, personal access tokens, or shared secrets stored.</li>
+        </ul>
+        <div class="cta-row">
+          <a class="cta" href="/apps/synapse/">Learn more</a>
+          <a class="cta secondary" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer">Atlassian Marketplace</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Decision Register for Jira</h2>
+        <p>Governance and audit trail tooling for decision changes in Jira.</p>
+        <ul>
+          <li>Forge-only architecture.</li>
+          <li>No external backend, no external storage, and no external network egress.</li>
+          <li>Limited user preferences may be stored using Forge storage.</li>
+        </ul>
+        <div class="cta-row">
+          <a class="cta" href="/apps/decision-register/">Learn more</a>
+          <a class="cta secondary" href="https://marketplace.atlassian.com/apps/2445040497/decision-register-for-jira" target="_blank" rel="noopener noreferrer">Atlassian Marketplace</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/support/">Support</a>
+      <a href="/store/">Store</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/security/">Security</a>
+      <a href="/cookie-policy/">Cookie Policy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+  </footer>
+</body>
+</html>

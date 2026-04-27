@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
   <link rel="canonical" href="https://synapseworks.org/">
-  <meta name="description" content="SynapseWorks builds Jira delivery tools that run on Atlassian: Synapse Forge and Decision Register for Jira.">
+  <meta name="description" content="SynapseWorks builds privacy-first workflow tools, including Jira apps and local-first browser tools.">
   <meta property="og:site_name" content="SynapseWorks">
-  <meta property="og:title" content="SynapseWorks — Jira Delivery Tools">
-  <meta property="og:description" content="Jira delivery tools that run on Atlassian with Forge-native architecture and clear trust documentation.">
+  <meta property="og:title" content="SynapseWorks — Privacy-First Workflow Tools">
+  <meta property="og:description" content="A product portfolio of privacy-first workflow tools for Jira delivery teams and browser-based submission control.">
   <meta property="og:url" content="https://synapseworks.org/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SynapseWorks — Jira Delivery Tools">
-  <meta name="twitter:description" content="Synapse Forge and Decision Register for Jira run on Atlassian with Forge-native architecture.">
+  <meta name="twitter:title" content="SynapseWorks — Privacy-First Workflow Tools">
+  <meta name="twitter:description" content="Privacy-first workflow tools for Jira teams and browser users.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <title>SynapseWorks | Jira Delivery Tools</title>
+  <title>SynapseWorks | Privacy-First Workflow Tools</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -239,8 +239,10 @@
       { "@type": "ContactPoint", "email": "security@synapseworks.org", "contactType": "security" }
     ],
     "hasPart": [
-      { "@type": "WebPage", "name": "Synapse", "url": "https://synapseworks.org/apps/synapse/" },
+      { "@type": "CollectionPage", "name": "Products", "url": "https://synapseworks.org/products/" },
+      { "@type": "WebPage", "name": "Synapse for Jira", "url": "https://synapseworks.org/apps/synapse/" },
       { "@type": "WebPage", "name": "Decision Register for Jira", "url": "https://synapseworks.org/apps/decision-register/" },
+      { "@type": "WebPage", "name": "Submit Guard", "url": "https://synapseworks.org/products/submit-guard/" },
       { "@type": "WebPage", "name": "SynapseWorks Docs", "url": "https://synapseworks.gitbook.io/synapseworks-docs/" }
     ]
   }
@@ -251,36 +253,33 @@
     <div class="brand">SynapseWorks</div>
     <nav>
       <a href="/">Home</a>
+      <a href="/products/">Products</a>
       <a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Docs</a>
-      <a href="/store/">Store</a>
-      <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security</a>
       <a href="/support/">Support</a>
-      <a href="/privacy/">Privacy Policy</a>
-      <a href="/security/">Security</a>
-      <a href="/cookie-policy/">Cookie Policy</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-card">
-        <div class="pill">Jira delivery tools</div>
-        <h1>SynapseWorks builds delivery tools for Jira teams.</h1>
-        <p class="subtitle">Forge-native Jira products that run on Atlassian, with no external backend, no external storage, and no shared secrets.</p>
+        <div class="pill">Privacy-first workflow tools</div>
+        <h1>SynapseWorks builds workflow tools that keep product data close to where work happens.</h1>
+        <p class="subtitle">A focused portfolio for Jira delivery teams and browser users, with product-specific privacy architecture and clear trust documentation.</p>
         <div class="hero-cta-row">
-          <a class="cta hero-cta" href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Read docs</a>
+          <a class="cta hero-cta" href="/products/">View products</a>
+          <a class="cta hero-cta secondary" href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Read docs</a>
         </div>
         <ul class="list">
-          <li>Forge-first product architecture designed for enterprise delivery teams.</li>
-          <li>Scoped access via Atlassian Forge appUserToken and permissions.</li>
-          <li>Product-specific data handling documented in one shared policy.</li>
+          <li>Jira apps use Atlassian Forge architecture with scoped permissions.</li>
+          <li>Browser tools are designed for local-only operation where applicable.</li>
+          <li>Product-specific data handling is documented before install.</li>
         </ul>
       </div>
       <div class="hero-card">
         <h2 class="products-title">Products</h2>
         <div class="products-grid">
           <div class="product-card">
-            <h3>Synapse</h3>
+            <h3>Synapse for Jira</h3>
             <p class="product-desc">BDD and automation workflows inside Jira that run on Atlassian using a Forge-native runtime.</p>
             <ul class="product-list">
               <li>Jira issue context only — no transcript text processed.</li>
@@ -317,17 +316,37 @@
               >Install from Atlassian Marketplace</a>
             </div>
           </div>
+          <div class="product-card">
+            <h3>Submit Guard Chrome extension</h3>
+            <p class="product-desc">A browser tool that adds a confirmation step before risky form submissions on sites you enable.</p>
+            <ul class="product-list">
+              <li>Local-only operation with no backend and no SynapseWorks account.</li>
+              <li>Settings stored locally in <code>chrome.storage.local</code>.</li>
+              <li>No form contents are stored or transmitted by the extension.</li>
+            </ul>
+            <div class="product-ctas">
+              <a class="product-cta" href="/products/submit-guard/">Learn more</a>
+              <a
+                class="product-label"
+                href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Install Submit Guard from Chrome Web Store"
+              >Install from Chrome Web Store</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="security">
       <div class="official-card">
-        <strong>Security-first delivery</strong>
-        <p style="margin-top: 8px;">All SynapseWorks products run on Atlassian with scoped Forge access, least-privilege permissions, and enterprise-aware controls.</p>
+        <strong>Security-first product design</strong>
+        <p style="margin-top: 8px;">SynapseWorks documents trust boundaries per product instead of applying one platform claim to the whole portfolio.</p>
         <ul class="official-list">
-          <li><strong>Synapse:</strong> Forge-native runtime with no external backend, no external storage, and no shared secrets or PATs.</li>
+          <li><strong>Synapse for Jira:</strong> Forge-native runtime with no external backend, no external storage, and no shared secrets or PATs.</li>
           <li><strong>Decision Register for Jira:</strong> Forge-only with no external backend, no external storage, and no external network egress.</li>
+          <li><strong>Submit Guard:</strong> Chrome extension with local-only processing, no backend, no account, and settings stored locally.</li>
         </ul>
         <p style="margin-top: 8px;"><a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security details on GitBook</a></p>
       </div>
@@ -338,13 +357,15 @@
     <span>© 2026 SynapseWorks</span>
     <nav>
       <a href="/">Home</a>
+      <a href="/products/">Products</a>
       <a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Docs</a>
-      <a href="/store/">Store</a>
       <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security</a>
       <a href="/support/">Support</a>
+      <a href="/store/">Store</a>
       <a href="/privacy/">Privacy Policy</a>
       <a href="/security/">Security</a>
       <a href="/cookie-policy/">Cookie Policy</a>
+      <a href="/terms/">Terms</a>
     </nav>
   </footer>
 </body>

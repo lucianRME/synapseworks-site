@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Submit Guard | SynapseWorks</title>
+  <link rel="canonical" href="https://synapseworks.org/products/submit-guard/">
+  <meta name="description" content="Submit Guard is a local-only Chrome extension that adds confirmation before form submissions on sites you enable. No backend, no account, local settings.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Submit Guard | SynapseWorks">
+  <meta property="og:description" content="Confirm before submitting forms. Local-only Chrome extension with no backend, no account, and locally stored settings.">
+  <meta property="og:url" content="https://synapseworks.org/products/submit-guard/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Submit Guard | SynapseWorks">
+  <meta name="twitter:description" content="A local-only Chrome extension for safer form submissions.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --accent: #2563eb; --border: #e2e8f0; --panel: #f5f7fb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; }
+    .hero { max-width: 1100px; width: 100%; margin: 20px auto 0; padding: 0 24px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08); }
+    .pill { display: inline-flex; align-items: center; background: #dbeafe; color: var(--accent); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    h1 { font-size: clamp(30px, 4vw, 40px); line-height: 1.2; margin-bottom: 10px; }
+    h2 { font-size: 20px; margin-bottom: 10px; }
+    p { color: var(--muted); margin-bottom: 12px; }
+    ul { margin: 6px 0 14px 18px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    .panel { border: 1px solid var(--border); background: var(--panel); border-radius: 12px; padding: 16px; margin-top: 10px; color: var(--muted); font-size: 14px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .cta { display: inline-flex; align-items: center; background: var(--accent); color: #fff; padding: 11px 16px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+    .cta.secondary { background: #0f172a; }
+    .links-row { margin-top: 6px; font-size: 14px; color: var(--muted); }
+    .links-row a { color: var(--accent); text-decoration: none; }
+    .links-row a:hover { text-decoration: underline; }
+    footer { max-width: 1100px; width: 100%; margin: 40px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
+    footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
+    footer nav a { margin-left: 14px; }
+    footer nav a:hover { color: var(--text); }
+    @media (max-width: 640px) { footer { padding: 20px 18px; } .hero { padding: 0 18px 24px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/products/browser-tools/">Browser Tools</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="card">
+        <div class="pill">Chrome extension</div>
+        <h1>Submit Guard</h1>
+        <p>Submit Guard adds a confirmation step before form submissions on sites you enable, reducing accidental sends in browser workflows.</p>
+        <div class="cta-row">
+          <a class="cta" href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg" target="_blank" rel="noopener noreferrer">Install from Chrome Web Store</a>
+          <a class="cta secondary" href="/privacy/submit-guard/">Privacy details</a>
+          <a class="cta secondary" href="/support/">Support</a>
+        </div>
+        <div class="links-row">
+          <a href="/products/browser-tools/">Browser tools</a> · <a href="/terms/">Terms</a> · <a href="/cookie-policy/">Cookie Policy</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Privacy model</h2>
+        <div class="panel">
+          <p><strong>Architecture:</strong> Local-only Chrome extension. It does not use a SynapseWorks backend.</p>
+          <p><strong>Accounts:</strong> No SynapseWorks account is required.</p>
+          <p><strong>Storage:</strong> Settings are stored locally in <code>chrome.storage.local</code>.</p>
+          <p><strong>Form content:</strong> Form contents are not stored or transmitted by the extension.</p>
+        </div>
+
+        <h2>What it does</h2>
+        <ul>
+          <li>Standard mode confirms native HTML form submissions.</li>
+          <li>Advanced mode can guard submit-like clicks in modern web apps when enabled.</li>
+          <li>Per-site controls let you choose where the guard runs.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/support/">Support</a>
+      <a href="/store/">Store</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/security/">Security</a>
+      <a href="/cookie-policy/">Cookie Policy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+  </footer>
+</body>
+</html>

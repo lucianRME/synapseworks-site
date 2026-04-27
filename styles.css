@@ -45,4 +45,19 @@ header nav a:focus {
   header {
     padding: 20px 18px;
   }
+
+  header {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 14px;
+  }
+
+  header nav a {
+    margin-left: 0;
+  }
 }
