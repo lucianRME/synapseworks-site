@@ -23,7 +23,9 @@
       --card: #ffffff;
       --text: #0f172a;
       --muted: #475569;
-      --accent: #2563eb;
+      --accent: #0f766e;
+      --accent-soft: #dff5f1;
+      --accent-ink: #ffffff;
       --border: #e2e8f0;
       --panel: #f5f7fb;
     }
@@ -57,7 +59,7 @@
     .pill {
       display: inline-flex;
       align-items: center;
-      background: #dbeafe;
+      background: var(--accent-soft);
       color: var(--accent);
       border-radius: 999px;
       padding: 6px 14px;
@@ -96,7 +98,7 @@
       display: inline-flex;
       align-items: center;
       background: var(--accent);
-      color: #fff;
+      color: var(--accent-ink);
       padding: 11px 16px;
       border-radius: 10px;
       text-decoration: none;

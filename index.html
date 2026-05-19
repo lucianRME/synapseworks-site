@@ -23,8 +23,9 @@
       --card: #ffffff;
       --text: #0f172a;
       --muted: #475569;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
+      --accent: #0f766e;
+      --accent-soft: #dff5f1;
+      --accent-ink: #ffffff;
       --border: #e2e8f0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -83,17 +84,17 @@
       align-items: center;
       gap: 10px;
       background: var(--accent);
-      color: #fff;
+      color: var(--accent-ink);
       padding: 12px 18px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 700;
-      box-shadow: 0 12px 20px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 12px 20px rgba(15, 118, 110, 0.25);
       transition: transform 0.1s ease, box-shadow 0.2s ease;
     }
     .cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 15px 26px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 15px 26px rgba(15, 118, 110, 0.3);
     }
     .hero-cta-row {
       display: flex;
@@ -158,7 +159,7 @@
       display: inline-flex;
       align-items: center;
       background: var(--accent);
-      color: #fff;
+      color: var(--accent-ink);
       padding: 9px 12px;
       border-radius: 10px;
       text-decoration: none;
@@ -276,30 +277,35 @@
         </ul>
       </div>
       <div class="hero-card">
-        <h2 class="products-title">Products</h2>
+        <h2 class="products-title">Privacy-first browser tools</h2>
+        <p class="product-desc">Small, practical browser tools for safer everyday workflows.</p>
         <div class="products-grid">
           <div class="product-card">
-            <h3>Synapse for Jira</h3>
-            <p class="product-desc">BDD and automation workflows inside Jira that run on Atlassian using a Forge-native runtime.</p>
+            <h3>Submit Guard</h3>
+            <p class="product-desc">A lightweight Chrome extension that helps prevent accidental form submissions and irreversible workflow actions.</p>
             <ul class="product-list">
-              <li>Jira issue context only — no transcript text processed.</li>
-              <li>No external backend, no external storage, and no external network egress.</li>
-              <li>No Jira credentials, personal access tokens, or shared secrets stored.</li>
+              <li>Local-only operation with no backend and no SynapseWorks account.</li>
+              <li>Settings stored locally in <code>chrome.storage.local</code>.</li>
+              <li>No form contents are stored or transmitted by the extension.</li>
             </ul>
             <div class="product-ctas">
-              <a class="product-cta" href="/apps/synapse/">Learn more</a>
+              <a class="product-cta" href="/products/submit-guard/">View Chrome extension</a>
               <a
                 class="product-label"
-                href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge"
+                href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Install Synapse from Atlassian Marketplace"
-              >Install from Atlassian Marketplace</a>
+                aria-label="Install Submit Guard from Chrome Web Store"
+              >Install from Chrome Web Store</a>
             </div>
           </div>
+        </div>
+        <h2 class="products-title" style="margin-top: 22px;">Jira &amp; Delivery Governance Labs</h2>
+        <p class="product-desc">Early-stage tools exploring decision tracking, backlog refinement, and delivery visibility in Jira.</p>
+        <div class="products-grid">
           <div class="product-card">
             <h3>Decision Register for Jira</h3>
-            <p class="product-desc">Governance and audit trail tooling that runs entirely on Atlassian using Forge-only architecture.</p>
+            <p class="product-desc">An early-stage Jira app experiment for surfacing decisions from issue history and supporting lightweight governance.</p>
             <ul class="product-list">
               <li>Forge-only: runs on Atlassian with no external backend or external storage.</li>
               <li>Read-only patterns with limited preference storage.</li>
@@ -317,22 +323,22 @@
             </div>
           </div>
           <div class="product-card">
-            <h3>Submit Guard Chrome extension</h3>
-            <p class="product-desc">A browser tool that adds a confirmation step before risky form submissions on sites you enable.</p>
+            <h3>Synapse for Jira</h3>
+            <p class="product-desc">An early-stage AI-assisted Jira workflow tool exploring backlog refinement and requirement structuring.</p>
             <ul class="product-list">
-              <li>Local-only operation with no backend and no SynapseWorks account.</li>
-              <li>Settings stored locally in <code>chrome.storage.local</code>.</li>
-              <li>No form contents are stored or transmitted by the extension.</li>
+              <li>Jira issue context only — no transcript text processed.</li>
+              <li>No external backend, no external storage, and no external network egress.</li>
+              <li>No Jira credentials, personal access tokens, or shared secrets stored.</li>
             </ul>
             <div class="product-ctas">
-              <a class="product-cta" href="/products/submit-guard/">Learn more</a>
+              <a class="product-cta" href="/apps/synapse/">Learn more</a>
               <a
                 class="product-label"
-                href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg"
+                href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Install Submit Guard from Chrome Web Store"
-              >Install from Chrome Web Store</a>
+                aria-label="Install Synapse from Atlassian Marketplace"
+              >Install from Atlassian Marketplace</a>
             </div>
           </div>
         </div>
