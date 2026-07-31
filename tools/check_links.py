@@ -20,6 +20,8 @@ DEFAULT_SEEDS = [
     "/support/",
     "/privacy/",
     "/privacy/submit-guard/",
+    "/pageharbor/",
+    "/pageharbor/privacy/",
     "/security/",
     "/cookie-policy/",
     "/terms/",

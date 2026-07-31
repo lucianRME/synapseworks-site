@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>PageHarbor | Privacy-First Android Document Scanner</title>
+  <link rel="canonical" href="https://synapseworks.org/pageharbor/">
+  <meta name="description" content="PageHarbor is an open-source, privacy-first Android document scanner with local OCR, searchable PDF generation, and user-controlled export.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="PageHarbor | Privacy-First Android Document Scanner">
+  <meta property="og:description" content="Scan documents without giving them away. PageHarbor processes documents locally and keeps export in your hands.">
+  <meta property="og:url" content="https://synapseworks.org/pageharbor/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://synapseworks.org/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PageHarbor | Privacy-First Android Document Scanner">
+  <meta name="twitter:description" content="Open-source Android document scanning with local OCR, searchable PDFs, and user-controlled export.">
+  <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <style>
+    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #fff; --panel: #f5f7fb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, .skip-link:focus-visible { outline: 3px solid #173e85; outline-offset: 3px; border-radius: 4px; }
+    .skip-link { position: absolute; left: 18px; top: 8px; transform: translateY(-150%); background: var(--text); color: #fff; padding: 8px 12px; z-index: 2; }
+    .skip-link:focus-visible { transform: translateY(0); }
+    .page-wrap { max-width: 1100px; width: 100%; margin: 22px auto 0; padding: 0 24px 30px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); gap: 18px; align-items: stretch; }
+    .hero-card, .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 26px; box-shadow: 0 12px 30px rgba(15, 23, 42, .08); }
+    .hero-card h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.12; margin-bottom: 14px; }
+    .eyebrow { display: inline-flex; background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 6px 13px; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+    .lede { color: var(--muted); font-size: 18px; max-width: 650px; margin-bottom: 20px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--accent-ink); padding: 10px 14px; border-radius: 10px; font-weight: 700; }
+    .cta:hover { color: var(--accent-ink); text-decoration: none; }
+    .cta.secondary { background: var(--text); }
+    .status { color: var(--muted); font-size: 14px; }
+    .hero-note { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; color: var(--muted); }
+    .hero-note h2 { color: var(--text); font-size: 20px; margin-bottom: 8px; }
+    .section { margin-top: 26px; }
+    .section h2 { font-size: 25px; line-height: 1.25; margin-bottom: 8px; }
+    .section-intro { color: var(--muted); max-width: 720px; margin-bottom: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card h3 { font-size: 18px; margin-bottom: 6px; }
+    .card p, .card li { color: var(--muted); }
+    .card ul { margin: 8px 0 0 18px; }
+    .card li { margin-bottom: 6px; }
+    .privacy-grid .card { background: var(--panel); }
+    .note { border: 1px solid var(--border); border-left: 4px solid var(--accent); background: var(--panel); border-radius: 10px; padding: 14px 16px; color: var(--muted); }
+    .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .split .card { box-shadow: none; }
+    .link-list { list-style: none; margin: 0; }
+    .link-list li { margin-bottom: 8px; }
+    footer { max-width: 1100px; width: 100%; margin: 12px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
+    footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 14px; }
+    footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
+    footer nav a:hover { color: var(--text); }
+    @media (max-width: 760px) { .hero, .split { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } footer { padding: 20px 18px; align-items: flex-start; gap: 10px; } footer nav { justify-content: flex-start; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header>
+    <div class="brand">SynapseWorks</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/docs/">Docs</a>
+      <a href="/support/">Support</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="page-wrap">
+    <section class="hero" aria-labelledby="pageharbor-heading">
+      <div class="hero-card">
+        <div class="eyebrow">Android · Open source · Preparing for internal testing</div>
+        <h1 id="pageharbor-heading">Scan documents without giving them away.</h1>
+        <p class="lede">PageHarbor is a privacy-first Android document scanner from SynapseWorks. Scan, recognize text, create PDFs, and choose where your files go.</p>
+        <div class="cta-row">
+          <a class="cta" href="https://github.com/lucianRME/pageharbor-android" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+          <a class="cta secondary" href="/pageharbor/privacy/">Read the privacy policy</a>
+        </div>
+        <p class="status">PageHarbor is being prepared for controlled Google Play testing. It is not yet publicly available on Google Play.</p>
+      </div>
+      <aside class="hero-note" aria-label="Product promise">
+        <h2>Local-first by design</h2>
+        <p>PageHarbor does not operate a document backend, cloud storage service, account system, advertising service, or its own analytics or tracking service.</p>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="capabilities-heading">
+      <h2 id="capabilities-heading">What PageHarbor can do</h2>
+      <p class="section-intro">A focused document workflow built around Android’s system interfaces and local processing.</p>
+      <div class="grid">
+        <article class="card"><h3>Scan and review</h3><ul><li>Scan one or more pages through the Android scanner workflow.</li><li>Review and reorder pages when supported by the scanner result.</li><li>Import pages from the gallery where the current app flow supports it.</li></ul></article>
+        <article class="card"><h3>Export your way</h3><ul><li>Save normal PDFs through the Android Storage Access Framework.</li><li>Export individual pages as JPEG files.</li><li>Share PDFs through the Android Sharesheet.</li></ul></article>
+        <article class="card"><h3>Recognize and search</h3><ul><li>Run OCR locally and review recognized text in the active session.</li><li>Copy recognized text only after choosing Copy Text.</li><li>Create searchable PDFs locally with an invisible OCR text layer.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Privacy principles</h2>
+      <div class="grid privacy-grid">
+        <article class="card"><h3>No account or ads</h3><p>PageHarbor does not require an account or login, and it has no advertising.</p></article>
+        <article class="card"><h3>No PageHarbor tracking</h3><p>There is no PageHarbor analytics, tracking service, proprietary cloud storage, or document backend.</p></article>
+        <article class="card"><h3>Local processing</h3><p>OCR and searchable-PDF generation happen on the device. PageHarbor does not maintain a document library.</p></article>
+        <article class="card"><h3>You choose the destination</h3><p>Exports and shares happen after your action through Android’s file picker or Sharesheet.</p></article>
+      </div>
+      <p class="note" style="margin-top: 14px;">Google ML Kit is a separate SDK. Its documented technical diagnostics may be encrypted and sent to Google; this is not PageHarbor analytics and does not include document content.</p>
+    </section>
+
+    <section class="section" aria-labelledby="files-heading">
+      <h2 id="files-heading">How files are handled</h2>
+      <div class="split">
+        <article class="card"><h3>While you work</h3><p>Scan pages, OCR text, and prepared searchable PDFs are handled locally. Temporary app-private files may be created for processing, saving, sharing, retry, or cleanup.</p></article>
+        <article class="card"><h3>When you export or share</h3><p>You select the destination or receiving app. Android and any external storage provider, viewer, or share target handle the resulting file under their own policies.</p></article>
+      </div>
+    </section>
+
+    <section class="section split" aria-label="Open source and contacts">
+      <article class="card">
+        <h2>Open source</h2>
+        <p>PageHarbor is published by SynapseWorks under the Apache License 2.0.</p>
+        <p style="margin-top: 10px;"><a href="https://github.com/lucianRME/pageharbor-android" target="_blank" rel="noopener noreferrer">View the PageHarbor source on GitHub</a></p>
+      </article>
+      <article class="card">
+        <h2>Support and security</h2>
+        <ul class="link-list">
+          <li>Support: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a> · <a href="/support/">Support page</a></li>
+          <li>Security: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a> · <a href="/security/">Security page</a></li>
+          <li>Product privacy: <a href="/pageharbor/privacy/">PageHarbor Privacy Policy</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 SynapseWorks</span>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products/">Products</a>
+      <a href="/support/">Support</a>
+      <a href="/pageharbor/privacy/">PageHarbor Privacy</a>
+      <a href="/privacy/">Site Privacy</a>
+    </nav>
+  </footer>
+</body>
+</html>

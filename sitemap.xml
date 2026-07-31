@@ -67,6 +67,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://synapseworks.org/pageharbor/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://synapseworks.org/pageharbor/privacy/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://synapseworks.org/security/</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
