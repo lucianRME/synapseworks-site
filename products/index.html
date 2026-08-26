@@ -6,16 +6,16 @@
   <link rel="stylesheet" href="/styles.css">
   <title>Products | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/products/">
-  <meta name="description" content="SynapseWorks product portfolio: privacy-first workflow tools for Jira teams and browser users.">
+  <meta name="description" content="SynapseWorks product portfolio: Chrome extensions, Android apps, and Atlassian apps for focused workflows.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Products | SynapseWorks">
-  <meta property="og:description" content="Explore Synapse for Jira, Decision Register for Jira, and Submit Guard.">
+  <meta property="og:description" content="Explore Chrome extensions, Android apps, and Atlassian apps from SynapseWorks.">
   <meta property="og:url" content="https://synapseworks.org/products/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Products | SynapseWorks">
-  <meta name="twitter:description" content="Privacy-first workflow tools from SynapseWorks.">
+  <meta name="twitter:description" content="Chrome extensions, Android apps, and Atlassian apps from SynapseWorks.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; --border: #e2e8f0; --panel: #f5f7fb; }
@@ -38,6 +38,8 @@
     .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
     .cta { display: inline-flex; align-items: center; background: var(--accent); color: var(--accent-ink); padding: 10px 14px; border-radius: 10px; text-decoration: none; font-weight: 700; }
     .cta.secondary { background: #0f172a; }
+    .play-badge { display: block; flex: 0 0 auto; line-height: 0; }
+    .play-badge img { display: block; width: auto; height: 40px; }
     .panel { margin-top: 20px; border: 1px solid var(--border); background: var(--panel); border-radius: 12px; padding: 16px; }
     footer { max-width: 1100px; width: 100%; margin: 40px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
     footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
@@ -64,8 +66,8 @@
       <p>SynapseWorks builds focused tools for delivery work, governance, and safer browser workflows. Each product has its own platform boundary and privacy model.</p>
     </section>
 
-    <section class="section-block" aria-labelledby="browser-tools-heading">
-      <h2 id="browser-tools-heading">Privacy-first browser tools</h2>
+    <section class="section-block" aria-labelledby="chrome-extensions-heading">
+      <h2 id="chrome-extensions-heading">Chrome Extensions</h2>
       <p class="section-copy">Small, practical browser tools for safer everyday workflows.</p>
       <div class="primary-product">
         <article class="card">
@@ -79,14 +81,35 @@
           <div class="cta-row">
             <a class="cta" href="/products/submit-guard/">View Chrome extension</a>
             <a class="cta secondary" href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
-            <a class="cta secondary" href="/products/browser-tools/">Browser tools</a>
+            <a class="cta secondary" href="/products/browser-tools/">Chrome Extensions</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section-block" aria-labelledby="jira-labs-heading">
-      <h2 id="jira-labs-heading">Jira &amp; Delivery Governance Labs</h2>
+    <section class="section-block" aria-labelledby="android-apps-heading">
+      <h2 id="android-apps-heading">Android Apps</h2>
+      <p class="section-copy">Local-first utilities for focused document workflows.</p>
+      <div class="grid">
+        <article class="card">
+          <h2>PageHarbor</h2>
+          <p>An open-source Android document scanner with on-device OCR, searchable-PDF generation, and user-controlled export.</p>
+          <ul>
+            <li>No account, ads, PageHarbor backend, or PageHarbor analytics.</li>
+            <li>Normal PDFs and JPEG pages save through Android’s system picker.</li>
+            <li>PageHarbor is available on Google Play.</li>
+          </ul>
+          <div class="cta-row">
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer" aria-label="Get PageHarbor on Google Play (opens in a new tab)"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+            <a class="cta secondary" href="/pageharbor/">PageHarbor page</a>
+            <a class="cta secondary" href="/pageharbor/privacy/">Privacy policy</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="atlassian-apps-heading">
+      <h2 id="atlassian-apps-heading">Atlassian Apps</h2>
       <p class="section-copy">Early-stage tools exploring decision tracking, backlog refinement, and delivery visibility in Jira.</p>
       <div class="grid">
         <article class="card">
@@ -99,7 +122,7 @@
           </ul>
           <div class="cta-row">
             <a class="cta" href="/apps/decision-register/">Product page</a>
-            <a class="cta secondary" href="/products/jira-apps/">Jira apps</a>
+            <a class="cta secondary" href="/products/jira-apps/">Atlassian Apps</a>
           </div>
         </article>
 
@@ -113,27 +136,7 @@
           </ul>
           <div class="cta-row">
             <a class="cta" href="/apps/synapse/">Product page</a>
-            <a class="cta secondary" href="/products/jira-apps/">Jira apps</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-block" aria-labelledby="android-tools-heading">
-      <h2 id="android-tools-heading">Android tools</h2>
-      <p class="section-copy">Local-first utilities for focused document workflows.</p>
-      <div class="grid">
-        <article class="card">
-          <h2>PageHarbor</h2>
-          <p>An open-source Android document scanner with on-device OCR, searchable-PDF generation, and user-controlled export.</p>
-          <ul>
-            <li>No account, ads, PageHarbor backend, or PageHarbor analytics.</li>
-            <li>Normal PDFs and JPEG pages save through Android’s system picker.</li>
-            <li>Preparing for internal testing; not yet publicly available on Google Play.</li>
-          </ul>
-          <div class="cta-row">
-            <a class="cta" href="/pageharbor/">PageHarbor page</a>
-            <a class="cta secondary" href="/pageharbor/privacy/">Privacy policy</a>
+            <a class="cta secondary" href="/products/jira-apps/">Atlassian Apps</a>
           </div>
         </article>
       </div>

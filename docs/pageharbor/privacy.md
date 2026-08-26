@@ -30,6 +30,8 @@ Read the official [ML Kit data-disclosure guidance](https://developers.google.co
 
 The SynapseWorks website has separate [privacy](https://synapseworks.org/privacy/) and [cookie](https://synapseworks.org/cookie-policy/) policies. Those policies govern website visits; they do not turn PageHarbor into a tracking or analytics product.
 
+The PageHarbor website may also offer an optional iOS-interest signal. It stores an anonymous timestamped interest row and, only if you choose to provide it, an email address for a possible iOS beta notification. This website feature is separate from the Android app; see the [PageHarbor Privacy Policy](https://synapseworks.org/pageharbor/privacy/) for the full disclosure.
+
 ## Questions
 
 - Support: [support@synapseworks.org](mailto:support@synapseworks.org)

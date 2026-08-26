@@ -17,6 +17,7 @@
   <meta name="twitter:title" content="PageHarbor | Privacy-First Android Document Scanner">
   <meta name="twitter:description" content="Open-source Android document scanning with local OCR, searchable PDFs, and user-controlled export.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #fff; --panel: #f5f7fb; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,10 +34,26 @@
     .hero-card h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.12; margin-bottom: 14px; }
     .eyebrow { display: inline-flex; background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 6px 13px; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
     .lede { color: var(--muted); font-size: 18px; max-width: 650px; margin-bottom: 20px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
     .cta { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: var(--accent-ink); padding: 10px 14px; border-radius: 10px; font-weight: 700; }
     .cta:hover { color: var(--accent-ink); text-decoration: none; }
     .cta.secondary { background: var(--text); }
+    .play-badge { display: block; flex: 0 0 auto; line-height: 0; }
+    .play-badge img { display: block; width: auto; height: 48px; }
+    .supporting-link { display: inline-block; font-size: 14px; }
+    .ios-interest .card { box-shadow: none; }
+    .ios-interest h2 { font-size: 25px; line-height: 1.25; margin-bottom: 8px; }
+    .interest-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    button.cta { border: 0; cursor: pointer; font: inherit; }
+    button.cta:disabled { cursor: not-allowed; opacity: .65; }
+    .interest-status { margin: 12px 0 0; color: var(--muted); }
+    .interest-status.error { color: #b42318; }
+    .turnstile-container { min-height: 1px; margin: 12px 0 0; max-width: 100%; }
+    .email-follow-up { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .email-field { display: grid; gap: 6px; max-width: 390px; margin: 12px 0; }
+    .email-field input { width: 100%; min-height: 42px; border: 1px solid var(--border); border-radius: 8px; padding: 9px 11px; font: inherit; color: var(--text); }
+    .privacy-copy { font-size: 14px; }
+    [hidden] { display: none !important; }
     .status { color: var(--muted); font-size: 14px; }
     .hero-note { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; color: var(--muted); }
     .hero-note h2 { color: var(--text); font-size: 20px; margin-bottom: 8px; }
@@ -77,19 +94,44 @@
   <main id="main-content" class="page-wrap">
     <section class="hero" aria-labelledby="pageharbor-heading">
       <div class="hero-card">
-        <div class="eyebrow">Android · Open source · Preparing for internal testing</div>
+        <div class="eyebrow">Android · Open source · Available on Google Play</div>
         <h1 id="pageharbor-heading">Scan documents without giving them away.</h1>
         <p class="lede">PageHarbor is a privacy-first Android document scanner from SynapseWorks. Scan, recognize text, create PDFs, and choose where your files go.</p>
         <div class="cta-row">
-          <a class="cta" href="https://github.com/lucianRME/pageharbor-android" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
-          <a class="cta secondary" href="/pageharbor/privacy/">Read the privacy policy</a>
+          <a class="play-badge" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer" aria-label="Get PageHarbor on Google Play (opens in a new tab)"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+          <a class="cta secondary" href="https://github.com/lucianRME/pageharbor-android" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
         </div>
-        <p class="status">PageHarbor is being prepared for controlled Google Play testing. It is not yet publicly available on Google Play.</p>
+        <p class="status">PageHarbor is available on Google Play. <a class="supporting-link" href="/pageharbor/privacy/">Read the privacy policy</a>.</p>
       </div>
       <aside class="hero-note" aria-label="Product promise">
         <h2>Local-first by design</h2>
         <p>PageHarbor does not operate a document backend, cloud storage service, account system, advertising service, or its own analytics or tracking service.</p>
       </aside>
+    </section>
+
+    <section class="section ios-interest" id="ios-interest" aria-labelledby="ios-interest-heading">
+      <article class="card">
+        <h2 id="ios-interest-heading">Interested in PageHarbor for iPhone?</h2>
+        <p>Register anonymous interest in a possible iOS version. This is not a commitment or release schedule.</p>
+        <div class="interest-actions">
+          <button class="cta" id="ios-interest-button" type="button" disabled>Count me in</button>
+        </div>
+        <div class="turnstile-container" id="ios-interest-turnstile" aria-label="Security verification for iOS interest registration"></div>
+        <p class="interest-status" id="ios-interest-status" role="status" aria-live="polite" hidden></p>
+        <p class="interest-status" id="ios-interest-count" role="status" aria-live="polite" hidden></p>
+        <div class="email-follow-up" id="ios-interest-email-follow-up" hidden>
+          <p>Want to be notified if an iOS beta becomes available?</p>
+          <form id="ios-interest-email-form" novalidate>
+            <label class="email-field" for="ios-interest-email">
+              <span>Email address</span>
+              <input id="ios-interest-email" name="email" type="email" inputmode="email" autocomplete="email" required>
+            </label>
+            <button class="cta secondary" type="submit">Notify me</button>
+          </form>
+          <p class="privacy-copy">Email is optional and will only be used to notify you about a possible PageHarbor iOS beta.</p>
+          <p class="interest-status" id="ios-interest-email-status" role="status" aria-live="polite" hidden></p>
+        </div>
+      </article>
     </section>
 
     <section class="section" aria-labelledby="capabilities-heading">
@@ -137,6 +179,214 @@
       </article>
     </section>
   </main>
+
+  <script>
+    (() => {
+      const markerKey = 'pageharbor-ios-interest-recorded';
+      const button = document.getElementById('ios-interest-button');
+      const status = document.getElementById('ios-interest-status');
+      const count = document.getElementById('ios-interest-count');
+      const emailFollowUp = document.getElementById('ios-interest-email-follow-up');
+      const emailForm = document.getElementById('ios-interest-email-form');
+      const emailInput = document.getElementById('ios-interest-email');
+      const emailStatus = document.getElementById('ios-interest-email-status');
+      const turnstileContainer = document.getElementById('ios-interest-turnstile');
+      const debugInterest = new URLSearchParams(window.location.search).has('ios-interest-debug');
+      let turnstileToken = '';
+      let turnstileWidgetId;
+      let interestRecorded = false;
+
+      const diagnostic = (event, details = {}) => {
+        if (debugInterest) console.info('PageHarbor iOS interest diagnostic', {
+          event,
+          origin: window.location.origin,
+          key: markerKey,
+          ...details
+        });
+      };
+
+      const setInterestButtonDisabled = (disabled, reason) => {
+        button.disabled = disabled;
+        diagnostic('button-state', { disabled, reason });
+      };
+
+      const showStatus = (element, message, isError = false) => {
+        element.textContent = message;
+        element.classList.toggle('error', isError);
+        element.hidden = false;
+      };
+
+      const recordedLocally = () => {
+        try {
+          const value = window.localStorage.getItem(markerKey);
+          diagnostic('storage-read', { value });
+          return value === 'true';
+        } catch (_) {
+          diagnostic('storage-read-failed');
+          return false;
+        }
+      };
+
+      const markRecordedLocally = () => {
+        try {
+          diagnostic('storage-before-write', { value: window.localStorage.getItem(markerKey) });
+          window.localStorage.setItem(markerKey, 'true');
+          const value = window.localStorage.getItem(markerKey);
+          diagnostic('storage-after-write', { value });
+          return value === 'true';
+        } catch (_) {
+          diagnostic('storage-write-failed');
+          return false;
+        }
+      };
+
+      const setRecordedState = (message) => {
+        setInterestButtonDisabled(true, 'recorded');
+        button.textContent = 'Interest recorded';
+        emailFollowUp.hidden = false;
+        if (message) showStatus(status, message);
+      };
+
+      const resetTurnstile = () => {
+        turnstileToken = '';
+        if (typeof turnstileWidgetId !== 'undefined' && window.turnstile) {
+          try {
+            window.turnstile.reset(turnstileWidgetId);
+          } catch (_) {
+            // A reset failure must not undo a successful interest registration.
+          }
+        }
+      };
+
+      const waitForTurnstile = async () => {
+        for (let attempt = 0; attempt < 50; attempt += 1) {
+          if (window.turnstile) return true;
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+        return false;
+      };
+
+      const loadTurnstile = async () => {
+        try {
+          const response = await fetch('/api/ios-interest-config', { credentials: 'same-origin' });
+          const config = response.ok ? await response.json() : {};
+          if (!config.sitekey || config.sitekey.startsWith('REPLACE_WITH_')) throw new Error('not configured');
+          if (!await waitForTurnstile()) throw new Error('unavailable');
+
+          turnstileWidgetId = window.turnstile.render(turnstileContainer, {
+            sitekey: config.sitekey,
+            theme: 'auto',
+            size: 'flexible',
+            appearance: 'interaction-only',
+            callback: (token) => {
+              turnstileToken = token;
+              if (!interestRecorded) setInterestButtonDisabled(false, 'turnstile-token');
+            },
+            'expired-callback': () => {
+              turnstileToken = '';
+              if (!interestRecorded) {
+                setInterestButtonDisabled(true, 'turnstile-expired');
+                showStatus(status, 'Security verification expired. Please wait for a new verification.', true);
+              }
+            },
+            'error-callback': () => {
+              turnstileToken = '';
+              if (!interestRecorded) {
+                setInterestButtonDisabled(true, 'turnstile-error');
+                showStatus(status, 'Security verification is unavailable. Please try again shortly.', true);
+              }
+            }
+          });
+        } catch (_) {
+          showStatus(status, 'Interest registration is temporarily unavailable.', true);
+        }
+      };
+
+      const loadPublicCount = async () => {
+        try {
+          const response = await fetch('/api/ios-interest', { credentials: 'same-origin' });
+          if (!response.ok) return;
+          const data = await response.json();
+          if (data.thresholdReached && typeof data.displayCount === 'string') {
+            showStatus(count, `${data.displayCount} people are interested`);
+          }
+        } catch (_) {
+          // The interest action remains usable even if the optional public signal is unavailable.
+        }
+      };
+
+      button.addEventListener('click', async () => {
+        if (button.disabled || !turnstileToken) return;
+        setInterestButtonDisabled(true, 'recording');
+        button.textContent = 'Recording…';
+        try {
+          const response = await fetch('/api/ios-interest', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'X-Turnstile-Token': turnstileToken }
+          });
+          if (!response.ok) throw new Error('Interest registration failed');
+          const stored = markRecordedLocally();
+          interestRecorded = true;
+          setRecordedState(stored
+            ? 'Thanks — your interest has been recorded.'
+            : 'Thanks — your interest has been recorded. This browser may not retain that state after refresh.');
+          resetTurnstile();
+          loadPublicCount();
+        } catch (_) {
+          resetTurnstile();
+          setInterestButtonDisabled(!turnstileToken, 'recording-failed');
+          button.textContent = 'Count me in';
+          showStatus(status, 'Your interest could not be recorded. Please try again.', true);
+        }
+      });
+
+      emailForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = emailInput.value.trim();
+        if (!emailInput.validity.valid) {
+          showStatus(emailStatus, 'Enter a valid email address.', true);
+          emailInput.focus();
+          return;
+        }
+        const submitButton = emailForm.querySelector('button[type="submit"]');
+        if (!turnstileToken) {
+          showStatus(emailStatus, 'Complete the security verification before continuing.', true);
+          return;
+        }
+        submitButton.disabled = true;
+        submitButton.textContent = 'Saving…';
+        try {
+          const response = await fetch('/api/ios-interest-email', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json', 'X-Turnstile-Token': turnstileToken },
+            body: JSON.stringify({ email })
+          });
+          resetTurnstile();
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.error || 'Email registration failed');
+          emailInput.value = '';
+          emailInput.disabled = true;
+          submitButton.textContent = 'Notification requested';
+          showStatus(emailStatus, 'Thanks — we will only use this email if a possible iOS beta becomes available.');
+        } catch (error) {
+          resetTurnstile();
+          submitButton.disabled = false;
+          submitButton.textContent = 'Notify me';
+          showStatus(emailStatus, error.message || 'Your email could not be saved. Please try again.', true);
+        }
+      });
+
+      interestRecorded = recordedLocally();
+      diagnostic('initialization', { stored: interestRecorded });
+      if (interestRecorded) {
+        setRecordedState('Your interest has already been recorded in this browser.');
+      }
+      loadPublicCount();
+      loadTurnstile();
+    })();
+  </script>
 
   <footer>
     <span>© 2026 SynapseWorks</span>

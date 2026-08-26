@@ -1,0 +1,26 @@
+name = "synapseworks-site"
+main = "worker.js"
+compatibility_date = "2026-08-25"
+
+[vars]
+# Public widget identifier. Replace before a deployment after creating the Turnstile widget.
+TURNSTILE_SITE_KEY = "0x4AAAAAAEdIJgBgGjA_WrXV"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[ratelimits]]
+name = "IOS_INTEREST_RATE_LIMIT"
+namespace_id = "20260826"
+
+  [ratelimits.simple]
+  limit = 20
+  period = 60
+
+[[d1_databases]]
+binding = "IOS_INTEREST_DB"
+database_name = "pageharbor-ios-interest"
+database_id = "a2607ca3-c721-470d-a30d-1ceccab64dd2"
+migrations_dir = "migrations"

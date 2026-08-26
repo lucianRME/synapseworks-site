@@ -1,11 +1,11 @@
 # Getting started
 
-PageHarbor is currently being prepared for controlled Google Play internal testing. There is no public Google Play install link yet, and this page does not promise a release date.
+PageHarbor is available on Google Play: [Get PageHarbor on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor).
 
-## Before testing
+## Before scanning
 
 - Use an Android device running API level 26 or later.
-- Use non-sensitive sample documents for testing.
+- Use non-sensitive sample documents while getting familiar with the app.
 - A single scanner session supports up to 10 pages.
 - The scanner flow is provided through Google ML Kit Document Scanner.
 
@@ -29,4 +29,4 @@ PageHarbor can generate a searchable PDF locally from a scan and its recognized 
 
 ## Current availability
 
-Internal testing preparation is not public availability. Do not describe PageHarbor as downloadable from Google Play until SynapseWorks publishes an official release link.
+PageHarbor is publicly available on Google Play. Use the official Google Play link above when referring to the app’s availability.

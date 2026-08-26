@@ -1,0 +1,7 @@
+.git/
+.wrangler/
+functions/
+migrations/
+tests/
+worker.js
+wrangler.toml

@@ -2,7 +2,7 @@
 
 PageHarbor is an open-source, privacy-first Android document scanner published by SynapseWorks.
 
-> **Status:** PageHarbor `v0.8.0-dev` is preparing for Google Play internal testing. It is not yet publicly available on Google Play. Do not treat this documentation as a public download or install guide.
+> **Status:** PageHarbor is available on Google Play. [Get PageHarbor on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor).
 
 ## Start here
 
