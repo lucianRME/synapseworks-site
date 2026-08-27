@@ -6,16 +6,16 @@
   <link rel="stylesheet" href="/styles.css">
   <title>Security | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/security/">
-  <meta name="description" content="Security at SynapseWorks: Synapse Forge and Decision Register for Jira run on Atlassian with Forge-native architecture and no external backend.">
+  <meta name="description" content="Security information for SynapseWorks products across Android, Chrome, and Atlassian, with product-specific trust boundaries.">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Security | SynapseWorks">
-  <meta property="og:description" content="Security posture for Synapse Forge and Decision Register for Jira, including Runs on Atlassian architecture and data handling.">
+  <meta property="og:description" content="Product-specific security information for SynapseWorks Android, Chrome, and Atlassian products.">
   <meta property="og:url" content="https://synapseworks.org/security/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Security | SynapseWorks">
-  <meta name="twitter:description" content="Security posture for Synapse Forge and Decision Register for Jira running on Atlassian.">
+  <meta name="twitter:description" content="Product-specific security information for SynapseWorks products.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; }
@@ -50,11 +50,17 @@
   </header>
   <div class="wrap">
     <h1>Security</h1>
-    <p>SynapseWorks builds Jira delivery products with a Forge-first, security-first posture. Controls are designed for enterprise teams and auditable flows.</p>
-    <p>Trust &amp; Security details are published on GitBook: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">synapseworks-docs/common/trust-security</a>.</p>
+    <p>SynapseWorks publishes focused software across Android, Chrome, and Atlassian. Each product has its own architecture and trust boundary; the relevant product page is the source for product-specific details.</p>
+    <p>Trust &amp; Security details for the Atlassian apps are published on GitBook: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">synapseworks-docs/common/trust-security</a>.</p>
 
     <h2>Security contact</h2>
     <p>Email: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a></p>
+
+    <h2>PageHarbor for Android</h2>
+    <p>PageHarbor processes scans, OCR, and searchable-PDF generation on the device. It does not operate a document backend, cloud storage service, account system, advertising service, or its own analytics service. See the <a href="/pageharbor/privacy/">PageHarbor Privacy Policy</a> for the full product disclosure.</p>
+
+    <h2>Submit Guard for Chrome</h2>
+    <p>Submit Guard operates locally in Chrome. It has no SynapseWorks backend or account requirement; settings are stored locally, and form contents are not stored or transmitted by the extension. See <a href="/privacy/submit-guard/">Submit Guard privacy details</a>.</p>
 
     <h2>Decision Register for Jira: Runs on Atlassian</h2>
     <ul>
@@ -73,11 +79,11 @@
       <li><strong>Reliability:</strong> Availability is monitored and requests fail safely with clear errors when limits are reached.</li>
     </ul>
 
-    <h2>Logging and access controls</h2>
+    <h2>Atlassian app controls</h2>
     <ul>
       <li>Operational logs are limited to what is required for troubleshooting and security monitoring.</li>
       <li>Transport is enforced over TLS; access to application paths is limited to required scopes.</li>
-      <li>Forge scopes and least-privilege permissions are used across products.</li>
+      <li>Forge scopes and least-privilege permissions are used for the Atlassian apps.</li>
     </ul>
 
     <h2>Responsible disclosure</h2>
@@ -88,7 +94,6 @@
     <a href="/products/">Products</a>
     <a href="/docs/">Docs</a>
     <a href="/support/">Support</a>
-    <a href="/store/">Store</a>
     <a href="/privacy/">Privacy Policy</a>
     <a href="/security/">Security</a>
     <a href="/cookie-policy/">Cookie Policy</a>

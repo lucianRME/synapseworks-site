@@ -9,7 +9,7 @@ TURNSTILE_SITE_KEY = "0x4AAAAAAEdIJgBgGjA_WrXV"
 [assets]
 directory = "."
 binding = "ASSETS"
-run_worker_first = ["/api/*"]
+run_worker_first = ["/api/*", "/store", "/store/*"]
 
 [[ratelimits]]
 name = "IOS_INTEREST_RATE_LIMIT"

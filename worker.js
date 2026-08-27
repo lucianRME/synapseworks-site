@@ -11,6 +11,11 @@ const apiRoutes = {
 export default {
   fetch(request, env, ctx) {
     const pathname = new URL(request.url).pathname.replace(/\/$/, '') || '/';
+    if (pathname === '/store') {
+      const destination = new URL(request.url);
+      destination.pathname = '/products/';
+      return Response.redirect(destination, 301);
+    }
     const handler = apiRoutes[pathname];
     if (handler) return handler({ request, env, ctx });
     return env.ASSETS.fetch(request);
