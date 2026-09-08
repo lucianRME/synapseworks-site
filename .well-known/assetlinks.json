@@ -1,0 +1,17 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.synapseworks.pageharbor",
+      "sha256_cert_fingerprints": [
+        "6E:4E:DA:FD:D1:93:6D:52:45:DE:03:73:D2:EB:B8:92:B4:34:85:98:B1:27:76:DC:D0:A6:85:4E:F6:B0:2B:28",
+        "39:F3:2C:23:25:F9:41:F9:E5:5D:21:D7:E2:00:6F:FD:FF:C7:02:F7:5E:00:81:BC:13:8B:58:8E:8C:96:D7:1F",
+        "BC:BB:91:A8:90:77:99:4F:88:07:0D:3C:94:49:FB:C7:F7:57:08:32:AC:70:6B:BB:88:22:54:88:CB:F7:1C:7D"
+      ]
+    }
+  }
+]
