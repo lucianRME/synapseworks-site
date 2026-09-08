@@ -4,7 +4,7 @@ Public documentation source for the SynapseWorks GitBook project.
 
 ## Products
 
-- [PageHarbor](pageharbor/README.md) — an open-source, privacy-first Android document scanner.
+- [RME: PDF & Document Scanner](rme-pdf-scanner/README.md) — an open-source, privacy-first Android document scanner.
 
 ## Site resources
 

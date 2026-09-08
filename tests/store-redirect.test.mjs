@@ -8,15 +8,15 @@ const source = (await readFile('worker.js', 'utf8'))
 const context = {
   URL,
   Response,
-  iosInterest: () => { throw new Error('API handler should not run for /store/.'); },
-  iosInterestConfig: () => { throw new Error('API handler should not run for /store/.'); },
-  iosInterestEmail: () => { throw new Error('API handler should not run for /store/.'); }
+  iosInterest: () => { throw new Error('API handler should not run for redirects.'); },
+  iosInterestConfig: () => { throw new Error('API handler should not run for redirects.'); },
+  iosInterestEmail: () => { throw new Error('API handler should not run for redirects.'); }
 };
 vm.runInNewContext(source, context);
 
 const responseFor = (url) => context.worker.fetch(
   new Request(url),
-  { ASSETS: { fetch: () => { throw new Error('Asset fetch should not run for /store/.'); } } },
+  { ASSETS: { fetch: () => { throw new Error('Asset fetch should not run for redirects.'); } } },
   {}
 );
 
@@ -28,4 +28,16 @@ response = await responseFor('https://synapseworks.org/store/?ref=campaign');
 assert.equal(response.status, 301);
 assert.equal(response.headers.get('Location'), 'https://synapseworks.org/products/?ref=campaign');
 
-console.log('store redirect preserves the request query string');
+response = await responseFor('https://synapseworks.org/pageharbor/');
+assert.equal(response.status, 301);
+assert.equal(response.headers.get('Location'), 'https://synapseworks.org/rme-pdf-scanner/');
+
+response = await responseFor('https://synapseworks.org/pageharbor?ref=rebrand');
+assert.equal(response.status, 301);
+assert.equal(response.headers.get('Location'), 'https://synapseworks.org/rme-pdf-scanner/?ref=rebrand');
+
+response = await responseFor('https://synapseworks.org/pageharbor/privacy/?source=policy');
+assert.equal(response.status, 301);
+assert.equal(response.headers.get('Location'), 'https://synapseworks.org/rme-pdf-scanner/privacy/?source=policy');
+
+console.log('legacy redirects are permanent and preserve request query strings');

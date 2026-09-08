@@ -1,6 +1,6 @@
-# PageHarbor iOS interest signal: Cloudflare setup
+# RME PDF Scanner iOS interest signal: Cloudflare setup
 
-The site includes Cloudflare Worker routes for an anonymous PageHarbor iOS-interest signal and optional beta-notification email. The existing `synapseworks-site` Worker serves static assets directly and invokes `worker.js` only for `/api/*`. The interest routes are not active until the Worker has a D1 binding named `IOS_INTEREST_DB`.
+The site includes Cloudflare Worker routes for an anonymous RME PDF Scanner iOS-interest signal and optional beta-notification email. The existing `synapseworks-site` Worker serves static assets directly and invokes `worker.js` first for `/api/*` and the legacy product redirects. The interest routes are not active until the Worker has a D1 binding named `IOS_INTEREST_DB`.
 
 ## Routes
 
@@ -12,7 +12,7 @@ No endpoint returns the below-threshold count. No public admin endpoint exists.
 
 ## D1 database and migration
 
-1. The tracked `wrangler.toml` binds the production Worker to the existing `pageharbor-ios-interest` database as `IOS_INTEREST_DB`.
+1. The tracked `wrangler.toml` binds the production Worker to the existing `pageharbor-ios-interest` database as `IOS_INTEREST_DB`. The database retains its legacy technical name so the rebrand does not create a new data store.
 2. Apply the tracked schema only when ready: `npx wrangler d1 migrations apply pageharbor-ios-interest --remote`.
 
 The schema is [0001_ios_interest.sql](../migrations/0001_ios_interest.sql). It stores an anonymous timestamped interest row, or an optional normalized email and timestamp. It does not have columns for document data, IP addresses, user agents, or device fingerprints.
@@ -30,13 +30,13 @@ To action a verified deletion request for an email address, run an owner-authori
 
 ## Turnstile and edge abuse protection
 
-The client stores a local `pageharbor-ios-interest-recorded` marker and disables the button after a successful request. This is intentionally a directional signal, not proof of a unique person.
+The client stores a local `pageharbor-ios-interest-recorded` marker and disables the button after a successful request. This legacy storage key remains unchanged so existing browsers retain their recorded state. The marker is intentionally a directional signal, not proof of a unique person.
 
 Both mutation routes require a fresh Cloudflare Turnstile token. `GET /api/ios-interest` remains public. The browser loads Cloudflare's official client script, obtains a token in managed `interaction-only` mode, sends it in the `X-Turnstile-Token` request header, and the Worker validates it with Siteverify before making a D1 write. The Worker never sends `remoteip` to Siteverify and never stores the token, IP address, user agent, or fingerprint.
 
 Before deploying this feature:
 
-1. In the Cloudflare dashboard, create a **Managed** Turnstile widget for PageHarbor. Restrict its hostnames to the production hostname and the `synapseworks-site.lucianirimie.workers.dev` deployment hostname if that environment will be used for testing.
+1. In the Cloudflare dashboard, create a **Managed** Turnstile widget for RME PDF Scanner. Restrict its hostnames to the production hostname and the `synapseworks-site.lucianirimie.workers.dev` deployment hostname if that environment will be used for testing.
 2. Put its public sitekey in the `TURNSTILE_SITE_KEY` value in `wrangler.toml`, replacing `REPLACE_WITH_YOUR_TURNSTILE_SITEKEY`.
 3. Set the private secret interactively; never add it to a file: `npx wrangler secret put TURNSTILE_SECRET_KEY`.
 4. Deploy only after both values are configured. A deployment with the placeholder sitekey leaves registration unavailable by design.
@@ -52,4 +52,4 @@ These conservative limits allow retries while containing low-volume automated ab
 
 ## Email purpose and retention
 
-Email is optional and is only for a possible PageHarbor iOS beta notification. Do not use it for unrelated marketing. Retain it only while that possible notification remains relevant, or delete it earlier on a verified request sent to `privacy@synapseworks.org`.
+Email is optional and is only for a possible RME PDF Scanner iOS beta notification. Do not use it for unrelated marketing. Retain it only while that possible notification remains relevant, or delete it earlier on a verified request sent to `privacy@synapseworks.org`.

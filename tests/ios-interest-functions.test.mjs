@@ -125,7 +125,7 @@ db.interests = 1000;
 response = await interest(context(request('https://example.test/api/ios-interest', 'GET')));
 assert.deepEqual(await response.json(), { thresholdReached: true, displayCount: '1000+' });
 
-const pageSource = await readFile('pageharbor/index.html', 'utf8');
+const pageSource = await readFile('rme-pdf-scanner/index.html', 'utf8');
 assert.match(pageSource, /https:\/\/challenges\.cloudflare\.com\/turnstile\/v0\/api\.js/);
 assert.match(pageSource, /appearance: 'interaction-only'/);
 assert.match(pageSource, /X-Turnstile-Token/);

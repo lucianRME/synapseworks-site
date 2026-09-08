@@ -11,6 +11,15 @@ const apiRoutes = {
 export default {
   fetch(request, env, ctx) {
     const pathname = new URL(request.url).pathname.replace(/\/$/, '') || '/';
+    const legacyProductRoutes = {
+      '/pageharbor': '/rme-pdf-scanner/',
+      '/pageharbor/privacy': '/rme-pdf-scanner/privacy/'
+    };
+    if (legacyProductRoutes[pathname]) {
+      const destination = new URL(request.url);
+      destination.pathname = legacyProductRoutes[pathname];
+      return Response.redirect(destination, 301);
+    }
     if (pathname === '/store') {
       const destination = new URL(request.url);
       destination.pathname = '/products/';
