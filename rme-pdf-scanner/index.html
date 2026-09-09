@@ -65,8 +65,10 @@
     .cta.secondary { background: var(--text); }
     .play-badge { display: block; flex: 0 0 auto; line-height: 0; }
     .play-badge img { display: block; width: auto; height: 48px; }
-    .alternative-badge { display: inline-block; margin-top: 16px; line-height: 0; }
+    .listing-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
+    .alternative-badge, .spacerr-badge { display: block; flex: 0 0 auto; line-height: 0; }
     .alternative-badge img { display: block; width: 171px; height: 58px; }
+    .spacerr-badge img { display: block; width: 192px; height: 54px; }
     .supporting-link { display: inline-block; font-size: 14px; }
     .ios-interest .card { box-shadow: none; }
     .ios-interest h2 { font-size: 25px; line-height: 1.25; margin-bottom: 8px; }
@@ -99,14 +101,12 @@
     .split .card { box-shadow: none; }
     .link-list { list-style: none; margin: 0; }
     .link-list li { margin-bottom: 8px; }
-    footer { max-width: 1100px; width: 100%; margin: 12px auto 28px; padding: 0 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px 20px; color: var(--muted); font-size: 14px; }
-    .spacerr-badge { display: block; flex: 0 0 auto; line-height: 0; }
-    .spacerr-badge img { display: block; width: 192px; height: 54px; }
+    footer { max-width: 1100px; width: 100%; margin: 12px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
     footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 14px; }
     footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
     footer nav a:hover { color: var(--text); }
     @media (max-width: 760px) { .hero, .split { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } footer { flex-direction: column; padding: 20px 18px; align-items: flex-start; gap: 10px; } footer nav { justify-content: flex-start; } }
+    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } footer { padding: 20px 18px; align-items: flex-start; gap: 10px; } footer nav { justify-content: flex-start; } }
   </style>
 </head>
 <body>
@@ -202,7 +202,12 @@
         <h2>Open source</h2>
         <p>RME PDF Scanner is published by SynapseWorks under the Apache License 2.0.</p>
         <p style="margin-top: 10px;"><a href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">View RME PDF Scanner on GitHub</a></p>
-        <a class="alternative-badge" href="https://alternativeto.net/software/rme-pdf-scanner/about/?utm_source=badge&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="https://alternativeto.net/static/badges/badge-compact-light.svg" alt="RME PDF Scanner | AlternativeTo" width="171" height="58"></a>
+        <div class="listing-badges" aria-label="External listings">
+          <a class="alternative-badge" href="https://alternativeto.net/software/rme-pdf-scanner/about/?utm_source=badge&amp;utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="https://alternativeto.net/static/badges/badge-compact-light.svg" alt="RME PDF Scanner | AlternativeTo" width="171" height="58"></a>
+          <a class="spacerr-badge" href="https://spacerrapps.com/apps/rme-pdf-document-scanner?utm_source=badge&amp;utm_medium=referral&amp;utm_campaign=featured" target="_blank" rel="noopener noreferrer">
+            <img src="https://spacerrapps.com/badge/rme-pdf-document-scanner.svg?v=2" alt="RME: PDF &amp; Document Scanner is featured on Spacerr" width="192" height="54">
+          </a>
+        </div>
       </article>
       <article class="card">
         <h2>Support and security</h2>
@@ -425,9 +430,6 @@
 
   <footer>
     <span>© 2026 SynapseWorks</span>
-    <a class="spacerr-badge" href="https://spacerrapps.com/apps/rme-pdf-document-scanner?utm_source=badge&amp;utm_medium=referral&amp;utm_campaign=featured" target="_blank" rel="noopener noreferrer">
-      <img src="https://spacerrapps.com/badge/rme-pdf-document-scanner.svg?v=2" alt="RME: PDF &amp; Document Scanner is featured on Spacerr" width="192" height="54">
-    </a>
     <nav>
       <a href="/">Home</a>
       <a href="/products/">Products</a>
