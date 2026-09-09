@@ -99,12 +99,14 @@
     .split .card { box-shadow: none; }
     .link-list { list-style: none; margin: 0; }
     .link-list li { margin-bottom: 8px; }
-    footer { max-width: 1100px; width: 100%; margin: 12px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
+    footer { max-width: 1100px; width: 100%; margin: 12px auto 28px; padding: 0 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px 20px; color: var(--muted); font-size: 14px; }
+    .spacerr-badge { display: block; flex: 0 0 auto; line-height: 0; }
+    .spacerr-badge img { display: block; width: 192px; height: 54px; }
     footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 14px; }
     footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
     footer nav a:hover { color: var(--text); }
     @media (max-width: 760px) { .hero, .split { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } footer { padding: 20px 18px; align-items: flex-start; gap: 10px; } footer nav { justify-content: flex-start; } }
+    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } footer { flex-direction: column; padding: 20px 18px; align-items: flex-start; gap: 10px; } footer nav { justify-content: flex-start; } }
   </style>
 </head>
 <body>
@@ -423,6 +425,9 @@
 
   <footer>
     <span>© 2026 SynapseWorks</span>
+    <a class="spacerr-badge" href="https://spacerrapps.com/apps/rme-pdf-document-scanner?utm_source=badge&amp;utm_medium=referral&amp;utm_campaign=featured" target="_blank" rel="noopener noreferrer">
+      <img src="https://spacerrapps.com/badge/rme-pdf-document-scanner.svg?v=2" alt="RME: PDF &amp; Document Scanner is featured on Spacerr" width="192" height="54">
+    </a>
     <nav>
       <a href="/">Home</a>
       <a href="/products/">Products</a>
