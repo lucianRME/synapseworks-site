@@ -1,38 +1,30 @@
-# Scanning and export workflow
+# Scanning, library, and export workflow
 
-RME PDF Scanner keeps the document workflow local and leaves destination choices to Android.
+RME PDF Scanner processes documents locally and leaves external file choices to Android's system picker and Sharesheet.
 
-## Capture
+## Bring pages into RME
 
-- Start a scan through Google ML Kit Document Scanner.
-- Capture up to 10 pages in one scanner session.
-- Import pages from the gallery when you already have page images.
+- Capture pages through Google ML Kit Document Scanner. The scanner owns the camera interaction; RME does not request camera permission directly.
+- Import one or more JPEG, PNG, WebP, or PDF files through Android's picker.
+- Receive supported images or PDFs from another app through Android sharing.
 
-The scanner component supplies the camera interaction. RME PDF Scanner does not request camera permission directly.
+The active document supports up to 20 pages. You can review, reorder, rotate, remove, add, and filter pages before saving or export. PDF import uses temporary app-private copies and rendered pages during preparation.
 
-## Outputs
+## Save and organize locally
+
+**Save to RME** keeps a private copy of pages, thumbnails, document metadata, and any OCR text you chose to generate. Saved documents can be reopened, renamed, moved into folders, searched, sorted, and edited. Merge saved documents in a chosen order, or extract or move selected pages to make a new document. Deleting RME's copy does not delete an imported source file.
+
+RME does not upload this library to an RME server or provide proprietary cloud sync. Android backup and device transfer are disabled for the app's private data in the current configuration.
+
+## Create outputs
 
 | Output | Where it is prepared | How it leaves RME PDF Scanner |
 | --- | --- | --- |
-| Normal PDF | On the device | Saved to a destination selected through Android SAF |
-| JPEG page | On the device | Saved to a destination selected through Android SAF |
-| Recognized text | On the device, in the active session | Copied to the Android clipboard only after **Copy Text** |
-| Searchable PDF | Generated locally on the device | Saved through Android SAF or shared through Android |
+| Standard PDF | On the device | Saved through Android's system picker or shared through Android's Sharesheet |
+| Searchable PDF | Generated on the device from OCR text | Saved through Android's system picker |
+| JPEG page | On the device | Saved through Android's system picker |
+| Recognized text | On the device | Copied to the Android clipboard after **Copy Text** |
 
-RME PDF Scanner does not upload document images, OCR text, or generated PDF content to a proprietary backend. It has no document backend or proprietary cloud storage service.
+An external storage provider or share target may handle a file you choose to give it. RME does not receive that provider's account credentials or control its retention practices.
 
-## Save with Android SAF
-
-Android’s Storage Access Framework lets you choose where an exported file is saved. The selected destination may be local storage or an installed external storage provider. RME PDF Scanner does not receive the provider’s account credentials and does not control that provider’s retention or privacy practices.
-
-## Share with Android
-
-Choose Share to open Android’s Sharesheet, then choose the receiving app. The external app receives the file only after that user action and handles it under its own policies.
-
-## Searchable-PDF filenames
-
-RME PDF Scanner can suggest a filename based on a deterministic broad document category. The suggestion is not a document library, an automatic rename, or a record of document contents. Android’s file picker/provider remains authoritative for the final name and destination.
-
-## Temporary processing files
-
-RME PDF Scanner may create temporary app-private files for processing or sharing. These files are not presented as a persistent document library. Refer to the [RME PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/) for the current retention and cleanup description.
+Temporary files used for imports, prepared outputs, and shares are cleaned according to the [RME PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/).

@@ -26,6 +26,9 @@ This repo includes a lightweight internal link crawler at `tools/check_links.py`
   - `/privacy/submit-guard/`
   - `/rme-pdf-scanner/`
   - `/rme-pdf-scanner/privacy/`
+  - `/private-pdf-scanner-android/`
+  - `/offline-ocr-android/`
+  - `/open-source-document-scanner-android/`
   - `/security/`
   - `/cookie-policy/`
   - `/terms/`

@@ -1,40 +1,26 @@
 # Privacy and data handling
 
-The [RME PDF Scanner Privacy Policy](https://synapseworks.org/rme-pdf-scanner/privacy/) is the canonical public policy for the Android application. This page is a documentation summary; if the summary and the policy ever differ, use the policy and report the discrepancy to SynapseWorks.
+The [RME PDF Scanner Privacy Policy](https://synapseworks.org/rme-pdf-scanner/privacy/) is the canonical public policy for the Android application. This page is a summary; report any discrepancy to SynapseWorks.
 
-## RME PDF Scanner does not operate
+## Local document data
 
-- an account or login system;
-- advertising;
-- tracking or analytics;
-- a proprietary document backend or cloud storage service;
-- a persistent in-app document library.
+Scans, imported pages, OCR, and searchable-PDF content are processed on the device. When you choose **Save to RME**, pages, thumbnails, metadata, and OCR text you have generated can remain in an app-private local library. RME has no document backend, proprietary cloud storage or sync, account system, advertising, or RME-operated tracking or analytics service. It does not send library content to an RME server.
 
-Document images, OCR text, and searchable-PDF content are processed on the device. RME PDF Scanner does not send that document content to a proprietary server.
+An unsaved active session is temporary. Deleting a saved document removes RME's private copy and indexed text, while leaving any independently imported source file with its original provider. The app's current configuration disables backup and device transfer for its private data.
 
-## Android and external components
+## Android and outside services
 
-- RME PDF Scanner declares no direct `INTERNET` permission.
-- RME PDF Scanner does not request camera permission directly; camera scanning is provided through ML Kit Document Scanner.
-- Files are exported through Android SAF or shared through the Android Sharesheet after an explicit user action.
-- External storage providers, viewers, and share targets operate under their own terms and privacy policies.
-- Temporary app-private files may exist while processing or sharing is in progress.
+- RME's current manifest declares no `INTERNET` permission or broad storage access.
+- Camera scanning is supplied by Google ML Kit Document Scanner; RME does not request camera permission directly.
+- Android's system picker provides imports and export destinations, and the Sharesheet provides incoming supported files and outgoing shares.
+- External providers, viewers, and share targets operate under their own terms and privacy policies.
 
-## ML Kit diagnostics
-
-Google ML Kit documents document and OCR content processing as on-device. The SDK may nevertheless transmit encrypted technical diagnostics, such as device/app information, configuration, performance or error data, and installation identifiers, according to Google’s current disclosure. This is SDK behavior rather than RME PDF Scanner-operated analytics, and it does not include document content.
+Google ML Kit documents document and OCR content processing as on-device. The SDK may transmit encrypted technical diagnostics such as device and app information, configuration, performance or error data, and installation identifiers. This is separate from RME-operated analytics and does not include document content according to Google's disclosure. Google Play services may need network access to obtain or update scanner components.
 
 Read the official [ML Kit data-disclosure guidance](https://developers.google.com/ml-kit/android-data-disclosure) and [ML Kit terms and privacy information](https://developers.google.com/ml-kit/terms).
 
 ## Website privacy is separate
 
-The SynapseWorks website has separate [privacy](https://synapseworks.org/privacy/) and [cookie](https://synapseworks.org/cookie-policy/) policies. Those policies govern website visits; they do not turn RME PDF Scanner into a tracking or analytics product.
+The SynapseWorks website has separate [privacy](https://synapseworks.org/privacy/) and [cookie](https://synapseworks.org/cookie-policy/) policies. Its optional iOS-interest signal is a website feature, separate from the Android app; see the [product privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/) for the disclosure.
 
-The RME PDF Scanner website may also offer an optional iOS-interest signal. It stores an anonymous timestamped interest row and, only if you choose to provide it, an email address for a possible iOS beta notification. This website feature is separate from the Android app; see the [RME PDF Scanner Privacy Policy](https://synapseworks.org/rme-pdf-scanner/privacy/) for the full disclosure.
-
-## Questions
-
-- Support: [support@synapseworks.org](mailto:support@synapseworks.org)
-- Security: [security@synapseworks.org](mailto:security@synapseworks.org)
-- [Support page](https://synapseworks.org/support/)
-- [Security page](https://synapseworks.org/security/)
+For questions, contact [support@synapseworks.org](mailto:support@synapseworks.org) or [security@synapseworks.org](mailto:security@synapseworks.org).

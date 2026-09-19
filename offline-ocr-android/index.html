@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/rme-pdf-scanner/guide.css">
+  <title>Offline OCR Scanner for Android | RME</title>
+  <link rel="canonical" href="https://synapseworks.org/offline-ocr-android/">
+  <meta name="description" content="See how RME recognizes Latin-script text on your Android device, lets you copy it, and adds searchable text to exported PDFs.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Offline OCR Scanner for Android | RME">
+  <meta property="og:description" content="What on-device text recognition does in RME, how searchable PDFs work, and which limits to expect.">
+  <meta property="og:url" content="https://synapseworks.org/offline-ocr-android/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Offline OCR Scanner for Android | RME">
+  <meta name="twitter:description" content="Learn about RME's on-device OCR, copied text and searchable PDF output.">
+  <meta name="twitter:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header><div class="brand">SynapseWorks</div><nav><a href="/">Home</a><a href="/products/">Products</a><a href="/docs/">Docs</a><a href="/support/">Support</a></nav></header>
+  <main id="main-content">
+    <article class="guide">
+      <span class="eyebrow">RME PDF Scanner · Android guide</span>
+      <h1>Offline OCR on Android</h1>
+      <p class="lede">OCR turns visible letters in an image into text a device can search or copy. In RME: PDF &amp; Document Scanner, bundled Latin-script text recognition runs on the Android device rather than requiring cloud OCR for document content.</p>
+
+      <h2>From scanned page to recognized text</h2>
+      <p>Scan a paper page, import an image or PDF, or reopen a document saved in RME's local library. After you start OCR, RME presents the recognized text for review. Choose <strong>Copy Text</strong> if you want it on the Android clipboard. Until that action, OCR is not automatically copied to another app. If you save the document after running OCR, RME can store its recognized text in the private on-device library for later search.</p>
+      <p>This is useful for locating a saved form by a phrase inside it or copying a short passage without retyping it. Search quality depends on what OCR actually recognized; a visually readable scan can still contain recognition errors.</p>
+
+      <h2>What makes a PDF searchable</h2>
+      <p>A scan-only PDF is largely a set of page images. RME can generate a PDF with an invisible Unicode text layer based on its OCR result. Compatible PDF viewers can search or select that layer while the original page image remains visible. The layer is a transcription aid, not a guarantee of exact text, layout, or language coverage.</p>
+      <div class="callout"><p><strong>Check the result:</strong> low contrast, handwriting, unusual fonts and unsupported scripts may reduce recognition quality. Review important names, numbers and dates against the page image before using copied text or an exported searchable PDF.</p></div>
+
+      <h2>Local processing and network boundaries</h2>
+      <p>RME's OCR and searchable-PDF text layer are prepared on the device. The app has no RME document-processing backend. The Google-provided scanner may need Google Play services to obtain or update scanner components; that dependency is separate from the bundled OCR workflow. Google ML Kit's documented technical diagnostics may also be sent to Google, although its disclosure says document images and recognized text are not sent. See the <a href="/rme-pdf-scanner/privacy/">full privacy policy</a> for the precise distinction.</p>
+      <div class="actions"><a class="cta" href="/rme-pdf-scanner/">See RME's full workflow</a><a class="cta secondary" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer">Get RME on Google Play</a></div>
+
+      <section class="related" aria-labelledby="related-heading"><h2 id="related-heading">Related reading</h2><ul><li><a href="/private-pdf-scanner-android/">Private scanning and local storage</a></li><li><a href="/open-source-document-scanner-android/">Inspect RME's open source</a></li><li><a href="/rme-pdf-scanner/privacy/">RME PDF Scanner Privacy Policy</a></li></ul></section>
+    </article>
+  </main>
+  <footer><span>© 2026 SynapseWorks</span><nav><a href="/rme-pdf-scanner/">RME PDF Scanner</a><a href="/privacy/">Site Privacy</a><a href="/support/">Support</a><a href="/security/">Security</a></nav></footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "synapseworks-site",
+  "private": true,
+  "devDependencies": {
+    "wrangler": "^4.135.0"
+  }
+}

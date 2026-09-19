@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/rme-pdf-scanner/guide.css">
+  <title>Open Source Document Scanner for Android | RME</title>
+  <link rel="canonical" href="https://synapseworks.org/open-source-document-scanner-android/">
+  <meta name="description" content="Explore RME's public Android source, Apache 2.0 license, local scanning and PDF tools, and the role of third-party scanner components.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Open Source Document Scanner for Android | RME">
+  <meta property="og:description" content="What RME's public source reveals about its Android document workflow and where external components fit.">
+  <meta property="og:url" content="https://synapseworks.org/open-source-document-scanner-android/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open Source Document Scanner for Android | RME">
+  <meta name="twitter:description" content="Inspect RME's source, license, Android features and third-party components.">
+  <meta name="twitter:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header><div class="brand">SynapseWorks</div><nav><a href="/">Home</a><a href="/products/">Products</a><a href="/docs/">Docs</a><a href="/support/">Support</a></nav></header>
+  <main id="main-content">
+    <article class="guide">
+      <span class="eyebrow">RME PDF Scanner · Android guide</span>
+      <h1>An open-source document scanner for Android</h1>
+      <p class="lede">RME: PDF &amp; Document Scanner publishes its Android application source under the Apache License 2.0. You can inspect how the app handles scans, imported files, saved documents, OCR and exports before choosing whether it fits your workflow.</p>
+
+      <h2>What you can inspect</h2>
+      <p>The <a href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">official RME source repository</a> includes the Android app code, privacy documentation and license. Its current workflow lets you scan paper, import multiple images or PDFs, receive supported Android shares, and edit pages. Saved documents live in a private on-device library with folders, search and sorting. You can merge saved documents, extract pages, run Latin-script OCR locally and export standard or searchable PDFs.</p>
+      <p>Source access makes the implementation and declared permissions reviewable. It also lets contributors report issues with a specific code path. As with any software, source availability alone does not prove that every device or third-party component behaves identically.</p>
+
+      <h2>Privacy choices visible in the project</h2>
+      <p>RME does not require an account, show ads, run its own tracking or analytics service, or operate a document backend. The app keeps saved documents locally when you explicitly choose to save them. Exports use Android's system picker, so the user chooses a destination; sharing uses Android's Sharesheet.</p>
+      <p>The current Android configuration declares no <code>INTERNET</code> permission and disables backup of private app data. For the complete data-handling description, including temporary files and deletion, read the <a href="/rme-pdf-scanner/privacy/">RME Privacy Policy</a>.</p>
+
+      <h2>Know the external components</h2>
+      <p>RME uses Google ML Kit Document Scanner for capture and bundled ML Kit Text Recognition for OCR. Those SDKs are separately licensed; calling RME open source does not make every dependency open source. Google's documented technical diagnostics and possible scanner-resource downloads are also described in the policy. If these boundaries matter to you, review the project's <a href="https://github.com/lucianRME/rme-pdf-scanner/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener noreferrer">third-party notices</a> alongside the app code.</p>
+      <div class="actions"><a class="cta" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer">Get RME on Google Play</a><a class="cta secondary" href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">View source on GitHub</a></div>
+
+      <section class="related" aria-labelledby="related-heading"><h2 id="related-heading">Related reading</h2><ul><li><a href="/rme-pdf-scanner/">RME PDF Scanner features</a></li><li><a href="/private-pdf-scanner-android/">Private scanning on Android</a></li><li><a href="/offline-ocr-android/">Offline OCR and searchable PDFs</a></li></ul></section>
+    </article>
+  </main>
+  <footer><span>© 2026 SynapseWorks</span><nav><a href="/rme-pdf-scanner/">RME PDF Scanner</a><a href="/privacy/">Site Privacy</a><a href="/support/">Support</a><a href="/security/">Security</a></nav></footer>
+</body>
+</html>

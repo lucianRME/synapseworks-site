@@ -1,32 +1,24 @@
 # Getting started
 
-RME PDF Scanner version 1.2.0 is available on Google Play: [Get RME PDF Scanner on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor).
+[Get RME PDF Scanner on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor) for an Android device running API level 26 or later.
 
-## Before scanning
+## Start a document
 
-- Use an Android device running API level 26 or later.
-- Use non-sensitive sample documents while getting familiar with the app.
-- A single scanner session supports up to 10 pages.
-- The scanner flow is provided through Google ML Kit Document Scanner.
+1. Scan paper with the Google ML Kit scanner, choose images or PDFs with Android's file picker, or share supported files into RME from another app.
+2. Review pages, reorder or rotate them, remove pages you do not need, and apply a document filter if useful. One active document supports up to 20 pages.
+3. Choose **Save to RME** if you want the document in RME's private on-device library. Unsaved work is not silently kept after process death.
+4. Reopen a saved document to edit it, run OCR, export it, or share it.
 
-## A typical session
+Imported source files remain with the provider you selected. Saving to RME creates a private copy; removing that copy does not delete the source.
 
-1. Start a document scan in RME PDF Scanner.
-2. Capture pages through the Android scanner workflow, or import pages from the gallery.
-3. Choose the output you need: a normal PDF, individual JPEG pages, recognized text, or a searchable PDF.
-4. For a PDF or JPEG export, choose the destination in Android’s system file picker.
-5. To share a PDF, choose Share and select a receiving app in the Android Sharesheet.
+## Find and combine saved documents
 
-RME PDF Scanner does not operate a document library or cloud storage service. The destination provider or receiving app handles a file after you choose it.
+Rename saved documents, put them in folders, sort the library, and search titles. If you run OCR, its recognized text can also be indexed locally when you save the document. Select saved documents to merge them in a chosen order, or extract selected pages into a new document.
 
-## OCR and text
+## OCR and export
 
-RME PDF Scanner includes bundled Latin-script OCR that runs on the device. Recognized text remains an active-session result unless you explicitly choose **Copy Text**. Copying places the text on the Android clipboard, where Android and other apps may affect access or retention.
+Bundled Latin-script OCR runs on the device. Review and copy recognized text after you choose to run OCR. For an exported searchable PDF, RME adds a text layer based on that recognition result; check important text against the scanned page.
 
-## Searchable PDFs
+Save standard or searchable PDFs and individual JPEG pages through Android's system file picker. To share a PDF, choose a receiving app through Android's Sharesheet. Your selected provider or receiving app handles the exported file under its own policies.
 
-RME PDF Scanner can generate a searchable PDF locally from a scan and its recognized text. The searchable text layer is created on the device before you choose a save destination through SAF.
-
-## Current availability
-
-RME PDF Scanner version 1.2.0 is publicly available on Google Play. Use the official Google Play link above when referring to the app’s availability.
+See the [full workflow](workflow.md) and [privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/) for storage and third-party details.

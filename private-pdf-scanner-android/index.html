@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/rme-pdf-scanner/guide.css">
+  <title>Private PDF Scanner for Android | RME</title>
+  <link rel="canonical" href="https://synapseworks.org/private-pdf-scanner-android/">
+  <meta name="description" content="Learn how RME scans and stores documents locally on Android, where exports go, and which outside services may be involved.">
+  <meta property="og:site_name" content="SynapseWorks">
+  <meta property="og:title" content="Private PDF Scanner for Android | RME">
+  <meta property="og:description" content="A practical guide to RME's on-device library, local processing, export choices and privacy boundaries.">
+  <meta property="og:url" content="https://synapseworks.org/private-pdf-scanner-android/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Private PDF Scanner for Android | RME">
+  <meta name="twitter:description" content="How RME handles local documents and user-chosen exports on Android.">
+  <meta name="twitter:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header><div class="brand">SynapseWorks</div><nav><a href="/">Home</a><a href="/products/">Products</a><a href="/docs/">Docs</a><a href="/support/">Support</a></nav></header>
+  <main id="main-content">
+    <article class="guide">
+      <span class="eyebrow">RME PDF Scanner · Android guide</span>
+      <h1>Private PDF scanning on Android</h1>
+      <p class="lede">A private scanner should make clear where a document is processed, where it is kept, and what happens when you export it. RME: PDF &amp; Document Scanner keeps its own scanning, editing, OCR and saved library workflow on the device.</p>
+
+      <h2>From paper or file to a local document</h2>
+      <p>Scan paper through Google ML Kit Document Scanner, or choose images and PDFs through Android's system picker. RME also accepts supported files sent through Android sharing. You can reorder, rotate, remove and filter pages before saving them. The source file you import remains with its original provider; RME makes a separate private copy only when you choose <strong>Save to RME</strong>.</p>
+      <p>That saved copy belongs to RME's on-device library. You can rename it, put it in a folder, search and sort saved documents, and reopen it later. Text from OCR you explicitly run can be indexed locally for search. An unsaved working session is temporary and is not a substitute for saving the document.</p>
+
+      <h2>What “local” means when you share</h2>
+      <p>RME does not operate a document backend or proprietary cloud sync service, and the Android app requires no RME account or advertising. A PDF or JPEG you export goes to the destination you choose with Android's file picker. If you pick a cloud-storage provider, that provider handles the exported file under its own terms. A file you share through Android's Sharesheet goes to the receiving app you select.</p>
+      <div class="callout"><p><strong>Practical boundary:</strong> local processing does not mean every external component is offline. Google Play services may need a connection to obtain or update scanner resources, and Google ML Kit may send technical diagnostics. RME's <a href="/rme-pdf-scanner/privacy/">privacy policy</a> explains these boundaries in detail.</p></div>
+
+      <h2>When this approach is useful</h2>
+      <p>Use a local library when you want to keep working with receipts, letters or forms on your Android device without an RME account. Run <a href="/offline-ocr-android/">offline OCR</a> when you need to copy recognized text or make a searchable PDF. Before sending sensitive files elsewhere, check the destination provider's storage and sharing settings; RME cannot control those after export.</p>
+      <div class="actions"><a class="cta" href="/rme-pdf-scanner/">Explore RME PDF Scanner</a><a class="cta secondary" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer">Get RME on Google Play</a></div>
+
+      <section class="related" aria-labelledby="related-heading"><h2 id="related-heading">Related reading</h2><ul><li><a href="/offline-ocr-android/">How offline OCR works in RME</a></li><li><a href="/open-source-document-scanner-android/">RME as an open-source Android scanner</a></li><li><a href="/rme-pdf-scanner/privacy/">RME PDF Scanner Privacy Policy</a></li></ul></section>
+    </article>
+  </main>
+  <footer><span>© 2026 SynapseWorks</span><nav><a href="/rme-pdf-scanner/">RME PDF Scanner</a><a href="/privacy/">Site Privacy</a><a href="/support/">Support</a><a href="/security/">Security</a></nav></footer>
+</body>
+</html>

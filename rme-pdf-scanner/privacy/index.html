@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
-  <title>RME PDF &amp; Document Scanner Privacy Policy | SynapseWorks</title>
+  <title>RME PDF Scanner Privacy Policy | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/rme-pdf-scanner/privacy/">
-  <meta name="description" content="Privacy policy for RME PDF Scanner, including local document processing, offline OCR, exports, sharing and ML Kit diagnostics.">
+  <meta name="description" content="How RME PDF Scanner stores saved documents on your device, processes OCR locally, and handles exports, external services, and ML Kit diagnostics.">
   <meta property="og:site_name" content="SynapseWorks">
-  <meta property="og:title" content="RME PDF &amp; Document Scanner Privacy Policy | SynapseWorks">
-  <meta property="og:description" content="How RME PDF Scanner handles local document processing, OCR, searchable PDFs, exports, sharing, and ML Kit diagnostics.">
+  <meta property="og:title" content="RME PDF Scanner Privacy Policy | SynapseWorks">
+  <meta property="og:description" content="Local document library, on-device OCR, exports, external services and ML Kit diagnostics for RME PDF Scanner.">
   <meta property="og:url" content="https://synapseworks.org/rme-pdf-scanner/privacy/">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://synapseworks.org/og.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RME PDF &amp; Document Scanner Privacy Policy | SynapseWorks">
-  <meta name="twitter:description" content="Privacy details for the RME PDF Scanner Android document scanner.">
+  <meta name="twitter:title" content="RME PDF Scanner Privacy Policy | SynapseWorks">
+  <meta name="twitter:description" content="How the RME Android app handles its local document library, OCR and external services.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <style>
     :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --panel: #f5f7fb; }
@@ -63,11 +63,11 @@
     <article class="document">
       <div class="label">RME PDF Scanner · Android application</div>
       <h1>Privacy Policy for RME: PDF &amp; Document Scanner</h1>
-      <p class="meta">Last updated: 8 September 2026</p>
+      <p class="meta">Last updated: 19 September 2026</p>
 
       <section aria-labelledby="scope-heading">
         <h2 id="scope-heading">Scope</h2>
-        <p>This policy applies to RME: PDF &amp; Document Scanner (formerly PageHarbor), the Android application published by SynapseWorks. It describes the current practices documented for the app and later versions that retain the same practices.</p>
+        <p>This policy applies to RME: PDF &amp; Document Scanner, the Android application published by SynapseWorks. It describes the current v1.4.0 practices and later versions that retain the same practices.</p>
         <p>Use of <a href="https://synapseworks.org/">synapseworks.org</a> is covered separately by the <a href="/privacy/">site-wide privacy policy</a> and <a href="/cookie-policy/">cookie policy</a>.</p>
       </section>
 
@@ -75,19 +75,19 @@
         <h2 id="summary-heading">Summary</h2>
         <div class="summary">
           <p><strong>RME PDF Scanner has no account, ads, proprietary document backend, analytics, or tracking service.</strong></p>
-          <p>Document images, OCR text, and searchable-PDF text layers are processed on the device. Exports and shares happen only after you choose a destination or receiving app.</p>
+          <p>Document images, OCR text, and searchable-PDF text layers are processed on the device. Documents explicitly saved to RME are kept in its app-private on-device library; RME has no backend that receives or stores them and provides no proprietary cloud sync. Exports and shares happen after you choose a destination or receiving app.</p>
           <p>Google ML Kit may transmit encrypted technical diagnostics according to Google’s SDK disclosure. Those diagnostics are separate from RME PDF Scanner’s own code and do not include document content.</p>
         </div>
       </section>
 
       <section aria-labelledby="does-not-collect-heading">
-        <h2 id="does-not-collect-heading">Information RME PDF Scanner does not collect</h2>
-        <p>RME PDF Scanner does not create or require:</p>
+        <h2 id="does-not-collect-heading">Data and services RME does not use</h2>
+        <p>RME PDF Scanner does not require or operate:</p>
         <ul>
           <li>an account or profile;</li>
           <li>access to your contacts, location, microphone, phone, or advertising ID;</li>
-          <li>analytics, tracking, advertising, or a server-side document upload;</li>
-          <li>a persistent in-app document library, cloud copy, or sync service.</li>
+          <li>its own analytics, tracking, or advertising service;</li>
+          <li>an RME-operated document upload, hosted copy, or sync service.</li>
         </ul>
         <p>This does not mean that packaged platform SDKs can never transmit technical information. The ML Kit section below explains the documented diagnostics behavior.</p>
       </section>
@@ -105,11 +105,11 @@
 
       <section aria-labelledby="local-heading">
         <h2 id="local-heading">Document scanning and local processing</h2>
-        <p>RME PDF Scanner uses the Android/Google ML Kit document scanner workflow. The scanner provides the capture interaction, including its supported review tools. RME PDF Scanner processes returned scan pages on the device.</p>
+        <p>RME PDF Scanner uses the Android/Google ML Kit document scanner workflow. The scanner provides the capture interaction. RME processes returned pages on the device and also accepts user-selected images and PDFs, including multiple files, or supported files shared from another Android app.</p>
         <ul>
-          <li>OCR runs locally on the device, and recognized text is held in the active session unless you explicitly copy it.</li>
+          <li>OCR runs locally on the device. Recognized text can be copied only after you choose Copy Text; text from OCR you run can also be stored and indexed when you save the document to RME.</li>
           <li>Searchable PDFs are generated locally with an invisible OCR text layer.</li>
-          <li>RME PDF Scanner can save normal PDFs and individual JPEG pages through Android’s system file picker.</li>
+          <li>RME PDF Scanner can save standard or searchable PDFs and individual JPEG pages through Android’s system file picker.</li>
           <li>RME PDF Scanner does not directly request camera permission or broad storage/media access; the current manifest also declares no <code>INTERNET</code> permission.</li>
         </ul>
       </section>
@@ -124,25 +124,24 @@
 
       <section aria-labelledby="temporary-heading">
         <h2 id="temporary-heading">Temporary files, retention, and deletion</h2>
-        <p>Pages and OCR results are active-session data. A temporary searchable PDF or share copy may be held in RME PDF Scanner’s private app cache only while it is needed for a requested save, share, retry, or cleanup operation.</p>
+        <p>Unsaved pages and OCR results begin as active-session data; an unsaved session is not recovered after process death. PDF import can use temporary app-private source and rendered page files. A temporary searchable PDF or share copy may be held in app cache while it is needed for a requested operation.</p>
         <ul>
-          <li>Prepared searchable PDFs are removed after success, failure, cancellation, or discard.</li>
-          <li>Completed share copies are cache data and are cleaned when stale.</li>
-          <li>RME PDF Scanner does not maintain an internal document library or hosted user-data record.</li>
-          <li>Android backup and device transfer for RME PDF Scanner’s private data are disabled.</li>
-          <li>Uninstalling the app removes its app-private data through Android.</li>
+          <li>When you explicitly choose Save to RME, the app stores page copies, thumbnails, title, timestamps, page order, editing state, folder assignment and OCR indexing status in its private on-device library. Recognized text is also stored locally if you have run OCR for that document.</li>
+          <li>Saved library data remains until you delete the saved document or remove the app’s data. Deleting a saved document removes RME’s copy and indexed text; it does not delete the source file you imported. Deleting a folder leaves its documents in the library.</li>
+          <li>Prepared searchable PDFs are removed after success, failure, cancellation or discard. Completed share copies and orphaned temporary files are cleaned when stale.</li>
+          <li>RME’s current Android configuration disables backup and excludes app-private data from cloud backup and device transfer. This describes RME’s configuration, not files you independently export to another provider.</li>
         </ul>
       </section>
 
       <section aria-labelledby="export-heading">
         <h2 id="export-heading">Export, storage, and external providers</h2>
-        <p>RME PDF Scanner uses Android’s Storage Access Framework. You choose where a file is saved through the system file picker. A provider such as local storage or an installed cloud-storage app handles the selected file under its own terms and privacy policy.</p>
+        <p>RME PDF Scanner uses Android’s Storage Access Framework to select imports and export destinations. You choose the files to import and where exports are saved through the system file picker. A provider such as local storage or an installed cloud-storage app handles selected files under its own terms and privacy policy.</p>
         <p>RME PDF Scanner does not receive the provider’s account credentials and cannot control a provider’s retention, security, or privacy practices. Files saved through a selected provider remain under that provider and your control; RME PDF Scanner does not delete them.</p>
       </section>
 
       <section aria-labelledby="sharing-heading">
         <h2 id="sharing-heading">Sharing and external viewers</h2>
-        <p>When you choose Share, RME PDF Scanner uses Android’s Sharesheet. You choose the receiving application, and that application receives the file only after your action. External viewers and share targets have their own policies and handling practices.</p>
+        <p>RME PDF Scanner can receive supported images and PDFs shared from another Android app. When you choose to share an export, RME uses Android’s Sharesheet; you choose the receiving application. External viewers and share targets have their own policies and handling practices.</p>
       </section>
 
       <section aria-labelledby="clipboard-heading">
@@ -153,7 +152,7 @@
       <section aria-labelledby="permissions-heading">
         <h2 id="permissions-heading">Permissions</h2>
         <p>RME PDF Scanner’s current manifest declares no <code>INTERNET</code>, broad-storage, account, location, contacts, microphone, phone, or advertising permissions. RME PDF Scanner does not request camera permission directly; the Google-provided scanner flow owns its camera interaction.</p>
-        <p>Files shared through RME PDF Scanner use a non-exported Android FileProvider with temporary read access limited to the cache subdirectory used for share copies. Permission behavior can change with a future app feature or dependency, and this policy will be updated if it does.</p>
+        <p>Files shared through RME PDF Scanner use a non-exported Android FileProvider with temporary read access limited to the URI the app grants. Its configured roots cover private cache areas used for imports and exports and private library pages needed to reopen saved documents. Permission behavior can change with a future app feature or dependency, and this policy will be updated if it does.</p>
       </section>
 
       <section aria-labelledby="children-heading">
@@ -163,7 +162,7 @@
 
       <section aria-labelledby="security-heading">
         <h2 id="security-heading">Security</h2>
-        <p>RME PDF Scanner uses local-first processing, app-private temporary files, scoped Android file access, and cleanup of prepared outputs. No method of storage or transfer is absolutely secure, so use Android and destination-provider controls appropriate to your documents.</p>
+        <p>RME PDF Scanner uses local processing, app-private library and temporary files, scoped Android file access, and cleanup of prepared outputs. No method of storage or transfer is absolutely secure, so use Android and destination-provider controls appropriate to your documents.</p>
         <p>For security reports, contact <a href="mailto:security@synapseworks.org">security@synapseworks.org</a> or visit the <a href="/security/">SynapseWorks security page</a>.</p>
       </section>
 
