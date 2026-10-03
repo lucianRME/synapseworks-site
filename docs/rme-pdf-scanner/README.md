@@ -2,7 +2,7 @@
 
 RME: PDF & Document Scanner is an open-source, privacy-first Android document scanner published by SynapseWorks. It was formerly known as PageHarbor.
 
-> **Current product:** Version 1.4.0 is available on [Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor). See the [v1.4.0 release notes](https://github.com/lucianRME/rme-pdf-scanner/releases/tag/v1.4.0).
+> **Current product:** Version 1.6.0. [Get RME on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_6).
 
 ## Start here
 
@@ -15,11 +15,13 @@ RME: PDF & Document Scanner is an open-source, privacy-first Android document sc
 ## At a glance
 
 - Android application with a minimum supported Android API level of 26.
-- Work with up to 20 pages in an active document; paper capture uses Google ML Kit Document Scanner.
+- Capture up to 20 pages in an interactive scan with Google ML Kit Document Scanner; ordinary file import and migration can preserve longer documents within RME's safety limits.
 - Import multiple JPEG, PNG, WebP, or PDF files through Android's system picker; receive supported files through Android sharing.
-- Save documents in a local on-device library with folders, search, sorting, and page editing.
+- Save documents in a local on-device library with folders and subfolders, full-library title and OCR search, sorting, and page editing.
 - Merge saved documents or extract selected pages into a new document.
-- Run bundled Latin-script OCR offline, copy recognized text, and generate searchable PDFs on the device.
+- Run built-in Latin OCR or optional Chinese, Japanese, Korean, and Devanagari OCR on-device; review or correct text, batch-recognize documents, and generate searchable PDFs.
+- Migrate exported files from another scanner, create or restore a complete portable backup, optionally encrypt that backup, and move the library to another phone.
+- Protect access through the app with optional Android device authentication.
 - Save standard or searchable PDFs and JPEG pages through Android's system picker; share PDFs through Android's Sharesheet.
 - No RME account, ads, RME tracking or analytics, proprietary document backend, or proprietary cloud sync.
 

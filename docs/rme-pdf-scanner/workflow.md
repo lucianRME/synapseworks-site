@@ -5,16 +5,16 @@ RME PDF Scanner processes documents locally and leaves external file choices to 
 ## Bring pages into RME
 
 - Capture pages through Google ML Kit Document Scanner. The scanner owns the camera interaction; RME does not request camera permission directly.
-- Import one or more JPEG, PNG, WebP, or PDF files through Android's picker.
+- Import one or more JPEG, PNG, WebP, or PDF files through Android's picker, including files selected through the guided scanner-migration workflow.
 - Receive supported images or PDFs from another app through Android sharing.
 
-The active document supports up to 20 pages. You can review, reorder, rotate, remove, add, and filter pages before saving or export. PDF import uses temporary app-private copies and rendered pages during preparation.
+Interactive paper capture supports up to 20 pages; ordinary file import and migration can preserve longer documents within RME's safety limits. You can review, reorder, rotate, remove, add, and filter pages before saving or export. PDF import uses temporary app-private copies and rendered pages during preparation.
 
 ## Save and organize locally
 
-**Save to RME** keeps a private copy of pages, thumbnails, document metadata, and any OCR text you chose to generate. Saved documents can be reopened, renamed, moved into folders, searched, sorted, and edited. Merge saved documents in a chosen order, or extract or move selected pages to make a new document. Deleting RME's copy does not delete an imported source file.
+**Save to RME** keeps a private copy of pages, source assets required for portability, thumbnails, document metadata, recognized text, and saved corrections. Saved documents can be reopened, renamed, moved into folders or subfolders, searched across the full library, sorted, and edited. Merge saved documents in a chosen order, or extract or move selected pages to make a new document. Deleting RME's copy does not delete an imported source file.
 
-RME does not upload this library to an RME server or provide proprietary cloud sync. Android backup and device transfer are disabled for the app's private data in the current configuration.
+RME does not upload this library to an RME server or provide proprietary cloud sync. Android automatic backup and device transfer are disabled for app-private data. A separate user-initiated portable backup can preserve the complete library, can be password-encrypted, and can be restored on another phone through files you select with Android's system picker.
 
 ## Create outputs
 

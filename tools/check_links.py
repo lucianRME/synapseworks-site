@@ -25,6 +25,7 @@ DEFAULT_SEEDS = [
     "/private-pdf-scanner-android/",
     "/offline-ocr-android/",
     "/open-source-document-scanner-android/",
+    "/microsoft-lens-alternative-android/",
     "/security/",
     "/cookie-policy/",
     "/terms/",

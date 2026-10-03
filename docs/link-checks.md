@@ -29,6 +29,7 @@ This repo includes a lightweight internal link crawler at `tools/check_links.py`
   - `/private-pdf-scanner-android/`
   - `/offline-ocr-android/`
   - `/open-source-document-scanner-android/`
+  - `/microsoft-lens-alternative-android/`
   - `/security/`
   - `/cookie-policy/`
   - `/terms/`
