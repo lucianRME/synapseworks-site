@@ -2,7 +2,7 @@
 
 RME: PDF & Document Scanner is an open-source, privacy-first Android document scanner published by SynapseWorks. It was formerly known as PageHarbor.
 
-> **Current product:** Version 1.6.0. [Get RME on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_6).
+> **Current product:** Version 1.7.0. [Get RME on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_7). [View the v1.7.0 release](https://github.com/lucianRME/rme-pdf-scanner/releases/tag/v1.7.0).
 
 ## Start here
 
@@ -19,6 +19,9 @@ RME: PDF & Document Scanner is an open-source, privacy-first Android document sc
 - Import multiple JPEG, PNG, WebP, or PDF files through Android's system picker; receive supported files through Android sharing.
 - Save documents in a local on-device library with folders and subfolders, full-library title and OCR search, sorting, and page editing.
 - Merge saved documents or extract selected pages into a new document.
+- Prepare Share-Safe copies with irreversible blackout redaction, purpose or date watermarks, direct redaction drag, fit-relative zoom and pan, and a final preview before Save or Share.
+- Fit PDFs toward common upload limits, including 200 KB, 500 KB, 1 MB, 2 MB, or a custom target, subject to readable-quality limits.
+- Create two-sided ID or card copies on A4 or Letter paper with Auto, Vertical, or Horizontal layout options and optional redaction.
 - Run built-in Latin OCR or optional Chinese, Japanese, Korean, and Devanagari OCR on-device; review or correct text, batch-recognize documents, and generate searchable PDFs.
 - Migrate exported files from another scanner, create or restore a complete portable backup, optionally encrypt that backup, and move the library to another phone.
 - Protect access through the app with optional Android device authentication.

@@ -25,6 +25,8 @@ RME does not upload this library to an RME server or provide proprietary cloud s
 | JPEG page | On the device | Saved through Android's system picker |
 | Recognized text | On the device | Copied to the Android clipboard after **Copy Text** |
 
+For a copy you intend to send, **Share-Safe** can apply irreversible blackout redaction and a purpose or date watermark. Direct redaction drag, fit-relative zoom and pan, and the final preview help you inspect the separate output before Save or Share. **Fit Upload Limit** can prepare PDFs toward 200 KB, 500 KB, 1 MB, 2 MB, or a custom target; readable quality and document complexity mean not every target can be reached. **ID / Card Copy** can place a card's front and back on A4 or Letter paper in Auto, Vertical, or Horizontal layouts, with optional redaction.
+
 An external storage provider or share target may handle a file you choose to give it. RME does not receive that provider's account credentials or control its retention practices.
 
 Temporary files used for imports, prepared outputs, and shares are cleaned according to the [RME PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/).

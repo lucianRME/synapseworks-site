@@ -1,6 +1,6 @@
 # Getting started
 
-[Get RME PDF Scanner on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_6) for an Android device running API level 26 or later.
+[Get RME PDF Scanner on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_7) for an Android device running API level 26 or later.
 
 ## Start a document
 
@@ -24,5 +24,7 @@ Latin OCR is built in. Chinese, Japanese, Korean, and Devanagari OCR use optiona
 Use **Move from another scanner** to review and import standard PDFs or supported images exported or shared from another scanner. Use **Backup & restore** to create a complete portable backup, optionally protect it with a password, and restore it on another phone. Android automatic backup remains disabled; these operations run only when you choose them.
 
 Save standard or searchable PDFs and individual JPEG pages through Android's system file picker. To share a PDF, choose a receiving app through Android's Sharesheet. Your selected provider or receiving app handles the exported file under its own policies.
+
+Before sharing, **Share-Safe** can prepare a separate copy with irreversible blackout redaction and a purpose or date watermark. RME shows the final result before Save or Share. **Fit Upload Limit** can aim for common limits such as 200 KB, 500 KB, 1 MB, 2 MB, or a custom size, but very small targets are not achievable for every document at readable quality. **ID / Card Copy** can arrange a card's front and back on A4 or Letter paper with Auto, Vertical, or Horizontal layout options.
 
 See the [full workflow](workflow.md) and [privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/) for storage and third-party details.
