@@ -1,6 +1,6 @@
 # Getting started
 
-[Get RME PDF Scanner on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_7) for an Android device running API level 26 or later.
+[Get RME PDF Scanner on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_product) for an Android device running API level 26 or later.
 
 ## Start a document
 
