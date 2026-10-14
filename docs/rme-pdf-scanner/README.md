@@ -2,7 +2,7 @@
 
 RME: PDF & Document Scanner is an open-source, privacy-first Android document scanner published by SynapseWorks. It was formerly known as PageHarbor.
 
-> **Current product:** Version 1.7.0. [Get RME on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_7). [View the v1.7.0 release](https://github.com/lucianRME/rme-pdf-scanner/releases/tag/v1.7.0).
+> **Current product:** Version 1.7.1. [Get RME on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_v1_7). [View the latest stable release](https://github.com/lucianRME/rme-pdf-scanner/releases/latest).
 
 ## Start here
 
