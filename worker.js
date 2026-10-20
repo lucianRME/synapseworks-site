@@ -10,7 +10,24 @@ const apiRoutes = {
 
 export default {
   fetch(request, env, ctx) {
-    const pathname = new URL(request.url).pathname.replace(/\/$/, '') || '/';
+    const url = new URL(request.url);
+    // Branch/version previews have a prefix; the primary workers.dev host stays production.
+    if (url.hostname.endsWith('-synapseworks-site.lucianirimie.workers.dev')
+      && !['GET', 'HEAD', 'OPTIONS'].includes(request.method)) {
+      return new Response(JSON.stringify({
+        ok: false,
+        code: 'PREVIEW_READ_ONLY',
+        error: 'Write operations are disabled on preview deployments.'
+      }), {
+        status: 403,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Cache-Control': 'no-store',
+          'X-Robots-Tag': 'noindex'
+        }
+      });
+    }
+    const pathname = url.pathname.replace(/\/$/, '') || '/';
     const legacyProductRoutes = {
       '/pageharbor': '/rme-pdf-scanner/',
       '/pageharbor/privacy': '/rme-pdf-scanner/privacy/'

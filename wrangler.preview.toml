@@ -1,0 +1,22 @@
+# A dedicated review Worker keeps the existing PR URL while Version URLs are disabled.
+# Cloudflare Builds deploys only feat/synapseworks-suite-refresh using this config.
+# Build/deploy settings and isolation checks: tools/pr6-preview.md.
+name = "feat-synapseworks-suite-refresh-synapseworks-site"
+main = "readonly-preview.js"
+compatibility_date = "2026-08-25"
+workers_dev = true
+preview_urls = false
+
+[vars]
+TURNSTILE_SITE_KEY = "0x4AAAAAAEdIJgBgGjA_WrXV"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+# Run the read-only guard and noindex headers before every asset and API request.
+run_worker_first = true
+
+# The preview forwards only the fixed public count GET; it has no database binding.
+[[services]]
+binding = "PUBLIC_SITE_READ"
+service = "synapseworks-site"

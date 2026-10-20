@@ -1,5 +1,7 @@
 name = "synapseworks-site"
 main = "worker.js"
+# PR review runs on its dedicated Worker; historical Version URLs stay disabled.
+preview_urls = false
 compatibility_date = "2026-08-25"
 
 [vars]
