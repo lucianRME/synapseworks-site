@@ -561,6 +561,52 @@
   line-height: 1.4;
 }
 
+.docs-page .page-intro {
+  padding-block: 40px 24px;
+}
+
+.docs-page .page-intro h1 {
+  font-size: clamp(36px, 4vw, 54px);
+  letter-spacing: -1.8px;
+}
+
+.docs-page .page-intro .lede {
+  margin-top: 16px !important;
+  font-size: 16px;
+}
+
+.docs-jump-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.docs-jump-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 10px 14px;
+  border-radius: 26px;
+  background: var(--accent-soft);
+  color: #115e59;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.docs-directory .product-name {
+  scroll-margin-top: 24px;
+}
+
+.docs-directory .product-name:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
 .docs-page .suite-section {
   padding-block: 16px 48px;
 }
@@ -884,6 +930,18 @@
 }
 
 @media (max-width: 640px) {
+  .docs-page .page-intro {
+    padding-block: 28px 20px;
+  }
+  .docs-jump-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .docs-jump-links a {
+    min-height: 56px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
   .suite-page .site-header, .suite-container {
     padding-inline: 20px;
   }
