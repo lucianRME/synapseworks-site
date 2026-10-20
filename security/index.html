@@ -17,29 +17,12 @@
   <meta name="twitter:title" content="Security | SynapseWorks">
   <meta name="twitter:description" content="Product-specific security information for SynapseWorks products.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <style>
-    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; padding: 0 0 72px; display: flex; flex-direction: column; align-items: center; }
-    .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
-    h1 { font-size: 28px; margin-bottom: 10px; }
-    h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
-    p { color: var(--muted); margin-bottom: 10px; }
-    ul { margin: 8px 0 12px 18px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { max-width: 1100px; width: 100%; margin: 16px auto 0; padding: 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
-    footer a, footer a:visited, footer a:hover, footer a:active { color: var(--muted); text-decoration: none; }
-    footer a { margin: 0 10px; }
-    footer a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-    }
-  </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
@@ -71,56 +54,92 @@
       <a href="/support/">Support</a>
     </nav>
   </header>
-  <div class="wrap">
-    <h1>Security</h1>
-    <p>SynapseWorks publishes focused software across Android, Chrome, and Atlassian. Each product has its own architecture and trust boundary; the relevant product page is the source for product-specific details.</p>
-    <p>Trust &amp; Security details for the Atlassian apps are published on GitBook: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">synapseworks-docs/common/trust-security</a>.</p>
-
-    <h2>Security contact</h2>
-    <p>Email: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a></p>
-
-    <h2>RME PDF Scanner for Android</h2>
-    <p><a href="/rme-pdf-scanner/">RME: PDF &amp; Document Scanner</a> processes scans, saved library documents, OCR, and searchable-PDF generation on the device. It does not operate a document backend, cloud storage service, account system, advertising service, or its own analytics service. See the <a href="/rme-pdf-scanner/privacy/">RME PDF Scanner Privacy Policy</a> for the full product disclosure.</p>
-
-    <h2>Submit Guard for Chrome</h2>
-    <p>Submit Guard operates locally in Chrome. It has no SynapseWorks backend or account requirement; settings are stored locally, and form contents are not stored or transmitted by the extension. See <a href="/privacy/submit-guard/">Submit Guard privacy details</a>.</p>
-
-    <h2>Decision Register for Jira: Runs on Atlassian</h2>
-    <ul>
-      <li>Forge-only architecture running on Atlassian infrastructure.</li>
-      <li>No external backend services, no external storage, and no external network egress.</li>
-      <li>No shared secrets or personal access tokens are required.</li>
-      <li>Read-only patterns with limited preference storage via Forge storage (storage:app).</li>
-    </ul>
-
-    <h2>Synapse Forge: Runs on Atlassian</h2>
-    <p>Synapse Forge uses a fully Forge-native runtime on Atlassian to process Jira issue context and return results to Jira.</p>
-    <ul>
-      <li><strong>Data flow:</strong> Jira → Atlassian Forge runtime → Jira.</li>
-      <li><strong>External services:</strong> No external backend, no external storage, and no external network egress.</li>
-      <li><strong>Credentials:</strong> No Jira credentials, shared secrets, or personal access tokens are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
-      <li><strong>Reliability:</strong> Availability is monitored and requests fail safely with clear errors when limits are reached.</li>
-    </ul>
-
-    <h2>Atlassian app controls</h2>
-    <ul>
-      <li>Operational logs are limited to what is required for troubleshooting and security monitoring.</li>
-      <li>Transport is enforced over TLS; access to application paths is limited to required scopes.</li>
-      <li>Forge scopes and least-privilege permissions are used for the Atlassian apps.</li>
-    </ul>
-
-    <h2>Responsible disclosure</h2>
-    <p>If you discover a vulnerability, please contact <a href="mailto:security@synapseworks.org">security@synapseworks.org</a> with details and steps to reproduce. We request a reasonable time to investigate and remediate before public disclosure.</p>
-  </div>
-  <footer>
-    <a href="/">Home</a>
-    <a href="/products/">Products</a>
-    <a href="/docs/">Docs</a>
-    <a href="/support/">Support</a>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/security/">Security</a>
-    <a href="/cookie-policy/">Cookie Policy</a>
-    <a href="/terms/">Terms</a>
+  <main id="main-content">
+    <section class="secondary-hero">
+      <div class="site-container">
+        <div class="hero-copy">
+          <p class="eyebrow">Security &amp; trust</p>
+          <h1>Security</h1>
+          <div class="hero-summary">
+            <p>SynapseWorks publishes focused software across Android, Chrome, and Atlassian. Each product has its own architecture and trust boundary; the relevant product page is the source for product-specific details.</p>
+            <p>Trust &amp; Security details for the Atlassian apps are published on GitBook: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">synapseworks-docs/common/trust-security</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#security-contact">Security contact</a>
+          <a href="#rme-pdf-scanner-for-android">RME PDF Scanner for Android</a>
+          <a href="#submit-guard-for-chrome">Submit Guard for Chrome</a>
+          <a href="#decision-register-for-jira-runs-on-atlassian">Decision Register for Jira: Runs on Atlassian</a>
+          <a href="#synapse-forge-runs-on-atlassian">Synapse Forge: Runs on Atlassian</a>
+          <a href="#atlassian-app-controls">Atlassian app controls</a>
+          <a href="#responsible-disclosure">Responsible disclosure</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="security-contact">Security contact</h2>
+          <p>Email: <a href="mailto:security@synapseworks.org">security@synapseworks.org</a></p>
+        </section>
+        <section class="reading-section">
+          <h2 id="rme-pdf-scanner-for-android">RME PDF Scanner for Android</h2>
+          <p><a href="/rme-pdf-scanner/">RME: PDF &amp; Document Scanner</a> processes scans, saved library documents, OCR, and searchable-PDF generation on the device. It does not operate a document backend, cloud storage service, account system, advertising service, or its own analytics service. See the <a href="/rme-pdf-scanner/privacy/">RME PDF Scanner Privacy Policy</a> for the full product disclosure.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="submit-guard-for-chrome">Submit Guard for Chrome</h2>
+          <p>Submit Guard operates locally in Chrome. It has no SynapseWorks backend or account requirement; settings are stored locally, and form contents are not stored or transmitted by the extension. See <a href="/privacy/submit-guard/">Submit Guard privacy details</a>.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="decision-register-for-jira-runs-on-atlassian">Decision Register for Jira: Runs on Atlassian</h2>
+          <ul>
+            <li>Forge-only architecture running on Atlassian infrastructure.</li>
+            <li>No external backend services, no external storage, and no external network egress.</li>
+            <li>No shared secrets or personal access tokens are required.</li>
+            <li>Read-only patterns with limited preference storage via Forge storage (storage:app).</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="synapse-forge-runs-on-atlassian">Synapse Forge: Runs on Atlassian</h2>
+          <p>Synapse Forge uses a fully Forge-native runtime on Atlassian to process Jira issue context and return results to Jira.</p>
+          <ul>
+            <li><strong>Data flow:</strong> Jira → Atlassian Forge runtime → Jira.</li>
+            <li><strong>External services:</strong> No external backend, no external storage, and no external network egress.</li>
+            <li><strong>Credentials:</strong> No Jira credentials, shared secrets, or personal access tokens are stored; authentication uses Forge-issued appUserToken and scoped permissions.</li>
+            <li><strong>Reliability:</strong> Availability is monitored and requests fail safely with clear errors when limits are reached.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="atlassian-app-controls">Atlassian app controls</h2>
+          <ul>
+            <li>Operational logs are limited to what is required for troubleshooting and security monitoring.</li>
+            <li>Transport is enforced over TLS; access to application paths is limited to required scopes.</li>
+            <li>Forge scopes and least-privilege permissions are used for the Atlassian apps.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="responsible-disclosure">Responsible disclosure</h2>
+          <p>If you discover a vulnerability, please contact <a href="mailto:security@synapseworks.org">security@synapseworks.org</a> with details and steps to reproduce. We request a reasonable time to investigate and remediate before public disclosure.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

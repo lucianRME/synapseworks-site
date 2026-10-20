@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css?v=20261020-products-menu">
-  <link rel="stylesheet" href="/rme-pdf-scanner/guide.css">
   <title>Microsoft Lens Alternative for Android | Private OCR Scanner</title>
   <link rel="canonical" href="https://synapseworks.org/microsoft-lens-alternative-android/">
   <meta name="description" content="Looking for a Microsoft Lens alternative on Android? RME offers local scanning, on-device OCR, searchable PDFs and guided import without an RME account.">
@@ -20,8 +19,10 @@
   <meta name="twitter:description" content="Local Android scanning, on-device OCR and a practical path for importing exported Lens PDFs.">
   <meta name="twitter:image" content="https://synapseworks.org/rme-pdf-scanner/og.png">
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
@@ -55,47 +56,93 @@
     </nav>
   </header>
   <main id="main-content">
-    <article class="guide">
-      <span class="eyebrow">RME PDF Scanner · Android guide</span>
-      <h1>A Private Microsoft Lens Alternative for Android</h1>
-      <p class="lede">Microsoft has retired Microsoft Lens, formerly Office Lens. Android users who want a local-first document scanner can use RME to scan documents, recognize text on-device, create searchable PDFs and keep a searchable library without an RME account.</p>
-
-      <h2>Why Android users are looking for another scanner</h2>
-      <p>Microsoft says Lens was removed from app stores on 9 February 2026 and stopped creating new scans after 9 March 2026. Previous scans can remain accessible when Lens stays installed and the user is signed in to the last active account. Read <a href="https://support.microsoft.com/en-us/lens/retirement-of-microsoft-lens" target="_blank" rel="noopener noreferrer">Microsoft’s retirement notice</a> for its current guidance.</p>
-      <p>RME is an independent Android app published by SynapseWorks. It is not an official Microsoft Lens replacement and is not affiliated with, endorsed by or partnered with Microsoft.</p>
-
-      <h2>What RME offers</h2>
-      <p>RME is a <a href="/private-pdf-scanner-android/">private document scanner for Android</a> with no ads, no RME account, no RME analytics or tracking, and no RME cloud backend. The RME app itself requests neither <code>INTERNET</code> nor <code>ACCESS_NETWORK_STATE</code>. Scanning, document editing, OCR, library search and PDF generation are handled on-device.</p>
-      <p>Latin OCR is built in and available offline. Chinese, Japanese, Korean and Devanagari OCR use optional models delivered by Google Play services. Additional OCR models may be downloaded by Google Play services. Document recognition runs on-device. Learn more in the <a href="/offline-ocr-android/">on-device and offline OCR guide</a>.</p>
-      <p>You can scan or import PDFs, review and correct OCR text, create searchable PDFs, search recognized text across your library, organize documents in folders and subfolders, and create a portable backup for a new phone. RME’s Android source is also available to inspect in the <a href="/open-source-document-scanner-android/">open-source scanner guide</a>.</p>
-
-      <h2>How to move your existing Microsoft Lens scans to RME</h2>
-      <p>RME’s guided <strong>Move from another scanner</strong> workflow includes Microsoft Lens. It works with standard PDFs and supported images; it does not read the Lens database or connect to a Microsoft account.</p>
-
-      <h3>Option A: Share or export from Microsoft Lens</h3>
-      <ol>
-        <li>In Microsoft Lens, open an existing scan and use its share or PDF export action.</li>
-        <li>Choose RME from Android’s share sheet.</li>
-        <li>Review the files in RME, then confirm the import.</li>
-      </ol>
-
-      <h3>Option B: Import PDFs you already exported</h3>
-      <ol>
-        <li>In RME, open <strong>Move from another scanner</strong> and choose <strong>Select files</strong>.</li>
-        <li>Use Android’s system file picker to select the exported PDFs.</li>
-        <li>Review the files and confirm the import.</li>
-      </ol>
-      <div class="callout"><p><strong>About OneDrive:</strong> if OneDrive is available as a location in Android’s system document picker, you can select files from it there. This is standard Android file access, not direct OneDrive integration, a Microsoft Graph or OneDrive API connection, or Microsoft account import.</p></div>
-
-      <h2>A local-first Office Lens alternative</h2>
-      <p>For people searching for an Office Lens alternative on Android, RME focuses on document ownership: files you save to RME stay in its private on-device library until you export, back up or share them. RME does not provide proprietary cloud sync. Its optional encrypted portable backup uses a password you choose and can be restored on another phone.</p>
-      <p>Read the <a href="/rme-pdf-scanner/privacy/">RME Privacy Policy</a> for the precise boundary between RME’s local processing, user-chosen destinations and Google-provided components.</p>
-
-      <div class="actions"><a class="cta" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&amp;utm_source=synapseworks&amp;utm_medium=website&amp;utm_campaign=rme_product" target="_blank" rel="noopener noreferrer">Get RME on Google Play</a><a class="cta secondary" href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">View source on GitHub</a></div>
-
-      <section class="related" aria-labelledby="related-heading"><h2 id="related-heading">Explore RME</h2><ul><li><a href="/rme-pdf-scanner/">RME PDF &amp; Document Scanner features</a></li><li><a href="/private-pdf-scanner-android/">Private PDF scanning on Android</a></li><li><a href="/offline-ocr-android/">On-device OCR and searchable PDFs</a></li><li><a href="/open-source-document-scanner-android/">Inspect RME’s open-source Android app</a></li></ul></section>
-    </article>
+    <section class="secondary-hero">
+      <div class="site-container">
+        <div class="hero-copy">
+          <p class="eyebrow">RME PDF Scanner · Android guide</p>
+          <h1>A Private Microsoft Lens Alternative for Android</h1>
+          <div class="hero-summary">
+            <p class="lede">Microsoft has retired Microsoft Lens, formerly Office Lens. Android users who want a local-first document scanner can use RME to scan documents, recognize text on-device, create searchable PDFs and keep a searchable library without an RME account.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#why-android-users-are-looking-for-another-scanner">Why Android users are looking for another scanner</a>
+          <a href="#what-rme-offers">What RME offers</a>
+          <a href="#how-to-move-your-existing-microsoft-lens-scans-to-rme">How to move your existing Microsoft Lens scans to RME</a>
+          <a href="#a-local-first-office-lens-alternative">A local-first Office Lens alternative</a>
+          <a href="#related-heading">Explore RME</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="why-android-users-are-looking-for-another-scanner">Why Android users are looking for another scanner</h2>
+          <p>Microsoft says Lens was removed from app stores on 9 February 2026 and stopped creating new scans after 9 March 2026. Previous scans can remain accessible when Lens stays installed and the user is signed in to the last active account. Read <a href="https://support.microsoft.com/en-us/lens/retirement-of-microsoft-lens" target="_blank" rel="noopener noreferrer">Microsoft’s retirement notice</a> for its current guidance.</p>
+          <p>RME is an independent Android app published by SynapseWorks. It is not an official Microsoft Lens replacement and is not affiliated with, endorsed by or partnered with Microsoft.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="what-rme-offers">What RME offers</h2>
+          <p>RME is a <a href="/private-pdf-scanner-android/">private document scanner for Android</a> with no ads, no RME account, no RME analytics or tracking, and no RME cloud backend. The RME app itself requests neither <code>INTERNET</code> nor <code>ACCESS_NETWORK_STATE</code>. Scanning, document editing, OCR, library search and PDF generation are handled on-device.</p>
+          <p>Latin OCR is built in and available offline. Chinese, Japanese, Korean and Devanagari OCR use optional models delivered by Google Play services. Additional OCR models may be downloaded by Google Play services. Document recognition runs on-device. Learn more in the <a href="/offline-ocr-android/">on-device and offline OCR guide</a>.</p>
+          <p>You can scan or import PDFs, review and correct OCR text, create searchable PDFs, search recognized text across your library, organize documents in folders and subfolders, and create a portable backup for a new phone. RME’s Android source is also available to inspect in the <a href="/open-source-document-scanner-android/">open-source scanner guide</a>.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="how-to-move-your-existing-microsoft-lens-scans-to-rme">How to move your existing Microsoft Lens scans to RME</h2>
+          <p>RME’s guided <strong>Move from another scanner</strong> workflow includes Microsoft Lens. It works with standard PDFs and supported images; it does not read the Lens database or connect to a Microsoft account.</p>
+          <h3>Option A: Share or export from Microsoft Lens</h3>
+          <ol>
+            <li>In Microsoft Lens, open an existing scan and use its share or PDF export action.</li>
+            <li>Choose RME from Android’s share sheet.</li>
+            <li>Review the files in RME, then confirm the import.</li>
+          </ol>
+          <h3>Option B: Import PDFs you already exported</h3>
+          <ol>
+            <li>In RME, open <strong>Move from another scanner</strong> and choose <strong>Select files</strong>.</li>
+            <li>Use Android’s system file picker to select the exported PDFs.</li>
+            <li>Review the files and confirm the import.</li>
+          </ol>
+          <div class="callout">
+            <p><strong>About OneDrive:</strong> if OneDrive is available as a location in Android’s system document picker, you can select files from it there. This is standard Android file access, not direct OneDrive integration, a Microsoft Graph or OneDrive API connection, or Microsoft account import.</p>
+          </div>
+        </section>
+        <section class="reading-section">
+          <h2 id="a-local-first-office-lens-alternative">A local-first Office Lens alternative</h2>
+          <p>For people searching for an Office Lens alternative on Android, RME focuses on document ownership: files you save to RME stay in its private on-device library until you export, back up or share them. RME does not provide proprietary cloud sync. Its optional encrypted portable backup uses a password you choose and can be restored on another phone.</p>
+          <p>Read the <a href="/rme-pdf-scanner/privacy/">RME Privacy Policy</a> for the precise boundary between RME’s local processing, user-chosen destinations and Google-provided components.</p>
+          <div class="actions">
+            <a class="cta" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&amp;utm_source=synapseworks&amp;utm_medium=website&amp;utm_campaign=rme_product" target="_blank" rel="noopener noreferrer">Get RME on Google Play</a>
+            <a class="cta secondary" href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+          </div>
+          <section class="related" aria-labelledby="related-heading">
+            <h2 id="related-heading">Explore RME</h2>
+            <ul>
+              <li><a href="/rme-pdf-scanner/">RME PDF &amp; Document Scanner features</a></li>
+              <li><a href="/private-pdf-scanner-android/">Private PDF scanning on Android</a></li>
+              <li><a href="/offline-ocr-android/">On-device OCR and searchable PDFs</a></li>
+              <li><a href="/open-source-document-scanner-android/">Inspect RME’s open-source Android app</a></li>
+            </ul>
+          </section>
+        </section>
+      </article>
+    </div>
   </main>
-  <footer><span>© 2026 SynapseWorks</span><nav><a href="/rme-pdf-scanner/">RME PDF Scanner</a><a href="/privacy/">Site Privacy</a><a href="/support/">Support</a><a href="/security/">Security</a></nav></footer>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

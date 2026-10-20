@@ -582,52 +582,6 @@
   max-width: 570px;
 }
 
-.suite-footer {
-  padding-block: 24px;
-  border-top: 1px solid var(--border);
-  background: #f1f5f9;
-}
-
-.footer-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px 24px;
-  color: var(--muted);
-}
-
-.footer-copyright {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.suite-page .footer-copyright a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: inherit;
-  font-weight: 600;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 24px;
-}
-
-.suite-page .footer-links a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
 .home-page .suite-main {
   background: linear-gradient(180deg, var(--accent-soft) 0, var(--bg) 1040px);
 }
@@ -924,14 +878,6 @@
   .help-strip {
     gap: 24px;
     padding-block: 40px 48px;
-  }
-  .footer-main {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .footer-links {
-    gap: 0 20px;
   }
 
   .shortcut-icon {

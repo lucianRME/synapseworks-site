@@ -17,30 +17,12 @@
   <meta name="twitter:title" content="Cookie Policy | SynapseWorks">
   <meta name="twitter:description" content="Analytics via Cloudflare Zaraz + Google Analytics 4 is off by default. You can update your choice via the consent prompt when shown.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <style>
-    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; padding: 0 0 72px; display: flex; flex-direction: column; align-items: center; }
-    .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
-    h1 { font-size: 28px; margin-bottom: 10px; }
-    h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
-    p { color: var(--muted); margin-bottom: 10px; }
-    ul { margin: 8px 0 12px 18px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { max-width: 1100px; width: 100%; margin: 16px auto 0; padding: 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
-    footer a, footer a:visited, footer a:hover, footer a:active { color: var(--muted); text-decoration: none; }
-    footer a { margin: 0 10px; }
-    footer a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-    }
-  </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
@@ -72,42 +54,76 @@
       <a href="/support/">Support</a>
     </nav>
   </header>
-  <div class="wrap">
-    <h1>Cookie Policy</h1>
-    <div class="meta">Last updated: 2026-02-23</div>
-    <p>This policy explains how synapseworks.org uses cookies and similar technologies.</p>
-
-    <h2>How we use cookies</h2>
-    <ul>
-      <li><strong>Essential storage:</strong> localStorage to remember your consent choice (accept or reject analytics).</li>
-      <li><strong>Analytics:</strong> Analytics is handled via Cloudflare Zaraz and Google Analytics 4 to understand product interest and site performance. Analytics is off until you accept.</li>
-    </ul>
-
-    <h2>Consent choices</h2>
-    <p>By default, analytics storage is set to denied and no analytics cookies are placed. Selecting "Accept analytics" in the banner enables analytics; selecting "Reject" keeps analytics off. Analytics is handled via Cloudflare Zaraz + Google Analytics 4 and is only enabled after you opt in. You can change your choice anytime using your browser or the consent prompt when shown.</p>
-
-    <h2>Google Analytics 4</h2>
-    <ul>
-      <li>Events are recorded only after consent.</li>
-      <li>IP anonymization is enabled; advertising features and ad personalization signals are disabled.</li>
-      <li>Event data retention is up to 14 months, managed within GA4.</li>
-    </ul>
-
-    <h2>Managing preferences</h2>
-    <p>You can change or withdraw consent at any time using your browser or the consent prompt when shown. Your preference is stored so we can honor it on future visits.</p>
-
-    <h2>Contact</h2>
-    <p>Questions? Email <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a>.</p>
-  </div>
-  <footer>
-    <a href="/">Home</a>
-    <a href="/products/">Products</a>
-    <a href="/docs/">Docs</a>
-    <a href="/support/">Support</a>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/security/">Security</a>
-    <a href="/cookie-policy/">Cookie Policy</a>
-    <a href="/terms/">Terms</a>
+  <main id="main-content">
+    <section class="secondary-hero">
+      <div class="site-container">
+        <div class="hero-copy">
+          <p class="eyebrow">SynapseWorks · Policies & guides</p>
+          <h1>Cookie Policy</h1>
+          <div class="hero-summary">
+            <div class="meta">
+              Last updated: 2026-02-23
+            </div>
+            <p>This policy explains how synapseworks.org uses cookies and similar technologies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#how-we-use-cookies">How we use cookies</a>
+          <a href="#consent-choices">Consent choices</a>
+          <a href="#google-analytics-4">Google Analytics 4</a>
+          <a href="#managing-preferences">Managing preferences</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="how-we-use-cookies">How we use cookies</h2>
+          <ul>
+            <li><strong>Essential storage:</strong> localStorage to remember your consent choice (accept or reject analytics).</li>
+            <li><strong>Analytics:</strong> Analytics is handled via Cloudflare Zaraz and Google Analytics 4 to understand product interest and site performance. Analytics is off until you accept.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="consent-choices">Consent choices</h2>
+          <p>By default, analytics storage is set to denied and no analytics cookies are placed. Selecting "Accept analytics" in the banner enables analytics; selecting "Reject" keeps analytics off. Analytics is handled via Cloudflare Zaraz + Google Analytics 4 and is only enabled after you opt in. You can change your choice anytime using your browser or the consent prompt when shown.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="google-analytics-4">Google Analytics 4</h2>
+          <ul>
+            <li>Events are recorded only after consent.</li>
+            <li>IP anonymization is enabled; advertising features and ad personalization signals are disabled.</li>
+            <li>Event data retention is up to 14 months, managed within GA4.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="managing-preferences">Managing preferences</h2>
+          <p>You can change or withdraw consent at any time using your browser or the consent prompt when shown. Your preference is stored so we can honor it on future visits.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="contact">Contact</h2>
+          <p>Questions? Email <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a>.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>
