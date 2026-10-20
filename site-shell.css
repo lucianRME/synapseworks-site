@@ -16,6 +16,8 @@
 .site-shell > main { flex: 1 0 auto; }
 .site-shell > .site-header { flex-shrink: 0; max-width: 1200px; padding: 22px 40px; }
 .site-shell .site-header .brand, .site-shell .site-header .brand:visited { color: #0f172a; text-decoration: none; }
+.site-shell .site-header nav > a, .site-shell .site-header nav > a:visited { color: #334155; }
+.site-shell .site-header nav > a:hover, .site-shell .site-header nav > a[aria-current="page"] { color: #0f766e; }
 .site-container { box-sizing: border-box; width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 40px; }
 .site-shell .site-header .products-menu-wrap { right: 40px; width: min(680px, calc(100% - 80px)); }
 
