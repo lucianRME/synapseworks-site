@@ -18,7 +18,7 @@
   <meta name="twitter:description" content="Focused software across Chrome extensions, Android apps, and Atlassian workflows.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <title>SynapseWorks | Privacy-Conscious Software</title>
-  <link rel="stylesheet" href="/suite.css?v=20261020-footer">
+  <link rel="stylesheet" href="/suite.css?v=20261020-composition">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -66,13 +66,13 @@
       </section>
 
       <nav class="product-shortcuts" aria-label="Product shortcuts">
-        <a href="/rme-pdf-scanner/">RME PDF Scanner</a>
-        <a href="/products/submit-guard/">Submit Guard</a>
-        <a href="/apps/decision-register/">Decision Register for Jira</a>
-        <a href="/apps/synapse/">Synapse for Jira</a>
+        <a href="/rme-pdf-scanner/"><svg class="shortcut-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z M14 3v5h5 M9 12h6 M9 16h6"/></svg><span class="shortcut-label"><strong>RME PDF Scanner</strong><small>Android</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+        <a href="/products/submit-guard/"><svg class="shortcut-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6z M8 12l3 3 5-6"/></svg><span class="shortcut-label"><strong>Submit Guard</strong><small>Chrome</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+        <a href="/apps/decision-register/"><svg class="shortcut-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6h14 M5 12h8 M5 18h5 M16 15l3 3 3-3 M19 10v8"/></svg><span class="shortcut-label"><strong>Decision Register for Jira</strong><small>Decision visibility</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+        <a href="/apps/synapse/"><svg class="shortcut-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14v14H5z M8 9h8 M8 13h3 M8 16h6"/></svg><span class="shortcut-label"><strong>Synapse for Jira</strong><small>Delivery workflows</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
       </nav>
 
-      <section class="suite-section" aria-labelledby="previews-heading">
+      <section class="suite-section preview-section" aria-labelledby="previews-heading">
         <div class="section-heading">
           <h2 id="previews-heading">A closer look.</h2>
           <p>Organize a document. Pause before sending a form. Start with the everyday task in front of you.</p>
@@ -80,7 +80,7 @@
         <div class="preview-grid">
           <figure class="product-preview">
             <a class="preview-media" href="/rme-pdf-scanner/" aria-label="Explore RME PDF and document tools">
-              <img src="/assets/products/rme-tools-960.webp" srcset="/assets/products/rme-tools-640.webp 640w, /assets/products/rme-tools-960.webp 960w" sizes="(max-width: 640px) 104px, (max-width: 1168px) calc((100vw - 88px) / 2), 540px" alt="RME approved store preview showing its actual Tools screen: import, card copy, merge, split, fit upload limit, Share-Safe copy and text extraction." width="960" height="960" fetchpriority="high" decoding="async">
+              <img src="/assets/products/rme-tools-960.webp" srcset="/assets/products/rme-tools-640.webp 640w, /assets/products/rme-tools-960.webp 960w" sizes="(max-width: 640px) 104px, (max-width: 1200px) calc((100vw - 112px) * 0.4), 400px" alt="RME approved store preview showing its actual Tools screen: import, card copy, merge, split, fit upload limit, Share-Safe copy and text extraction." width="960" height="960" fetchpriority="high" decoding="async">
             </a>
             <figcaption class="preview-caption">
               <div><h3>RME: PDF &amp; Document Scanner</h3><p>Scan, organize, and prepare your PDFs on Android.</p></div>
@@ -89,7 +89,7 @@
           </figure>
           <figure class="product-preview">
             <a class="preview-media submit-guard-media" href="/products/submit-guard/" aria-label="Explore Submit Guard for Chrome">
-              <img src="/assets/products/submit-guard-confirmation-960.webp" srcset="/assets/products/submit-guard-confirmation-640.webp 640w, /assets/products/submit-guard-confirmation-960.webp 960w" sizes="(max-width: 640px) 104px, (max-width: 1168px) calc((100vw - 88px) / 2), 540px" alt="Submit Guard's real confirmation dialog, with Cancel and Submit buttons, over a project-update form containing fictional data." width="960" height="600" loading="lazy" decoding="async">
+              <img src="/assets/products/submit-guard-confirmation-960.webp" srcset="/assets/products/submit-guard-confirmation-640.webp 640w, /assets/products/submit-guard-confirmation-960.webp 960w" sizes="(max-width: 640px) 104px, (max-width: 1200px) calc((100vw - 112px) * 0.6), 600px" alt="Submit Guard's real confirmation dialog, with Cancel and Submit buttons, over a project-update form containing fictional data." width="960" height="600" loading="lazy" decoding="async">
             </a>
             <figcaption class="preview-caption">
               <div><h3>Submit Guard</h3><p>Pause, review, and confirm before sending.</p></div>
@@ -165,6 +165,27 @@
           <div class="trust-item"><h3>Platform-aware design</h3><p>Read how permissions and security boundaries work for each app.</p><a class="text-link" href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust documentation</a></div>
           <div class="trust-item"><h3>Public documentation</h3><p>Explore setup, workflows, and product-specific guidance.</p><a class="text-link" href="/docs/">Read the documentation</a></div>
           <div class="trust-item"><h3>Open source where applicable</h3><p>RME’s public source is available to inspect and build on.</p><a class="text-link" href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">RME on GitHub</a></div>
+        </div>
+      </section>
+
+      <section class="suite-section suite-faq" aria-labelledby="faq-heading">
+        <div class="section-heading">
+          <h2 id="faq-heading">A few useful answers.</h2>
+          <p>Availability, documentation, and privacy — a starting point for choosing your product.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Which products can I use today?</summary>
+            <p>RME PDF Scanner is available on Google Play, and Submit Guard is available on the Chrome Web Store. Decision Register for Jira and Synapse for Jira are early-stage products, publicly available on Atlassian Marketplace. <a href="/products/">Compare the four products.</a></p>
+          </details>
+          <details>
+            <summary>Where are the guides and FAQs?</summary>
+            <p>The <a href="/docs/">documentation hub</a> brings together guides and product-specific help for all four products. For scanning and PDF questions, go straight to <a href="/faq/rme-pdf-scanner/">RME PDF Scanner Help &amp; FAQ</a>.</p>
+          </details>
+          <details>
+            <summary>How does each product handle my data?</summary>
+            <p>Each product has its own architecture and privacy information. Read the <a href="/privacy/">privacy disclosures</a> and <a href="/security/">security and trust guide</a> for the product you plan to use.</p>
+          </details>
         </div>
       </section>
 
