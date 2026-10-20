@@ -27,10 +27,10 @@ export default {
     const pathname = new URL(request.url).pathname.replace(/\/$/, '') || '/';
     if (request.method === 'GET' && pathname === '/api/ios-interest') {
       // Read the public count without binding this preview to the production database.
-      return withPreviewHeaders(await fetch('https://synapseworks.org/api/ios-interest', {
+      return withPreviewHeaders(await env.PUBLIC_SITE_READ.fetch(new Request('https://synapseworks.org/api/ios-interest', {
         method: 'GET',
-        redirect: 'error'
-      }));
+        redirect: 'manual'
+      })));
     }
     return withPreviewHeaders(await site.fetch(request, env, ctx));
   }

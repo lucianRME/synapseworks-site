@@ -24,23 +24,22 @@ test('dedicated preview rejects mutations on every route before touching any bin
 });
 
 test('preview count uses only a fixed public GET and never forwards user input or credentials', async () => {
-  const originalFetch = globalThis.fetch;
   let calls = 0;
-  globalThis.fetch = async (url, options) => {
+  const env = { PUBLIC_SITE_READ: { fetch: async (request) => {
     calls += 1;
-    assert.equal(url, 'https://synapseworks.org/api/ios-interest');
-    assert.deepEqual(options, { method: 'GET', redirect: 'error' });
+    assert.equal(request.url, 'https://synapseworks.org/api/ios-interest');
+    assert.equal(request.method, 'GET');
+    assert.equal(request.redirect, 'manual');
+    assert.deepEqual([...request.headers], []);
+    assert.equal(request.body, null);
     return Response.json({ thresholdReached: false });
-  };
-  try {
-    const env = new Proxy({}, { get() { throw new Error('Count accessed a preview binding'); } });
-    const response = await preview.fetch(new Request(`https://${host}/api/ios-interest/?untrusted=value`, {
-      headers: { Authorization: 'fixture', Cookie: 'fixture', 'X-Turnstile-Token': 'fixture' }
-    }), env, {});
-    assert.equal(calls, 1);
-    assert.deepEqual(await response.json(), { thresholdReached: false });
-    assert.equal(response.headers.get('X-Robots-Tag'), 'noindex');
-  } finally { globalThis.fetch = originalFetch; }
+  } } };
+  const response = await preview.fetch(new Request(`https://${host}/api/ios-interest/?untrusted=value`, {
+    headers: { Authorization: 'fixture', Cookie: 'fixture', 'X-Turnstile-Token': 'fixture' }
+  }), env, {});
+  assert.equal(calls, 1);
+  assert.deepEqual(await response.json(), { thresholdReached: false });
+  assert.equal(response.headers.get('X-Robots-Tag'), 'noindex');
 });
 
 test('all preview reads and redirects receive noindex while preserving their responses', async () => {

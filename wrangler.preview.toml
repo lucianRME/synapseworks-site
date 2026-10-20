@@ -13,3 +13,8 @@ directory = "."
 binding = "ASSETS"
 # Run the read-only guard and noindex headers before every asset and API request.
 run_worker_first = true
+
+# The preview forwards only the fixed public count GET; it has no database binding.
+[[services]]
+binding = "PUBLIC_SITE_READ"
+service = "synapseworks-site"
