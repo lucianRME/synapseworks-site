@@ -15,3 +15,5 @@ tests/
 tools/
 worker.js
 wrangler.toml
+readonly-preview.js
+wrangler.preview.toml
