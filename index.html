@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="msvalidate.01" content="6A6F444CB83C0E8F4DEE6464B546C0E2" />
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=20261020">
   <link rel="canonical" href="https://synapseworks.org/">
   <meta name="description" content="SynapseWorks builds focused, privacy-conscious software across Chrome extensions, Android apps, and Atlassian workflows.">
   <meta property="og:site_name" content="SynapseWorks">
@@ -18,244 +18,7 @@
   <meta name="twitter:description" content="Focused software across Chrome extensions, Android apps, and Atlassian workflows.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
   <title>SynapseWorks | Privacy-Conscious Software</title>
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --accent: #0f766e;
-      --accent-soft: #dff5f1;
-      --accent-ink: #ffffff;
-      --border: #e2e8f0;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    main {
-      flex: 1;
-    }
-    .hero {
-      max-width: 1100px;
-      width: 100%;
-      margin: 48px auto 0;
-      padding: 0 24px 32px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      align-items: center;
-    }
-    .hero-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-    }
-    h1 {
-      font-size: clamp(32px, 4vw, 44px);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 20px;
-      font-size: 17px;
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-weight: 600;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--accent);
-      color: var(--accent-ink);
-      padding: 12px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 12px 20px rgba(15, 118, 110, 0.25);
-      transition: transform 0.1s ease, box-shadow 0.2s ease;
-    }
-    .cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 15px 26px rgba(15, 118, 110, 0.3);
-    }
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-    .hero-cta.secondary {
-      background: #0f172a;
-    }
-    .list {
-      margin: 14px 0 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-    .list li { margin-bottom: 8px; }
-    .panel {
-      border: 1px solid var(--border);
-      background: #f5f7fb;
-      border-radius: 12px;
-      padding: 18px;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .products-title {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .product-card {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      background: #f8fafc;
-    }
-    .product-card h3 {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-    .product-desc {
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-    .product-list {
-      margin: 0 0 12px 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .product-list li { margin-bottom: 6px; }
-    .product-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .play-badge {
-      display: block;
-      flex: 0 0 auto;
-      line-height: 0;
-    }
-    .play-badge img {
-      display: block;
-      width: auto;
-      height: 40px;
-    }
-    .product-cta {
-      display: inline-flex;
-      align-items: center;
-      background: var(--accent);
-      color: var(--accent-ink);
-      padding: 9px 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .product-cta.secondary {
-      background: #0f172a;
-    }
-    .product-label {
-      display: inline-flex;
-      align-items: center;
-      padding: 9px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #e2e8f0;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .featured-indicator {
-      display: inline-flex;
-      align-items: center;
-      align-self: center;
-      gap: 6px;
-      color: #188038;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-    .featured-indicator svg {
-      flex: 0 0 auto;
-      width: 22px;
-      height: 22px;
-    }
-    .official {
-      max-width: 1100px;
-      width: 100%;
-      margin: 10px auto 0;
-      padding: 0 24px 32px;
-    }
-    .official-card {
-      background: #f5f7fb;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      color: var(--muted);
-    }
-    .official-card strong { color: var(--text); }
-    .official-list { margin-top: 10px; }
-    .official-list li { margin-bottom: 6px; }
-    .security {
-      max-width: 1100px;
-      width: 100%;
-      margin: 10px auto 0;
-      padding: 0 24px;
-    }
-    footer {
-      max-width: 1100px;
-      width: 100%;
-      margin: 48px auto 32px;
-      padding: 0 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    footer nav a,
-    footer nav a:visited,
-    footer nav a:hover,
-    footer nav a:active {
-      color: var(--muted);
-      text-decoration: none;
-    }
-    footer nav a { margin-left: 14px; }
-    footer nav a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-      .hero { margin-top: 24px; padding: 0 18px 24px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/suite.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -279,146 +42,143 @@
   }
   </script>
 </head>
-<body>
-  <header>
-    <div class="brand">SynapseWorks</div>
-    <nav>
-      <a href="/">Home</a>
+<body class="suite-page home-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
+    <nav aria-label="Primary navigation">
       <a href="/products/">Products</a>
-      <a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Docs</a>
+      <a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Documentation</a>
       <a href="/support/">Support</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-card">
-        <div class="pill">Privacy-conscious software</div>
-        <h1>Focused software for Chrome, Android, and Atlassian workflows.</h1>
-        <p class="subtitle">SynapseWorks builds practical products with clear, product-specific privacy and trust information.</p>
-        <div class="hero-cta-row">
-          <a class="cta hero-cta" href="/products/">View products</a>
-          <a class="cta hero-cta secondary" href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Read docs</a>
+  <main class="suite-main" id="main-content" tabindex="-1">
+    <div class="suite-container">
+      <section class="studio-hero" aria-labelledby="studio-heading">
+        <p class="eyebrow">Independent software. Practical solutions.</p>
+        <h1 id="studio-heading">Practical software for <span>real workflows.</span></h1>
+        <p class="lede">Explore focused tools for documents, browsing, and Jira — built with attention to usability, reliability, and privacy.</p>
+        <div class="hero-actions">
+          <a class="button" href="/products/">Explore products <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="/security/">How we build <span aria-hidden="true">&nbsp;→</span></a>
         </div>
-        <ul class="list">
-          <li>Chrome extensions, Android apps, and Atlassian apps have distinct trust boundaries.</li>
-          <li>Atlassian apps use Forge architecture with scoped permissions.</li>
-          <li>Product-specific data handling is documented before install.</li>
-        </ul>
-      </div>
-      <div class="hero-card">
-        <h2 class="products-title">Chrome Extensions</h2>
-        <p class="product-desc">Small, practical browser tools for safer everyday workflows.</p>
-        <div class="products-grid">
-          <div class="product-card">
-            <h3>Submit Guard</h3>
-            <p class="product-desc">A lightweight Chrome extension that helps prevent accidental form submissions and irreversible workflow actions.</p>
-            <ul class="product-list">
-              <li>Local-only operation with no backend and no SynapseWorks account.</li>
-              <li>Settings stored locally in <code>chrome.storage.local</code>.</li>
-              <li>No form contents are stored or transmitted by the extension.</li>
-            </ul>
-            <div class="product-ctas">
-              <a class="product-cta" href="/products/submit-guard/">View Chrome extension</a>
-              <a
-                class="product-label"
-                href="https://chromewebstore.google.com/detail/egplmjbdpaffiejoiihpgcndmlkbagjg"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Install Submit Guard from Chrome Web Store"
-              >Install from Chrome Web Store</a>
-              <span class="featured-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8.5" r="5.5"></circle><circle cx="12" cy="8.5" r="1.5"></circle><path d="M8.5 12.8 8 20l4-2.2 4 2.2-.5-7.2"></path></svg>Featured</span>
-            </div>
-          </div>
-        </div>
-        <h2 class="products-title" style="margin-top: 22px;">Android Apps</h2>
-        <p class="product-desc">Focused, local-first tools for practical document workflows.</p>
-        <div class="products-grid">
-          <div class="product-card">
-            <h3>RME PDF Scanner</h3>
-            <p class="product-desc">RME PDF Scanner is a private Android scanner for paper documents, images and PDFs. Organize them in a local library, merge or split pages, run offline OCR and export searchable PDFs.</p>
-            <ul class="product-list">
-              <li>No account, ads, tracking, analytics, or proprietary document backend.</li>
-              <li>Scans, library documents and OCR content are processed on the device.</li>
-            </ul>
-            <div class="product-ctas">
-              <a class="play-badge" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer" aria-label="Get RME PDF Scanner on Google Play (opens in a new tab)"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="646" height="250"></a>
-              <a class="product-label" href="/rme-pdf-scanner/">Explore RME PDF Scanner</a>
-            </div>
-          </div>
-        </div>
-        <h2 class="products-title" style="margin-top: 22px;">Atlassian Apps</h2>
-        <p class="product-desc">Early-stage tools exploring decision tracking, backlog refinement, and delivery visibility in Jira.</p>
-        <div class="products-grid">
-          <div class="product-card">
-            <h3>Decision Register for Jira</h3>
-            <p class="product-desc">An early-stage Jira app experiment for surfacing decisions from issue history and supporting lightweight governance.</p>
-            <ul class="product-list">
-              <li>Forge-only: runs on Atlassian with no external backend or external storage.</li>
-              <li>Read-only patterns with limited preference storage.</li>
-              <li>No external network egress. Data stays within Atlassian.</li>
-            </ul>
-            <div class="product-ctas">
-              <a class="product-cta" href="/apps/decision-register/">Learn more</a>
-              <a
-                class="product-label"
-                href="https://marketplace.atlassian.com/apps/2445040497/decision-register-for-jira"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Install Decision Register for Jira from Atlassian Marketplace"
-              >Install from Atlassian Marketplace</a>
-            </div>
-          </div>
-          <div class="product-card">
-            <h3>Synapse for Jira</h3>
-            <p class="product-desc">An early-stage AI-assisted Jira workflow tool exploring backlog refinement and requirement structuring.</p>
-            <ul class="product-list">
-              <li>Jira issue context only — no transcript text processed.</li>
-              <li>No external backend, no external storage, and no external network egress.</li>
-              <li>No Jira credentials, personal access tokens, or shared secrets stored.</li>
-            </ul>
-            <div class="product-ctas">
-              <a class="product-cta" href="/apps/synapse/">Learn more</a>
-              <a
-                class="product-label"
-                href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Install Synapse from Atlassian Marketplace"
-              >Install from Atlassian Marketplace</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="security">
-      <div class="official-card">
-        <strong>Security-first product design</strong>
-        <p style="margin-top: 8px;">SynapseWorks documents trust boundaries per product instead of applying one platform claim to the whole portfolio.</p>
-        <ul class="official-list">
-          <li><strong>Synapse for Jira:</strong> Forge-native runtime with no external backend, no external storage, and no shared secrets or PATs.</li>
-          <li><strong>Decision Register for Jira:</strong> Forge-only with no external backend, no external storage, and no external network egress.</li>
-          <li><strong>Submit Guard:</strong> Chrome extension with local-only processing, no backend, no account, and settings stored locally.</li>
-        </ul>
-        <p style="margin-top: 8px;"><a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security details on GitBook</a></p>
-      </div>
-    </section>
+      <section class="suite-section" aria-labelledby="previews-heading">
+        <div class="section-heading">
+          <h2 id="previews-heading">A closer look.</h2>
+          <p>Organize a document. Pause before sending a form. Start with the everyday task in front of you.</p>
+        </div>
+        <div class="preview-grid">
+          <figure class="product-preview">
+            <a class="preview-media" href="/rme-pdf-scanner/" aria-label="Explore RME PDF and document tools">
+              <img src="/assets/products/rme-tools-960.webp" srcset="/assets/products/rme-tools-640.webp 640w, /assets/products/rme-tools-960.webp 960w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1168px) calc((100vw - 88px) / 2), 540px" alt="RME approved store preview showing its actual Tools screen: import, card copy, merge, split, fit upload limit, Share-Safe copy and text extraction." width="960" height="960" fetchpriority="high" decoding="async">
+            </a>
+            <figcaption class="preview-caption">
+              <div><h3>RME: PDF &amp; Document Scanner</h3><p>Scan, organize, and prepare your PDFs on Android.</p></div>
+              <a class="text-link" href="/rme-pdf-scanner/" aria-label="Explore RME PDF Scanner">Explore <span aria-hidden="true">&nbsp;→</span></a>
+            </figcaption>
+          </figure>
+          <figure class="product-preview">
+            <a class="preview-media submit-guard-media" href="/products/submit-guard/" aria-label="Explore Submit Guard for Chrome">
+              <img src="/assets/products/submit-guard-960.webp" srcset="/assets/products/submit-guard-640.webp 640w, /assets/products/submit-guard-960.webp 960w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1168px) calc((100vw - 88px) / 2), 540px" alt="Submit Guard's published Chrome extension popup with submit confirmation enabled, Always confirm selected and advanced click guarding turned off." width="960" height="600" loading="lazy" decoding="async">
+            </a>
+            <figcaption class="preview-caption">
+              <div><h3>Submit Guard</h3><p>Choose the sites where you want an extra confirmation.</p></div>
+              <a class="text-link" href="/products/submit-guard/" aria-label="Explore Submit Guard">Explore <span aria-hidden="true">&nbsp;→</span></a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="suite-section" aria-labelledby="suite-heading">
+        <div class="section-heading">
+          <h2 id="suite-heading">Different tools. One thoughtful approach.</h2>
+          <p>Four independent products, each with its own audience, platform, and privacy information.</p>
+        </div>
+        <div class="suite-group">
+          <div class="group-heading"><h3>Available products</h3><p>For documents and browsing.</p></div>
+          <div class="product-grid">
+            <article class="product-card" aria-labelledby="rme-heading">
+              <div class="product-meta"><span class="product-platform">Android · Documents</span><span class="status-badge">Available</span></div>
+              <h4 class="product-name" id="rme-heading">RME: PDF &amp; Document Scanner</h4>
+              <p class="product-description">Turn paper and imported files into searchable PDFs. Organize documents in a local library and prepare the file you need to share.</p>
+              <div class="product-actions">
+                <a class="text-link" href="/rme-pdf-scanner/" aria-label="RME PDF Scanner product details">Product details <span aria-hidden="true">&nbsp;→</span></a>
+                <a class="button button-secondary" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor" target="_blank" rel="noopener noreferrer">Get on Google Play</a>
+              </div>
+            </article>
+            <article class="product-card" aria-labelledby="submit-heading">
+              <div class="product-meta"><span class="product-platform">Chrome · Browser tools</span><span class="status-badge">Available</span></div>
+              <h4 class="product-name" id="submit-heading">Submit Guard</h4>
+              <p class="product-description">Add a confirmation step before important form submissions on sites you enable. Give yourself a moment to review before sending.</p>
+              <div class="product-actions">
+                <a class="text-link" href="/products/submit-guard/" aria-label="Submit Guard product details">Product details <span aria-hidden="true">&nbsp;→</span></a>
+                <a class="button button-secondary" href="https://chromewebstore.google.com/detail/egplmjbdpaffiejoiihpgcndmlkbagjg" target="_blank" rel="noopener noreferrer">Get for Chrome</a>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="suite-group">
+          <div class="group-heading"><h3>Jira apps</h3><p>Early-stage products, available on Atlassian Marketplace.</p></div>
+          <div class="product-grid">
+            <article class="product-card" aria-labelledby="decision-heading">
+              <div class="product-meta"><span class="product-platform">Jira · Decision visibility</span><span class="status-badge early-stage">Early-stage</span></div>
+              <h4 class="product-name" id="decision-heading">Decision Register for Jira</h4>
+              <p class="product-description">Make important Jira decisions easier to find and review. See delivery-impacting changes in issue history without piecing them together by hand.</p>
+              <div class="product-actions">
+                <a class="text-link" href="/apps/decision-register/" aria-label="Decision Register for Jira product details">Product details <span aria-hidden="true">&nbsp;→</span></a>
+                <a class="button button-secondary" href="https://marketplace.atlassian.com/apps/2445040497/decision-register-for-jira" target="_blank" rel="noopener noreferrer">View on Marketplace</a>
+              </div>
+            </article>
+            <article class="product-card" aria-labelledby="synapse-heading">
+              <div class="product-meta"><span class="product-platform">Jira · Requirements</span><span class="status-badge early-stage">Early-stage</span></div>
+              <h4 class="product-name" id="synapse-heading">Synapse for Jira</h4>
+              <p class="product-description">Bring structure to Jira requirements with BDD-style scenarios and aligned subtasks. Explore a more consistent approach to backlog refinement.</p>
+              <div class="product-actions">
+                <a class="text-link" href="/apps/synapse/" aria-label="Synapse for Jira product details">Product details <span aria-hidden="true">&nbsp;→</span></a>
+                <a class="button button-secondary" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer">View on Marketplace</a>
+              </div>
+            </article>
+          </div>
+        </div>
+        <a class="text-link" href="/products/">Compare the full product suite <span aria-hidden="true">&nbsp;→</span></a>
+      </section>
+
+      <section class="suite-section trust-section" aria-labelledby="trust-heading">
+        <div class="trust-intro">
+          <p class="eyebrow">How we build</p>
+          <h2 id="trust-heading">Clear choices.<br>Documented boundaries.</h2>
+          <p>Different platforms need different approaches. We explain each product’s architecture and data handling so you can make an informed choice.</p>
+          <a class="text-link" href="/security/">Security and trust <span aria-hidden="true">&nbsp;→</span></a>
+        </div>
+        <div class="trust-grid">
+          <div class="trust-item"><h3>Privacy per product</h3><p>Find the relevant data-handling disclosures before you install.</p><a class="text-link" href="/privacy/">Privacy information</a></div>
+          <div class="trust-item"><h3>Platform-aware design</h3><p>Read how permissions and security boundaries work for each app.</p><a class="text-link" href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust documentation</a></div>
+          <div class="trust-item"><h3>Public documentation</h3><p>Explore setup, workflows, and product-specific guidance.</p><a class="text-link" href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Read the documentation</a></div>
+          <div class="trust-item"><h3>Open source where applicable</h3><p>RME’s public source is available to inspect and build on.</p><a class="text-link" href="https://github.com/lucianRME/rme-pdf-scanner" target="_blank" rel="noopener noreferrer">RME on GitHub</a></div>
+        </div>
+      </section>
+
+      <section class="help-strip" aria-labelledby="help-heading">
+        <div><h2 id="help-heading">A question about your workflow?</h2><p>Find product guidance or contact us for help getting started.</p></div>
+        <div class="product-actions"><a class="text-link" href="/docs/">Browse documentation <span aria-hidden="true">&nbsp;→</span></a><a class="button button-secondary" href="/support/">Get support</a></div>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    <span>© 2026 SynapseWorks</span>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/products/">Products</a>
-      <a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Docs</a>
-      <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security</a>
-      <a href="/support/">Support</a>
-      <a href="/privacy/">Privacy Policy</a>
-      <a href="/security/">Security</a>
-      <a href="/cookie-policy/">Cookie Policy</a>
-      <a href="/terms/">Terms</a>
-    </nav>
+  <footer class="suite-footer">
+    <div class="suite-container">
+      <div class="footer-main">
+        <a class="footer-brand" href="/">SynapseWorks</a>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="/products/">Products</a><a href="https://synapseworks.gitbook.io/synapseworks-docs/" target="_blank" rel="noopener noreferrer">Documentation</a><a href="/support/">Support</a></nav>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 SynapseWorks</span>
+        <nav class="footer-links" aria-label="Legal and privacy"><a href="/privacy/">Privacy</a><a href="/security/">Security</a><a href="/cookie-policy/">Cookie policy</a><a href="/terms/">Terms</a></nav>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
