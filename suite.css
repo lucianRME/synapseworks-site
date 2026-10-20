@@ -270,7 +270,8 @@
 
 .preview-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  /* Match the 1:1 and 8:5 assets so both previews have the same height. */
+  grid-template-columns: 1fr 1.6fr;
   align-items: start;
   gap: 32px;
   max-width: 1032px;
@@ -279,10 +280,6 @@
 
 .product-preview {
   min-width: 0;
-}
-
-.product-preview + .product-preview {
-  padding-top: 72px;
 }
 
 .preview-media {
