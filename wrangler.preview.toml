@@ -1,4 +1,6 @@
 # A dedicated review Worker keeps the existing PR URL while Version URLs are disabled.
+# Cloudflare Builds deploys only feat/synapseworks-suite-refresh using this config.
+# Build/deploy settings and isolation checks: tools/pr6-preview.md.
 name = "feat-synapseworks-suite-refresh-synapseworks-site"
 main = "readonly-preview.js"
 compatibility_date = "2026-08-25"
