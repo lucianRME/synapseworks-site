@@ -17,34 +17,12 @@
   <meta name="twitter:title" content="Submit Guard Privacy Policy">
   <meta name="twitter:description" content="Privacy details for the Submit Guard Chrome extension, including local-only processing and local settings storage.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <style>
-    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; padding: 0 0 72px; display: flex; flex-direction: column; align-items: center; }
-    .wrap { max-width: 820px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
-    h1 { font-size: 28px; margin-bottom: 12px; }
-    h2 { font-size: 20px; margin: 0 0 8px; }
-    p { color: var(--muted); margin-bottom: 12px; }
-    ul { margin: 8px 0 16px 18px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    .label { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
-    .meta { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
-    .section { margin-top: 18px; }
-    .callout { border: 1px solid var(--border); border-radius: 12px; background: #f5f7fb; padding: 16px; margin-top: 10px; }
-    .callout p:last-child { margin-bottom: 0; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { max-width: 1100px; width: 100%; margin: 16px auto 0; padding: 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
-    footer a, footer a:visited, footer a:hover, footer a:active { color: var(--muted); text-decoration: none; }
-    footer a { margin: 0 10px; }
-    footer a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-    }
-  </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
@@ -76,72 +54,94 @@
       <a href="/support/">Support</a>
     </nav>
   </header>
-  <div class="wrap">
-    <div class="label">Chrome Extension Privacy</div>
-    <h1>Submit Guard — Privacy Policy</h1>
-    <div class="meta">Last updated: 2026-03-16</div>
-
-    <div class="callout">
-      <p><strong>Submit Guard does not collect, transmit, sell, or share personal data.</strong></p>
-      <p><strong>All processing happens locally in your browser.</strong></p>
-      <p><strong>Only configuration data is stored locally (no form contents are stored).</strong></p>
+  <main id="main-content">
+    <section class="secondary-hero">
+      <div class="site-container">
+        <div class="hero-copy">
+          <p class="eyebrow">Chrome Extension Privacy</p>
+          <h1>Submit Guard — Privacy Policy</h1>
+          <div class="hero-summary">
+            <div class="meta">
+              Last updated: 2026-03-16
+            </div>
+            <div class="callout">
+              <p><strong>Submit Guard does not collect, transmit, sell, or share personal data.</strong></p>
+              <p><strong>All processing happens locally in your browser.</strong></p>
+              <p><strong>Only configuration data is stored locally (no form contents are stored).</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#summary">Summary</a>
+          <a href="#data-processing">Data Processing</a>
+          <a href="#what-is-stored">What Is Stored</a>
+          <a href="#third-parties">Third Parties</a>
+          <a href="#permissions-explanation">Permissions Explanation</a>
+          <a href="#user-controls">User Controls</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="summary">Summary</h2>
+          <p>Submit Guard does not collect, sell, or share user data. The extension is designed to help you confirm risky form submissions before they are sent.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="data-processing">Data Processing</h2>
+          <p>The extension may inspect page content locally to detect risky phrases and to decide when to show the confirmation dialog. This inspection happens only in your browser.</p>
+          <p>Page content is not transmitted off-device and is not stored as user content.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="what-is-stored">What Is Stored</h2>
+          <p>Only configuration data is stored locally in <code>chrome.storage.local</code>. No form contents are stored.</p>
+          <ul>
+            <li>Per-site enablement settings.</li>
+            <li>Mode selections.</li>
+            <li>Your configured risky phrase list.</li>
+            <li>Local counters used by the extension.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="third-parties">Third Parties</h2>
+          <p>None. There are no third-party analytics, no remote code, and no ads.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="permissions-explanation">Permissions Explanation</h2>
+          <ul>
+            <li><strong>storage:</strong> save settings locally.</li>
+            <li><strong>activeTab:</strong> identify the current site when you toggle Submit Guard for that site.</li>
+            <li><strong>scripting:</strong> inject the guard script only on sites that you enable.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="user-controls">User Controls</h2>
+          <p>You can disable Submit Guard per site at any time. If you uninstall the extension, all locally stored settings are removed with it.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="contact">Contact</h2>
+          <p>Email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
+        </section>
+      </article>
     </div>
-
-    <section class="section">
-      <h2>Summary</h2>
-      <p>Submit Guard does not collect, sell, or share user data. The extension is designed to help you confirm risky form submissions before they are sent.</p>
-    </section>
-
-    <section class="section">
-      <h2>Data Processing</h2>
-      <p>The extension may inspect page content locally to detect risky phrases and to decide when to show the confirmation dialog. This inspection happens only in your browser.</p>
-      <p>Page content is not transmitted off-device and is not stored as user content.</p>
-    </section>
-
-    <section class="section">
-      <h2>What Is Stored</h2>
-      <p>Only configuration data is stored locally in <code>chrome.storage.local</code>. No form contents are stored.</p>
-      <ul>
-        <li>Per-site enablement settings.</li>
-        <li>Mode selections.</li>
-        <li>Your configured risky phrase list.</li>
-        <li>Local counters used by the extension.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Third Parties</h2>
-      <p>None. There are no third-party analytics, no remote code, and no ads.</p>
-    </section>
-
-    <section class="section">
-      <h2>Permissions Explanation</h2>
-      <ul>
-        <li><strong>storage:</strong> save settings locally.</li>
-        <li><strong>activeTab:</strong> identify the current site when you toggle Submit Guard for that site.</li>
-        <li><strong>scripting:</strong> inject the guard script only on sites that you enable.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>User Controls</h2>
-      <p>You can disable Submit Guard per site at any time. If you uninstall the extension, all locally stored settings are removed with it.</p>
-    </section>
-
-    <section class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
-    </section>
-  </div>
-  <footer>
-    <a href="/">Home</a>
-    <a href="/products/">Products</a>
-    <a href="/docs/">Docs</a>
-    <a href="/support/">Support</a>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/security/">Security</a>
-    <a href="/cookie-policy/">Cookie Policy</a>
-    <a href="/terms/">Terms</a>
+  </main>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

@@ -1,0 +1,65 @@
+/* Shared site frame: one header, one footer, and no page-specific bottom padding. */
+.site-shell {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-shell > main { flex: 1 0 auto; }
+.site-shell > .site-header { flex-shrink: 0; max-width: 1200px; padding: 22px 40px; }
+.site-shell .site-header .brand, .site-shell .site-header .brand:visited { color: #0f172a; text-decoration: none; }
+.site-shell .site-header nav > a, .site-shell .site-header nav > a:visited { color: #334155; }
+.site-shell .site-header nav > a:hover, .site-shell .site-header nav > a[aria-current="page"] { color: #0f766e; }
+.site-container { box-sizing: border-box; width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 40px; }
+.site-shell .site-header .products-menu-wrap { right: 40px; width: min(680px, calc(100% - 80px)); }
+
+.site-shell > .site-footer {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 24px 0;
+  border-top: 1px solid #dce4e8;
+  background: #f1f5f9;
+  color: #475569;
+  text-align: left;
+  font: 400 13px/1.6 "Helvetica Neue", Arial, sans-serif;
+}
+
+.site-footer .site-footer-layout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; }
+.site-footer .site-copyright { display: inline-flex; align-items: center; gap: 4px; margin: 0; font-size: 12px; white-space: nowrap; }
+.site-footer .site-footer-links { display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 4px 24px; margin: 0; padding: 0; }
+.site-shell .site-footer a, .site-shell .site-footer a:visited {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  color: #475569;
+  font-size: inherit;
+  text-decoration: none;
+}
+.site-footer .site-copyright a { font-weight: 600; }
+.site-shell .site-footer a:hover { color: #0f766e; text-decoration: underline; text-underline-offset: 4px; }
+.site-shell .site-footer a:focus-visible { outline: 3px solid #0f766e; outline-offset: 4px; }
+
+.site-shell > .skip-link { z-index: 30; }
+.site-shell.faq-shell > main { box-sizing: border-box; width: 100%; max-width: 1200px; padding-inline: 40px; }
+
+@media (max-width: 640px) {
+  .site-shell > .site-header { padding: 18px 20px 10px; }
+  .site-container, .site-shell.faq-shell > main { padding-inline: 20px; }
+  .site-shell .site-header .products-menu-wrap { right: 20px; left: 20px; width: auto; }
+  .site-footer .site-footer-layout { align-items: flex-start; flex-direction: column; }
+  .site-footer .site-footer-links { gap: 4px 20px; }
+}

@@ -17,141 +17,12 @@
   <meta name="twitter:title" content="Synapse for Jira | SynapseWorks">
   <meta name="twitter:description" content="Synapse Forge helps Jira teams generate delivery outputs on Atlassian with no external backend or external storage.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --accent: #0f766e;
-      --accent-soft: #dff5f1;
-      --accent-ink: #ffffff;
-      --border: #e2e8f0;
-      --panel: #f5f7fb;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    main { flex: 1; }
-    .hero {
-      max-width: 1100px;
-      width: 100%;
-      margin: 20px auto 0;
-      padding: 0 24px 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-weight: 700;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: clamp(30px, 4vw, 40px);
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    p { color: var(--muted); margin-bottom: 12px; }
-    ul { margin: 6px 0 14px 18px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    .panel {
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      background: var(--accent);
-      color: var(--accent-ink);
-      padding: 11px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .cta.secondary { background: #0f172a; }
-    .product-label {
-      display: inline-flex;
-      align-items: center;
-      padding: 11px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #e2e8f0;
-      color: var(--muted);
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .links-row {
-      margin-top: 6px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .links-row a { color: var(--accent); text-decoration: none; }
-    .links-row a:hover { text-decoration: underline; }
-    footer {
-      max-width: 1100px;
-      width: 100%;
-      margin: 40px auto 28px;
-      padding: 0 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    footer nav a,
-    footer nav a:visited,
-    footer nav a:hover,
-    footer nav a:active {
-      color: var(--muted);
-      text-decoration: none;
-    }
-    footer nav a { margin-left: 14px; }
-    footer nav a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-      .hero { padding: 0 18px 24px; }
-    }
-  </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
@@ -183,62 +54,88 @@
       <a href="/support/">Support</a>
     </nav>
   </header>
-
-  <main>
-    <section class="hero">
-      <div class="card">
-        <div class="pill">Product</div>
-        <h1>Synapse for Jira</h1>
-        <p>Synapse for Jira is a Forge-native app that helps delivery teams generate structured outputs and automation-ready artifacts directly inside Jira, running on Atlassian infrastructure.</p>
-        <div class="cta-row">
-          <a class="product-label" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer" aria-label="Install Synapse from Atlassian Marketplace">Install from Atlassian Marketplace</a>
-          <a class="cta secondary" href="https://synapseworks.gitbook.io/synapseworks-docs/synapse/overview" target="_blank" rel="noopener noreferrer">Read guide</a>
-          <a class="cta" href="/support/">Support</a>
+  <main id="main-content">
+    <section class="secondary-hero">
+      <div class="site-container hero-split">
+        <div class="hero-copy">
+          <p class="eyebrow">Product</p>
+          <h1>Synapse for Jira</h1>
+          <p class="status-note">Early-stage · Available on Atlassian Marketplace</p>
+          <div class="hero-summary">
+            <p>Synapse for Jira is a Forge-native app that helps delivery teams generate structured outputs and automation-ready artifacts directly inside Jira, running on Atlassian infrastructure.</p>
+            <div class="cta-row">
+              <a class="product-label" href="https://marketplace.atlassian.com/apps/1541498296/synapse-forge" target="_blank" rel="noopener noreferrer" aria-label="Install Synapse from Atlassian Marketplace">Install from Atlassian Marketplace</a>
+              <a class="cta secondary" href="https://synapseworks.gitbook.io/synapseworks-docs/synapse/overview" target="_blank" rel="noopener noreferrer">Read guide</a>
+              <a class="cta" href="/support/">Support</a>
+            </div>
+            <div class="links-row">
+              <a href="/faq/synapse/">FAQ</a>
+              ·
+              <a href="/privacy/">Privacy Policy</a>
+              ·
+              <a href="/security/">Security</a>
+              ·
+              <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security</a>
+            </div>
+          </div>
         </div>
-        <div class="links-row">
-          <a href="/faq/synapse/">FAQ</a> · <a href="/privacy/">Privacy Policy</a> · <a href="/security/">Security</a> · <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">Trust &amp; Security</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Key capabilities</h2>
-        <ul>
-          <li>Generate consistent, delivery-ready artifacts from Jira issue context.</li>
-          <li>Keep workflows inside Jira with Forge-native user experience.</li>
-          <li>Support enterprise delivery practices with auditable flows.</li>
-        </ul>
-
-        <h2>Data handling summary</h2>
-        <div class="panel">
-          <p><strong>Architecture:</strong> Fully Forge-native runtime on Atlassian.</p>
-          <p><strong>What is processed:</strong> Jira issue context required to generate structured outputs inside Jira.</p>
-          <p><strong>External services and storage:</strong> None. No external backend, no external storage, and no external network egress.</p>
-          <p><strong>Auth model:</strong> Forge appUserToken with scopes <code>read:jira-work</code>, <code>write:jira-work</code>, and <code>read:app-user-token</code>. No Jira credentials, personal access tokens, or shared secrets are stored.</p>
-          <p><strong>Flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
-        </div>
-
-        <h2>Runs on Atlassian</h2>
-        <ul>
-          <li>Synapse Forge runs within Atlassian Forge context for Jira usage.</li>
-          <li>No external backend services, no external storage, and no shared secrets or PATs are required.</li>
-          <li>Trust details: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">GitBook Trust &amp; Security</a>.</li>
-        </ul>
+        <figure class="hero-visual photo">
+          <img src="/assets/docs/team-960.webp" srcset="/assets/docs/team-480.webp 480w, /assets/docs/team-960.webp 960w" sizes="(max-width: 760px) calc(100vw - 40px), 450px" width="960" height="1200" alt="Illustrative view of people reviewing notes together at a desk">
+        </figure>
       </div>
     </section>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#key-capabilities">Key capabilities</a>
+          <a href="#data-handling-summary">Data handling summary</a>
+          <a href="#runs-on-atlassian">Runs on Atlassian</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="key-capabilities">Key capabilities</h2>
+          <ul>
+            <li>Generate consistent, delivery-ready artifacts from Jira issue context.</li>
+            <li>Keep workflows inside Jira with Forge-native user experience.</li>
+            <li>Support enterprise delivery practices with auditable flows.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="data-handling-summary">Data handling summary</h2>
+          <div class="panel">
+            <p><strong>Architecture:</strong> Fully Forge-native runtime on Atlassian.</p>
+            <p><strong>What is processed:</strong> Jira issue context required to generate structured outputs inside Jira.</p>
+            <p><strong>External services and storage:</strong> None. No external backend, no external storage, and no external network egress.</p>
+            <p><strong>Auth model:</strong> Forge appUserToken with scopes <code>read:jira-work</code>, <code>write:jira-work</code>, and <code>read:app-user-token</code>. No Jira credentials, personal access tokens, or shared secrets are stored.</p>
+            <p><strong>Flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
+          </div>
+        </section>
+        <section class="reading-section">
+          <h2 id="runs-on-atlassian">Runs on Atlassian</h2>
+          <ul>
+            <li>Synapse Forge runs within Atlassian Forge context for Jira usage.</li>
+            <li>No external backend services, no external storage, and no shared secrets or PATs are required.</li>
+            <li>Trust details: <a href="https://synapseworks.gitbook.io/synapseworks-docs/common/trust-security" target="_blank" rel="noopener noreferrer">GitBook Trust &amp; Security</a>.</li>
+          </ul>
+        </section>
+      </article>
+    </div>
   </main>
-
-  <footer>
-    <span>© 2026 SynapseWorks</span>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/products/">Products</a>
-      <a href="/docs/">Documentation</a>
-      <a href="/support/">Support</a>
-      <a href="/privacy/">Privacy Policy</a>
-      <a href="/security/">Security</a>
-      <a href="/cookie-policy/">Cookie Policy</a>
-      <a href="/terms/">Terms</a>
-    </nav>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

@@ -104,16 +104,14 @@
     .split .card { box-shadow: none; }
     .link-list { list-style: none; margin: 0; }
     .link-list li { margin-bottom: 8px; }
-    footer { max-width: 1100px; width: 100%; margin: 12px auto 28px; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
-    footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0 14px; }
-    footer nav a, footer nav a:visited, footer nav a:hover, footer nav a:active { color: var(--muted); text-decoration: none; }
-    footer nav a:hover { color: var(--text); }
     @media (max-width: 760px) { .hero, .split { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } footer { padding: 20px 18px; align-items: flex-start; gap: 10px; } footer nav { justify-content: flex-start; } }
+    @media (max-width: 640px) { .page-wrap { margin-top: 14px; padding: 0 18px 24px; } .hero-card, .card { padding: 20px; } }
   </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell rme-refresh">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
@@ -161,6 +159,7 @@
         </div>
         <p class="status">Latest stable release · Android phones and tablets · <a class="supporting-link" href="https://github.com/lucianRME/rme-pdf-scanner/releases/latest" target="_blank" rel="noopener noreferrer">Download the APK or view the latest release</a> · <a class="supporting-link" href="/rme-pdf-scanner/privacy/">Read the privacy policy</a>.</p>
       </div>
+      <figure class="hero-visual"><img src="/assets/products/rme-tools-960.webp" width="960" height="960" alt="RME PDF Scanner tools shown in the actual Android app"></figure>
       <aside class="hero-note" aria-label="Product promise">
         <h2>Local-first by design</h2>
         <p>Documents saved to RME stay in an on-device library you can search, organize, back up and move. RME has no document backend, account system, ads, or RME analytics and tracking.</p>
@@ -502,15 +501,19 @@
     })();
   </script>
 
-  <footer>
-    <span>© 2026 SynapseWorks</span>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/products/">Products</a>
-      <a href="/support/">Support</a>
-      <a href="/rme-pdf-scanner/privacy/">RME PDF Scanner Privacy</a>
-      <a href="/privacy/">Site Privacy</a>
-    </nav>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

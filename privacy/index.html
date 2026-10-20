@@ -17,30 +17,12 @@
   <meta name="twitter:title" content="Privacy Policy | SynapseWorks">
   <meta name="twitter:description" content="Privacy policy for SynapseWorks website and products.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <style>
-    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; padding: 0 0 72px; display: flex; flex-direction: column; align-items: center; }
-    .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
-    h1 { font-size: 28px; margin-bottom: 10px; }
-    h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
-    p { color: var(--muted); margin-bottom: 10px; }
-    ul { margin: 8px 0 12px 18px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    .meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { max-width: 1100px; width: 100%; margin: 16px auto 0; padding: 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
-    footer a, footer a:visited, footer a:hover, footer a:active { color: var(--muted); text-decoration: none; }
-    footer a { margin: 0 10px; }
-    footer a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-    }
-  </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
@@ -72,75 +54,119 @@
       <a href="/support/">Support</a>
     </nav>
   </header>
-  <div class="wrap">
-    <h1>Privacy Policy</h1>
-    <section>
-      <h2>Scope</h2>
-      <p>This Privacy Policy covers synapseworks.org (the website) and SynapseWorks&rsquo; general handling of personal data.</p>
-      <p>Each product has its own privacy information because its data handling depends on its platform and architecture. The links below take you to the relevant product disclosures.</p>
+  <main id="main-content">
+    <section class="secondary-hero">
+      <div class="site-container">
+        <div class="hero-copy">
+          <p class="eyebrow">SynapseWorks · Policies & guides</p>
+          <h1>Privacy Policy</h1>
+          <div class="hero-summary"></div>
+        </div>
+      </div>
     </section>
-    <p><strong>Submit Guard (Chrome extension):</strong> <a href="/privacy/submit-guard/">Privacy policy</a></p>
-    <p><strong><a href="/rme-pdf-scanner/">RME: PDF &amp; Document Scanner</a>:</strong> <a href="/rme-pdf-scanner/privacy/">Product-specific privacy policy</a></p>
-    <div class="meta">Last updated: 2026-09-19</div>
-    <p>SynapseWorks builds products across Chrome, Android, and Atlassian. The remaining sections describe the shared website practices and the Atlassian app data boundaries.</p>
-
-    <h2>Atlassian app data boundaries</h2>
-    <ul>
-      <li>No Jira credentials, passwords, or personal access tokens are stored.</li>
-      <li>Access is scoped through Atlassian Forge appUserToken and permissions.</li>
-      <li>Data is processed only to deliver product functionality.</li>
-    </ul>
-
-    <h2>Decision Register for Jira (Forge-only)</h2>
-    <p>Decision Register for Jira is Forge-only with no external backend, no external storage, and no external network egress.</p>
-    <ul>
-      <li><strong>Data read:</strong> Jira issue and decision context required to display and link decisions.</li>
-      <li><strong>Data stored:</strong> Limited user preferences may be stored via Forge storage (storage:app).</li>
-      <li><strong>External processing:</strong> None. No external backend, no external storage, and no external network egress.</li>
-    </ul>
-
-    <h2>Synapse Forge (Runs on Atlassian)</h2>
-    <p>Synapse Forge is a Jira app that runs on Atlassian using a fully Forge-native runtime. Jira issue context is processed within Forge context and returned to Jira.</p>
-    <ul>
-      <li><strong>Data processed:</strong> Jira issue context required to generate structured outputs.</li>
-      <li><strong>External processing:</strong> None. No external backend, no external storage, and no external network egress.</li>
-      <li><strong>Auth model:</strong> Forge appUserToken and scoped permissions.</li>
-      <li><strong>Credentials:</strong> No Jira credentials, personal access tokens, or shared secrets are stored.</li>
-    </ul>
-    <p><strong>Synapse data flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
-
-    <h2>Analytics and consent (edge-managed)</h2>
-    <p>Analytics for synapseworks.org is managed at the Cloudflare edge (for example, via Zaraz with Google Analytics 4). Analytics is disabled by default and only enabled after you opt in. We do not embed tracking scripts directly in this site repository.</p>
-
-    <h2>Optional RME PDF Scanner iOS interest</h2>
-    <p>The RME PDF Scanner website offers an optional interest signal for a possible iOS version. Registering interest stores an anonymous timestamped row; it does not store document data, a device fingerprint, user agent, or raw IP address in the database.</p>
-    <p>You may optionally provide an email address solely to be notified if a possible RME PDF Scanner iOS beta becomes available. It is not used for unrelated marketing. We retain it only while that possible notification remains relevant, and will delete it earlier on a verified request sent to <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a>.</p>
-    <p>Submitting the RME PDF Scanner interest form uses Cloudflare Turnstile to protect it from automated abuse. Turnstile processes the verification under <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare&rsquo;s Privacy Policy</a>; SynapseWorks does not store the verification token, IP address, user agent, or fingerprint in this database.</p>
-
-    <h2>Retention</h2>
-    <p>Operational logs are retained only as long as required for troubleshooting and security monitoring. Product outputs reside in your Jira site. Where analytics is enabled by consent, event retention is managed through standard GA4 controls.</p>
-
-    <h2>Legal basis and consent</h2>
-    <p>For visitors in the EU/EEA and UK, analytics processing is based on your consent. You can withdraw consent at any time through your browser settings or by responding to the consent prompt when it appears.</p>
-
-    <h2>Security</h2>
-    <p>Access is restricted by Forge scopes and least-privilege controls. Forge-issued tokens remain within Forge-managed context and are not persisted as credentials by SynapseWorks.</p>
-
-    <h2>Your choices</h2>
-    <p>You can uninstall a product at any time to revoke access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
-
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a></p>
-  </div>
-  <footer>
-    <a href="/">Home</a>
-    <a href="/products/">Products</a>
-    <a href="/docs/">Docs</a>
-    <a href="/support/">Support</a>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/security/">Security</a>
-    <a href="/cookie-policy/">Cookie Policy</a>
-    <a href="/terms/">Terms</a>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#scope">Scope</a>
+          <a href="#atlassian-app-data-boundaries">Atlassian app data boundaries</a>
+          <a href="#decision-register-for-jira-forge-only">Decision Register for Jira (Forge-only)</a>
+          <a href="#synapse-forge-runs-on-atlassian">Synapse Forge (Runs on Atlassian)</a>
+          <a href="#analytics-and-consent-edge-managed">Analytics and consent (edge-managed)</a>
+          <a href="#optional-rme-pdf-scanner-ios-interest">Optional RME PDF Scanner iOS interest</a>
+          <a href="#retention">Retention</a>
+          <a href="#legal-basis-and-consent">Legal basis and consent</a>
+          <a href="#security">Security</a>
+          <a href="#your-choices">Your choices</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="scope">Scope</h2>
+          <p>This Privacy Policy covers synapseworks.org (the website) and SynapseWorks&rsquo; general handling of personal data.</p>
+          <p>Each product has its own privacy information because its data handling depends on its platform and architecture. The links below take you to the relevant product disclosures.</p>
+          <p><strong>Submit Guard (Chrome extension):</strong> <a href="/privacy/submit-guard/">Privacy policy</a></p>
+          <p><strong><a href="/rme-pdf-scanner/">RME: PDF &amp; Document Scanner</a>:</strong> <a href="/rme-pdf-scanner/privacy/">Product-specific privacy policy</a></p>
+          <div class="meta">
+            Last updated: 2026-09-19
+          </div>
+          <p>SynapseWorks builds products across Chrome, Android, and Atlassian. The remaining sections describe the shared website practices and the Atlassian app data boundaries.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="atlassian-app-data-boundaries">Atlassian app data boundaries</h2>
+          <ul>
+            <li>No Jira credentials, passwords, or personal access tokens are stored.</li>
+            <li>Access is scoped through Atlassian Forge appUserToken and permissions.</li>
+            <li>Data is processed only to deliver product functionality.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="decision-register-for-jira-forge-only">Decision Register for Jira (Forge-only)</h2>
+          <p>Decision Register for Jira is Forge-only with no external backend, no external storage, and no external network egress.</p>
+          <ul>
+            <li><strong>Data read:</strong> Jira issue and decision context required to display and link decisions.</li>
+            <li><strong>Data stored:</strong> Limited user preferences may be stored via Forge storage (storage:app).</li>
+            <li><strong>External processing:</strong> None. No external backend, no external storage, and no external network egress.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="synapse-forge-runs-on-atlassian">Synapse Forge (Runs on Atlassian)</h2>
+          <p>Synapse Forge is a Jira app that runs on Atlassian using a fully Forge-native runtime. Jira issue context is processed within Forge context and returned to Jira.</p>
+          <ul>
+            <li><strong>Data processed:</strong> Jira issue context required to generate structured outputs.</li>
+            <li><strong>External processing:</strong> None. No external backend, no external storage, and no external network egress.</li>
+            <li><strong>Auth model:</strong> Forge appUserToken and scoped permissions.</li>
+            <li><strong>Credentials:</strong> No Jira credentials, personal access tokens, or shared secrets are stored.</li>
+          </ul>
+          <p><strong>Synapse data flow:</strong> Jira → Atlassian Forge runtime → Jira.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="analytics-and-consent-edge-managed">Analytics and consent (edge-managed)</h2>
+          <p>Analytics for synapseworks.org is managed at the Cloudflare edge (for example, via Zaraz with Google Analytics 4). Analytics is disabled by default and only enabled after you opt in. We do not embed tracking scripts directly in this site repository.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="optional-rme-pdf-scanner-ios-interest">Optional RME PDF Scanner iOS interest</h2>
+          <p>The RME PDF Scanner website offers an optional interest signal for a possible iOS version. Registering interest stores an anonymous timestamped row; it does not store document data, a device fingerprint, user agent, or raw IP address in the database.</p>
+          <p>You may optionally provide an email address solely to be notified if a possible RME PDF Scanner iOS beta becomes available. It is not used for unrelated marketing. We retain it only while that possible notification remains relevant, and will delete it earlier on a verified request sent to <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a>.</p>
+          <p>Submitting the RME PDF Scanner interest form uses Cloudflare Turnstile to protect it from automated abuse. Turnstile processes the verification under <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare&rsquo;s Privacy Policy</a>; SynapseWorks does not store the verification token, IP address, user agent, or fingerprint in this database.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="retention">Retention</h2>
+          <p>Operational logs are retained only as long as required for troubleshooting and security monitoring. Product outputs reside in your Jira site. Where analytics is enabled by consent, event retention is managed through standard GA4 controls.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="legal-basis-and-consent">Legal basis and consent</h2>
+          <p>For visitors in the EU/EEA and UK, analytics processing is based on your consent. You can withdraw consent at any time through your browser settings or by responding to the consent prompt when it appears.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="security">Security</h2>
+          <p>Access is restricted by Forge scopes and least-privilege controls. Forge-issued tokens remain within Forge-managed context and are not persisted as credentials by SynapseWorks.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="your-choices">Your choices</h2>
+          <p>You can uninstall a product at any time to revoke access tokens issued through Atlassian Forge. For data questions or deletion requests, contact us.</p>
+        </section>
+        <section class="reading-section">
+          <h2 id="contact">Contact</h2>
+          <p>Email: <a href="mailto:privacy@synapseworks.org">privacy@synapseworks.org</a></p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

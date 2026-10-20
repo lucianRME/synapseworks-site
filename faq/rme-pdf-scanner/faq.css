@@ -74,9 +74,6 @@ h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; letter-spacing: -.035
 .support-card p { margin: 0; color: var(--muted); font-size: 14px; }
 .support-button { flex-shrink: 0; }
 .support-button:hover { background: #115e59; text-decoration: none; }
-footer { max-width: 1200px; margin: 0 auto 28px; padding: 0 24px; display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: 13px; }
-footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
-footer nav a { color: var(--muted); }
 @media (max-width: 900px) { .faq-layout { grid-template-columns: 230px minmax(0, 1fr); gap: 26px; } }
 @media (max-width: 720px) {
   main { padding: 0 18px; }
@@ -95,7 +92,6 @@ footer nav a { color: var(--muted); }
   .faq-item summary { font-size: 15px; padding-top: 20px; padding-bottom: 20px; }
   .answer { padding-right: 10px; font-size: 15px; }
   .support-card { flex-direction: column; align-items: flex-start; padding: 24px; margin-top: 30px; }
-  footer { padding: 0 18px; flex-direction: column; }
 }
 @media print {
   header, footer, .category-sidebar, .search-panel, .results-toolbar, .support-card, .question-link { display: none !important; }

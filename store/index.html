@@ -17,48 +17,12 @@
   <meta name="twitter:title" content="Store | SynapseWorks">
   <meta name="twitter:description" content="Legacy SynapseWorks product index. Product discovery now starts at /products/.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
-  <style>
-    :root { --bg: #f8fafc; --card: #fff; --text: #0f172a; --muted: #475569; --border: #e2e8f0; --accent: #0f766e; --accent-soft: #dff5f1; --accent-ink: #ffffff; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; padding: 0 0 72px; display: flex; flex-direction: column; align-items: center; }
-    .wrap { max-width: 900px; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08); }
-    h1 { font-size: 28px; margin-bottom: 10px; }
-    h2 { font-size: 18px; margin-top: 18px; margin-bottom: 8px; }
-    p { color: var(--muted); margin-bottom: 10px; }
-    ul { margin: 8px 0 12px 18px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .btn:hover { text-decoration: none; }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--accent-ink);
-      box-shadow: 0 10px 20px rgba(15, 118, 110, 0.18);
-    }
-    .btn-primary:hover {
-      background: #115e59;
-      color: var(--accent-ink);
-    }
-    footer { max-width: 1100px; width: 100%; margin: 16px auto 0; padding: 0 24px; text-align: center; color: var(--muted); font-size: 14px; }
-    footer a, footer a:visited, footer a:hover, footer a:active { color: var(--muted); text-decoration: none; }
-    footer a { margin: 0 10px; }
-    footer a:hover { color: var(--text); }
-    @media (max-width: 640px) {
-      footer { padding: 20px 18px; }
-    }
-  </style>
   <script src="/site-navigation.js?v=20261020" defer></script>
+  <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
+  <link rel="stylesheet" href="/secondary.css?v=20261020">
 </head>
-<body>
+<body class="site-shell secondary-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
@@ -90,77 +54,87 @@
       <a href="/support/">Support</a>
     </nav>
   </header>
-  <div class="wrap">
-    <h1>Legacy product index</h1>
-    <p>This page remains live for existing links. For the current SynapseWorks portfolio, start at <a href="/products/">Products</a>.</p>
-
-    <ul>
-      <li><a href="/products/">Current products</a></li>
-      <li><a href="/rme-pdf-scanner/">RME PDF Scanner</a></li>
-      <li><a href="/products/jira-apps/">Atlassian Apps</a></li>
-      <li><a href="/products/browser-tools/">Chrome Extensions</a></li>
-    </ul>
-
-    <section>
-      <h2>Featured</h2>
-
-      <div class="card">
-        <h3>Submit Guard — Confirm Before Submit</h3>
-        <p>Prevent accidental form submissions by adding a confirmation step before submit — only on sites you enable.</p>
-        <ul>
-          <li>Standard mode: confirms native HTML form submissions</li>
-          <li>Advanced mode: guards submit-like clicks in modern web apps (optional)</li>
-          <li>Privacy-first: no accounts, no backend, local-only settings</li>
-        </ul>
-        <p><strong>Status:</strong> Live on the Chrome Web Store.</p>
-        <p>
-          <a
-            class="btn btn-primary"
-            href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Install from Chrome Web Store</a>
-        </p>
-        <p>
-          <a href="/privacy/submit-guard/">Privacy</a> ·
-          <a href="/terms/">Terms</a> ·
-          <a href="/support/">Support</a>
-        </p>
+  <main id="main-content">
+    <section class="secondary-hero">
+      <div class="site-container">
+        <div class="hero-copy">
+          <p class="eyebrow">SynapseWorks · Product information</p>
+          <h1>Legacy product index</h1>
+          <div class="hero-summary">
+            <p>This page remains live for existing links. For the current SynapseWorks portfolio, start at <a href="/products/">Products</a>.</p>
+            <ul>
+              <li><a href="/products/">Current products</a></li>
+              <li><a href="/rme-pdf-scanner/">RME PDF Scanner</a></li>
+              <li><a href="/products/jira-apps/">Atlassian Apps</a></li>
+              <li><a href="/products/browser-tools/">Chrome Extensions</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section>
-      <h2>What you receive after purchase</h2>
-      <ul>
-        <li>Instant delivery of a download or license key (depending on the product).</li>
-        <li>One-time purchase with lifetime access for the purchased version (no subscriptions).</li>
-        <li>Support is available via the official support channels.</li>
-        <li>See <a href="/terms/">Terms</a> and <a href="/support/">Support</a> for details.</li>
-      </ul>
-    </section>
-
-    <h2>Policies</h2>
-    <ul>
-      <li><a href="/support/">Support</a></li>
-      <li><a href="/privacy/">Privacy Policy</a></li>
-      <li><a href="/security/">Security</a></li>
-      <li><a href="/cookie-policy/">Cookie Policy</a></li>
-      <li><a href="/terms/">Terms</a></li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
-  </div>
-  <footer>
-    <a href="/">Home</a>
-    <a href="/products/">Products</a>
-    <a href="/docs/">Docs</a>
-    <a href="/support/">Support</a>
-    <a href="/store/">Store</a>
-    <a href="/privacy/">Privacy Policy</a>
-    <a href="/security/">Security</a>
-    <a href="/cookie-policy/">Cookie Policy</a>
-    <a href="/terms/">Terms</a>
+    <div class="site-container reading-layout">
+      <aside class="reading-nav">
+        <p>On this page</p>
+        <nav aria-label="On this page">
+          <a href="#featured">Featured</a>
+          <a href="#what-you-receive-after-purchase">What you receive after purchase</a>
+          <a href="#policies">Policies</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+      <article class="reading-copy">
+        <section class="reading-section">
+          <h2 id="featured">Featured</h2>
+          <h3>Submit Guard — Confirm Before Submit</h3>
+          <p>Prevent accidental form submissions by adding a confirmation step before submit — only on sites you enable.</p>
+          <ul>
+            <li>Standard mode: confirms native HTML form submissions</li>
+            <li>Advanced mode: guards submit-like clicks in modern web apps (optional)</li>
+            <li>Privacy-first: no accounts, no backend, local-only settings</li>
+          </ul>
+          <p><strong>Status:</strong> Live on the Chrome Web Store.</p>
+          <p> <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/submit-guard-confirm-before-submit/egplmjbdpaffiejoiihpgcndmlkbagjg" target="_blank" rel="noopener noreferrer">Install from Chrome Web Store</a> </p>
+          <p> <a href="/privacy/submit-guard/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/support/">Support</a> </p>
+        </section>
+        <section class="reading-section">
+          <h2 id="what-you-receive-after-purchase">What you receive after purchase</h2>
+          <ul>
+            <li>Instant delivery of a download or license key (depending on the product).</li>
+            <li>One-time purchase with lifetime access for the purchased version (no subscriptions).</li>
+            <li>Support is available via the official support channels.</li>
+            <li>See <a href="/terms/">Terms</a> and <a href="/support/">Support</a> for details.</li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="policies">Policies</h2>
+          <ul>
+            <li><a href="/support/">Support</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/security/">Security</a></li>
+            <li><a href="/cookie-policy/">Cookie Policy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+          </ul>
+        </section>
+        <section class="reading-section">
+          <h2 id="contact">Contact</h2>
+          <p>Email: <a href="mailto:support@synapseworks.org">support@synapseworks.org</a></p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="site-container site-footer-layout">
+      <span class="site-copyright">© 2026 <a href="/" aria-label="SynapseWorks home">SynapseWorks</a></span>
+      <nav class="site-footer-links" aria-label="Footer navigation">
+        <a href="/products/">Products</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/security/">Security</a>
+        <a href="/cookie-policy/">Cookie policy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>
