@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles.css?v=20261020">
+  <link rel="stylesheet" href="/styles.css?v=20261020-products-menu">
   <link rel="stylesheet" href="/suite.css?v=20261020-docsnav">
   <title>Products | SynapseWorks</title>
   <link rel="canonical" href="https://synapseworks.org/products/">
@@ -18,13 +18,37 @@
   <meta name="twitter:title" content="Products | SynapseWorks">
   <meta name="twitter:description" content="Chrome extensions, Android apps, and Atlassian apps from SynapseWorks.">
   <meta name="twitter:image" content="https://synapseworks.org/og.svg">
+  <script src="/site-navigation.js?v=20261020" defer></script>
 </head>
 <body class="suite-page catalog-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/" aria-label="SynapseWorks home">SynapseWorks</a>
     <nav aria-label="Primary navigation">
-      <a href="/products/" aria-current="page">Products</a>
+      <details class="products-menu">
+        <summary aria-current="page">Products <img class="products-menu-chevron" src="/assets/navigation/caret-down.svg" alt="" width="12" height="12" aria-hidden="true"></summary>
+        <div class="products-menu-wrap">
+          <div class="products-menu-panel">
+            <div class="products-menu-columns">
+              <div class="products-menu-group">
+                <p class="products-menu-label" id="products-menu-group-1">Everyday tools</p>
+                <ul aria-labelledby="products-menu-group-1">
+                  <li><a class="product-menu-link" aria-labelledby="menu-scan-title" aria-describedby="menu-scan-description" href="/rme-pdf-scanner/"><span class="product-menu-icon"><img src="/assets/navigation/scan.svg" alt="" width="28" height="28" aria-hidden="true"></span><span class="product-menu-copy"><strong id="menu-scan-title">RME PDF Scanner</strong><small id="menu-scan-description">Android · Documents</small></span></a></li>
+                  <li><a class="product-menu-link" aria-labelledby="menu-shield-check-title" aria-describedby="menu-shield-check-description" href="/products/submit-guard/"><span class="product-menu-icon"><img src="/assets/navigation/shield-check.svg" alt="" width="28" height="28" aria-hidden="true"></span><span class="product-menu-copy"><strong id="menu-shield-check-title">Submit Guard</strong><small id="menu-shield-check-description">Chrome · Browser tools</small></span></a></li>
+                </ul>
+              </div>
+              <div class="products-menu-group">
+                <p class="products-menu-label" id="products-menu-group-2">Jira apps <span class="products-menu-stage">Early-stage</span></p>
+                <ul aria-labelledby="products-menu-group-2">
+                  <li><a class="product-menu-link" aria-labelledby="menu-list-checks-title" aria-describedby="menu-list-checks-description" href="/apps/decision-register/"><span class="product-menu-icon"><img src="/assets/navigation/list-checks.svg" alt="" width="28" height="28" aria-hidden="true"></span><span class="product-menu-copy"><strong id="menu-list-checks-title">Decision Register for Jira</strong><small id="menu-list-checks-description">Jira · Decision visibility</small></span></a></li>
+                  <li><a class="product-menu-link" aria-labelledby="menu-flow-arrow-title" aria-describedby="menu-flow-arrow-description" href="/apps/synapse/"><span class="product-menu-icon"><img src="/assets/navigation/flow-arrow.svg" alt="" width="28" height="28" aria-hidden="true"></span><span class="product-menu-copy"><strong id="menu-flow-arrow-title">Synapse for Jira</strong><small id="menu-flow-arrow-description">Jira · Delivery workflows</small></span></a></li>
+                </ul>
+              </div>
+            </div>
+            <a class="products-menu-all" href="/products/">View all products <img src="/assets/navigation/arrow-right.svg" alt="" width="16" height="16" aria-hidden="true"></a>
+          </div>
+        </div>
+      </details>
       <a href="/docs/">Documentation</a>
       <a href="/support/">Support</a>
     </nav>
