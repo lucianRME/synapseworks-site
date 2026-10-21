@@ -1,10 +1,10 @@
-import { isMode, isDirection } from './engine.mjs';
+import { isMode, isDirection } from './engine.mjs?v=05';
 
 const EVENTS = new Set(['ht_visit', 'ht_shared_visit', 'ht_mode_change', 'ht_translate', 'ht_copy_text',
   'ht_copy_link', 'ht_share_open', 'ht_share_handoff', 'ht_share_cancel', 'ht_rme_click']);
 const ALLOWED = {
   outcome: new Set(['matched', 'unmatched', 'empty', 'too-long']),
-  source: new Set(['typed', 'example', 'shared']),
+  source: new Set(['typed', 'example', 'shared', 'selected', 'surprise']),
   destination: new Set(['product', 'play'])
 };
 

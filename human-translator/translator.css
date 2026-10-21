@@ -3,10 +3,10 @@
 .translator-page main { padding: 24px 20px 64px; }
 .translator-page > .skip-link { position: absolute; top: -100px; left: 20px; padding: 12px 16px; border-radius: 8px; background: #fff; color: #11695f; }
 .translator-page > .skip-link:focus { top: 8px; }
-.translator-page button, .translator-page textarea { font: inherit; }
+.translator-page button, .translator-page textarea, .translator-page select { font: inherit; }
 .translator-page button { cursor: pointer; min-height: 44px; border: 1px solid #c2d4ce; border-radius: 10px; background: #fff; color: var(--ht-ink); padding: 10px 16px; font-weight: 600; }
 .translator-page button:hover { background: #e4f0e9; }
-.translator-page :is(button, a, summary, textarea):focus-visible { outline: 3px solid #11695f; outline-offset: 4px; }
+.translator-page :is(button, a, summary, textarea, select):focus-visible { outline: 3px solid #11695f; outline-offset: 4px; }
 .translator-page button:disabled { cursor: wait; }
 .translator-page [hidden] { display: none !important; }
 .translator-page .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -17,7 +17,9 @@
 .ht-eyebrow .ht-version { font-size: 10px; letter-spacing: 0; border: 1px solid #c5d8cf; border-radius: 4px; padding: 4px 5px; }
 .ht-intro h1 { font-size: clamp(40px, 6.5vw, 64px); line-height: 1.04; letter-spacing: -.055em; font-weight: 600; margin: 20px 0 16px; }
 .ht-intro h1 span { color: var(--ht-teal); }
-.ht-intro > p:last-child { color: #52635d; font-size: 16px; line-height: 1.6; margin: 0; }
+.ht-intro > p:not(.ht-eyebrow):not(.editorial-review) { color: #52635d; font-size: 16px; line-height: 1.6; margin: 0; }
+.editorial-review { font-size: 12px; line-height: 1.6; color: #52635d; margin: 12px 0 0; }
+.editorial-review a { color: #11695f; text-underline-offset: 3px; }
 .mobile-break { display: none; }
 .translator, .rme-cta, .ht-about { width: 100%; max-width: 740px; margin-inline: auto; }
 .translator { background: white; padding: 16px; border: 1px solid #d2dfd8; border-radius: 22px; box-shadow: 0 8px 40px #1a3a2810; }
@@ -30,6 +32,14 @@
 .direction button { font-size: 24px; padding: 0; min-width: 44px; min-height: 44px; line-height: 1; background: #f2f7f4; }
 .translator textarea { display: block; resize: vertical; width: 100%; min-height: 110px; border: 1px solid #778e81; border-radius: 12px; padding: 16px; color: #182c2a; background: #fff; font-size: 20px; line-height: 1.5; }
 .translator textarea::placeholder { color: #66796f; opacity: 1; }
+.phrase-picker { display: grid; gap: 14px; }
+.phrase-picker > div { min-width: 0; }
+.phrase-picker label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 7px; }
+.phrase-picker select { display: block; width: 100%; max-width: 100%; min-width: 0; min-height: 50px; border: 1px solid #778e81; border-radius: 10px; padding: 10px 34px 10px 12px; background: #fff; color: #182c2a; font-size: 16px; text-overflow: ellipsis; }
+.chosen-phrase { font-size: 17px; line-height: 1.5; color: #335c4b; margin: 14px 0 0; overflow-wrap: anywhere; }
+.selection-meta { display: flex; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.selection-meta > span { font-size: 11px; line-height: 1.5; color: #52635d; }
+.selection-meta button { font-size: 12px; padding: 8px 12px; flex-shrink: 0; }
 .input-meta { display: flex; justify-content: space-between; gap: 8px; color: #56685e; font-size: 10px; line-height: 1.5; margin: 9px 0 18px; }
 .input-meta > span:last-child { white-space: nowrap; }
 .translator-page .translate-button { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 14px 18px; background: #176b5b; color: white; border-color: #176b5b; font-size: 15px; }
@@ -94,7 +104,14 @@
 }
 @media (max-width: 429px) {
   .mobile-break { display: block; }
-  .ht-intro > p:last-child { font-size: 14px; }
+.ht-intro > p:not(.ht-eyebrow):not(.editorial-review) { font-size: 14px; }
   .translator-page main { padding-inline: 14px; }
   .ht-intro h1 { font-size: 44px; }
 }
+
+.ht-references { max-width: 740px; margin: 36px auto 0; padding-top: 20px; border-top: 1px solid #d2dfd8; }
+.ht-references h2 { font-size: 14px; line-height: 1.5; margin: 0 0 8px; }
+.ht-references p { color: #52635d; font-size: 12px; line-height: 1.7; margin: 0 0 12px; }
+.ht-references ul { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 0; }
+.ht-references li { max-width: 100%; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.ht-references a { color: #11695f; text-underline-offset: 3px; }

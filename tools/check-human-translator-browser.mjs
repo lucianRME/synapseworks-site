@@ -3,9 +3,11 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
+import { phrasesFor } from '../human-translator/engine.mjs';
 const modulePath = process.env.HT_PLAYWRIGHT_MODULE;
 const { chromium } = await import(modulePath ? pathToFileURL(modulePath).href : 'playwright');
 const base = process.env.HT_BASE_URL || 'http://127.0.0.1:8765';
+assert.notEqual(new URL(base).hostname, 'synapseworks.org', 'Use localhost or the isolated preview so QA cannot pollute production KPIs.');
 const output = process.env.HT_QA_OUTPUT || '/tmp/human-translator-qa';
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ headless: true,
@@ -35,30 +37,38 @@ try {
   await page.keyboard.press('Enter');
   assert.match(page.url(), /#main-content$/);
   await page.locator('#translate-form').evaluate(form => form.requestSubmit());
-  assert.match(await page.locator('#status').textContent(), /Add a phrase/);
-  await page.locator('#phrase').fill('private text person@example.com <script>alert(1)</script>');
-  await page.locator('.translate-button').click();
-  assert.match(await page.locator('#status').textContent(), /No curated match/);
-  assert.equal(await page.locator('#result').isVisible(), false);
-  assert.equal(requests.some(url => url.includes('person@') || url.includes('private')), false);
-  assert.equal(await page.locator('#examples button').count(), 12);
+  assert.match(await page.locator('#status').textContent(), /Choose a phrase/);
+  assert.equal(await page.locator('input, textarea:not([readonly]), [contenteditable=true]').count(), 0);
+  assert.equal(await page.locator('#phrase').evaluate(element => element.tagName), 'SELECT');
+  assert.equal(await page.locator('#examples button').count(), phrasesFor('corporate').length);
   await page.locator('#quick-examples button').first().click();
-  assert.equal(await page.locator('#output').textContent(), "Let's talk about this later.");
+  assert.equal(await page.locator('#output').textContent(), 'Same problem. Different calendar invite.');
   assert.equal(await page.locator(':focus').getAttribute('id'), 'result-title');
   await page.locator('#swap').click();
-  assert.equal(await page.locator('#phrase').inputValue(), "Let's talk about this later.");
+  assert.equal(await page.locator('#phrase').inputValue(), 'c101');
   await page.locator('.translate-button').click();
   assert.equal(await page.locator('#output').textContent(), "Let's circle back.");
-  for (const [mode, expected] of [['generation', 'For real.'], ['tone', 'Please remember this.']]) {
+  for (const [mode, expected] of [['generation', 'I have temporarily disabled exaggeration.'], ['tone', 'I have wrapped the deadline in a small cardigan.']]) {
     await page.locator(`[data-mode=${mode}]`).click();
     assert.equal(await page.locator('#result').isVisible(), false);
-    assert.equal(await page.locator('#examples button').count(), 12);
+    assert.equal(await page.locator('#examples button').count(), phrasesFor(mode).length);
     await page.locator('#quick-examples button').first().click();
     assert.equal(await page.locator('#output').textContent(), expected);
-    const forwardInput = await page.locator('#phrase').inputValue();
+    const forwardInput = await page.locator('#phrase option:checked').textContent();
     await page.locator('#swap').click();
     await page.locator('.translate-button').click();
     assert.equal(await page.locator('#output').textContent(), forwardInput);
+  }
+  for (const [mode, id, expected] of [
+    ['corporate', 'c101', 'Same problem. Different calendar invite.'],
+    ['corporate', 'c144', 'Please make your entire afternoon disappear.'],
+    ['tone', 'p162', 'The supporting facts are still on the free trial.'],
+    ['generation', 'g124', 'Your screen time needs a field trip.']
+  ]) {
+    await page.locator(`[data-mode=${mode}]`).click();
+    await page.locator('#phrase').selectOption(id);
+    await page.locator('.translate-button').click();
+    assert.equal(await page.locator('#output').textContent(), expected);
   }
   await page.locator('[data-mode=tone]').click();
   await page.locator('#quick-examples button').first().click();
@@ -70,9 +80,9 @@ try {
   });
   await page.locator('#copy-link').click();
   const shared = await page.evaluate(() => window.copied.at(-1));
-  assert.equal(shared, `${base}/human-translator/#v=1&p=p01&d=f&src=share`);
+  assert.equal(shared, `${base}/human-translator/#v=1&p=p101&d=f&src=share`);
   await page.locator('#copy-text').click();
-  assert.equal(await page.evaluate(() => window.copied.at(-1)), 'Please remember this.');
+  assert.equal(await page.evaluate(() => window.copied.at(-1)), 'I have wrapped the deadline in a small cardigan.');
   await page.evaluate(() => Object.defineProperty(navigator, 'share', { configurable: true, value: async () => {} }));
   await page.locator('#share').click();
   assert.match(await page.locator('#status').textContent(), /Delivery is not confirmed/);
@@ -88,11 +98,11 @@ try {
   await page.goto(shared);
   await page.waitForFunction(() => !document.getElementById('shared-notice').hidden);
   assert.equal(await page.locator('#shared-notice').isVisible(), true);
-  assert.equal(await page.locator('#output').textContent(), 'Please remember this.');
+  assert.equal(await page.locator('#output').textContent(), 'I have wrapped the deadline in a small cardigan.');
   await page.reload();
-  assert.equal(await page.locator('#output').textContent(), 'Please remember this.');
+  assert.equal(await page.locator('#output').textContent(), 'I have wrapped the deadline in a small cardigan.');
   await page.screenshot({ path: path.join(output, 'shared-390.png'), fullPage: true });
-  await page.locator('#phrase').fill('changed');
+  await page.locator('#phrase').selectOption('p102');
   assert.equal(await page.locator('#result').isVisible(), false);
   assert.equal(new URL(page.url()).hash, '');
   await page.goto(`${base}/human-translator/#v=1&p=c01&d=f&src=share&text=private`);
@@ -110,7 +120,7 @@ try {
   await noJS.close();
   assert.deepEqual(errors, []);
   const report = { passed: true, metrics, pageErrors: errors,
-    checks: ['six translation directions', 'honest fallback', 'no input upload', 'stale result cleared',
+    checks: ['six translation directions', 'native selectors only', 'no free text', 'stale result cleared',
       'share URL reload', 'invalid URL recovery', 'copy success/failure', 'share handoff/cancel',
       'keyboard skip and result focus', 'no JavaScript fallback', 'no external page requests'] };
   await writeFile(path.join(output, 'report.json'), JSON.stringify(report, null, 2));

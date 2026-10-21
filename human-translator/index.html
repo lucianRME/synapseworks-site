@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <title>Human Translator — Corporate, Slang &amp; Tone | SynapseWorks</title>
-  <meta name="description" content="Less jargon. More human. Try 36 playful phrase pairs: Corporate to Human, Gen Z to Millennial, and Polite to Direct. Free, in your browser, no account.">
+  <meta name="description" content="Pick a phrase. Decode the vibe. 415 satirical riffs across Corporate, Gen Z and Polite language, including acronym soup and playful roasts. Free, no typing.">
   <link rel="canonical" href="https://synapseworks.org/human-translator/">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Human Translator — What did they actually say?">
@@ -15,19 +15,19 @@
   <meta property="og:image" content="https://synapseworks.org/human-translator/social.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Human Translator. Let's circle back. Let's talk about this later.">
+  <meta property="og:image:alt" content="Human Translator. Let's circle back. Same problem. Different calendar invite.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Human Translator by SynapseWorks">
-  <meta name="twitter:description" content="Less jargon. More human. 36 playful phrase pairs to try and share.">
+  <meta name="twitter:description" content="415 curated riffs. Pick a phrase, decode the vibe, pass it on. No typing needed.">
   <meta name="twitter:image" content="https://synapseworks.org/human-translator/social.png">
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/styles.css?v=20261020-products-menu">
   <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
-  <link rel="stylesheet" href="/human-translator/translator.css?v=01">
+  <link rel="stylesheet" href="/human-translator/translator.css?v=03">
   <script src="/site-navigation.js?v=20261020" defer></script>
-  <script src="/human-translator/app.mjs?v=02" type="module"></script>
+  <script src="/human-translator/app.mjs?v=05" type="module"></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Translator","url":"https://synapseworks.org/human-translator/","applicationCategory":"EntertainmentApplication","operatingSystem":"Web browser","inLanguage":"en","isAccessibleForFree":true,"description":"36 curated, playful phrase pairs across corporate language, generational slang and tone. Deterministic matching in the browser.","publisher":{"@type":"Organization","name":"SynapseWorks","url":"https://synapseworks.org/"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Translator","url":"https://synapseworks.org/human-translator/","applicationCategory":"EntertainmentApplication","operatingSystem":"Web browser","inLanguage":"en","isAccessibleForFree":true,"description":"415 curated satirical riffs across corporate language, generational slang and tone. Choose a phrase and direction; no free-text input or AI generation.","publisher":{"@type":"Organization","name":"SynapseWorks","url":"https://synapseworks.org/"}}
   </script>
 </head>
 <body class="site-shell translator-page">
@@ -68,12 +68,13 @@
       <p class="ht-eyebrow"><span aria-hidden="true">↔</span> HUMAN TRANSLATOR <span class="ht-version">v0.1</span></p>
       <h1 id="page-title">What did they<br><span>actually say?</span></h1>
       <p>Less jargon. More human.<br class="mobile-break"> Decode the vibe, then pass it on.</p>
+      <p id="editorial-review" class="editorial-review" hidden>Editorial preview · <a href="/human-translator/review/">Review all 415 candidates</a></p>
     </section>
     <section class="translator" aria-label="Phrase translator">
       <p id="shared-notice" class="shared-notice" hidden>Someone sent you this one. Your turn?</p>
       <form id="translate-form">
         <fieldset id="controls" disabled>
-          <legend class="sr-only">Choose a translation mode and enter a phrase</legend>
+          <legend class="sr-only">Choose a translation mode and a phrase</legend>
           <div class="mode-options" role="group" aria-label="Translation mode">
             <button type="button" data-mode="corporate" aria-pressed="true">Corporate ↔ Human</button>
             <button type="button" data-mode="generation" aria-pressed="false">Gen Z ↔ Millennial</button>
@@ -81,9 +82,13 @@
           </div>
           <p id="mode-hint" class="mode-hint">For the meeting that could have been a sentence.</p>
           <div class="direction"><span id="from-label">Corporate</span><button id="swap" type="button" aria-label="Swap direction: Human to Corporate"><span aria-hidden="true">⇄</span></button><span id="to-label">Human</span></div>
-          <label class="sr-only" for="phrase">Phrase to translate</label>
-          <textarea id="phrase" name="phrase" rows="3" maxlength="240" autocomplete="off" spellcheck="false" aria-describedby="input-help count" placeholder="Let's circle back."></textarea>
-          <div class="input-meta"><span id="input-help">English · 36 curated pairs · no AI</span><span id="count">0 / 240</span></div>
+          <div class="phrase-picker">
+            <div><label for="theme">Browse by theme</label><select id="theme"><option value="">All themes</option></select></div>
+            <div><label for="phrase">Choose a phrase</label><select id="phrase" name="phrase" aria-describedby="input-help selection-note chosen-phrase"><option value="">Choose a phrase…</option></select></div>
+          </div>
+          <p id="chosen-phrase" class="chosen-phrase" hidden></p>
+          <div class="input-meta"><span id="input-help">English · 415 curated riffs · no AI</span></div>
+          <div class="selection-meta"><span id="selection-note">Pick a line. No typing needed.</span><button id="surprise" type="button">Surprise me <span aria-hidden="true">↝</span></button></div>
           <button class="translate-button" type="submit">Translate the vibe <span aria-hidden="true">→</span></button>
         </fieldset>
       </form>
@@ -91,25 +96,49 @@
       <section id="result" class="result" aria-labelledby="result-title" hidden>
         <div class="result-top"><h2 id="result-title" tabindex="-1">In other words</h2><span id="result-label"></span></div>
         <p id="output" class="output"></p>
-        <p class="result-note">A playful interpretation, not a mind-reading service.</p>
+        <p class="result-note">Satire, not a literal definition or a mind-reading service.</p>
         <div class="result-actions"><button id="share" type="button" class="share-button">Share result <span aria-hidden="true">↗</span></button><button id="copy-link" type="button">Copy link</button><button id="copy-text" type="button">Copy text</button></div>
       </section>
       <div id="manual-copy" class="manual-copy" hidden><label for="copy-value">Select and copy</label><textarea id="copy-value" rows="3" readonly></textarea></div>
       <div id="quick-examples-wrap" class="quick-examples-wrap" hidden><p>Or try one of these</p><div id="quick-examples" class="examples"></div></div>
       <details id="examples-disclosure" class="examples-disclosure" hidden>
-        <summary>Browse all 12 phrases</summary>
+        <summary id="examples-summary">Browse all 216 Corporate phrases</summary>
         <div id="examples" class="examples"></div>
       </details>
-      <noscript><div class="no-js"><p>Enable JavaScript for matching, reverse translation and sharing. These examples still work as a quick phrase guide:</p><dl><dt>Corporate: “Let's circle back.”</dt><dd>Human: “Let's talk about this later.”</dd><dt>Gen Z: “No cap.”</dt><dd>Millennial: “For real.”</dd><dt>Polite: “Just a gentle reminder.”</dt><dd>Direct: “Please remember this.”</dd></dl></div></noscript>
-      <p class="local-note"><span aria-hidden="true">◇</span> Matching happens in your browser. Your typed text is not uploaded by this tool.</p>
+      <noscript><div class="no-js"><p>Enable JavaScript to choose phrases, reverse direction and share. These satirical examples still work:</p><dl><dt>Corporate: “Let's circle back.”</dt><dd>Human: “Same problem. Different calendar invite.”</dd><dt>Gen Z: “No cap.”</dt><dd>Millennial: “I have temporarily disabled exaggeration.”</dd><dt>Polite: “Just a friendly reminder.”</dt><dd>Direct: “I have wrapped the deadline in a small cardigan.”</dd></dl></div></noscript>
+      <p class="local-note"><span aria-hidden="true">◇</span> Choose from the list. No free text, no AI generation, no account.</p>
     </section>
     <aside class="rme-cta" aria-labelledby="rme-title">
       <div class="rme-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg></div>
       <div><p class="ht-eyebrow">ALSO BY SYNAPSEWORKS</p><h2 id="rme-title">Paperwork needs translating too.</h2><p>Turn paper into PDFs with RME PDF Scanner for Android.</p><div class="rme-links"><a data-rme="product" href="/rme-pdf-scanner/?utm_source=human_translator&amp;utm_medium=microtool&amp;utm_campaign=ht_v01">Explore RME <span aria-hidden="true">→</span></a><a data-rme="play" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&amp;utm_source=human_translator&amp;utm_medium=microtool&amp;utm_campaign=ht_v01" rel="noreferrer">Get on Google Play</a></div></div>
     </aside>
     <section class="ht-about" aria-label="About Human Translator">
-      <details><summary>A small phrasebook with a sense of humour</summary><p>Choose Corporate ↔ Human, Gen Z ↔ Millennial, or Polite ↔ Direct. Each mode has 12 original pairs that work in both directions. Matching ignores letter case, extra spaces, curly quotes and final sentence punctuation. Other wording gets an honest “no curated match”.</p><p>These are playful English examples, not universal definitions of a generation or a reliable reading of someone's intentions. Slang overlaps between ages and changes with context. This is not advice for sensitive conversations.</p><p>Shared links contain only a curated phrase ID and direction in the URL fragment. They do not include what you typed. Social previews show the same generic card; the result appears when the link opens.</p></details>
-      <details><summary>Your text and optional usage counts</summary><p>Human Translator has no translation server, account, history or database. Typed text stays in this page's memory until you leave. Copy and share send only the curated result you choose to your clipboard or share app.</p><p>Optional website analytics use the site's existing Cloudflare Zaraz integration only when its Analytics purpose is explicitly granted. Human Translator events contain fixed action labels, mode and direction, never your text. Events stay off on previews, with Do Not Track or Global Privacy Control, or when consent cannot be verified. Normal website delivery still uses Cloudflare.</p><p>A share-button action is not a recipient visit. Link-tagged visits are counted separately and do not prove a unique person, delivery or an app installation. See the <a href="/privacy/">website privacy policy</a> and <a href="/cookie-policy/">cookie policy</a>.</p><p id="analytics-state">Human Translator usage events are off here.</p><button id="analytics-settings" type="button" hidden>Analytics settings</button></details>
+      <details><summary>A phrasebook with a sense of humour</summary><p>Choose Corporate ↔ Human, Gen Z ↔ Millennial, or Polite ↔ Direct. There are 216 Corporate, 80 Gen Z and 119 Polite selectable riffs, with themes for acronyms, email, internet slang and roasts. Pick a phrase, try the reverse direction or let “Surprise me” choose one. There is no free-text input.</p><p>The punchlines are original satire. References document expressions or language families; they do not verify the joke or prove current virality. Slang overlaps between generations and changes with context. Roasts are labelled, and these are not reliable readings of anyone's intentions or advice for sensitive conversations.</p><p>Shared links contain only a permanent curated phrase ID and direction in the URL fragment. Earlier shared examples retain their original wording. Social previews show the same generic card; the result appears when the link opens.</p></details>
+      <details><summary>Your choices and optional usage counts</summary><p>Human Translator has no translation server, account, saved phrase history or database. Copy and share send only the curated result you choose to your clipboard or share app.</p><p>Optional website analytics use the site's existing Cloudflare Zaraz integration only when its Analytics purpose is explicitly granted. Human Translator events contain fixed action labels, mode and direction, never message text or individual phrase IDs. Events stay off on previews, with Do Not Track or Global Privacy Control, or when consent cannot be verified. Normal website delivery still uses Cloudflare.</p><p>A share-button action is not a recipient visit. Link-tagged visits are counted separately and do not prove a unique person, delivery or an app installation. See the <a href="/privacy/">website privacy policy</a> and <a href="/cookie-policy/">cookie policy</a>.</p><p id="analytics-state">Human Translator usage events are off here.</p><button id="analytics-settings" type="button" hidden>Analytics settings</button></details>
+    </section>
+    <section class="ht-references" aria-labelledby="references-title">
+      <h2 id="references-title">References &amp; inspiration</h2>
+      <p>Language references are listed below. Comic interpretations are original satire. The referenced workplace series is by Laura Whaley (@loewhaley) and Work Bestie.</p>
+      <ul>
+        <li><a href="https://www.atlassian.com/blog/teamwork/6-examples-of-business-jargon-you-should-stop-using-now" target="_blank" rel="noopener noreferrer">Atlassian — 31 corporate jargon terms</a></li>
+        <li><a href="https://www.techtarget.com/whatis/feature/Awful-corporate-jargon-phrases-you-cant-escape" target="_blank" rel="noopener noreferrer">TechTarget — 58 corporate jargon terms</a></li>
+        <li><a href="https://www.linkedin.com/posts/shubham-khurana-1baa168_how-to-say-are-you-dumb-in-corporate-ugcPost-7320400535205941248-8iqP/" target="_blank" rel="noopener noreferrer">Shubham Khurana — six corporate questions</a></li>
+        <li><a href="https://thelanguagenerds.com/2022/30-translations-from-blunt-insults-and-angry-emails-into-professional-language-shared-by-this-tiktoker/" target="_blank" rel="noopener noreferrer">The Language Nerds — Laura Whaley / Work Bestie roundup</a></li>
+        <li><a href="https://www.boredpanda.com/how-to-professionally-say-tiktok/" target="_blank" rel="noopener noreferrer">Bored Panda — Laura Whaley / Work Bestie roundup</a></li>
+        <li><a href="https://www.reddit.com/r/AskUK/comments/18f5dxv/officecorporate_jargon_what_are_your_most/" target="_blank" rel="noopener noreferrer">r/AskUK — office jargon discussion</a></li>
+        <li><a href="https://preply.com/en/blog/best-and-worst-corporate-jargon/" target="_blank" rel="noopener noreferrer">Preply — corporate jargon survey</a></li>
+        <li><a href="https://preply.com/en/blog/passive-aggressive-workplace-emails/" target="_blank" rel="noopener noreferrer">Preply — workplace email survey</a></li>
+        <li><a href="https://www.kickresume.com/en/press/office-jargon-study-kickresume/" target="_blank" rel="noopener noreferrer">Kickresume — office jargon study</a></li>
+        <li><a href="https://github.com/d-edge/foss-acronyms" target="_blank" rel="noopener noreferrer">FOSS Community Acronyms</a></li>
+        <li><a href="https://www.dictionary.com/culture/slang" target="_blank" rel="noopener noreferrer">Dictionary.com — slang index</a></li>
+        <li><a href="https://www.cambridge.org/news-and-insights/cambridge-dictionary-adds-skibidi-delulu-and-tradwife" target="_blank" rel="noopener noreferrer">Cambridge — internet-language additions</a></li>
+        <li><a href="https://www.dictionary.com/culture/slang/67" target="_blank" rel="noopener noreferrer">Dictionary.com — 67</a></li>
+        <li><a href="https://www.merriam-webster.com/slang/aura" target="_blank" rel="noopener noreferrer">Merriam-Webster — aura</a></li>
+        <li><a href="https://www.dictionary.com/browse/touch-grass" target="_blank" rel="noopener noreferrer">Dictionary.com — touch grass</a></li>
+        <li><a href="https://www.dictionary.com/culture/slang/side-eye" target="_blank" rel="noopener noreferrer">Dictionary.com — side eye</a></li>
+        <li><a href="https://www.merriam-webster.com/dictionary/blatherskite" target="_blank" rel="noopener noreferrer">Merriam-Webster — blatherskite</a></li>
+        <li><a href="https://www.merriam-webster.com/words-at-play/top-10-rare-and-amusing-insults-vol-1" target="_blank" rel="noopener noreferrer">Merriam-Webster — rare and amusing insults</a></li>
+      </ul>
     </section>
   </main>
   <footer class="site-footer">

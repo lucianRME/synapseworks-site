@@ -1,13 +1,14 @@
-import { MODES } from './phrases.mjs';
-import { MAX_INPUT, translate, phrasesFor, resultFor, parseFragment, shareURL, shareFragment } from './engine.mjs';
-import { createAnalytics } from './analytics.mjs?v=02';
+import { MODES } from './phrases.mjs?v=05';
+import { CATALOG, THEMES } from './catalog.mjs?v=05';
+import { selectResult, pairById, phrasesFor, resultFor, parseFragment, shareURL, shareFragment } from './engine.mjs?v=05';
+import { createAnalytics } from './analytics.mjs?v=05';
 
 const $ = id => document.getElementById(id);
 const analytics = createAnalytics({ window, navigator });
 let mode = 'corporate';
 let direction = 'f';
 let current = null;
-let source = 'typed';
+let source = 'selected';
 let visitRecorded = false;
 const arrival = parseFragment(location.hash === '#main-content' ? '' : location.hash);
 
@@ -24,7 +25,7 @@ function resetResult() {
   clearURL();
 }
 
-function renderControls() {
+function renderControls(selectedId = '') {
   document.querySelectorAll('[data-mode]').forEach(button => {
     button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
   });
@@ -34,7 +35,13 @@ function renderControls() {
   $('to-label').textContent = to;
   $('swap').setAttribute('aria-label', `Swap direction: ${to} to ${from}`);
   $('mode-hint').textContent = MODES[mode].hint;
-  $('phrase').placeholder = direction === 'f' ? phrasesFor(mode)[0].left : phrasesFor(mode)[0].right;
+  $('input-help').textContent = `English · ${CATALOG.length} curated riffs · no AI`;
+  $('examples-summary').textContent = `Browse all ${phrasesFor(mode).length} ${from} phrases`;
+  const themes = [...new Set(phrasesFor(mode).map(pair => pair.theme))];
+  const theme = themes.includes($('theme').value) ? $('theme').value : '';
+  $('theme').replaceChildren(new Option('All themes', ''), ...themes.map(key => new Option(THEMES[key], key)));
+  $('theme').value = theme;
+  renderPhraseOptions(selectedId);
   const exampleButton = pair => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -42,8 +49,8 @@ function renderControls() {
     button.textContent = direction === 'f' ? pair.left : pair.right;
     button.addEventListener('click', () => {
       source = 'example';
-      $('phrase').value = button.textContent;
-      updateCount();
+      $('theme').value = '';
+      renderPhraseOptions(pair.id);
       showResult(resultFor(pair, direction));
       track('ht_translate', { source, outcome: 'matched' });
       $('result-title').focus();
@@ -54,7 +61,34 @@ function renderControls() {
   $('quick-examples').replaceChildren(...phrasesFor(mode).slice(0, 3).map(exampleButton));
 }
 
-function updateCount() { $('count').textContent = `${$('phrase').value.length} / ${MAX_INPUT}`; }
+function renderPhraseOptions(selectedId = '') {
+  const pairs = phrasesFor(mode).filter(pair => !$('theme').value || pair.theme === $('theme').value);
+  const groups = [...new Set(pairs.map(pair => pair.theme))].map(theme => {
+    const group = document.createElement('optgroup');
+    group.label = THEMES[theme];
+    group.append(...pairs.filter(pair => pair.theme === theme).map(pair =>
+      new Option(direction === 'f' ? pair.left : pair.right, pair.id)));
+    return group;
+  });
+  const selected = pairById(selectedId);
+  // Old shared examples remain exact, but are not mixed into the new editorial list.
+  if (selected?.mode === mode && !pairs.some(pair => pair.id === selected.id)) {
+    const group = document.createElement('optgroup');
+    group.label = 'Shared example';
+    group.append(new Option(direction === 'f' ? selected.left : selected.right, selected.id));
+    groups.unshift(group);
+  }
+  $('phrase').replaceChildren(new Option('Choose a phrase…', ''), ...groups);
+  $('phrase').value = selected?.mode === mode ? selected.id : '';
+  updateSelection();
+}
+
+function updateSelection() {
+  const pair = pairById($('phrase').value);
+  $('chosen-phrase').hidden = !pair;
+  $('chosen-phrase').textContent = pair ? (direction === 'f' ? pair.left : pair.right) : '';
+  $('selection-note').textContent = pair ? (pair.heat === 'roast' ? 'Roast · a little sharp' : 'Playful satire') : 'Pick a line. No typing needed.';
+}
 function showResult(result, shared = false) {
   current = result;
   $('result').hidden = false;
@@ -65,7 +99,7 @@ function showResult(result, shared = false) {
   $('result').classList.toggle('shared-result', shared);
   if (shared) $('translate-form').before($('result'));
   else $('status').after($('result'));
-  message(shared ? 'Shared example loaded. Try your own below.' : 'Curated match found.');
+  message(shared ? 'Shared result loaded. Pick another line below.' : 'Your translation is ready.');
   if (shared) history.replaceState(null, '', location.pathname + shareFragment(result));
   else clearURL();
 }
@@ -73,41 +107,46 @@ function showResult(result, shared = false) {
 document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
   mode = button.dataset.mode;
   direction = 'f';
-  source = 'typed';
-  $('phrase').value = '';
+  source = 'selected';
+  $('theme').value = '';
   resetResult();
   renderControls();
-  updateCount();
   track('ht_mode_change');
 }));
 
 $('swap').addEventListener('click', () => {
-  const previous = current;
+  const previousId = current?.id || $('phrase').value;
   direction = direction === 'f' ? 'r' : 'f';
   resetResult();
-  renderControls();
-  $('phrase').value = previous ? previous.output : '';
-  source = 'typed';
-  updateCount();
+  renderControls(previousId);
+  source = 'selected';
 });
 
-$('phrase').addEventListener('input', () => { source = 'typed'; resetResult(); updateCount(); });
+$('theme').addEventListener('change', () => { source = 'selected'; resetResult(); renderPhraseOptions(); });
+$('phrase').addEventListener('change', () => { source = 'selected'; resetResult(); updateSelection(); });
+$('surprise').addEventListener('click', () => {
+  const options = phrasesFor(mode).filter(pair => !$('theme').value || pair.theme === $('theme').value);
+  const alternatives = options.filter(pair => pair.id !== $('phrase').value);
+  const candidates = alternatives.length ? alternatives : options;
+  const pair = candidates[Math.floor(Math.random() * candidates.length)];
+  if (!pair) return;
+  source = 'surprise';
+  renderPhraseOptions(pair.id);
+  showResult(resultFor(pair, direction));
+  track('ht_translate', { source, outcome: 'matched' });
+  $('result-title').focus();
+});
 $('translate-form').addEventListener('submit', event => {
   event.preventDefault();
-  const response = translate($('phrase').value, mode, direction);
+  const response = selectResult($('phrase').value, mode, direction);
   track('ht_translate', { outcome: response.status, source });
   if (response.status === 'matched') {
     showResult(response.result);
     $('result-title').focus();
   } else {
     resetResult();
-    const messages = {
-      empty: 'Add a phrase or choose an example below.',
-      'too-long': `Keep it to ${MAX_INPUT} characters or fewer.`,
-      unmatched: "No curated match for that phrase yet. We won't invent a meaning. Try an example below."
-    };
-    message(messages[response.status] || 'Choose a mode and try again.');
-    if (response.status === 'empty') $('phrase').focus();
+    message('Choose a phrase from the list or try an example below.');
+    $('phrase').focus();
   }
 });
 
@@ -169,14 +208,13 @@ function loadShared(parsed) {
     mode = parsed.result.mode;
     direction = parsed.result.direction;
     source = 'shared';
-    renderControls();
-    $('phrase').value = parsed.result.input;
+    $('theme').value = '';
+    renderControls(parsed.result.id);
     showResult(parsed.result, true);
   } else if (parsed.status === 'invalid') {
     resetResult();
     message('That result link is invalid or from an unsupported version. Choose an example to start again.');
   }
-  updateCount();
 }
 window.addEventListener('hashchange', () => {
   if (!location.hash) resetResult();
@@ -188,3 +226,5 @@ $('quick-examples-wrap').hidden = false;
 $('examples-disclosure').hidden = false;
 loadShared(arrival);
 consentUI();
+if (location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+  || location.hostname === 'human-translator-mvp-preview.lucianirimie.workers.dev') $('editorial-review').hidden = false;

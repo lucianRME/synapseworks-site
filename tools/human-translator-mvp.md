@@ -6,14 +6,15 @@ this work began; neither its branch nor dedicated preview is an implementation t
 
 ## What ships
 
-- Mobile-first English phrasebook: Corporate ↔ Human, Gen Z ↔ Millennial,
-  Polite ↔ Direct. Twelve original editorial pairs per mode; 36 pairs, 72
-  directional mappings. Three quick examples plus all twelve per mode.
-- Exact deterministic matching after NFKC normalization, case folding,
-  whitespace collapse, curly-quote conversion and final `. ! ?` removal.
-  No substring replacement, inferred intent, generated output or paid AI.
-- A 240-character limit and explicit empty, too-long and no-match responses.
-  Editing, switching modes or swapping directions clears stale results.
+- Mobile-first English satire picker: Corporate ↔ Human, Gen Z ↔ Millennial,
+  Polite ↔ Direct. 415 selectable pairs (216 Corporate, 80 Gen Z, 119 Polite), 830 directions; 129 are
+  labelled roast. Theme and phrase selectors replace editable input. Three
+  quick examples, all examples for the selected mode, and a theme-aware “Surprise me” stay available.
+- Only curated IDs produce results. No free text, inferred intent, generated
+  output or paid AI. Empty selection receives an explicit prompt. Changing
+  selection, theme, mode or direction clears stale results.
+- The previous 120 pairs and 327 alternatives remain in the compatibility
+  engine to preserve released shared links; they are not the new picker catalog.
 - Copy text, copy result link and native Web Share with clipboard/manual-copy
   fallback. A cancelled share is separate from a resolved OS share promise.
 - Permanent curated IDs, schema version and direction in a strict fragment:
@@ -34,11 +35,52 @@ this work began; neither its branch nor dedicated preview is an implementation t
 
 The phrasebook is entertainment. Generational language overlaps; the mappings
 are playful examples, not universal definitions or reliable readings of intent.
-Unrecognized input is deliberately not translated.
+This interface accepts selections only; its humour is editorial satire, not a dictionary definition.
+
+## Prior dictionary expansion — 21 October 2026 (superseded UI)
+
+Follow-up branch: `feat/human-translator-dictionary`. The launch dictionary had
+only 36 pairs. Everyday phrases such as “fire away” and “will get back to you”
+were missing, while even “circle back” missed the existing “Let's circle back”.
+The regression test reproduced that failure before the change.
+
+The expansion adds 84 pairs and direction-specific, reviewed alternatives.
+“Fire away” now maps to “Go ahead and ask”; “will get back to you”, “I will get
+back to you” and “I'll get back to you” map to “I'll reply later”. Both are
+available in Corporate → Human and Polite → Direct. Corporate additions also
+cover touch base, action items, ETA, capacity, scope creep, sign-off and common
+email wording. Slang additions include lowkey, NGL, bet, sus and red/green flags.
+Tone additions cover updates, refusals, requests, timing and boundaries.
+
+All 36 original pairs and IDs retain their exact text and meaning. Alternatives
+share their canonical result, never the visitor's wording. Matching requires
+one unambiguous complete phrase in the selected mode and direction. Negations,
+added deadlines, compound sentences and unlisted context still fail honestly;
+for example, “I'll get back to you tomorrow” is not silently reduced to a
+promise with no deadline. No visitor input is collected to grow this list.
+
+To maintain coverage, append permanent pairs in `phrases.mjs`; add alternatives
+to `ALIASES` under the existing ID and `f`/`r` direction. Do not add a wording
+variation that changes the subject, timing, certainty or meaning. Tests enforce
+normalized uniqueness in each mode/direction, round-trip every accepted input
+through safe canonical sharing, and protect unknown/negated/contextual input.
+The UI derives browsing counts from the data; static SEO/social counts are
+checked against it. Browser module URLs are versioned together for this update.
+
+This change is prepared for review separately from production. QA runs on
+localhost and the isolated preview, where the analytics adapter is disabled.
+When released, record its deployment time in the 30-day KPI record and compare
+typed match rates before/after; do not reset the observation window or mix
+preview QA into production traffic.
 
 ## Files and boundaries
 
-`human-translator/phrases.mjs` owns reviewed content and permanent IDs.
+`human-translator/catalog.mjs` owns the 415 new permanent IDs and candidate satire.
+`catalog-sources.mjs` records dated research provenance, with source scope kept
+separate from original punchlines. `phrases.mjs` retains the 120 legacy IDs.
+`review/` provides an untracked, noindex editorial validation surface; choices
+live only in page memory and export as known IDs plus keep/drop/unreviewed.
+See `tools/human-translator-editorial.md` for the current validation contract.
 `engine.mjs` owns matching and the strict share contract. `app.mjs` owns DOM,
 clipboard/share interactions and ephemeral state. `analytics.mjs` owns a
 consent-gated event allowlist. The remaining directory files are the page,
@@ -197,12 +239,22 @@ dependency to the site. Run `node tools/check-human-translator-browser.mjs`
 with `HT_PLAYWRIGHT_MODULE` pointing to Playwright's `index.mjs` if it is outside
 normal module resolution. `HT_CHROME_PATH` selects an installed Chrome;
 `HT_BASE_URL` and `HT_QA_OUTPUT` override localhost and the temporary output folder.
-It covers 320/390/768/1024/1440px, six directions, honest fallback, no input
-upload, copy success/denial, native share handoff/cancellation, shared reload,
+It covers 320/390/768/1024/1440px, six directions, selection-only controls, copy success/denial, native share handoff/cancellation, shared reload,
 malformed URL recovery, keyboard focus and no-JavaScript fallback.
 
-Current evidence: 16/16 Node tests pass (including existing production/PR #6
-isolation tests); 26 internal page URLs pass the strict crawl. Chrome checks
+Prior dictionary expansion evidence: 19/19 Node tests pass (including existing
+production/PR #6 isolation tests); all 36 original pairs compare unchanged
+against released `main`; 26 internal page URLs pass the strict local crawl.
+Chrome confirms the reported phrases, eight typed examples, all six translation
+directions, 40 examples per direction, negation fallback, link copy and shared
+result reload. There is no horizontal overflow at 320/390/768/1024/1440px and no
+captured browser errors. Analytics remains off locally. Both Wrangler dry-runs
+pass. The optional standalone browser script was updated but not rerun for this
+follow-up; browser checks here used the controlled Chrome session.
+The refreshed public preview serves all eight application assets byte-for-byte
+with noindex headers; live preview writes return 403 and APIs return 404.
+
+Initial release evidence: Chrome checks
 pass at all five widths without horizontal overflow, page errors or external
 page requests. Sampled tool text contrast is at least 4.64:1; the input border
 is 3.52:1 and the selected-mode border 5.40:1 against white. Both Wrangler
@@ -212,6 +264,28 @@ and live preview write/API checks return 403/404. The default Python User-Agent
 is blocked by Cloudflare; a normal browser User-Agent passes these read checks.
 This is not a full assistive-technology,
 physical iOS/Android share-sheet, Lighthouse or Core Web Vitals certification.
+
+## Current selector preview evidence — 21 October 2026
+
+415 candidates: 216 Corporate, 80 Gen Z, 119 Polite; 129 roasts. All 24 Node
+checks pass. The strict crawl covers 27 internal pages without broken or
+missing-trailing-slash links. Both Wrangler dry-runs pass. Controlled Chrome
+confirms all six directions and the six-source inventory,
+Keep/Drop/Undo, a downloaded 415-decision JSON export, page-memory reset,
+copy-link feedback, new/legacy shared reloads, invalid-link recovery and no
+editable text field. No horizontal overflow at 320/390/768/1024/1440px; the review
+also fits 320px. No captured browser errors; preview tool analytics is off.
+
+Public preview version `8570584c-006c-4fce-a419-be14170bb4c5`: all 15 translator
+assets match local files byte-for-byte and carry noindex. Write/API requests
+return 403/404. The review page is live, with mode/tone/decision filters, and every decision
+starts unreviewed. Production is unchanged. Additional purchased cost: €0.
+
+Sources now appear as 18 plain reference links at the bottom of both the main
+tool and review page. Source selectors, per-card source links and the visible
+coverage panel were removed at the owner's request. Internal provenance data
+and its tests remain intact. Browser checks confirm 415 review cards, no source
+selector, bottom links, and no overflow at 320px.
 
 ## Preview, production release and rollback
 
@@ -235,7 +309,8 @@ disabled. The preview is a manual snapshot; future branch pushes do not update
 it automatically. Refresh it with the explicit config after validation.
 
 Review URL: <https://human-translator-mvp-preview.lucianirimie.workers.dev/human-translator/>.
-Verified preview version: `191f9243-6d0f-48d1-86ce-99d82490b2a2`.
+Current selector-preview version: `8570584c-006c-4fce-a419-be14170bb4c5`.
+Prior dictionary-preview version: `03087acf-6af5-4f43-8bd6-d0c7b86a3d4a`.
 The asset exclusion covers both `.git/` directories and the `.git` pointer file
 used by isolated worktrees. Operational documentation/tests/tools are excluded
 from static uploads by the existing asset policy.
@@ -264,5 +339,6 @@ existing Cloudflare limits; no plan upgrade or billing setting is authorized.
 
 The worktree was created at 10:28 Europe/Dublin on 21 October 2026. Keep
 development plus release within 18 hours and the complete experiment setup
-within 24 hours; the thirty-day observation period is separate. No scheduled
-monitor, external outreach or additional feature phase was created.
+within 24 hours; the thirty-day observation period is separate. A 30-day KPI
+monitor with weekly reports was configured separately in the release chat;
+its reporting state lives outside website assets. No external outreach was created.
