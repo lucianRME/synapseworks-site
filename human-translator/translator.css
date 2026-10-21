@@ -108,3 +108,10 @@
   .translator-page main { padding-inline: 14px; }
   .ht-intro h1 { font-size: 44px; }
 }
+
+.ht-references { max-width: 740px; margin: 36px auto 0; padding-top: 20px; border-top: 1px solid #d2dfd8; }
+.ht-references h2 { font-size: 14px; line-height: 1.5; margin: 0 0 8px; }
+.ht-references p { color: #52635d; font-size: 12px; line-height: 1.7; margin: 0 0 12px; }
+.ht-references ul { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 0; }
+.ht-references li { max-width: 100%; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.ht-references a { color: #11695f; text-underline-offset: 3px; }

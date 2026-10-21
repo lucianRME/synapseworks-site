@@ -9,16 +9,10 @@
 .review-badge { color: #52635d; font-size: 11px; margin: 0 0 16px; }
 .review-input { font-size: 18px; line-height: 1.4; font-weight: 600; margin: 0 0 14px; }
 .review-output { color: #11695f; font-size: 20px; line-height: 1.4; margin: 0 0 16px; }
-.review-source { font-size: 11px; color: #52635d; }
 .review-page a { color: #11695f; text-underline-offset: 3px; }
 .review-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .review-actions button { font-size: 12px; padding: 8px 12px; }
 .review-actions button[aria-pressed="true"] { background: #e1f0e8; border-color: #367565; }
 .review-actions a { font-size: 12px; margin-left: auto; min-height: 44px; display: inline-flex; align-items: center; }
-.source-notes { margin-top: 32px; }
-.source-notes summary { min-height: 44px; cursor: pointer; }
-.source-notes p { font-size: 12px; line-height: 1.7; }
-@media (min-width: 641px) { .review-filters { grid-template-columns: repeat(4, minmax(0, 1fr)); } .review-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 641px) { .review-filters { grid-template-columns: repeat(3, minmax(0, 1fr)); } .review-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-#requested-coverage { margin: 16px 0 24px; }
-#requested-coverage li { font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }

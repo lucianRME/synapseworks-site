@@ -17,9 +17,10 @@ All comic readings are newly written. Source screenshots, creator reply lists,
 article definitions and comments are not bundled into the site.
 
 Review `/human-translator/review/` on the dedicated preview. Filter by mode,
-requested source, roast/cheeky tone, or Keep/Drop decision. The source coverage
-panel maps numbered source positions to permanent candidate IDs. Keep, Drop
-and Undo affect page memory only. Export choices before reload or leaving;
+roast/cheeky tone, or Keep/Drop decision. Sources appear only as reference links
+at the bottom of both pages, not as a selector or on individual cards. The
+source-position inventory remains in `source-coverage.mjs` for internal checks.
+Keep, Drop and Undo affect page memory only. Export choices before reload or leaving;
 the JSON contains the catalog version and known IDs plus decision enums.
 No decision is sent to a server or treated as approval of a production release.
 
@@ -61,9 +62,9 @@ existing consent, DNT/GPC and test-traffic exclusions.
 
 24/24 Node tests pass, including all 415 candidates in both directions, legacy
 round trips, strict URL rejection, six source inventories, consent gating and
-Worker isolation. Controlled Chrome verifies all six directions and source filters, Keep/Drop/Undo,
+Worker isolation. Controlled Chrome verifies all six directions and the original source inventory, Keep/Drop/Undo,
 a downloaded 415-decision JSON export and memory reset. The live preview version
-`b10ec519-24e4-4767-b23c-4a9e1635fba2` serves all 15 tool assets byte-for-byte
+`ea011587-ceb9-4ada-9364-390df80b3d51` serves all 15 tool assets byte-for-byte
 with noindex; write/API checks return 403/404. Further evidence is recorded in
 the PR and the implementation guide. The optional standalone browser script
 was updated but controlled Chrome is used for this task's actual UI checks.
