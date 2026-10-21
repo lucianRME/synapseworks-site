@@ -104,6 +104,23 @@ test('telemetry strips arbitrary properties and failures cannot break translatio
   assert.equal(fixture.analytics.track('ht_translate'), false);
 });
 
+test('live Zaraz localized purpose names require the same explicit consent and fail closed on ambiguity', () => {
+  const fixture = analyticsFixture();
+  fixture.window.zaraz.consent.purposes = { fixture: {
+    name: { en: 'Analytics' }, description: { en: 'We use analytics to understand site usage' }, order: 0
+  } };
+  assert.equal(fixture.analytics.track('ht_visit'), true);
+  fixture.window.zaraz.consent.get = () => false;
+  assert.equal(fixture.analytics.track('ht_translate'), false);
+  fixture.window.zaraz.consent.get = () => true;
+  fixture.window.zaraz.consent.purposes.duplicate = { name: 'Analytics' };
+  assert.equal(fixture.analytics.track('ht_copy_link'), false);
+  delete fixture.window.zaraz.consent.purposes.duplicate;
+  fixture.window.zaraz.consent.purposes.fixture.name = { en: 'Marketing' };
+  assert.equal(fixture.analytics.track('ht_visit'), false);
+  assert.deepEqual(fixture.calls.map(call => call[0]), ['ht_visit']);
+});
+
 test('dedicated translator preview cannot access production services and blocks all writes and APIs', async () => {
   const noBindings = new Proxy({}, { get() { throw new Error('Unexpected binding access'); } });
   for (const method of ['POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']) {
