@@ -1,4 +1,5 @@
 .git/
+.git
 .github/
 .wrangler/
 .assetsignore
@@ -17,3 +18,5 @@ worker.js
 wrangler.toml
 readonly-preview.js
 wrangler.preview.toml
+wrangler.human-translator-preview.toml
+human-translator-preview.js
