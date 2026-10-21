@@ -15,6 +15,7 @@ from urllib.parse import urljoin, urlsplit
 
 
 DEFAULT_SEEDS = [
+    "/human-translator/",
     "/",
     "/store/",
     "/support/",

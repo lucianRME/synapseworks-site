@@ -1,0 +1,45 @@
+// Original editorial examples for entertainment. IDs are permanent share-link contracts.
+export const MODES = Object.freeze({
+  corporate: { label: 'Corporate ↔ Human', sides: ['Corporate', 'Human'], hint: 'For the meeting that could have been a sentence.' },
+  generation: { label: 'Gen Z ↔ Millennial', sides: ['Gen Z', 'Millennial'], hint: 'Same feeling. Different group chat.' },
+  tone: { label: 'Polite ↔ Direct', sides: ['Polite', 'Direct'], hint: 'A little less cushion. The same message.' }
+});
+
+export const PAIRS = Object.freeze([
+  ['c01', 'corporate', "Let's circle back.", "Let's talk about this later."],
+  ['c02', 'corporate', "Let's take this offline.", "Let's discuss this after the meeting."],
+  ['c03', 'corporate', "I don't have the bandwidth.", "I don't have time for this right now."],
+  ['c04', 'corporate', 'Just looping you in.', 'You are part of this email thread now.'],
+  ['c05', 'corporate', 'Can we align on next steps?', 'What are we doing next?'],
+  ['c06', 'corporate', "Let's double-click on that.", "Let's look at that in more detail."],
+  ['c07', 'corporate', "We're moving the needle.", "We're making progress."],
+  ['c08', 'corporate', 'This is a stretch goal.', 'This will be hard to achieve.'],
+  ['c09', 'corporate', "Let's avoid boiling the ocean.", "Let's make this smaller."],
+  ['c10', 'corporate', 'We need a single source of truth.', 'Which document should we use?'],
+  ['c11', 'corporate', "Let's put a pin in that.", "Let's pause that topic."],
+  ['c12', 'corporate', 'Can you provide more visibility?', 'Please keep me updated.'],
+  ['g01', 'generation', 'No cap.', 'For real.'],
+  ['g02', 'generation', "It's giving main character.", 'Big protagonist energy.'],
+  ['g03', 'generation', 'That slaps.', 'That is a total banger.'],
+  ['g04', 'generation', 'I am so cooked.', 'I am in deep trouble.'],
+  ['g05', 'generation', 'Let them cook.', 'Let them do their thing.'],
+  ['g06', 'generation', 'The fit goes hard.', 'That outfit is on point.'],
+  ['g07', 'generation', 'Touch grass.', 'Time to log off for a bit.'],
+  ['g08', 'generation', 'Delulu is the solulu.', 'Dream big, reality can wait.'],
+  ['g09', 'generation', 'That lives rent-free in my head.', 'I cannot stop thinking about that.'],
+  ['g10', 'generation', 'Understood the assignment.', 'Absolutely nailed it.'],
+  ['g11', 'generation', 'The lore is getting deep.', 'There is a lot of backstory here.'],
+  ['g12', 'generation', 'This is my Roman Empire.', 'This is my recurring obsession.'],
+  ['p01', 'tone', 'Just a gentle reminder.', 'Please remember this.'],
+  ['p02', 'tone', 'When you get a chance, could you send that?', 'Please send that.'],
+  ['p03', 'tone', "I'm not sure that would be the best approach.", 'I suggest a different approach.'],
+  ['p04', 'tone', 'I was wondering if you could help.', 'I need your help.'],
+  ['p05', 'tone', 'Perhaps we could revisit the timeline.', 'We need to change the timeline.'],
+  ['p06', 'tone', 'Thank you for your patience.', 'Thanks for waiting.'],
+  ['p07', 'tone', "I'll have to give that some thought.", 'I need time to decide.'],
+  ['p08', 'tone', 'Would you mind clarifying that?', 'What do you mean?'],
+  ['p09', 'tone', 'I appreciate the offer, but I will have to pass.', 'No, thank you.'],
+  ['p10', 'tone', "Let's agree to disagree.", 'We disagree.'],
+  ['p11', 'tone', 'It might be worth checking that again.', 'Please check that again.'],
+  ['p12', 'tone', 'I would appreciate a little more notice.', 'Please tell me earlier next time.']
+].map(([id, mode, left, right]) => Object.freeze({ id, mode, left, right })));

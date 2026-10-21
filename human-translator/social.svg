@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f0f6f2"/>
+  <circle cx="1110" cy="50" r="240" fill="#dcece1"/>
+  <g font-family="Helvetica, Arial, sans-serif" fill="#182c2a">
+    <text x="80" y="82" font-size="20" font-weight="700" letter-spacing="4">SYNAPSEWORKS / HUMAN TRANSLATOR</text>
+    <text x="80" y="181" font-size="66" font-weight="700" letter-spacing="-3">What did they actually say?</text>
+    <rect x="80" y="231" width="1040" height="264" rx="24" fill="white" stroke="#bdcfc3"/>
+    <text x="120" y="283" font-size="18" fill="#52635d" letter-spacing="3">CORPORATE → HUMAN</text>
+    <text x="120" y="346" font-size="35">“Let's circle back.”</text>
+    <text x="120" y="423" font-size="47" font-weight="600" fill="#11695f">“Let's talk about this later.”</text>
+    <text x="80" y="564" font-size="23" fill="#37615a">36 phrase pairs. Zero mind-reading. Pass it on.</text>
+    <text x="1120" y="564" font-size="19" text-anchor="end" fill="#37615a">synapseworks.org</text>
+  </g>
+</svg>

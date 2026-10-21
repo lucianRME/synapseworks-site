@@ -1,0 +1,100 @@
+.translator-page { --ht-ink: #182c2a; --ht-teal: #11695f; --ht-soft: #ecf5f1; background: #f7faf8; color: var(--ht-ink); }
+.translator-page *, .translator-page *::before, .translator-page *::after { box-sizing: border-box; }
+.translator-page main { padding: 24px 20px 64px; }
+.translator-page > .skip-link { position: absolute; top: -100px; left: 20px; padding: 12px 16px; border-radius: 8px; background: #fff; color: #11695f; }
+.translator-page > .skip-link:focus { top: 8px; }
+.translator-page button, .translator-page textarea { font: inherit; }
+.translator-page button { cursor: pointer; min-height: 44px; border: 1px solid #c2d4ce; border-radius: 10px; background: #fff; color: var(--ht-ink); padding: 10px 16px; font-weight: 600; }
+.translator-page button:hover { background: #e4f0e9; }
+.translator-page :is(button, a, summary, textarea):focus-visible { outline: 3px solid #11695f; outline-offset: 4px; }
+.translator-page button:disabled { cursor: wait; }
+.translator-page [hidden] { display: none !important; }
+.translator-page .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.ht-intro { text-align: center; margin: 8px auto 28px; }
+.ht-eyebrow { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .13em; color: #37615a; }
+.ht-intro .ht-eyebrow { display: flex; justify-content: center; align-items: center; gap: 10px; }
+.ht-eyebrow > span:first-child { font-size: 24px; line-height: 1; letter-spacing: 0; }
+.ht-eyebrow .ht-version { font-size: 10px; letter-spacing: 0; border: 1px solid #c5d8cf; border-radius: 4px; padding: 4px 5px; }
+.ht-intro h1 { font-size: clamp(40px, 6.5vw, 64px); line-height: 1.04; letter-spacing: -.055em; font-weight: 600; margin: 20px 0 16px; }
+.ht-intro h1 span { color: var(--ht-teal); }
+.ht-intro > p:last-child { color: #52635d; font-size: 16px; line-height: 1.6; margin: 0; }
+.mobile-break { display: none; }
+.translator, .rme-cta, .ht-about { width: 100%; max-width: 740px; margin-inline: auto; }
+.translator { background: white; padding: 16px; border: 1px solid #d2dfd8; border-radius: 22px; box-shadow: 0 8px 40px #1a3a2810; }
+.translator fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.mode-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; gap: 4px; border-radius: 12px; background: #f0f4f1; }
+.mode-options button { padding-inline: 6px; border-color: transparent; background: transparent; font-size: 11px; line-height: 1.5; }
+.mode-options button[aria-pressed="true"] { background: white; border-color: #367565; color: #145d52; box-shadow: 0 2px 4px #132d2210; }
+.mode-hint { margin: 14px 0 20px; text-align: center; color: #52635d; font-size: 12px; line-height: 1.5; }
+.direction { display: flex; gap: 14px; align-items: center; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+.direction button { font-size: 24px; padding: 0; min-width: 44px; min-height: 44px; line-height: 1; background: #f2f7f4; }
+.translator textarea { display: block; resize: vertical; width: 100%; min-height: 110px; border: 1px solid #778e81; border-radius: 12px; padding: 16px; color: #182c2a; background: #fff; font-size: 20px; line-height: 1.5; }
+.translator textarea::placeholder { color: #66796f; opacity: 1; }
+.input-meta { display: flex; justify-content: space-between; gap: 8px; color: #56685e; font-size: 10px; line-height: 1.5; margin: 9px 0 18px; }
+.input-meta > span:last-child { white-space: nowrap; }
+.translator-page .translate-button { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 14px 18px; background: #176b5b; color: white; border-color: #176b5b; font-size: 15px; }
+.translator-page .translate-button:hover, .translator-page .share-button:hover { background: #0c5345; color: #fff; }
+.translate-button span { font-size: 22px; }
+.ht-status { margin: 0; color: #3a554b; font-size: 13px; line-height: 1.5; }
+.ht-status:not(:empty) { margin-top: 16px; }
+.result { margin-top: 18px; padding: 20px 16px; border: 1px solid #b5d3c5; border-radius: 14px; background: #edf7f0; }
+.result.shared-result { margin-top: 0; margin-bottom: 24px; }
+.result-top { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.result-top h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin: 0; font-weight: 700; }
+.result-top span { font-size: 11px; color: #466157; }
+.result .output { font-size: clamp(25px, 4vw, 32px); line-height: 1.25; letter-spacing: -.025em; margin: 20px 0 14px; overflow-wrap: anywhere; }
+.result-note { color: #466157; font-size: 11px; line-height: 1.6; }
+.result-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.result-actions button { font-size: 12px; padding: 10px 12px; }
+.translator-page .share-button { background: #176b5b; border-color: #176b5b; color: #fff; margin-right: auto; }
+.shared-notice { padding: 12px; margin: 0 0 16px; background: #fff4d8; color: #6e4c12; border-radius: 10px; font-size: 13px; }
+.manual-copy { margin-top: 16px; font-size: 12px; }
+.manual-copy label { display: block; margin-bottom: 8px; }
+.manual-copy textarea { font-size: 14px; }
+.quick-examples-wrap { border-top: 1px solid #dce7e0; margin-top: 20px; padding-top: 16px; }
+.quick-examples-wrap > p { font-size: 12px; color: #52635d; margin: 0 0 10px; }
+.examples-disclosure { margin-top: 8px; }
+.examples-disclosure summary { cursor: pointer; padding-block: 12px; color: #335c4b; font-size: 12px; font-weight: 600; }
+.examples-disclosure summary span { font-weight: 400; color: #56685e; margin-left: 6px; }
+.examples { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+.translator-page .example { text-align: left; border-radius: 8px; padding: 9px 11px; color: #3c5c4e; font-size: 12px; font-weight: 400; min-height: 44px; max-width: 100%; }
+.local-note { margin: 20px 0 2px; text-align: center; font-size: 10px; line-height: 1.6; color: #56685e; }
+.local-note span { font-size: 14px; }
+.rme-cta { display: flex; gap: 14px; margin-top: 24px; padding: 24px 20px; border: 1px solid #d2dfd8; border-radius: 18px; background: #edf3ef; }
+.rme-icon { display: none; flex-shrink: 0; width: 44px; height: 44px; padding: 10px; background: #fff; border: 1px solid #cfddd4; border-radius: 12px; color: #176b5b; }
+.rme-icon svg { width: 24px; height: 24px; }
+.rme-cta .ht-eyebrow { font-size: 9px; }
+.rme-cta h2 { margin: 9px 0 8px; font-size: 21px; line-height: 1.25; letter-spacing: -.025em; }
+.rme-cta p:not(.ht-eyebrow) { font-size: 13px; line-height: 1.6; margin: 0; color: #52635d; }
+.rme-links { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 8px; }
+.rme-links a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: #11695f; font-size: 12px; font-weight: 600; text-underline-offset: 4px; }
+.ht-about { margin-top: 26px; }
+.ht-about details { border-bottom: 1px solid #d2dfd8; }
+.ht-about summary { cursor: pointer; padding: 18px 0; font-size: 13px; font-weight: 600; line-height: 1.5; }
+.ht-about p, .no-js { font-size: 13px; line-height: 1.7; color: #52635d; }
+.ht-about p { margin: 0 0 16px; }
+.ht-about a { color: #11695f; text-underline-offset: 3px; }
+.ht-about button { margin-bottom: 16px; font-size: 12px; }
+.no-js { margin-top: 20px; }
+.no-js dd { margin: 0 0 16px; color: #11695f; }
+@media (min-width: 430px) {
+  .mode-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rme-icon { display: block; }
+}
+@media (min-width: 641px) {
+  .translator-page main { padding-top: 34px; }
+  .ht-intro { margin-bottom: 32px; }
+  .translator { padding: 24px; }
+  .mode-options button { font-size: 13px; }
+  .mode-hint { margin-bottom: 24px; }
+  .input-meta { font-size: 11px; }
+  .result { padding: 24px; }
+  .rme-cta { padding: 28px; gap: 20px; }
+  .rme-cta h2 { font-size: 24px; }
+}
+@media (max-width: 429px) {
+  .mobile-break { display: block; }
+  .ht-intro > p:last-child { font-size: 14px; }
+  .translator-page main { padding-inline: 14px; }
+  .ht-intro h1 { font-size: 44px; }
+}
