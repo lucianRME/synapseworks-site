@@ -27,7 +27,7 @@ export function createAnalytics({ window: win, navigator: nav }) {
     if (!zaraz?.consent?.APIReady || typeof zaraz.track !== 'function') return false;
     // Resolve the live purpose by its explicit name; do not guess a vendor purpose ID.
     const purposes = Object.entries(zaraz.consent.purposes || {})
-      .filter(([, purpose]) => purpose.name === 'Analytics');
+      .filter(([, purpose]) => (typeof purpose.name === 'string' ? purpose.name : purpose.name?.en) === 'Analytics');
     return purposes.length === 1 && zaraz.consent.get(purposes[0][0]) === true;
   };
   return {

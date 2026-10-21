@@ -1,6 +1,6 @@
 import { MODES } from './phrases.mjs';
 import { MAX_INPUT, translate, phrasesFor, resultFor, parseFragment, shareURL, shareFragment } from './engine.mjs';
-import { createAnalytics } from './analytics.mjs';
+import { createAnalytics } from './analytics.mjs?v=02';
 
 const $ = id => document.getElementById(id);
 const analytics = createAnalytics({ window, navigator });

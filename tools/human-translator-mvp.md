@@ -67,7 +67,8 @@ The adapter uses the existing `window.zaraz.track` only when all conditions hold
 1. The exact hostname is `synapseworks.org`, not localhost or a preview.
 2. Neither Global Privacy Control nor Do Not Track is enabled.
 3. The Zaraz Consent API is ready.
-4. Exactly one live consent purpose is explicitly named `Analytics`.
+4. Exactly one live consent purpose is explicitly named `Analytics`, either as
+   a plain string or the English label in Zaraz's localized `name.en` object.
 5. Its live purpose ID returns `true` from `zaraz.consent.get(id)`.
 
 The ID is discovered from the configured purpose; no platform ID is invented.
@@ -101,11 +102,12 @@ adding identity/state. This MVP deliberately does not add either.
 
 ### Measurement readiness gate
 
-The repository contains no analytics vendor IDs or forwarding rules. A public
-read of the homepage on 21 October found no injected Zaraz script; the public
-Zaraz bootstrap endpoint exists, but that alone does not verify active consent
-purposes, tool bindings or GA4 event forwarding. Consequently, production event
-delivery is **not verified** and no baseline or growth result is claimed.
+The repository contains no analytics vendor IDs or forwarding rules. A generic
+HTTP client did not receive an injected Zaraz script, but the production Chrome
+page does load Zaraz and its consent API. The public runtime confirms the
+localized Analytics purpose shape, which the adapter now supports. This alone
+does not verify GA4 forwarding. Production event delivery requires the live
+checks below; no baseline or growth result is claimed from the code tests.
 The available Wrangler OAuth credential returned HTTP 403 on the read-only
 Zaraz configuration endpoint, so the admin configuration could not be audited.
 
@@ -199,7 +201,7 @@ It covers 320/390/768/1024/1440px, six directions, honest fallback, no input
 upload, copy success/denial, native share handoff/cancellation, shared reload,
 malformed URL recovery, keyboard focus and no-JavaScript fallback.
 
-Current evidence: 15/15 Node tests pass (including existing production/PR #6
+Current evidence: 16/16 Node tests pass (including existing production/PR #6
 isolation tests); 26 internal page URLs pass the strict crawl. Chrome checks
 pass at all five widths without horizontal overflow, page errors or external
 page requests. Sampled tool text contrast is at least 4.64:1; the input border
