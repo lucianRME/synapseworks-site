@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { MODES, PAIRS, ALIASES } from '../human-translator/phrases.mjs';
-import { normalize, translate, resultFor, shareFragment, parseFragment, shareURL, inputsFor, MAX_INPUT } from '../human-translator/engine.mjs';
+import { normalize, translate, resultFor, shareFragment, parseFragment, shareURL, inputsFor, MAX_INPUT, selectResult, phrasesFor } from '../human-translator/engine.mjs';
+import { CATALOG, THEMES, CATALOG_VERSION } from '../human-translator/catalog.mjs';
+import { REFERENCES } from '../human-translator/catalog-sources.mjs';
+import { SOURCE_COVERAGE } from '../human-translator/source-coverage.mjs';
+import { reviewExport } from '../human-translator/review-state.mjs';
 import { createAnalytics, eventProperties } from '../human-translator/analytics.mjs';
 import preview from '../human-translator-preview.js';
 import { readFile } from 'node:fs/promises';
@@ -76,13 +80,98 @@ test('reviewed alternatives are unambiguous whole phrases and share only permane
 test('published counts describe the dictionary and old shared results retain their meaning', async () => {
   const html = await readFile(new URL('../human-translator/index.html', import.meta.url), 'utf8');
   const social = await readFile(new URL('../human-translator/social.svg', import.meta.url), 'utf8');
-  assert.match(html, new RegExp(`${PAIRS.length} pairs \\+ variants`));
-  assert.match(social, new RegExp(`${PAIRS.length} phrase pairs`));
+  assert.match(html, new RegExp(`${CATALOG.length} curated riffs`));
+  assert.match(social, new RegExp(`${CATALOG.length} curated riffs`));
   const schema = JSON.parse(html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)<\/script>/)[1]);
-  assert.ok(schema.description.startsWith(`${PAIRS.length} curated`));
+  assert.ok(schema.description.startsWith(`${CATALOG.length} curated`));
   for (const [id, output] of [['c01', "Let's talk about this later."], ['g01', 'For real.'], ['p01', 'Please remember this.']]) {
     assert.equal(parseFragment(`#v=1&p=${id}&d=f&src=share`).result.output, output);
   }
+});
+
+test('415 editorial candidates have stable unique IDs, source scope and no implicit owner approval', () => {
+  assert.equal(CATALOG.length, 415);
+  assert.equal(new Set([...PAIRS, ...CATALOG].map(pair => pair.id)).size, PAIRS.length + CATALOG.length);
+  for (const mode of Object.keys(MODES)) {
+    const pairs = phrasesFor(mode);
+    assert.equal(pairs.length, { corporate: 216, generation: 80, tone: 119 }[mode]);
+    for (const side of ['left', 'right']) assert.equal(new Set(pairs.map(pair => pair[side])).size, pairs.length);
+    for (const pair of pairs) {
+      assert.match(pair.id, /^[cgp][1-9]\d{2}$/);
+      assert.ok(Object.hasOwn(THEMES, pair.theme));
+      assert.ok(['cheeky', 'roast'].includes(pair.heat));
+      assert.ok(Object.hasOwn(REFERENCES, pair.reference));
+      assert.equal(pair.punchline, 'original-satire');
+      assert.equal(pair.review, 'pending-owner-validation');
+      for (const direction of ['f', 'r']) {
+        const result = resultFor(pair, direction);
+        assert.deepEqual(selectResult(pair.id, mode, direction), { status: 'matched', result });
+        assert.deepEqual(parseFragment(shareFragment(result)), { status: 'valid', result });
+      }
+    }
+  }
+  assert.equal(CATALOG.filter(pair => pair.heat === 'roast').length, 129);
+  for (const reference of Object.values(REFERENCES)) {
+    assert.ok(reference.scope);
+    if (reference.url) assert.equal(new URL(reference.url).protocol, 'https:');
+  }
+});
+
+test('all six requested source inventories resolve to selectable candidates and preserve duplicate provenance', () => {
+  const expected = { atlassian: 31, techtarget: 58, 'linkedin-khurana': 6, 'whaley-roundup': 30, 'boredpanda-whaley': 39, 'reddit-askuk': 84 };
+  assert.deepEqual(SOURCE_COVERAGE.map(item => item.reference).sort(), Object.keys(expected).sort());
+  for (const coverage of SOURCE_COVERAGE) {
+    assert.equal(coverage.items.length, expected[coverage.reference]);
+    assert.ok(REFERENCES[coverage.reference].url);
+    coverage.items.forEach((item, index) => {
+      assert.equal(item.position, index + 1);
+      assert.ok(CATALOG.some(pair => pair.id === item.pairId), `${coverage.reference} ${item.position}: missing ${item.pairId}`);
+    });
+  }
+  const nerds = SOURCE_COVERAGE.find(item => item.reference === 'whaley-roundup');
+  assert.equal(new Set(nerds.items.map(item => item.pairId)).size, 29);
+  assert.equal(nerds.items[19].pairId, nerds.items[20].pairId);
+  const panda = SOURCE_COVERAGE.find(item => item.reference === 'boredpanda-whaley');
+  assert.equal(new Set(panda.items.map(item => item.pairId)).size, 39);
+  assert.equal(panda.items[15].pairId, 'p210');
+  assert.match(CATALOG.find(pair => pair.id === 'c306').right, /Are you dumb/);
+});
+
+test('selection accepts only a known curated ID in the selected mode and direction', () => {
+  assert.deepEqual(selectResult('', 'corporate'), { status: 'empty' });
+  for (const id of ['fire away', 'c999', '<img src=x>', 'c101&text=private', '__proto__']) {
+    assert.deepEqual(selectResult(id, 'corporate'), { status: 'invalid' });
+  }
+  assert.deepEqual(selectResult('g101', 'corporate'), { status: 'invalid' });
+  assert.deepEqual(selectResult('c101', '__proto__'), { status: 'invalid' });
+  assert.deepEqual(selectResult('c101', 'corporate', 'sideways'), { status: 'invalid' });
+  assert.equal(selectResult('c101', 'corporate').result.output, 'Same problem. Different calendar invite.');
+  assert.equal(selectResult('c01', 'corporate').result.output, "Let's talk about this later.");
+  for (const id of ['c0101', 'c001', 'c999']) assert.equal(parseFragment(`#v=1&p=${id}&d=f&src=share`).status, 'invalid');
+});
+
+test('website uses native phrase selectors and offers no editable free-text field', async () => {
+  const html = await readFile(new URL('../human-translator/index.html', import.meta.url), 'utf8');
+  assert.match(html, /<select id="phrase"/);
+  assert.match(html, /<select id="theme"/);
+  assert.doesNotMatch(html, /<input\b/);
+  for (const textarea of html.match(/<textarea\b[^>]*>/g) || []) assert.match(textarea, /\breadonly\b/);
+  const app = await readFile(new URL('../human-translator/app.mjs', import.meta.url), 'utf8');
+  assert.match(app, /selectResult\(\$\('phrase'\)\.value, mode, direction\)/);
+  assert.doesNotMatch(app, /addEventListener\('input'|innerHTML|fetch\(/);
+});
+
+test('editorial export contains only known IDs and explicit decisions, with no hidden approval or text', () => {
+  const choices = new Map([['c101', 'keep'], ['g101', 'drop'], ['p101', 'private text'], ['unknown', 'keep']]);
+  const data = reviewExport(choices);
+  assert.equal(data.catalog_version, CATALOG_VERSION);
+  assert.equal(data.decisions.length, CATALOG.length);
+  assert.deepEqual(data.decisions.find(item => item.id === 'c101'), { id: 'c101', decision: 'keep' });
+  assert.deepEqual(data.decisions.find(item => item.id === 'g101'), { id: 'g101', decision: 'drop' });
+  assert.equal(data.decisions.find(item => item.id === 'p101').decision, 'unreviewed');
+  assert.equal(JSON.stringify(data).includes('private text'), false);
+  assert.equal(data.decisions.some(item => item.id === 'unknown'), false);
+  assert.ok(reviewExport(new Map()).decisions.every(item => item.decision === 'unreviewed'));
 });
 
 test('unknown, partial, sensitive and overlong input never becomes a fake translation or shared text', () => {

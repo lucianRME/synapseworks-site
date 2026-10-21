@@ -6,16 +6,15 @@ this work began; neither its branch nor dedicated preview is an implementation t
 
 ## What ships
 
-- Mobile-first English phrasebook: Corporate ↔ Human, Gen Z ↔ Millennial,
-  Polite ↔ Direct. Forty original editorial pairs per mode; 120 pairs, 240
-  directional mappings and 327 reviewed alternatives (567 accepted whole phrases
-  across modes/directions). Three quick examples plus all forty per mode.
-- Exact deterministic matching after NFKC normalization, case folding,
-  whitespace collapse, curly-quote conversion and final `. ! ?` removal.
-  Reviewed alternatives are exact whole-phrase matches too. No substring
-  replacement, inferred intent, generated output or paid AI.
-- A 240-character limit and explicit empty, too-long and no-match responses.
-  Editing, switching modes or swapping directions clears stale results.
+- Mobile-first English satire picker: Corporate ↔ Human, Gen Z ↔ Millennial,
+  Polite ↔ Direct. 415 selectable pairs (216 Corporate, 80 Gen Z, 119 Polite), 830 directions; 129 are
+  labelled roast. Theme and phrase selectors replace editable input. Three
+  quick examples, all examples for the selected mode, and a theme-aware “Surprise me” stay available.
+- Only curated IDs produce results. No free text, inferred intent, generated
+  output or paid AI. Empty selection receives an explicit prompt. Changing
+  selection, theme, mode or direction clears stale results.
+- The previous 120 pairs and 327 alternatives remain in the compatibility
+  engine to preserve released shared links; they are not the new picker catalog.
 - Copy text, copy result link and native Web Share with clipboard/manual-copy
   fallback. A cancelled share is separate from a resolved OS share promise.
 - Permanent curated IDs, schema version and direction in a strict fragment:
@@ -36,9 +35,9 @@ this work began; neither its branch nor dedicated preview is an implementation t
 
 The phrasebook is entertainment. Generational language overlaps; the mappings
 are playful examples, not universal definitions or reliable readings of intent.
-Unrecognized input is deliberately not translated.
+This interface accepts selections only; its humour is editorial satire, not a dictionary definition.
 
-## Dictionary expansion — 21 October 2026
+## Prior dictionary expansion — 21 October 2026 (superseded UI)
 
 Follow-up branch: `feat/human-translator-dictionary`. The launch dictionary had
 only 36 pairs. Everyday phrases such as “fire away” and “will get back to you”
@@ -76,7 +75,12 @@ preview QA into production traffic.
 
 ## Files and boundaries
 
-`human-translator/phrases.mjs` owns reviewed content and permanent IDs.
+`human-translator/catalog.mjs` owns the 415 new permanent IDs and candidate satire.
+`catalog-sources.mjs` records dated research provenance, with source scope kept
+separate from original punchlines. `phrases.mjs` retains the 120 legacy IDs.
+`review/` provides an untracked, noindex editorial validation surface; choices
+live only in page memory and export as known IDs plus keep/drop/unreviewed.
+See `tools/human-translator-editorial.md` for the current validation contract.
 `engine.mjs` owns matching and the strict share contract. `app.mjs` owns DOM,
 clipboard/share interactions and ephemeral state. `analytics.mjs` owns a
 consent-gated event allowlist. The remaining directory files are the page,
@@ -235,11 +239,10 @@ dependency to the site. Run `node tools/check-human-translator-browser.mjs`
 with `HT_PLAYWRIGHT_MODULE` pointing to Playwright's `index.mjs` if it is outside
 normal module resolution. `HT_CHROME_PATH` selects an installed Chrome;
 `HT_BASE_URL` and `HT_QA_OUTPUT` override localhost and the temporary output folder.
-It covers 320/390/768/1024/1440px, six directions, honest fallback, no input
-upload, copy success/denial, native share handoff/cancellation, shared reload,
+It covers 320/390/768/1024/1440px, six directions, selection-only controls, copy success/denial, native share handoff/cancellation, shared reload,
 malformed URL recovery, keyboard focus and no-JavaScript fallback.
 
-Dictionary expansion evidence: 19/19 Node tests pass (including existing
+Prior dictionary expansion evidence: 19/19 Node tests pass (including existing
 production/PR #6 isolation tests); all 36 original pairs compare unchanged
 against released `main`; 26 internal page URLs pass the strict local crawl.
 Chrome confirms the reported phrases, eight typed examples, all six translation
@@ -261,6 +264,22 @@ and live preview write/API checks return 403/404. The default Python User-Agent
 is blocked by Cloudflare; a normal browser User-Agent passes these read checks.
 This is not a full assistive-technology,
 physical iOS/Android share-sheet, Lighthouse or Core Web Vitals certification.
+
+## Current selector preview evidence — 21 October 2026
+
+415 candidates: 216 Corporate, 80 Gen Z, 119 Polite; 129 roasts. All 24 Node
+checks pass. The strict crawl covers 27 internal pages without broken or
+missing-trailing-slash links. Both Wrangler dry-runs pass. Controlled Chrome
+confirms all six directions, source filters (31/58/6/29/39/84 unique candidates),
+Keep/Drop/Undo, a downloaded 415-decision JSON export, page-memory reset,
+copy-link feedback, new/legacy shared reloads, invalid-link recovery and no
+editable text field. No horizontal overflow at 320/390/768/1024/1440px; the review
+also fits 320px. No captured browser errors; preview tool analytics is off.
+
+Public preview version `b10ec519-24e4-4767-b23c-4a9e1635fba2`: all 15 translator
+assets match local files byte-for-byte and carry noindex. Write/API requests
+return 403/404. The review page is live, source-filterable, and every decision
+starts unreviewed. Production is unchanged. Additional purchased cost: €0.
 
 ## Preview, production release and rollback
 
@@ -284,7 +303,8 @@ disabled. The preview is a manual snapshot; future branch pushes do not update
 it automatically. Refresh it with the explicit config after validation.
 
 Review URL: <https://human-translator-mvp-preview.lucianirimie.workers.dev/human-translator/>.
-Verified dictionary-expansion preview version: `03087acf-6af5-4f43-8bd6-d0c7b86a3d4a`.
+Current selector-preview version: `b10ec519-24e4-4767-b23c-4a9e1635fba2`.
+Prior dictionary-preview version: `03087acf-6af5-4f43-8bd6-d0c7b86a3d4a`.
 The asset exclusion covers both `.git/` directories and the `.git` pointer file
 used by isolated worktrees. Operational documentation/tests/tools are excluded
 from static uploads by the existing asset policy.
