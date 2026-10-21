@@ -1,5 +1,5 @@
-import { MODES } from './phrases.mjs';
-import { MAX_INPUT, translate, phrasesFor, resultFor, parseFragment, shareURL, shareFragment } from './engine.mjs';
+import { MODES, PAIRS } from './phrases.mjs?v=03';
+import { MAX_INPUT, translate, phrasesFor, resultFor, parseFragment, shareURL, shareFragment } from './engine.mjs?v=03';
 import { createAnalytics } from './analytics.mjs?v=02';
 
 const $ = id => document.getElementById(id);
@@ -35,6 +35,8 @@ function renderControls() {
   $('swap').setAttribute('aria-label', `Swap direction: ${to} to ${from}`);
   $('mode-hint').textContent = MODES[mode].hint;
   $('phrase').placeholder = direction === 'f' ? phrasesFor(mode)[0].left : phrasesFor(mode)[0].right;
+  $('input-help').textContent = `English · ${PAIRS.length} pairs + variants · no AI`;
+  $('examples-summary').textContent = `Browse all ${phrasesFor(mode).length} ${from} phrases`;
   const exampleButton = pair => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -104,7 +106,7 @@ $('translate-form').addEventListener('submit', event => {
     const messages = {
       empty: 'Add a phrase or choose an example below.',
       'too-long': `Keep it to ${MAX_INPUT} characters or fewer.`,
-      unmatched: "No curated match for that phrase yet. We won't invent a meaning. Try an example below."
+      unmatched: `No curated match in ${$('from-label').textContent} → ${$('to-label').textContent} yet. Try a short phrase or browse the examples below. We won't invent a meaning.`
     };
     message(messages[response.status] || 'Choose a mode and try again.');
     if (response.status === 'empty') $('phrase').focus();

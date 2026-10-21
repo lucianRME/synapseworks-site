@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
+import { phrasesFor } from '../human-translator/engine.mjs';
 const modulePath = process.env.HT_PLAYWRIGHT_MODULE;
 const { chromium } = await import(modulePath ? pathToFileURL(modulePath).href : 'playwright');
 const base = process.env.HT_BASE_URL || 'http://127.0.0.1:8765';
@@ -41,7 +42,7 @@ try {
   assert.match(await page.locator('#status').textContent(), /No curated match/);
   assert.equal(await page.locator('#result').isVisible(), false);
   assert.equal(requests.some(url => url.includes('person@') || url.includes('private')), false);
-  assert.equal(await page.locator('#examples button').count(), 12);
+  assert.equal(await page.locator('#examples button').count(), phrasesFor('corporate').length);
   await page.locator('#quick-examples button').first().click();
   assert.equal(await page.locator('#output').textContent(), "Let's talk about this later.");
   assert.equal(await page.locator(':focus').getAttribute('id'), 'result-title');
@@ -52,13 +53,25 @@ try {
   for (const [mode, expected] of [['generation', 'For real.'], ['tone', 'Please remember this.']]) {
     await page.locator(`[data-mode=${mode}]`).click();
     assert.equal(await page.locator('#result').isVisible(), false);
-    assert.equal(await page.locator('#examples button').count(), 12);
+    assert.equal(await page.locator('#examples button').count(), phrasesFor(mode).length);
     await page.locator('#quick-examples button').first().click();
     assert.equal(await page.locator('#output').textContent(), expected);
     const forwardInput = await page.locator('#phrase').inputValue();
     await page.locator('#swap').click();
     await page.locator('.translate-button').click();
     assert.equal(await page.locator('#output').textContent(), forwardInput);
+  }
+  for (const [mode, input, expected] of [
+    ['corporate', 'fire away', 'Go ahead and ask.'],
+    ['corporate', 'will get back to you', "I'll reply later."],
+    ['tone', 'fire away', 'Go ahead and ask.'],
+    ['tone', 'I will get back to you', "I'll reply later."],
+    ['generation', 'low key', 'A little bit, honestly.']
+  ]) {
+    await page.locator(`[data-mode=${mode}]`).click();
+    await page.locator('#phrase').fill(input);
+    await page.locator('.translate-button').click();
+    assert.equal(await page.locator('#output').textContent(), expected);
   }
   await page.locator('[data-mode=tone]').click();
   await page.locator('#quick-examples button').first().click();

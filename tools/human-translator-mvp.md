@@ -7,11 +7,13 @@ this work began; neither its branch nor dedicated preview is an implementation t
 ## What ships
 
 - Mobile-first English phrasebook: Corporate ↔ Human, Gen Z ↔ Millennial,
-  Polite ↔ Direct. Twelve original editorial pairs per mode; 36 pairs, 72
-  directional mappings. Three quick examples plus all twelve per mode.
+  Polite ↔ Direct. Forty original editorial pairs per mode; 120 pairs, 240
+  directional mappings and 327 reviewed alternatives (567 accepted whole phrases
+  across modes/directions). Three quick examples plus all forty per mode.
 - Exact deterministic matching after NFKC normalization, case folding,
   whitespace collapse, curly-quote conversion and final `. ! ?` removal.
-  No substring replacement, inferred intent, generated output or paid AI.
+  Reviewed alternatives are exact whole-phrase matches too. No substring
+  replacement, inferred intent, generated output or paid AI.
 - A 240-character limit and explicit empty, too-long and no-match responses.
   Editing, switching modes or swapping directions clears stale results.
 - Copy text, copy result link and native Web Share with clipboard/manual-copy
@@ -35,6 +37,42 @@ this work began; neither its branch nor dedicated preview is an implementation t
 The phrasebook is entertainment. Generational language overlaps; the mappings
 are playful examples, not universal definitions or reliable readings of intent.
 Unrecognized input is deliberately not translated.
+
+## Dictionary expansion — 21 October 2026
+
+Follow-up branch: `feat/human-translator-dictionary`. The launch dictionary had
+only 36 pairs. Everyday phrases such as “fire away” and “will get back to you”
+were missing, while even “circle back” missed the existing “Let's circle back”.
+The regression test reproduced that failure before the change.
+
+The expansion adds 84 pairs and direction-specific, reviewed alternatives.
+“Fire away” now maps to “Go ahead and ask”; “will get back to you”, “I will get
+back to you” and “I'll get back to you” map to “I'll reply later”. Both are
+available in Corporate → Human and Polite → Direct. Corporate additions also
+cover touch base, action items, ETA, capacity, scope creep, sign-off and common
+email wording. Slang additions include lowkey, NGL, bet, sus and red/green flags.
+Tone additions cover updates, refusals, requests, timing and boundaries.
+
+All 36 original pairs and IDs retain their exact text and meaning. Alternatives
+share their canonical result, never the visitor's wording. Matching requires
+one unambiguous complete phrase in the selected mode and direction. Negations,
+added deadlines, compound sentences and unlisted context still fail honestly;
+for example, “I'll get back to you tomorrow” is not silently reduced to a
+promise with no deadline. No visitor input is collected to grow this list.
+
+To maintain coverage, append permanent pairs in `phrases.mjs`; add alternatives
+to `ALIASES` under the existing ID and `f`/`r` direction. Do not add a wording
+variation that changes the subject, timing, certainty or meaning. Tests enforce
+normalized uniqueness in each mode/direction, round-trip every accepted input
+through safe canonical sharing, and protect unknown/negated/contextual input.
+The UI derives browsing counts from the data; static SEO/social counts are
+checked against it. Browser module URLs are versioned together for this update.
+
+This change is prepared for review separately from production. QA runs on
+localhost and the isolated preview, where the analytics adapter is disabled.
+When released, record its deployment time in the 30-day KPI record and compare
+typed match rates before/after; do not reset the observation window or mix
+preview QA into production traffic.
 
 ## Files and boundaries
 
@@ -201,8 +239,19 @@ It covers 320/390/768/1024/1440px, six directions, honest fallback, no input
 upload, copy success/denial, native share handoff/cancellation, shared reload,
 malformed URL recovery, keyboard focus and no-JavaScript fallback.
 
-Current evidence: 16/16 Node tests pass (including existing production/PR #6
-isolation tests); 26 internal page URLs pass the strict crawl. Chrome checks
+Dictionary expansion evidence: 19/19 Node tests pass (including existing
+production/PR #6 isolation tests); all 36 original pairs compare unchanged
+against released `main`; 26 internal page URLs pass the strict local crawl.
+Chrome confirms the reported phrases, eight typed examples, all six translation
+directions, 40 examples per direction, negation fallback, link copy and shared
+result reload. There is no horizontal overflow at 320/390/768/1024/1440px and no
+captured browser errors. Analytics remains off locally. Both Wrangler dry-runs
+pass. The optional standalone browser script was updated but not rerun for this
+follow-up; browser checks here used the controlled Chrome session.
+The refreshed public preview serves all eight application assets byte-for-byte
+with noindex headers; live preview writes return 403 and APIs return 404.
+
+Initial release evidence: Chrome checks
 pass at all five widths without horizontal overflow, page errors or external
 page requests. Sampled tool text contrast is at least 4.64:1; the input border
 is 3.52:1 and the selected-mode border 5.40:1 against white. Both Wrangler
@@ -235,7 +284,7 @@ disabled. The preview is a manual snapshot; future branch pushes do not update
 it automatically. Refresh it with the explicit config after validation.
 
 Review URL: <https://human-translator-mvp-preview.lucianirimie.workers.dev/human-translator/>.
-Verified preview version: `191f9243-6d0f-48d1-86ce-99d82490b2a2`.
+Verified dictionary-expansion preview version: `03087acf-6af5-4f43-8bd6-d0c7b86a3d4a`.
 The asset exclusion covers both `.git/` directories and the `.git` pointer file
 used by isolated worktrees. Operational documentation/tests/tools are excluded
 from static uploads by the existing asset policy.
@@ -264,5 +313,6 @@ existing Cloudflare limits; no plan upgrade or billing setting is authorized.
 
 The worktree was created at 10:28 Europe/Dublin on 21 October 2026. Keep
 development plus release within 18 hours and the complete experiment setup
-within 24 hours; the thirty-day observation period is separate. No scheduled
-monitor, external outreach or additional feature phase was created.
+within 24 hours; the thirty-day observation period is separate. A 30-day KPI
+monitor with weekly reports was configured separately in the release chat;
+its reporting state lives outside website assets. No external outreach was created.

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <title>Human Translator — Corporate, Slang &amp; Tone | SynapseWorks</title>
-  <meta name="description" content="Less jargon. More human. Try 36 playful phrase pairs: Corporate to Human, Gen Z to Millennial, and Polite to Direct. Free, in your browser, no account.">
+  <meta name="description" content="Less jargon. More human. Try 120 playful phrase pairs and common variants: Corporate to Human, Gen Z to Millennial, Polite to Direct. Free, no account.">
   <link rel="canonical" href="https://synapseworks.org/human-translator/">
   <meta property="og:site_name" content="SynapseWorks">
   <meta property="og:title" content="Human Translator — What did they actually say?">
@@ -18,16 +18,16 @@
   <meta property="og:image:alt" content="Human Translator. Let's circle back. Let's talk about this later.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Human Translator by SynapseWorks">
-  <meta name="twitter:description" content="Less jargon. More human. 36 playful phrase pairs to try and share.">
+  <meta name="twitter:description" content="Less jargon. More human. 120 playful phrase pairs and common variants to try and share.">
   <meta name="twitter:image" content="https://synapseworks.org/human-translator/social.png">
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/styles.css?v=20261020-products-menu">
   <link rel="stylesheet" href="/site-shell.css?v=20261020-secondary">
   <link rel="stylesheet" href="/human-translator/translator.css?v=01">
   <script src="/site-navigation.js?v=20261020" defer></script>
-  <script src="/human-translator/app.mjs?v=02" type="module"></script>
+  <script src="/human-translator/app.mjs?v=03" type="module"></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Translator","url":"https://synapseworks.org/human-translator/","applicationCategory":"EntertainmentApplication","operatingSystem":"Web browser","inLanguage":"en","isAccessibleForFree":true,"description":"36 curated, playful phrase pairs across corporate language, generational slang and tone. Deterministic matching in the browser.","publisher":{"@type":"Organization","name":"SynapseWorks","url":"https://synapseworks.org/"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Translator","url":"https://synapseworks.org/human-translator/","applicationCategory":"EntertainmentApplication","operatingSystem":"Web browser","inLanguage":"en","isAccessibleForFree":true,"description":"120 curated, playful phrase pairs plus reviewed wording variants across corporate language, generational slang and tone. Deterministic matching in the browser.","publisher":{"@type":"Organization","name":"SynapseWorks","url":"https://synapseworks.org/"}}
   </script>
 </head>
 <body class="site-shell translator-page">
@@ -83,7 +83,7 @@
           <div class="direction"><span id="from-label">Corporate</span><button id="swap" type="button" aria-label="Swap direction: Human to Corporate"><span aria-hidden="true">⇄</span></button><span id="to-label">Human</span></div>
           <label class="sr-only" for="phrase">Phrase to translate</label>
           <textarea id="phrase" name="phrase" rows="3" maxlength="240" autocomplete="off" spellcheck="false" aria-describedby="input-help count" placeholder="Let's circle back."></textarea>
-          <div class="input-meta"><span id="input-help">English · 36 curated pairs · no AI</span><span id="count">0 / 240</span></div>
+          <div class="input-meta"><span id="input-help">English · 120 pairs + variants · no AI</span><span id="count">0 / 240</span></div>
           <button class="translate-button" type="submit">Translate the vibe <span aria-hidden="true">→</span></button>
         </fieldset>
       </form>
@@ -97,7 +97,7 @@
       <div id="manual-copy" class="manual-copy" hidden><label for="copy-value">Select and copy</label><textarea id="copy-value" rows="3" readonly></textarea></div>
       <div id="quick-examples-wrap" class="quick-examples-wrap" hidden><p>Or try one of these</p><div id="quick-examples" class="examples"></div></div>
       <details id="examples-disclosure" class="examples-disclosure" hidden>
-        <summary>Browse all 12 phrases</summary>
+        <summary id="examples-summary">Browse all 40 Corporate phrases</summary>
         <div id="examples" class="examples"></div>
       </details>
       <noscript><div class="no-js"><p>Enable JavaScript for matching, reverse translation and sharing. These examples still work as a quick phrase guide:</p><dl><dt>Corporate: “Let's circle back.”</dt><dd>Human: “Let's talk about this later.”</dd><dt>Gen Z: “No cap.”</dt><dd>Millennial: “For real.”</dd><dt>Polite: “Just a gentle reminder.”</dt><dd>Direct: “Please remember this.”</dd></dl></div></noscript>
@@ -108,7 +108,7 @@
       <div><p class="ht-eyebrow">ALSO BY SYNAPSEWORKS</p><h2 id="rme-title">Paperwork needs translating too.</h2><p>Turn paper into PDFs with RME PDF Scanner for Android.</p><div class="rme-links"><a data-rme="product" href="/rme-pdf-scanner/?utm_source=human_translator&amp;utm_medium=microtool&amp;utm_campaign=ht_v01">Explore RME <span aria-hidden="true">→</span></a><a data-rme="play" href="https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&amp;utm_source=human_translator&amp;utm_medium=microtool&amp;utm_campaign=ht_v01" rel="noreferrer">Get on Google Play</a></div></div>
     </aside>
     <section class="ht-about" aria-label="About Human Translator">
-      <details><summary>A small phrasebook with a sense of humour</summary><p>Choose Corporate ↔ Human, Gen Z ↔ Millennial, or Polite ↔ Direct. Each mode has 12 original pairs that work in both directions. Matching ignores letter case, extra spaces, curly quotes and final sentence punctuation. Other wording gets an honest “no curated match”.</p><p>These are playful English examples, not universal definitions of a generation or a reliable reading of someone's intentions. Slang overlaps between ages and changes with context. This is not advice for sensitive conversations.</p><p>Shared links contain only a curated phrase ID and direction in the URL fragment. They do not include what you typed. Social previews show the same generic card; the result appears when the link opens.</p></details>
+      <details><summary>A small phrasebook with a sense of humour</summary><p>Choose Corporate ↔ Human, Gen Z ↔ Millennial, or Polite ↔ Direct. Each mode has 40 original pairs that work in both directions, plus reviewed alternatives such as “circle back” and “will get back to you”. Try a short phrase in the selected direction. Matching ignores letter case, extra spaces, curly quotes and final sentence punctuation. It accepts listed variants, not arbitrary sentences or guesses about intent. Other wording gets an honest “no curated match”.</p><p>These are playful English examples, not universal definitions of a generation or a reliable reading of someone's intentions. Slang overlaps between ages and changes with context. This is not advice for sensitive conversations.</p><p>Shared links contain only a curated phrase ID and direction in the URL fragment. They do not include what you typed. Social previews show the same generic card; the result appears when the link opens.</p></details>
       <details><summary>Your text and optional usage counts</summary><p>Human Translator has no translation server, account, history or database. Typed text stays in this page's memory until you leave. Copy and share send only the curated result you choose to your clipboard or share app.</p><p>Optional website analytics use the site's existing Cloudflare Zaraz integration only when its Analytics purpose is explicitly granted. Human Translator events contain fixed action labels, mode and direction, never your text. Events stay off on previews, with Do Not Track or Global Privacy Control, or when consent cannot be verified. Normal website delivery still uses Cloudflare.</p><p>A share-button action is not a recipient visit. Link-tagged visits are counted separately and do not prove a unique person, delivery or an app installation. See the <a href="/privacy/">website privacy policy</a> and <a href="/cookie-policy/">cookie policy</a>.</p><p id="analytics-state">Human Translator usage events are off here.</p><button id="analytics-settings" type="button" hidden>Analytics settings</button></details>
     </section>
   </main>

@@ -1,9 +1,11 @@
-import { MODES, PAIRS } from './phrases.mjs';
+import { MODES, PAIRS, ALIASES } from './phrases.mjs?v=03';
 
 export const MAX_INPUT = 240;
 export const isMode = mode => Object.hasOwn(MODES, mode);
 export const isDirection = direction => direction === 'f' || direction === 'r';
 export const phrasesFor = mode => PAIRS.filter(pair => pair.mode === mode);
+export const inputsFor = (pair, direction) => [direction === 'f' ? pair.left : pair.right,
+  ...(ALIASES[pair.id]?.[direction] || [])];
 export const normalize = text => String(text).normalize('NFKC').toLowerCase()
   .replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().replace(/[.!?]+$/, '').trim();
 
@@ -20,8 +22,10 @@ export function translate(text, mode, direction = 'f') {
   if (!isMode(mode) || !isDirection(direction)) return { status: 'invalid' };
   if (typeof text !== 'string' || !text.trim()) return { status: 'empty' };
   if (text.length > MAX_INPUT) return { status: 'too-long' };
-  const pair = phrasesFor(mode).find(item => normalize(direction === 'f' ? item.left : item.right) === normalize(text));
-  return pair ? { status: 'matched', result: resultFor(pair, direction) } : { status: 'unmatched' };
+  const input = normalize(text);
+  const matches = phrasesFor(mode).filter(pair => inputsFor(pair, direction).some(phrase => normalize(phrase) === input));
+  // A future editorial collision must fail closed instead of choosing by list order.
+  return matches.length === 1 ? { status: 'matched', result: resultFor(matches[0], direction) } : { status: 'unmatched' };
 }
 
 // The fragment is never sent in HTTP requests. No visitor text is serialized.

@@ -1,18 +1,43 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { MODES, PAIRS } from '../human-translator/phrases.mjs';
-import { normalize, translate, resultFor, shareFragment, parseFragment, shareURL } from '../human-translator/engine.mjs';
+import { MODES, PAIRS, ALIASES } from '../human-translator/phrases.mjs';
+import { normalize, translate, resultFor, shareFragment, parseFragment, shareURL, inputsFor, MAX_INPUT } from '../human-translator/engine.mjs';
 import { createAnalytics, eventProperties } from '../human-translator/analytics.mjs';
 import preview from '../human-translator-preview.js';
 import { readFile } from 'node:fs/promises';
 
-test('36 unique curated pairs round-trip in all six directions without ambiguous normalized inputs', () => {
-  assert.equal(PAIRS.length, 36);
-  assert.equal(new Set(PAIRS.map(pair => pair.id)).size, 36);
+test('everyday phrases and reviewed wording variations translate without guessing at extra context', () => {
+  for (const [input, mode, output] of [
+    ['fire away', 'corporate', 'Go ahead and ask.'],
+    ['Fire away!', 'tone', 'Go ahead and ask.'],
+    ['will get back to you', 'corporate', "I'll reply later."],
+    ['I will get back to you', 'corporate', "I'll reply later."],
+    ['I’ll get back to you.', 'tone', "I'll reply later."],
+    ['circle back', 'corporate', "Let's talk about this later."],
+    ['touch base', 'corporate', "Let's catch up briefly."],
+    ['per my last email', 'corporate', 'I already sent this information.'],
+    ['low key', 'generation', 'A little bit, honestly.'],
+    ['ngl', 'generation', 'To be honest.'],
+    ['please advise', 'tone', 'Tell me what to do next.']
+  ]) {
+    assert.equal(translate(input, mode).status, 'matched', `${mode}: ${input}`);
+    assert.equal(translate(input, mode).result.output, output);
+  }
+  for (const [input, mode] of [
+    ['Do not fire away.', 'corporate'], ['I will not get back to you', 'corporate'],
+    ["I'll get back to you tomorrow", 'corporate'], ['fire away, will get back to you', 'corporate'],
+    ['That is not a red flag.', 'generation'], ['no cap but longer', 'generation'],
+    ['please advise me about my bank account', 'tone']
+  ]) assert.deepEqual(translate(input, mode), { status: 'unmatched' });
+});
+
+test('120 unique curated pairs round-trip in all six directions without ambiguous normalized inputs', () => {
+  assert.equal(PAIRS.length, 120);
+  assert.equal(new Set(PAIRS.map(pair => pair.id)).size, PAIRS.length);
   for (const mode of Object.keys(MODES)) {
     const pairs = PAIRS.filter(pair => pair.mode === mode);
-    assert.equal(pairs.length, 12);
-    for (const side of ['left', 'right']) assert.equal(new Set(pairs.map(pair => normalize(pair[side]))).size, 12);
+    assert.equal(pairs.length, 40);
+    for (const side of ['left', 'right']) assert.equal(new Set(pairs.map(pair => normalize(pair[side]))).size, pairs.length);
     for (const pair of pairs) {
       for (const direction of ['f', 'r']) {
         const result = resultFor(pair, direction);
@@ -26,9 +51,43 @@ test('36 unique curated pairs round-trip in all six directions without ambiguous
   assert.equal(translate('Let’s circle back', 'corporate').result.id, 'c01');
 });
 
+test('reviewed alternatives are unambiguous whole phrases and share only permanent canonical results', () => {
+  for (const id of Object.keys(ALIASES)) assert.ok(PAIRS.some(pair => pair.id === id), `Stale alias ID: ${id}`);
+  let accepted = 0;
+  for (const mode of Object.keys(MODES)) for (const direction of ['f', 'r']) {
+    const seen = new Map();
+    for (const pair of PAIRS.filter(pair => pair.mode === mode)) for (const input of inputsFor(pair, direction)) {
+      assert.ok(input.length <= MAX_INPUT && input.trim(), `${pair.id}: invalid input`);
+      const normalized = normalize(input);
+      assert.ok(!seen.has(normalized), `${mode}/${direction}: duplicate input ${input}`);
+      seen.set(normalized, pair.id);
+      const response = translate(input, mode, direction);
+      const canonical = resultFor(pair, direction);
+      assert.deepEqual(response, { status: 'matched', result: canonical });
+      assert.deepEqual(parseFragment(shareFragment(response.result)), { status: 'valid', result: canonical });
+      assert.equal(translate(`  ${input.toUpperCase()}?!  `, mode, direction).result.id, pair.id);
+    }
+    accepted += seen.size;
+  }
+  assert.ok(accepted >= 500, `Expected broad reviewed coverage, found ${accepted} inputs`);
+  assert.equal(shareFragment(translate('will get back to you', 'corporate').result), '#v=1&p=c13&d=f&src=share');
+});
+
+test('published counts describe the dictionary and old shared results retain their meaning', async () => {
+  const html = await readFile(new URL('../human-translator/index.html', import.meta.url), 'utf8');
+  const social = await readFile(new URL('../human-translator/social.svg', import.meta.url), 'utf8');
+  assert.match(html, new RegExp(`${PAIRS.length} pairs \\+ variants`));
+  assert.match(social, new RegExp(`${PAIRS.length} phrase pairs`));
+  const schema = JSON.parse(html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)<\/script>/)[1]);
+  assert.ok(schema.description.startsWith(`${PAIRS.length} curated`));
+  for (const [id, output] of [['c01', "Let's talk about this later."], ['g01', 'For real.'], ['p01', 'Please remember this.']]) {
+    assert.equal(parseFragment(`#v=1&p=${id}&d=f&src=share`).result.output, output);
+  }
+});
+
 test('unknown, partial, sensitive and overlong input never becomes a fake translation or shared text', () => {
   for (const input of ['My private email: person@example.com', '<img src=x onerror=alert(1)>',
-    "Let's circle back. Send bank details.", 'circle back', 'No cap but longer']) {
+    "Let's circle back. Send bank details.", 'circle back tomorrow', 'No cap but longer']) {
     assert.deepEqual(translate(input, 'corporate'), { status: 'unmatched' });
   }
   assert.deepEqual(translate('', 'corporate'), { status: 'empty' });
