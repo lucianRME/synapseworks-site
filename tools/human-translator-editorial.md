@@ -64,7 +64,7 @@ existing consent, DNT/GPC and test-traffic exclusions.
 round trips, strict URL rejection, six source inventories, consent gating and
 Worker isolation. Controlled Chrome verifies all six directions and the original source inventory, Keep/Drop/Undo,
 a downloaded 415-decision JSON export and memory reset. The live preview version
-`ea011587-ceb9-4ada-9364-390df80b3d51` serves all 15 tool assets byte-for-byte
+`8570584c-006c-4fce-a419-be14170bb4c5` serves all 15 tool assets byte-for-byte
 with noindex; write/API checks return 403/404. Further evidence is recorded in
 the PR and the implementation guide. The optional standalone browser script
 was updated but controlled Chrome is used for this task's actual UI checks.

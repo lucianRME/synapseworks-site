@@ -276,7 +276,7 @@ copy-link feedback, new/legacy shared reloads, invalid-link recovery and no
 editable text field. No horizontal overflow at 320/390/768/1024/1440px; the review
 also fits 320px. No captured browser errors; preview tool analytics is off.
 
-Public preview version `ea011587-ceb9-4ada-9364-390df80b3d51`: all 15 translator
+Public preview version `8570584c-006c-4fce-a419-be14170bb4c5`: all 15 translator
 assets match local files byte-for-byte and carry noindex. Write/API requests
 return 403/404. The review page is live, with mode/tone/decision filters, and every decision
 starts unreviewed. Production is unchanged. Additional purchased cost: €0.
@@ -309,7 +309,7 @@ disabled. The preview is a manual snapshot; future branch pushes do not update
 it automatically. Refresh it with the explicit config after validation.
 
 Review URL: <https://human-translator-mvp-preview.lucianirimie.workers.dev/human-translator/>.
-Current selector-preview version: `ea011587-ceb9-4ada-9364-390df80b3d51`.
+Current selector-preview version: `8570584c-006c-4fce-a419-be14170bb4c5`.
 Prior dictionary-preview version: `03087acf-6af5-4f43-8bd6-d0c7b86a3d4a`.
 The asset exclusion covers both `.git/` directories and the `.git` pointer file
 used by isolated worktrees. Operational documentation/tests/tools are excluded
