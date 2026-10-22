@@ -1,6 +1,6 @@
-# RME: PDF & Document Scanner
+# RME: Private PDF Scanner
 
-RME: PDF & Document Scanner is an open-source, privacy-first Android document scanner published by SynapseWorks. It was formerly known as PageHarbor.
+RME: Private PDF Scanner is an open-source, privacy-first Android document scanner published by SynapseWorks. It was formerly known as PageHarbor.
 
 > **Current product:** Latest stable release. [Get RME on Google Play](https://play.google.com/store/apps/details?id=org.synapseworks.pageharbor&utm_source=synapseworks&utm_medium=website&utm_campaign=rme_product). [View the latest stable release](https://github.com/lucianRME/rme-pdf-scanner/releases/latest).
 
@@ -9,8 +9,8 @@ RME: PDF & Document Scanner is an open-source, privacy-first Android document sc
 - [Getting started](getting-started.md)
 - [Scanning, library, and export workflow](workflow.md)
 - [Privacy and data handling](privacy.md)
-- [RME PDF Scanner product page](https://synapseworks.org/rme-pdf-scanner/)
-- [RME PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/)
+- [RME: Private PDF Scanner product page](https://synapseworks.org/rme-pdf-scanner/)
+- [RME: Private PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/)
 
 ## At a glance
 
@@ -30,7 +30,7 @@ RME: PDF & Document Scanner is an open-source, privacy-first Android document sc
 
 ## Source and license
 
-The [RME PDF Scanner Android repository](https://github.com/lucianRME/rme-pdf-scanner) contains the source code under the [Apache License 2.0](https://github.com/lucianRME/rme-pdf-scanner/blob/main/LICENSE).
+The [RME: Private PDF Scanner Android repository](https://github.com/lucianRME/rme-pdf-scanner) contains the source code under the [Apache License 2.0](https://github.com/lucianRME/rme-pdf-scanner/blob/main/LICENSE).
 
 ## Help and security
 

@@ -1,6 +1,6 @@
 # Scanning, library, and export workflow
 
-RME PDF Scanner processes documents locally and leaves external file choices to Android's system picker and Sharesheet.
+RME: Private PDF Scanner processes documents locally and leaves external file choices to Android's system picker and Sharesheet.
 
 ## Bring pages into RME
 
@@ -18,7 +18,7 @@ RME does not upload this library to an RME server or provide proprietary cloud s
 
 ## Create outputs
 
-| Output | Where it is prepared | How it leaves RME PDF Scanner |
+| Output | Where it is prepared | How it leaves RME: Private PDF Scanner |
 | --- | --- | --- |
 | Standard PDF | On the device | Saved through Android's system picker or shared through Android's Sharesheet |
 | Searchable PDF | Generated on the device from OCR text | Saved through Android's system picker |
@@ -29,4 +29,4 @@ For a copy you intend to send, **Share-Safe** can apply irreversible blackout re
 
 An external storage provider or share target may handle a file you choose to give it. RME does not receive that provider's account credentials or control its retention practices.
 
-Temporary files used for imports, prepared outputs, and shares are cleaned according to the [RME PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/).
+Temporary files used for imports, prepared outputs, and shares are cleaned according to the [RME: Private PDF Scanner privacy policy](https://synapseworks.org/rme-pdf-scanner/privacy/).
