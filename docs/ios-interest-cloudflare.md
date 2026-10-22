@@ -1,6 +1,6 @@
-# RME PDF Scanner iOS interest signal: Cloudflare setup
+# RME: Private PDF Scanner iOS interest signal: Cloudflare setup
 
-The site includes Cloudflare Worker routes for an anonymous RME PDF Scanner iOS-interest signal and optional beta-notification email. The existing `synapseworks-site` Worker serves static assets directly and invokes `worker.js` first for `/api/*` and the legacy product redirects. The interest routes are not active until the Worker has a D1 binding named `IOS_INTEREST_DB`.
+The site includes Cloudflare Worker routes for an anonymous RME: Private PDF Scanner iOS-interest signal and optional beta-notification email. The existing `synapseworks-site` Worker serves static assets directly and invokes `worker.js` first for `/api/*` and the legacy product redirects. The interest routes are not active until the Worker has a D1 binding named `IOS_INTEREST_DB`.
 
 ## Routes
 
@@ -36,7 +36,7 @@ Both mutation routes require a fresh Cloudflare Turnstile token. `GET /api/ios-i
 
 Before deploying this feature:
 
-1. In the Cloudflare dashboard, create a **Managed** Turnstile widget for RME PDF Scanner. Restrict its hostnames to the production hostname and the `synapseworks-site.lucianirimie.workers.dev` deployment hostname if that environment will be used for testing.
+1. In the Cloudflare dashboard, create a **Managed** Turnstile widget for RME: Private PDF Scanner. Restrict its hostnames to the production hostname and the `synapseworks-site.lucianirimie.workers.dev` deployment hostname if that environment will be used for testing.
 2. Put its public sitekey in the `TURNSTILE_SITE_KEY` value in `wrangler.toml`, replacing `REPLACE_WITH_YOUR_TURNSTILE_SITEKEY`.
 3. Set the private secret interactively; never add it to a file: `npx wrangler secret put TURNSTILE_SECRET_KEY`.
 4. Deploy only after both values are configured. A deployment with the placeholder sitekey leaves registration unavailable by design.
@@ -52,4 +52,4 @@ These conservative limits allow retries while containing low-volume automated ab
 
 ## Email purpose and retention
 
-Email is optional and is only for a possible RME PDF Scanner iOS beta notification. Do not use it for unrelated marketing. Retain it only while that possible notification remains relevant, or delete it earlier on a verified request sent to `privacy@synapseworks.org`.
+Email is optional and is only for a possible RME: Private PDF Scanner iOS beta notification. Do not use it for unrelated marketing. Retain it only while that possible notification remains relevant, or delete it earlier on a verified request sent to `privacy@synapseworks.org`.

@@ -1,6 +1,6 @@
 # Privacy and data handling
 
-The [RME PDF Scanner Privacy Policy](https://synapseworks.org/rme-pdf-scanner/privacy/) is the canonical public policy for the Android application. This page is a summary; report any discrepancy to SynapseWorks.
+The [RME: Private PDF Scanner Privacy Policy](https://synapseworks.org/rme-pdf-scanner/privacy/) is the canonical public policy for the Android application. This page is a summary; report any discrepancy to SynapseWorks.
 
 ## Local document data
 

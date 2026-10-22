@@ -4,7 +4,7 @@ Public documentation source for the SynapseWorks GitBook project.
 
 ## Products
 
-- [RME: PDF & Document Scanner](rme-pdf-scanner/README.md) — an open-source, privacy-first Android document scanner.
+- [RME: Private PDF Scanner](rme-pdf-scanner/README.md) — an open-source, privacy-first Android document scanner.
 
 ## Site resources
 
