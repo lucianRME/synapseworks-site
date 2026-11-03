@@ -1,0 +1,81 @@
+name: IndexNow after production deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: read
+
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: false
+
+jobs:
+  notify-indexnow:
+    if: github.repository == 'lucianRME/synapseworks-site'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout complete history for changed-URL detection
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Determine changed canonical pages
+        id: urls
+        env:
+          BASE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          node tools/changed_indexnow_urls.mjs "$BASE_SHA" "$HEAD_SHA" > "$RUNNER_TEMP/indexnow-urls.txt"
+          if [[ -s "$RUNNER_TEMP/indexnow-urls.txt" ]]; then
+            echo "has_urls=true" >> "$GITHUB_OUTPUT"
+            cat "$RUNNER_TEMP/indexnow-urls.txt"
+          else
+            echo "No indexable content changes; no IndexNow submission."
+            echo "has_urls=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A successful GitHub push is not proof that the changed HTML is live.
+      # Wait for Cloudflare Workers Builds to finish for this exact commit.
+      - name: Wait for successful Cloudflare production build
+        if: steps.urls.outputs.has_urls == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          for attempt in $(seq 1 50); do
+            conclusion="$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/check-runs" \
+              --jq '[.check_runs[] | select(.name == "Workers Builds: synapseworks-site") | .conclusion] | last // ""')"
+            case "$conclusion" in
+              success)
+                echo "Cloudflare production build succeeded for $GITHUB_SHA."
+                exit 0
+                ;;
+              failure|cancelled|timed_out|action_required)
+                echo "::error::Cloudflare build concluded: $conclusion"
+                exit 1
+                ;;
+            esac
+            sleep 10
+          done
+          echo "::error::Cloudflare build not confirmed for $GITHUB_SHA; refusing to submit URLs."
+          exit 1
+
+      - name: Notify participating search engines through IndexNow
+        if: steps.urls.outputs.has_urls == 'true'
+        shell: bash
+        run: |
+          mapfile -t urls < "$RUNNER_TEMP/indexnow-urls.txt"
+          node tools/submit_indexnow.mjs "${urls[@]}"
