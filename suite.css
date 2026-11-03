@@ -426,6 +426,34 @@
   max-width: 720px;
 }
 
+.home-page .product-award {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin: 0 0 24px;
+}
+
+.home-page .product-award a {
+  display: block;
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.home-page .product-award img {
+  width: 112px;
+  max-width: 100%;
+  height: auto;
+}
+
+.home-page .product-award figcaption {
+  max-width: 25ch;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .product-details {
   margin: 0 0 28px;
   padding-left: 18px;
